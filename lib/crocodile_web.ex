@@ -21,6 +21,8 @@ defmodule CrocodileWeb do
     quote do
       use Phoenix.Controller, namespace: CrocodileWeb
 
+      import Ecto
+      import Ecto.Repo
       import Plug.Conn
       import CrocodileWeb.Gettext
       alias CrocodileWeb.Router.Helpers, as: Routes
@@ -42,6 +44,16 @@ defmodule CrocodileWeb do
       import CrocodileWeb.ErrorHelpers
       import CrocodileWeb.Gettext
       alias CrocodileWeb.Router.Helpers, as: Routes
+    end
+  end
+
+  def model do
+    quote do
+      use Ecto.Schema
+
+      import Ecto
+      import Ecto.Changeset
+      import Ecto.Query
     end
   end
 

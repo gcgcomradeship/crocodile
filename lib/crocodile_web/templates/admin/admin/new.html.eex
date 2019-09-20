@@ -1,0 +1,13 @@
+<h5>Create Admin</h5>
+
+<%= form_for @changeset, Routes.admin_path(@conn, :create), fn f -> %>
+
+  <div class="form-group">
+    <%= text_input f, :email, placeholder: "email" %>
+    <%= text_input f, :password, placeholder: "password" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <%= submit "Save Admin", class: "btn btn-primary my-2" %>
+
+<% end %>

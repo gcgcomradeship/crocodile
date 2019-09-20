@@ -16,7 +16,7 @@ defmodule CrocodileWeb.Router do
   scope "/", CrocodileWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    resources "/admins", Admin.AdminController
   end
 
   # Other scopes may use custom stacks.
