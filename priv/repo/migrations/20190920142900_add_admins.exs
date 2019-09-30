@@ -4,7 +4,11 @@ defmodule Crocodile.Repo.Migrations.AddAdmins do
   def change do
     create table(:admins) do
       add :email, :string
-      add :password, :string
+      add :encrypted_password, :string
+
+      timestamps()
     end
+
+    create unique_index(:admins, [:email])
   end
 end

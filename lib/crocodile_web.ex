@@ -44,6 +44,8 @@ defmodule CrocodileWeb do
       import CrocodileWeb.ErrorHelpers
       import CrocodileWeb.Gettext
       alias CrocodileWeb.Router.Helpers, as: Routes
+
+      import CrocodileWeb.Helpers.Auth, only: [signed_in?: 1]
     end
   end
 
