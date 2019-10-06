@@ -21,7 +21,7 @@ config :crocodile, CrocodileWeb.Endpoint, secret_key_base: System.get_env("SECRE
 
 # Configure your database
 
-config :moneybear, Crocodile.Repo,
+config :crocodile, Crocodile.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "20")
