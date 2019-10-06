@@ -1,23 +1,768 @@
 doctype html
+/![if lt IE 7 ] <html class="ie ie6" lang="en"
+/![if IE 7 ] <html class="ie ie7" lang="en"
+/![if IE 8 ] <html class="ie ie8" lang="en"
+/! [if (gte IE 9)|!(IE)]><!
 html lang="en"
+  /! <![endif]
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta charset="utf-8" /
-    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    title Sweet Cake HTML
+    /! insert your title here
+    meta content=("Sweet Cake HTML5 CSS3 version") name="description" /
+    /! insert your description here
+    meta content="nicDark" name="author" /
+    /! insert your name here
     meta content="width=device-width, initial-scale=1.0" name="viewport" /
-    title Crocodile · Phoenix Framework
+    /! meta responsive
+    /! START CSS
     link href="#{Routes.static_path(@conn, "/css/app.css")}" rel="stylesheet" /
+    / link href="css/style.css" rel="stylesheet" /
+    /! main
+    / link href="css/grid.css" rel="stylesheet" /
+    /! grid
+    / link href="css/responsive.css" rel="stylesheet" /
+    /! grid
+    / link href="css/isotope.css" rel="stylesheet" /
+    /! isotope
+    / link href="slide/css/fullwidth.css" media="screen" rel="stylesheet" type="text/css" /
+    /! revolution slider
+    / link href="slide/rs-plugin/css/settings.css" media="screen" rel="stylesheet" type="text/css" /
+    /! revolution slider
+    / link href="css/prettyPhoto.css" media="screen" rel="stylesheet" /
+    /! prettyphoto
+    /! END CSS
+    /![if lt IE 9]
+      /| <script src="js/html5.js"></script>
+    /! FAVICONS
+    link href="#{Routes.static_path(@conn, "/images/favicon/favicon.ico")}" rel=("shortcut icon") /
+    link href="#{Routes.static_path(@conn, "/images/favicon/apple-touch-icon.png")}" rel="apple-touch-icon" /
+    link href="#{Routes.static_path(@conn, "/images/favicon/apple-touch-icon-72x72.png")}" rel="apple-touch-icon" sizes="72x72" /
+    link href="#{Routes.static_path(@conn, "/images/favicon/apple-touch-icon-114x114.png")}" rel="apple-touch-icon" sizes="114x114" /
+    /! END FAVICONS
   body
-    header
-      section.container
-        nav role="navigation"
+    /! start navigationmenu
+    header#navigationmenu
+      /! start container
+      .container.clearfix
+        /! left navigation
+        .grid_5
+          nav.leftnavigation
+            ul
+              li
+                a href="#services"  Services
+              /! you can edit
+              li
+                a href="#testimonials"  Testimonials
+              /! you can edit
+              li
+                a href="#sectionportfolio"  Works
+              /! you can edit
+              li
+                a href="#sectionprices"  Prices
+              /! you can edit
+        /! end left navigation
+        /! start logo
+        .grid_2.logo
+          img alt="" src="#{Routes.static_path(@conn, "/images/logo.png")}" /
+          /! Include your logo with size 180px X 239 px
+        /! end logo
+        /! right navigation
+        .grid_5
+          nav.rightnavigation
+            ul
+              li
+                a href="#sectionteam"  Our Team
+              /! you can edit
+              li
+                a href="#sectionskills"  Our Skills
+              /! you can edit
+              li
+                a href="#oursocial"  Social
+              /! you can edit
+              li
+                a href="#contacts"  Contacts
+              /! you can edit
+        /! end right navigation
+      /! end container
+    /! end navigationmenu
+    /! start sectionslide
+    section#sectionslide
+      .topwaves
+      /! top waves
+      .fullwidthbanner-container
+        .fullwidthbanner
+          ul
+            /! THE FIRST SLIDE
+            li data-delay="6100" data-masterspeed="300" data-slotamount="10" data-transition="random"
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/1/slide1.jpg")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="3800" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1500" data-x="353" data-y="168"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/1/welcome-1.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4000" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1700" data-x="178" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/1/to-2.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4200" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1900" data-x="267" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/1/sweet-3.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4400" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="2100" data-x="449" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/1/cake-4.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4600" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="2300" data-x="603" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/1/theme-5.png")}" /
+            /! END FIRST SLDIE
+            /! THE SECOND SLIDE
+            li data-delay="7800" data-masterspeed="300" data-slotamount="15" data-transition="random"
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/slide2.jpg")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="3400" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1500" data-x="348" data-y="168"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/awesome-1.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="3600" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1700" data-x="246" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/responsive-2.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="3800" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1900" data-x="566" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/slider-3.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="5900" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="4000" data-x="406" data-y="168"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/with-4.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="6100" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="4200" data-x="252" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/many-5.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="6300" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="4400" data-x="436" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/2/transitions-6.png")}" /
+            /! END SECOND SLIDE
+            /! THE THIRD SLIDE
+            li data-delay="6500" data-masterspeed="300" data-slotamount="15" data-transition="random"
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/slide3.jpg")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4000" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1500" data-x="205" data-y="168"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/the-1.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4200" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1700" data-x="324" data-y="168"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/best-2.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4400" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="1900" data-x="464" data-y="168"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/promotion-3.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4600" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="2100" data-x="215" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/for-4.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="4800" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="2300" data-x="333" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/your-5.png")}" /
+              .caption.randomrotate data-easing="easeOutExpo" data-end="5000" data-endeasing="easeInSine" data-endspeed="300" data-speed="300" data-start="2500" data-x="497" data-y="275"
+                img alt="" src="#{Routes.static_path(@conn, "/images/section-slide/3/business-6.png")}" /
+            /! END THIRD SLIDE
+    /! end sectionslide
+    /! start services
+    section#services
+      .bottomwaves
+      /! need for slide
+      /! start container
+      .container.clearfix
+        /! start titlesection
+        .grid_12.titlesection
+          h1 Services We Provide
+        /! end title section
+        /! start our services
+        /! Service
+        .grid_4
+          img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service1.png")}" /
+          /! You can find the service icons in vector format in psd attachment.
+          h2 Cake Design
+          /! you can edit
+          p Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur sempo turpis quis est scelerisque sit amete.
+          /! you can edit
+        /! Service
+        /! Service
+        .grid_4
+          img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service2.png")}" /
+          h2 Best Cupcakes
+          p Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur sempo turpis quis est scelerisque sit amete.
+        /! Service
+        /! Service
+        .grid_4
+          img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service3.png")}" /
+          h2 Desserts
+          p Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur sempo turpis quis est scelerisque sit amete.
+        /! Service
+        /! Service
+        .grid_4
+          img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service4.png")}" /
+          h2 Menu Planners
+          p Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur sempo turpis quis est scelerisque sit amete.
+        /! Service
+        /! Service
+        .grid_4
+          img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service5.png")}" /
+          h2 Awesome Recipes
+          p Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur sempo turpis quis est scelerisque sit amete.
+        /! Service
+        /! Service
+        .grid_4
+          img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service6.png")}" /
+          h2 Home Delivery
+          p Lorem ipsum dolor sit amet consect etur adipiscing elit. Curabitur sempo turpis quis est scelerisque sit amete.
+        /! Service
+        /! end our services
+      /! end container
+    /! end services
+    /! start testimonials
+    section#testimonials
+      /! start anchors
+      .anchors
+        .contanchors
+          a href="#services"
+            img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/toptestimonials.png")}" /
+          a href="#sectionportfolio"
+            img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomtestimonials.png")}" /
+      /! end anchors
+      /! start dark filter
+      #darkfilter
+        /! start container
+        .container.clearfix
+          /! top quote
+          .grid_12.topquote
+            img alt="" src="#{Routes.static_path(@conn, "/images/section-testimonials/topquote.png")}" /
+          /! top quote
+          /! left testimonial
+          .grid_6.lefttestimonials
+            h2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut neque nulla. Nulla aliquam dictum arcu.
+            /! you can edit
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut neque nulla. Nulla aliquam dictum arcu, eget bibendum diam dapibus a. Maecenas lectus felis, pharetra sit amet dictum quis, semper eu nibh. Praesent placerat massa ut justo gravida placerat. Phasellus. Praesent placerat massa ut justo gravida placerat semper eu nibh.
+            /! you can edit
+          /! end left testimonial
+          /! right testimonial
+          .grid_6.righttestimonials
+            h2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut neque nulla. Nulla aliquam dictum arcu.
+            /! you can edit
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ut neque nulla. Nulla aliquam dictum arcu, eget bibendum diam dapibus a. Maecenas lectus felis, pharetra sit amet dictum quis, semper eu nibh. Praesent placerat massa ut justo gravida placerat. Phasellus. Praesent placerat massa ut justo gravida placerat semper eu nibh.
+            /! you can edit
+          /! right testimonial
+          /! bottom quote
+          .grid_12.bottomquote
+            img alt="" src="#{Routes.static_path(@conn, "/images/section-testimonials/bottomquote.png")}" /
+          /! bottom quote
+        /! end container
+      /! end dark filter
+    /! end testimonials
+    /! start portfolio
+    section#sectionportfolio
+      /! start anchors
+      .anchors
+        .contanchors
+          a href="#testimonials"
+            img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/topportfolio.png")}" /
+          a href="#sectionprices"
+            img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomportfolio.png")}" /
+      /! end anchors
+      /! start container
+      .container.clearfix
+        /! start titlesection
+        .grid_12.titlesection
+          h1 My Works
+        /! end title section
+        /! start options
+        .grid_12
+          #options.clear
+            ul#filters.option-set.clearfix data-option-key="filter"
+              li.orange
+                a.selected data-option-value="*" href="#filter"  Show all
+              li.blue
+                a data-option-value=".blue" href="#filter"  Cupkakes
+              li.yellow
+                a data-option-value=".yellow" href="#filter"  Cake Design
+              li.navi
+                a data-option-value=".green" href="#filter"  Muffins
+              li.green
+                a data-option-value=".yellow" href="#filter"  Dounuts
+        /! end options
+        /! start images
+        #containerisotope.clear
+          /! element
+          .element.blue data-category="blue"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.blue data-category="blue"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks2.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks2.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.yellow data-category="yellow"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks3.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks3.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.yellow data-category="yellow"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks4.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks4.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.green data-category="green"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks5.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks5.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.green data-category="green"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks6.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks6.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.blue data-category="blue"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks7.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks7.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+          /! element
+          .element.yellow data-category="yellow"
+            a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks8.jpg")}"
+              img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks8.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2 Lorem Ipsum Dolor Sit
+            p Lorem ipsum dolor
+            .worksbottom
+          /! element
+        /! end images
+      /! end container
+    /! end portfolio
+    /! start prices
+    section#sectionprices
+      /! start anchors
+      .anchors
+        .contanchors
+          a href="#sectionportfolio"
+            img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/topprices.png")}" /
+          a href="#sectionteam"
+            img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomprices.png")}" /
+      /! end anchors
+      /! start container
+      .container.clearfix
+        /! start titlesection
+        .grid_12.titlesection
+          h1 Our Prices
+        /! end title section
+        /! price
+        .grid_3.expand
+          .logoprice
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-prices/price1.png")}" /
+            /! you can edit the image, open the psd file for the vector image format
+          .ribbon
+            h2
+              | $ 200,00 -
+              span Lorem Ipsum
+            /! you can edit
+          .price
+            p Lorem ipsum dolor sit amet, consectetur adipiscing.
+            /! you can edit
+            ul
+              li
+                p Lorem ipsum dolor sit amet consec
+              /! you can edit
+              li
+                p Lorem ipsum dolor sit amet consec
+              /! you can edit
+              li
+                p.noborder Lorem ipsum dolor sit amet consec
+              /! you can edit
+            p.btn.red
+              a href="#"  Cupcakes
+            /! you can edit
+          .triangle
+        /! price
+        /! price
+        .grid_3.expand
+          .logoprice
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-prices/price2.png")}" /
+          .ribbon
+            h2
+              | $ 200,00 -
+              span Lorem Ipsum
+          .price
+            p Lorem ipsum dolor sit amet, consectetur adipiscing.
+            ul
+              li
+                p Lorem ipsum dolor sit amet consec
+              li
+                p Lorem ipsum dolor sit amet consec
+              li
+                p.noborder Lorem ipsum dolor sit amet consec
+            p.btn.blue
+              a href="#"  Ice cream
+          .triangle
+        /! price
+        /! price
+        .grid_3.expand
+          .logoprice
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-prices/price3.png")}" /
+          .ribbon
+            h2
+              | $ 200,00 -
+              span Lorem Ipsum
+          .price
+            p Lorem ipsum dolor sit amet, consectetur adipiscing.
+            ul
+              li
+                p Lorem ipsum dolor sit amet consec
+              li
+                p Lorem ipsum dolor sit amet consec
+              li
+                p.noborder Lorem ipsum dolor sit amet consec
+            p.btn.yellow
+              a href="#"  Cookies
+          .triangle
+        /! price
+        /! price
+        .grid_3.expand
+          .logoprice
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-prices/price4.png")}" /
+          .ribbon
+            h2
+              | $ 200,00 -
+              span Lorem Ipsum
+          .price
+            p Lorem ipsum dolor sit amet, consectetur adipiscing.
+            ul
+              li
+                p Lorem ipsum dolor sit amet consec
+              li
+                p Lorem ipsum dolor sit amet consec
+              li
+                p.noborder Lorem ipsum dolor sit amet consec
+            p.btn.green
+              a href="#"  Croissant
+          .triangle
+        /! price
+      /! end container
+    /! end prices
+    /! start team
+    section#sectionteam
+      /! start anchors
+      .anchors
+        .contanchors
+          a href="#sectionprices"
+            img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/topteam.png")}" /
+          a href="#sectionskills"
+            img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomteam.png")}" /
+      /! end anchors
+      /! start container
+      .container.clearfix
+        /! start titlesection
+        .grid_12.titlesection
+          h1 Our Team
+        /! end title section
+        /! start team
+        .grid_3
+          .avatar
+            img.opacity alt="" src="#{Routes.static_path(@conn, "/images/section-team/team1.png")}" /
+            /! you can edit the image, open the psd file for copy the rounded filter
+          .team
+            .bordertopteam
+            h2 Jane Mc Doe
+            /! you can edit
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis tortor sit amet quam malesuada porta. Duis lorem leo, commodo et molestie sit amet.
+            /! you can edit
+          .socialteam
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/twittericon.png")}" /
+            /! you can edit image and insert the link
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/instagramicon.png")}" /
+            /! you can edit image and insert the link
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/facebookicon.png")}" /
+            /! you can edit image and insert the link
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/pinteresticon.png")}" /
+            /! you can edit image and insert the link
+        /! end team
+        /! start team
+        .grid_3
+          .avatar
+            img.opacity alt="" src="#{Routes.static_path(@conn, "/images/section-team/team2.png")}" /
+          .team
+            .bordertopteam
+            h2 Mark Spitch
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis tortor sit amet quam malesuada porta. Duis lorem leo, commodo et molestie sit amet.
+          .socialteam
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/twittericon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/instagramicon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/facebookicon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/pinteresticon.png")}" /
+        /! end team
+        /! start team
+        .grid_3
+          .avatar
+            img.opacity alt="" src="#{Routes.static_path(@conn, "/images/section-team/team3.png")}" /
+          .team
+            .bordertopteam
+            h2 Juliette Light
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis tortor sit amet quam malesuada porta. Duis lorem leo, commodo et molestie sit amet.
+          .socialteam
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/twittericon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/instagramicon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/facebookicon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/pinteresticon.png")}" /
+        /! end team
+        /! start team
+        .grid_3
+          .avatar
+            img.opacity alt="" src="#{Routes.static_path(@conn, "/images/section-team/team4.png")}" /
+          .team
+            .bordertopteam
+            h2 Nick Hope
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis tortor sit amet quam malesuada porta. Duis lorem leo, commodo et molestie sit amet.
+          .socialteam
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/twittericon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/instagramicon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/facebookicon.png")}" /
+            a href="#"
+              img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-team/pinteresticon.png")}" /
+        /! end team
+      /! end container
+    /! end team
+    /! start skills
+    section#sectionskills
+      /! start anchors
+      .anchors
+        .contanchors
+          a href="#sectionteam"
+            img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/topskills.png")}" /
+          a href="#oursocial"
+            img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomskills.png")}" /
+      /! end anchors
+      /! start container
+      .container.clearfix
+        /! start titlesection
+        .grid_12.titlesection
+          h1 Our Skills
+        /! end title section
+        /! start left content
+        .grid_5
+          /! skill
+          .skilldescription
+            #operator
+            img alt="" src="#{Routes.static_path(@conn, "/images/section-skills/icon1.png")}" /
+            /! you can edit the image, open the psd file for the vector image format
+            h2 Creative Cake Design
+            /! you can edit
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ante quam, volutpat eu gravida sit amet, vestibulum sed turpis. Etiam vel enim vel leo dignissim
+            /! you can edit
+          /! skill
+          /! skill
+          .skilldescription
+            img alt="" src="#{Routes.static_path(@conn, "/images/section-skills/icon2.png")}" /
+            /! you can edit the image, open the psd file for the vector image format
+            h2 Lorem Ipsum Dolor Sit
+            /! you can edit
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ante quam, volutpat eu gravida sit amet, vestibulum sed turpis. Etiam vel enim vel leo dignissim
+            /! you can edit
+          /! skill
+          /! skill
+          .skilldescription
+            img alt="" src="#{Routes.static_path(@conn, "/images/section-skills/icon3.png")}" /
+            /! you can edit the image, open the psd file for the vector image format
+            h2 Creative Cake Design
+            /! you can edit
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ante quam, volutpat eu gravida sit amet, vestibulum sed turpis. Etiam vel enim vel leo dignissim
+            /! you can edit
+          /! skill
+        /! end left content
+        /! start clip
+        .grid_2.clip
+          img.opacity alt="" src="#{Routes.static_path(@conn, "/images/section-skills/clip.png")}" /
+        /! end clip
+        .grid_5
+          #allprogresbar
+            /! progresbar
+            .progresbar
+              p LOREM IPSUM DOLOR SIT
+              /! you can edit
+              p.numberbar 60
+              /! you can edit
+              div
+                span.onebar
+              /! edit the respective css class in style.css
+            /! progresbar
+            /! progresbar
+            .progresbar
+              p LOREM IPSUM DOLOR SIT
+              /! you can edit
+              p.numberbar 83
+              /! you can edit
+              div
+                span.secondbar
+              /! edit the respective css class in style.css
+            /! progresbar
+            /! progresbar
+            .progresbar
+              p LOREM IPSUM DOLOR SIT
+              /! you can edit
+              p.numberbar 40
+              /! you can edit
+              div
+                span.thirdbar
+              /! edit the respective css class in style.css
+            /! progresbar
+            /! progresbar
+            .progresbar
+              p LOREM IPSUM DOLOR SIT
+              /! you can edit
+              p.numberbar 72
+              /! you can edit
+              div
+                span.fourthbar
+              /! edit the respective css class in style.css
+            /! progresbar
+            /! progresbar
+            .progresbar
+              p LOREM IPSUM DOLOR SIT
+              /! you can edit
+              p.numberbar 93
+              /! you can edit
+              div
+                span.fivebar
+              /! edit the respective css class in style.css
+            /! progresbar
+      /! end container
+    /! end skills
+    /! start oursocial
+    section#oursocial
+      /! start anchors
+      .anchors
+        .contanchors
+          a href="#sectionskills"
+            img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/topsocial.png")}" /
+          a href="#contacts"
+            img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomsocial.png")}" /
+      /! end anchors
+      /! start container
+      .container.clearfix
+        /! start titlesection
+        .grid_12.titlesection
+          h1 Follow Us
+        /! end title section
+        /! start social icons
+        .grid_2
+          a href="#"
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-oursocial/facebook.png")}" /
+            /! you can edit image and insert the link
+        .grid_2
+          a href="#"
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-oursocial/twitter.png")}" /
+            /! you can edit image and insert the link
+        .grid_2
+          a href="#"
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-oursocial/googleplus.png")}" /
+            /! you can edit image and insert the link
+        .grid_2
+          a href="#"
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-oursocial/flickr.png")}" /
+            /! you can edit image and insert the link
+        .grid_2
+          a href="#"
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-oursocial/instagram.png")}" /
+            /! you can edit image and insert the link
+        .grid_2
+          a href="#"
+            img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-oursocial/vimeo.png")}" /
+            /! you can edit image and insert the link
+        /! end social icons
+      /! end container
+    /! end oursocial
+    /! start contacts
+    footer#contacts
+      .topwaves
+      /! waves
+      /! anchor back to top
+      a.backtotop href="#navigationmenu"
+        img alt="" src="#{Routes.static_path(@conn, "/images/anchors/backtotop.png")}" /
+      /! end anchor back to top
+      /! all markers
+      #markers
+        /! big marker
+        #bigmarker
+          h2 Sweet Cake
           ul
             li
-              a href="https://hexdocs.pm/phoenix/overview.html"  Get Started
-        a.phx-logo href="http://phoenixframework.org/"
-          img alt=("Phoenix Framework Logo") src="#{Routes.static_path(@conn, "/images/phoenix.png")}" /
-    main.container role="main"
-      p.alert.alert-info role="alert" = get_flash(@conn, :info)
-      p.alert.alert-danger role="alert" = get_flash(@conn, :error)
-      = render @view_module, @view_template, assigns
+              p.iconhome 102 Madison Ave - New York ( NY )
+              /! insert your address
+            li
+              p.iconphone Telephone: (0039) 34916656398
+              /! insert your telephone number
+            li
+              p.iconfax Fax Number: (0039) 3491665637
+              /! insert your fax number
+            li
+              p.iconmail.noborder
+                | Mail:
+                a href="mailto:yourname@yourdomain.xx" title=("Contact Me ♥")  yourname@yourdomain.xx
+                /! enter you email and remember to change the mailto: links
+        /! end big marker
+        /! little marker
+        #littlemarker.rotate
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-contact/littlemarker.png")}" /
+        /! end little marker
+        /! little marker close: need for js effect
+        #littlemarkerclose.rotate
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-contact/littlemarkerclose.png")}" /
+        /! end little marker
+      /! end all markers
+      /! google maps
+      #map-canvas
+      /! google maps
+    /! end contacts
+    /! Start js
     script src="#{Routes.static_path(@conn, "/js/app.js")}" type="text/javascript"
+    script src="https://maps.googleapis.com/maps/api/js?sensor=true"
+    / script src="js/jquery.min.js"
+    /! Jquery
+    / script src="https://maps.googleapis.com/maps/api/js?sensor=true"
+    /! Google Map API
+    / script src="js/jquery.isotope.min.js"
+    /! isotope
+    / script src="slide/rs-plugin/js/jquery.themepunch.plugins.min.js"
+    /! revolution slider
+    / script src="slide/rs-plugin/js/jquery.themepunch.revolution.min.js"
+    /! revolution slider
+    / script src="js/jquery.prettyPhoto.js"
+    /! pretty photo
+    / script src="js/scroolto.js"
+    /! Scrool To
+    / script src="js/settings.js"
+    /! My settings
+    /! End js

@@ -10,6 +10,18 @@ import css from "../css/app.css"
 // Import dependencies
 //
 import "phoenix_html"
+// import "babel-preset-es2015"
+
+import "./jquery.min.js"
+// import "https://maps.googleapis.com/maps/api/js?sensor=true"
+// import "./google-api.js"
+import "./jquery.isotope.min.js"
+import "./jquery.themepunch.plugins.min.js"
+import "./jquery.themepunch.revolution.min.js"
+import "./jquery.prettyPhoto.js"
+// import "@types/jquery.prettyphoto"
+import "./scroolto.js"
+import "./settings.js"
 
 // Import local files
 //
