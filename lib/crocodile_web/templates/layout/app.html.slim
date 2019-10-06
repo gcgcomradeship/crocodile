@@ -1,0 +1,23 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    title Crocodile · Phoenix Framework
+    link href="#{Routes.static_path(@conn, "/css/app.css")}" rel="stylesheet" /
+  body
+    header
+      section.container
+        nav role="navigation"
+          ul
+            li
+              a href="https://hexdocs.pm/phoenix/overview.html"  Get Started
+        a.phx-logo href="http://phoenixframework.org/"
+          img alt=("Phoenix Framework Logo") src="#{Routes.static_path(@conn, "/images/phoenix.png")}" /
+    main.container role="main"
+      p.alert.alert-info role="alert" = get_flash(@conn, :info)
+      p.alert.alert-danger role="alert" = get_flash(@conn, :error)
+      = render @view_module, @view_template, assigns
+    script src="#{Routes.static_path(@conn, "/js/app.js")}" type="text/javascript"
