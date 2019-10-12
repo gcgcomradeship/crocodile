@@ -44,4 +44,5 @@ website:   	http://www.themepunch.com
 		padding:0;
 		max-height:500px !important;
 		overflow:hidden;
+    z-index: 0;
 	}
