@@ -1,0 +1,14 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    title Crocodildo admin
+    meta content=("Crocodildo admin") name="description" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"
+    link href="#{Routes.static_path(@conn, "/css/admin.css")}" rel="stylesheet" /
+  body
+    = render CrocodileWeb.LayoutView, "_admin_nav.html", assigns
+    = render @view_module, @view_template, assigns
+    script src="#{Routes.static_path(@conn, "/js/admin.js")}" type="text/javascript"

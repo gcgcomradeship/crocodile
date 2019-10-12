@@ -75,14 +75,14 @@ if (tpj.fn.cssOriginal!=undefined)
 
 //isotope
 SWEET.gallery = function(){
-  
+
   var $container = $('#containerisotope');
 
   $container.isotope({
 	itemSelector : '.element'
   });
-  
-  
+
+
   var $optionSets = $('#options .option-set'),
 	  $optionLinks = $optionSets.find('a');
 
@@ -110,119 +110,119 @@ SWEET.gallery = function(){
 	  // otherwise, apply new options
 	  $container.isotope( options );
 	}
-	
+
 	return false;
   });
 
-  
+
 }
 //end isotope
 
 
 
 //map
-SWEET.map = function(){
-	
+// SWEET.map = function(){
 
-var map;
-var brooklyn = new google.maps.LatLng(40.759277, -73.977064);
 
-var MY_MAPTYPE_ID = 'custom_style';
+// var map;
+// var brooklyn = new google.maps.LatLng(40.759277, -73.977064);
 
-function initialize() {
+// var MY_MAPTYPE_ID = 'custom_style';
 
-  var featureOpts = [
-  {
-    'featureType': 'landscape.man_made',
-    'stylers': [
-      { 'color': '#92bab4' }
-    ]
-  },{
-    'featureType': 'road.arterial',
-    'elementType': 'geometry.stroke',
-    'stylers': [
-      { 'color': '#6a6a6a' }
-    ]
-  },{
-    'featureType': 'road.arterial',
-    'stylers': [
-      { 'color': '#a2c2c3' }
-    ]
-  },{
-    'featureType': 'road.arterial',
-    'elementType': 'labels.text.fill',
-    'stylers': [
-      { 'color': '#ffffff' }
-    ]
-  },{
-    'featureType': 'road.arterial',
-    'elementType': 'labels.icon',
-    'stylers': [
-      { 'color': '#ffffff' }
-    ]
-  },{
-    'featureType': 'road.arterial',
-    'elementType': 'geometry.stroke',
-    'stylers': [
-      { 'color': '#83aaa7' }
-    ]
-  },{
-    'featureType': 'road.local',
-    'elementType': 'geometry.stroke',
-    'stylers': [
-      { 'color': '#82ada7' }
-    ]
-  }
-];
+// function initialize() {
 
-  var mapOptions = {
-    zoom: 17,
-    center: brooklyn,
-	disableDefaultUI: true,
-	scrollwheel: false,
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-    },
-    mapTypeId: MY_MAPTYPE_ID
-  };
+//   var featureOpts = [
+//   {
+//     'featureType': 'landscape.man_made',
+//     'stylers': [
+//       { 'color': '#92bab4' }
+//     ]
+//   },{
+//     'featureType': 'road.arterial',
+//     'elementType': 'geometry.stroke',
+//     'stylers': [
+//       { 'color': '#6a6a6a' }
+//     ]
+//   },{
+//     'featureType': 'road.arterial',
+//     'stylers': [
+//       { 'color': '#a2c2c3' }
+//     ]
+//   },{
+//     'featureType': 'road.arterial',
+//     'elementType': 'labels.text.fill',
+//     'stylers': [
+//       { 'color': '#ffffff' }
+//     ]
+//   },{
+//     'featureType': 'road.arterial',
+//     'elementType': 'labels.icon',
+//     'stylers': [
+//       { 'color': '#ffffff' }
+//     ]
+//   },{
+//     'featureType': 'road.arterial',
+//     'elementType': 'geometry.stroke',
+//     'stylers': [
+//       { 'color': '#83aaa7' }
+//     ]
+//   },{
+//     'featureType': 'road.local',
+//     'elementType': 'geometry.stroke',
+//     'stylers': [
+//       { 'color': '#82ada7' }
+//     ]
+//   }
+// ];
 
-  map = new google.maps.Map(document.getElementById('map-canvas'),
-      mapOptions);
+//   var mapOptions = {
+//     zoom: 17,
+//     center: brooklyn,
+// 	disableDefaultUI: true,
+// 	scrollwheel: false,
+//     mapTypeControlOptions: {
+//       mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+//     },
+//     mapTypeId: MY_MAPTYPE_ID
+//   };
 
-  var styledMapOptions = {
-    name: 'Custom Style'
-  };
+//   map = new google.maps.Map(document.getElementById('map-canvas'),
+//       mapOptions);
 
-  var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+//   var styledMapOptions = {
+//     name: 'Custom Style'
+//   };
 
-  map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
-}
+//   var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
 
-google.maps.event.addDomListener(window, 'load', initialize);
-	
-	
-	
-	
-}
+//   map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+// }
+
+// google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+// }
 //end map
 
 
 
 //Scroll navigation
-SWEET.menu = function(){
-$("#navigationmenu a, .contanchors a, .backtotop").click(function(event){
+// SWEET.menu = function(){
+// $("#navigationmenu a, .contanchors a, .backtotop").click(function(event){
 
-	event.preventDefault();
-	var full_url = this.href;
-	var parts = full_url.split("#");
-	var trgt = parts[1];
-	var target_offset = $("#"+trgt).offset();
-	var target_top = target_offset.top;
+// 	event.preventDefault();
+// 	var full_url = this.href;
+// 	var parts = full_url.split("#");
+// 	var trgt = parts[1];
+// 	var target_offset = $("#"+trgt).offset();
+// 	var target_top = target_offset.top;
 
-	$('html,body').animate({scrollTop:target_top -13}, 900);
-	
-});
-}
+// 	$('html,body').animate({scrollTop:target_top -13}, 900);
+
+// });
+// }
 //End Scroll navigation
 
 
@@ -234,13 +234,13 @@ $("#navigationmenu a, .contanchors a, .backtotop").click(function(event){
 SWEET.prettyphoto = function(){
 	$(document).ready(function(){
 		$("a[data-rel^='prettyPhoto']").prettyPhoto({
-					
+
 			animation_speed:'fast',
-			slideshow:10000, 
+			slideshow:10000,
 			hideflash: true,
 			autoplay_slideshow: false,
 			social_tools:false
-			
+
 		});
 	});
 }
@@ -252,21 +252,21 @@ SWEET.prettyphoto = function(){
 SWEET.markereffect = function(){
 
 	$("#littlemarker").click(function() {
-		
+
 			$("#bigmarker").removeClass("showbigmarker");
         	$("#bigmarker").addClass("hidebigmarker");
 			$("#littlemarker").css('display','none');
 			$("#littlemarkerclose").css('display','block');
 	});
-	
+
 	$("#littlemarkerclose").click(function() {
-		
+
 			$("#bigmarker").removeClass("hidebigmarker");
         	$("#bigmarker").addClass("showbigmarker");
 			$("#littlemarkerclose").css('display','none');
 			$("#littlemarker").css('display','block');
 	});
-		
+
 }
 //end Marker Map Effect
 
@@ -274,8 +274,8 @@ SWEET.markereffect = function(){
 //init
 SWEET.slider();
 SWEET.gallery();
-SWEET.map();
-SWEET.menu();
+// SWEET.map();
+// SWEET.menu();
 SWEET.prettyphoto();
 SWEET.markereffect();
 //end init

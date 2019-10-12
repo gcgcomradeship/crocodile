@@ -13,10 +13,37 @@ defmodule CrocodileWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :admin do
+    plug :put_layout, {CrocodileWeb.LayoutView, :admin}
+    # plug(:browser)
+    plug(Crocodile.Plug.AdminAuth)
+  end
+
   scope "/", CrocodileWeb do
     pipe_through :browser
 
+    # Site pages
     get "/", PageController, :index
+    get "/catalog", PageController, :catalog
+    get "/delivery", PageController, :delivery
+    get "/about", PageController, :about
+
+    # Test pages
+    get "/main", PageController, :main
+    get "/example", PageController, :example
+  end
+
+  scope "/admin", CrocodileWeb.Admin, as: :admin do
+    pipe_through :browser
+    # Session
+    get "/sign_in", SessionController, :new
+    post "/sign_in", SessionController, :create
+    get "/sign_out", SessionController, :delete
+
+    pipe_through([:admin])
+
+    get "/", PageController, :index
+    resources "/admin", AdminController, except: [:show]
   end
 
   # Other scopes may use custom stacks.

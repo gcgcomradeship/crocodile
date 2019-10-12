@@ -1,0 +1,116 @@
+/! start portfolio
+section#sectionportfolio
+  /! start anchors
+  .anchors
+    .contanchors
+      a href="#testimonials"
+        img.anchortop alt="" src="#{Routes.static_path(@conn, "/images/anchors/topportfolio.png")}" /
+      a href="#sectionprices"
+        img.anchorbottom alt="" src="#{Routes.static_path(@conn, "/images/anchors/bottomportfolio.png")}" /
+  /! end anchors
+  /! start container
+  .container.clearfix
+    /! start titlesection
+    .grid_12.titlesection
+      h1 My Works
+    /! end title section
+    /! start options
+    .grid_12
+      #options.clear
+        ul#filters.option-set.clearfix data-option-key="filter"
+          li.orange
+            a.selected data-option-value="*" href="#filter"  Show all
+          li.blue
+            a data-option-value=".blue" href="#filter"  Cupkakes
+          li.yellow
+            a data-option-value=".yellow" href="#filter"  Cake Design
+          li.navi
+            a data-option-value=".green" href="#filter"  Muffins
+          li.green
+            a data-option-value=".yellow" href="#filter"  Dounuts
+    /! end options
+    /! start images
+    #containerisotope.clear
+      /! element
+      .element.blue data-category="blue"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.blue data-category="blue"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks2.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks2.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.yellow data-category="yellow"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks3.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks3.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.yellow data-category="yellow"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks4.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks4.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.green data-category="green"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks5.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks5.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.green data-category="green"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks6.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks6.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.blue data-category="blue"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks7.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks7.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+      /! element
+      .element.yellow data-category="yellow"
+        a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks8.jpg")}"
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks8.jpg")}" /
+        .worksarrow
+          img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+        h2 Lorem Ipsum Dolor Sit
+        p Lorem ipsum dolor
+        .worksbottom
+      /! element
+    /! end images
+  /! end container
+/! end portfolio

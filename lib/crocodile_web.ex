@@ -23,7 +23,17 @@ defmodule CrocodileWeb do
 
       import Plug.Conn
       import CrocodileWeb.Gettext
+      import Ecto.Query
+      alias Crocodile.Repo
       alias CrocodileWeb.Router.Helpers, as: Routes
+    end
+  end
+
+  def plug do
+    quote do
+      use Phoenix.Controller
+      import Ecto.Query
+      alias Crocodile.Repo
     end
   end
 

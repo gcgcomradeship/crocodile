@@ -1,0 +1,19 @@
+header#navigationmenu
+  .container.clearfix
+    .grid_5
+      nav.leftnavigation
+        ul
+          li
+            = link "Каталог", to: Routes.page_path(@conn, :catalog)
+          li
+            = link "Главная", to: Routes.page_path(@conn, :index)
+    .grid_2.logo
+      img alt="" src="#{Routes.static_path(@conn, "/images/logo-croco.png")}" /
+    .grid_5
+      nav.rightnavigation
+        ul
+          li
+            = link "Доставка", to: Routes.page_path(@conn, :delivery)
+          li
+            = link "О нас", to: Routes.page_path(@conn, :about)
+

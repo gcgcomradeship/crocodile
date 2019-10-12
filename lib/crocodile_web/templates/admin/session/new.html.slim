@@ -1,0 +1,31 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    title Sweet Cake HTML
+    meta content=("Sweet Cake HTML5 CSS3 version") name="description" /
+    meta content="nicDark" name="author" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"
+    link href="#{Routes.static_path(@conn, "/css/admin.css")}" rel="stylesheet" /
+  body.sign-in
+    .container.sign-in
+      .d-flex.justify-content-center.h-100
+        .card
+          .card-body
+            = form_for @conn, Routes.session_path(@conn, :create), [class: ""], fn f ->
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-user
+                = text_input f, :email, class: "form-control", placeholder: "Email"
+              .input-group.form-group
+                .input-group-prepend
+                  span.input-group-text
+                    i.fas.fa-key
+                = text_input f, :password, class: "form-control", placeholder: "Password", type: "password"
+              .form-group.login-submit
+                = submit "Login", class: "btn login_btn"
+
+    script src="#{Routes.static_path(@conn, "/js/admin.js")}" type="text/javascript"

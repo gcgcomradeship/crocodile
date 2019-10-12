@@ -7,7 +7,7 @@ body{
 }
 
 /*font face*/
-@font-face {
+/*@font-face {
     font-family: 'oswaldbold';
     src: url('/fonts/oswald/oswald-bold-webfont.eot');
     src: url('/fonts/oswald/oswald-bold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -16,20 +16,23 @@ body{
          url('/fonts/oswald/oswald-bold-webfont.svg#oswaldbold') format('svg');
     font-weight: normal;
     font-style: normal;
+}*/
 
-}
 @font-face {
-    font-family: 'oswaldlight';
-    src: url('/fonts/oswald/oswald-light-webfont.eot');
+    /*fontd-family: 'oswaldlight';*/
+    font-family: 'Oswald', sans-serif;
+    font-weight: 200;
+
+   /* src: url('/fonts/oswald/oswald-light-webfont.eot');
     src: url('/fonts/oswald/oswald-light-webfont.eot?#iefix') format('embedded-opentype'),
          url('/fonts/oswald/oswald-light-webfont.woff') format('woff'),
          url('/fonts/oswald/oswald-light-webfont.ttf') format('truetype'),
-         url('/fonts/oswald/oswald-light-webfont.svg#oswaldlight') format('svg');
-    font-weight: normal;
+         url('/fonts/oswald/oswald-light-webfont.svg#oswaldlight') format('svg');*/
+    /*font-weight: normal;*/
     font-style: normal;
 
 }
-@font-face {
+/*@font-face {
     font-family: 'oswaldbook';
     src: url('/fonts/oswald/oswald-regular-webfont.eot');
     src: url('/fonts/oswald/oswald-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -38,14 +41,14 @@ body{
          url('/fonts/oswald/oswald-regular-webfont.svg#oswaldbook') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 @font-face {
-    font-family: 'lobster_1.3regular';
-    src: url('/fonts/lobster/lobster_1.3-webfont.eot');
+    font-family: 'Lobster', cursive;
+    /*src: url('/fonts/lobster/lobster_1.3-webfont.eot');
     src: url('/fonts/lobster/lobster_1.3-webfont.eot?#iefix') format('embedded-opentype'),
          url('/fonts/lobster/lobster_1.3-webfont.woff') format('woff'),
          url('/fonts/lobster/lobster_1.3-webfont.ttf') format('truetype'),
-         url('/fonts/lobster/lobster_1.3-webfont.svg#lobster_1.3regular') format('svg');
+         url('/fonts/lobster/lobster_1.3-webfont.svg#lobster_1.3regular') format('svg');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -57,7 +60,7 @@ h1{
 	font-size:50px;
 	margin:0px;
 	padding:0px;
-	font-family: 'lobster_1.3regular';
+	font-family: 'Lobster', cursive;
 	font-weight:normal;
 }
 h2{
@@ -65,7 +68,7 @@ h2{
 	font-size:20px;
 	margin:0px;
 	padding:0px;
-	font-family: 'lobster_1.3regular';
+	font-family: 'Lobster', cursive;
 	font-weight:normal;
 }
 p{
@@ -74,7 +77,9 @@ p{
 	font-size:17px;
 	margin:0px;
 	padding:0px;
-	font-family: 'oswaldlight';
+	font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+
 }
 a{
 	text-decoration:none;
@@ -91,7 +96,7 @@ a img{
 	background-image:url(/images/patterns/grey-bg.png);
 	background-repeat:repeat;
 	color:#7d7d7d;
-	font-family: 'lobster_1.3regular';
+	font-family: 'Lobster', cursive;
 	font-size:20px;
 	text-shadow: 2px 2px 0 rgba(223, 223, 223, 0.9);
 }
@@ -167,7 +172,9 @@ nav a:hover{
 .caption{
 	color:#FFF;
 	font-size:17px;
-	font-family: 'oswaldlight';
+	font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+
 }
 #services .bottomwaves{
 	margin-top:-15px;
@@ -306,7 +313,9 @@ nav a:hover{
 	padding: 5px 0px;
 	display:inline-block;
 	font-size: 17px;
-	font-family: 'oswaldlight';
+	font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+
 
 }
 #filters li a{
@@ -624,7 +633,7 @@ nav a:hover{
 	padding:4px 8px;
 	color:#7d7d7d !important;
 	font-size:13px;
-	font-family: 'lobster_1.3regular';
+	font-family: 'Lobster', cursive;
 	background-image:url(/images/section-skills/bgnumberbar.png);
 	background-position:center;
 	background-repeat:no-repeat;
@@ -844,7 +853,7 @@ opacity: 0.7;
 	font-size:17px;
 	padding:5px 10px;
 	color:#FFF;
-	font-family: 'lobster_1.3regular';
+	font-family: 'Lobster', cursive;
 }
 .orange a{
 	background-color:#facba6;

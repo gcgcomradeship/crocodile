@@ -1,0 +1,42 @@
+/! start contacts
+footer#contacts
+  .topwaves
+  /! waves
+  /! anchor back to top
+  a.backtotop href="#navigationmenu"
+    img alt="" src="#{Routes.static_path(@conn, "/images/anchors/backtotop.png")}" /
+  /! end anchor back to top
+  /! all markers
+  #markers
+    /! big marker
+    #bigmarker
+      h2 Sweet Cake
+      ul
+        li
+          p.iconhome 102 Madison Ave - New York ( NY )
+          /! insert your address
+        li
+          p.iconphone Telephone: (0039) 34916656398
+          /! insert your telephone number
+        li
+          p.iconfax Fax Number: (0039) 3491665637
+          /! insert your fax number
+        li
+          p.iconmail.noborder
+            | Mail:
+            a href="mailto:yourname@yourdomain.xx" title=("Contact Me ♥")  yourname@yourdomain.xx
+            /! enter you email and remember to change the mailto: links
+    /! end big marker
+    /! little marker
+    #littlemarker.rotate
+      img alt="" src="#{Routes.static_path(@conn, "/images/section-contact/littlemarker.png")}" /
+    /! end little marker
+    /! little marker close: need for js effect
+    #littlemarkerclose.rotate
+      img alt="" src="#{Routes.static_path(@conn, "/images/section-contact/littlemarkerclose.png")}" /
+    /! end little marker
+  /! end all markers
+  /! google maps
+  #map-canvas
+  /! google maps
+/! end contacts
