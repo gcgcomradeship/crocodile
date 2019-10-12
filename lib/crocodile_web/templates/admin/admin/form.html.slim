@@ -1,18 +1,15 @@
 .page-body.row
-  .offset-md-2.col-md-6.form-body
+  .panel.col-md-6.form-body
     = form_for @changeset, @action, [class: ""], fn f ->
-      .form-group.row
-        = label f, "Email", class: "col-md-4 control-label"
-        .col-md-8
-          = text_input f, :email, class: "form-control"
-          = error_tag f, :email
-      .form-group.row
-        = label f, "Пароль", class: "col-md-4 control-label"
-        .col-md-8
-          = password_input f, :password, class: "form-control"
-          = error_tag f, :password
-      .form-group.row
-        .offset-md-4.col-md-6
-          = submit "Сохранить", class: "btn btn-success"
+      .form-group
+        = label f, "Email", class: "control-label"
+        = text_input f, :email, class: "form-control"
+        = error_tag f, :email
+      .form-group
+        = label f, "Пароль", class: "control-label"
+        = password_input f, :password, class: "form-control"
+        = error_tag f, :password
+      .form-group.submit
+        = submit "Сохранить", class: "btn btn-dark"
   .col-md-4
 

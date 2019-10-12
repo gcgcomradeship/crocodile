@@ -2,11 +2,6 @@ form{
   width: 100%;
 }
 
-.form-group label {
-  text-align: right;
-  padding: 6px 12px;
-}
-
 .page-header h1 {
   border-bottom: 1px solid #ddd;
 }
@@ -21,6 +16,13 @@ form{
   margin: 20px;
   margin-left: 5%;
   margin-right: 5%;
+}
+
+.page-body .panel{
+  background-color: #ececec;
+  padding: 20px;
+  border-radius: 5px;
+
 }
 
 .info-color{
@@ -38,6 +40,11 @@ nav.navbar {
 
 .pull-right{
   float: right;
+}
+
+// Form
+.form-group.submit{
+  margin-top: 40px;
 }
 
 // Datatables

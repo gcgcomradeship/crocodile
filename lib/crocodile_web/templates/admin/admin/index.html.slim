@@ -7,25 +7,26 @@
         span.glyphicon.glyphicon-plus.right_10 aria-hidden="true"
         = "Добавить администратора"
 .page-body
-  table.table#table_id
-    thead.thead-dark
-      tr
-        th #
-        th Email
-        th
-    tbody
-      = for admin <- @admins do
+  .panel
+    table.table.table-striped#table_id
+      thead.thead-dark
         tr
-          th= admin.id
-          td= admin.email
-          td
-            .btn-group.btn-group-sm.mr2.pull-right
-              / = link to: "#", class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Show" do
-              /   i.fas.fa-search
-              = link to: Routes.admin_admin_path(@conn, :edit, admin), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Edit" do
-                i.fas.fa-edit
-              = link to: Routes.admin_admin_path(@conn, :delete, admin), method: :delete, data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete" do
-                i.fas.fa-trash
+          th #
+          th Email
+          th
+      tbody
+        = for admin <- @admins do
+          tr
+            th= admin.id
+            td= admin.email
+            td
+              .btn-group.btn-group-sm.mr2.pull-right
+                / = link to: "#", class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Show" do
+                /   i.fas.fa-search
+                = link to: Routes.admin_admin_path(@conn, :edit, admin), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Edit" do
+                  i.fas.fa-edit
+                = link to: Routes.admin_admin_path(@conn, :delete, admin), method: :delete, data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete" do
+                  i.fas.fa-trash
 
 
 
