@@ -10,7 +10,7 @@ defmodule Crocodile.Plug.AdminAuth do
 
       _ ->
         conn
-        |> redirect(to: CrocodileWeb.Router.Helpers.session_path(conn, :new))
+        |> redirect(to: CrocodileWeb.Router.Helpers.admin_session_path(conn, :new))
         |> halt()
     end
   end

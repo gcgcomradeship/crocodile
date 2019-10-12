@@ -14,7 +14,7 @@ html lang="en"
       .d-flex.justify-content-center.h-100
         .card
           .card-body
-            = form_for @conn, Routes.session_path(@conn, :create), [class: ""], fn f ->
+            = form_for @conn, Routes.admin_session_path(@conn, :create), [class: ""], fn f ->
               .input-group.form-group
                 .input-group-prepend
                   span.input-group-text

@@ -17,17 +17,17 @@ defmodule CrocodileWeb.Admin.SessionController do
       {:ok, admin} ->
         conn
         |> put_session(:current_admin_id, admin.id)
-        |> redirect(to: Routes.admin_path(conn, :index))
+        |> redirect(to: Routes.admin_admin_path(conn, :index))
 
       {:error, _} ->
         conn
-        |> redirect(to: Routes.session_path(conn, :new))
+        |> redirect(to: Routes.admin_session_path(conn, :new))
     end
   end
 
   def delete(conn, _params) do
     conn
     |> delete_session(:current_admin_id)
-    |> redirect(to: Routes.session_path(conn, :new))
+    |> redirect(to: Routes.admin_session_path(conn, :new))
   end
 end
