@@ -2,7 +2,7 @@ defmodule CrocodileWeb.PageController do
   use CrocodileWeb, :controller
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render(conn, "index.html", hide_layout: true)
   end
 
   def catalog(conn, _params) do

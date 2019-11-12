@@ -43,6 +43,7 @@ defmodule CrocodileWeb.Router do
     pipe_through([:admin])
 
     get "/", PageController, :index
+    get "/sync", SyncController, :index
     resources "/admin", AdminController, except: [:show]
   end
 

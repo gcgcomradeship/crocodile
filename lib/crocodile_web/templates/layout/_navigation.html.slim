@@ -1,19 +1,17 @@
-header#navigationmenu
+header#navigationmenu.navigation
   .container.clearfix
-    .grid_5
-      nav.leftnavigation
-        ul
-          li
-            = link "Каталог", to: Routes.page_path(@conn, :catalog)
-          li
-            = link "Главная", to: Routes.page_path(@conn, :index)
-    .grid_2.logo
+    .grid_1.nav.logo-menu
       img alt="" src="#{Routes.static_path(@conn, "/images/logo-croco.png")}" /
-    .grid_5
-      nav.rightnavigation
+    .grid_5.nav
+      nav.main_nav
         ul
-          li
+          li.item
+            = link "Главная", to: Routes.page_path(@conn, :index)
+          li.item class=active(@conn, Routes.page_path(@conn, :catalog))
+            = link "Каталог", to: Routes.page_path(@conn, :catalog)
+          li.item class=active(@conn, Routes.page_path(@conn, :delivery))
             = link "Доставка", to: Routes.page_path(@conn, :delivery)
-          li
+          li.item class=active(@conn, Routes.page_path(@conn, :about))
             = link "О нас", to: Routes.page_path(@conn, :about)
+
 

@@ -37,6 +37,13 @@ defmodule CrocodileWeb do
     end
   end
 
+  def services do
+    quote do
+      import Ecto.Query
+      alias Crocodile.Repo
+    end
+  end
+
   def view do
     quote do
       use Phoenix.View,

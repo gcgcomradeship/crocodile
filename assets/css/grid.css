@@ -5,10 +5,10 @@
 
 	.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12{
 		margin:10px;
-		float:left;	
+		float:left;
 		display:inline;
 	}
-	
+
 	.grid_1 {width:80px;}
 	.grid_2 {width:180px;}
 	.grid_3 {width:280px;}
@@ -25,7 +25,7 @@
 
 /* 960 Grid */
 @media only screen and (min-width: 960px) and (max-width: 1199px) {
-	
+
 	.grid_1 {width:60px;}
 	.grid_2 {width:140px;}
 	.grid_3 {width:220px;}
@@ -56,7 +56,7 @@
 	.grid_10 {width:600px;}
 	.grid_11 {width:662px;}
 	.grid_12 {width:724px;}
-	
+
 }
 
 
@@ -76,12 +76,12 @@
     .grid_12{
         width: 440px;
     }
-	
+
 }
 
 
 @media only screen and (min-width: 320px) and (max-width: 479px){
-	
+
     .grid_1,
     .grid_2,
     .grid_3,
@@ -97,5 +97,5 @@
 	{
         width: 280px;
     }
-	
+
 }

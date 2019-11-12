@@ -12,6 +12,8 @@ nav.navbar.navbar-expand-lg.navbar-dark.info-color
         = link "Заказы", to: "#", class: "nav-link"
       li.nav-item class=active(@conn, Routes.admin_admin_path(@conn, :index))
         = link "Админы", to: Routes.admin_admin_path(@conn, :index), class: "nav-link"
+      li.nav-item class=active(@conn, Routes.admin_sync_path(@conn, :index))
+        = link "Синхронизация", to: Routes.admin_sync_path(@conn, :index), class: "nav-link"
     ul.navbar-nav.ml-auto
       li.nav-item
         .nav-link

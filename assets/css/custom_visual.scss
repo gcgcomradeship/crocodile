@@ -1,0 +1,32 @@
+.logo-menu img{
+  width: 70px;
+  position: relative;
+}
+
+.main_nav {
+  margin: 0;
+}
+
+nav ul li.item {
+  border: none;
+}
+
+nav ul li.item.active {
+  border-top: 1px dashed #d6d5d5;
+  border-bottom: 1px dashed #d6d5d5;
+}
+
+.navigation{
+  height: 75px;
+  margin: 0;
+}
+
+.navigation .container{
+  padding: 5px 0px !important;
+}
+
+.grid_1.nav, .grid_2.nav, .grid_3.nav, .grid_4.nav, .grid_5.nav, .grid_6.nav, .grid_7.nav, .grid_8.nav, .grid_9.nav, .grid_10.nav, .grid_11.nav, .grid_12.nav {
+  margin: 0;
+  float: left;
+  display: inline;
+}
