@@ -71,10 +71,12 @@ defmodule Crocodile.Product do
     # Timestamp
     field(:created, :naive_datetime)
     timestamps()
+
+    belongs_to(:category, Crocodile.Category)
   end
 
   @required_fields ~w(code)a
-  @optional_fields ~w(article title description group_code group_title category_code category_title manufacturer barcode collection brand_code brand_title modification_code category_new_code category_new_title size length width width_packed height_packed length_packed weight_packed color weight battery waterproof material pieces country url start_price price retail_price discount fixed_price new hit msk spb nsk tmn kdr rst images video 3d created)a
+  @optional_fields ~w(article title description group_code group_title category_code category_title manufacturer barcode collection brand_code brand_title modification_code category_new_code category_new_title size length width width_packed height_packed length_packed weight_packed color weight battery waterproof material pieces country url start_price price retail_price discount fixed_price new hit msk spb nsk tmn kdr rst images video 3d created category_id)a
 
   @doc false
   def changeset(product, attrs) do

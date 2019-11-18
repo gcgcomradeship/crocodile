@@ -2,6 +2,7 @@ defmodule Crocodile.Services.Sync do
   use CrocodileWeb, :services
 
   alias Crocodile.Services.Sync.StructBuilder
+  alias Crocodile.Services.Sync.Category
   alias Crocodile.Services.Sync.DB
 
   @db_link "https://sex-opt.ru/catalogue/db_export?type=csv&columns_separator=%26%26%26&text_separator=%40%40%40"
@@ -17,11 +18,24 @@ defmodule Crocodile.Services.Sync do
   end
 
   defp sync(head, body) do
-    for row <- body do
-      head
-      |> StructBuilder.call(row)
+    structs =
+      for row <- body do
+        head
+        |> StructBuilder.call(row)
+      end
+
+    category_id_list = Category.call(structs)
+
+    for struct <- structs do
+      category_title = Map.get(struct, "category_new_title") |> String.split("/") |> List.last()
+      category_id = Map.get(category_id_list, category_title)
+
+      struct
+      |> Map.put("category_id", category_id)
       |> DB.insert_or_update()
     end
+
+    Category.update_codes()
 
     :ok
   end

@@ -24,12 +24,13 @@ defmodule CrocodileWeb.Router do
 
     # Site pages
     get "/", PageController, :index
-    get "/catalog", PageController, :catalog
+    # get "/catalog", PageController, :catalog
     get "/delivery", PageController, :delivery
     get "/about", PageController, :about
 
     # Test pages
     get "/main", PageController, :main
+    get "/catalog", ItemController, :index
     get "/example", PageController, :example
   end
 

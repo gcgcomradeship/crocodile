@@ -7,8 +7,8 @@ header#navigationmenu.navigation
         ul
           li.item
             = link "Главная", to: Routes.page_path(@conn, :index)
-          li.item class=active(@conn, Routes.page_path(@conn, :catalog))
-            = link "Каталог", to: Routes.page_path(@conn, :catalog)
+          li.item class=active(@conn, Routes.item_path(@conn, :index))
+            = link "Каталог", to: Routes.item_path(@conn, :index)
           li.item class=active(@conn, Routes.page_path(@conn, :delivery))
             = link "Доставка", to: Routes.page_path(@conn, :delivery)
           li.item class=active(@conn, Routes.page_path(@conn, :about))
