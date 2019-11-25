@@ -4,7 +4,9 @@ defmodule Crocodile.Repo.Migrations.CreateCategories do
   def change do
     create table(:categories) do
       add(:title, :string)
+      add(:path, :string)
       add(:code, :string)
+      add(:msk, :boolean)
 
       add(:parent_id, references(:categories, on_delete: :nothing))
       timestamps()

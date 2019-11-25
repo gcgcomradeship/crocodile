@@ -30,3 +30,20 @@ nav ul li.item.active {
   float: left;
   display: inline;
 }
+
+.breadcrumbs{
+  padding: 10px;
+}
+
+.breadcrumbs{
+  padding: 10px;
+  font-family: 'Oswald', sans-serif;
+}
+
+.breadcrumbs-item{
+  display: inline;
+}
+
+.breadcrumbs-item a{
+  color: #666;
+}

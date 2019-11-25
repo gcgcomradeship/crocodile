@@ -12,16 +12,45 @@ defmodule CrocodileWeb.ItemController do
     "Маркетинговая поддержка"
   ]
 
-  def index(conn, _params) do
+  def index(conn, params) do
+    parent =
+      Category
+      |> where([c], c.title == ^(params["category"] || ""))
+      |> Repo.one()
+
     items =
       Category
-      |> where([c], is_nil(c.parent_id))
+      |> where_category(params)
+      |> where([c], c.msk == true)
       |> where([c], c.title not in ^@exclude)
-      |> distinct(true)
-      # |> order_by([c], asc: c.title)
-      |> select([c], c.title)
       |> Repo.all()
+      |> Enum.sort(fn x, y -> :ucol.compare(x.title, y.title) != 1 end)
 
-    render(conn, "index.html", items: items)
+    render(conn, "index.html", items: items, breadcrumbs: breadcrumbs(params), parent: parent)
+  end
+
+  defp where_category(query, params) do
+    Category
+    |> select([c], c.id)
+    |> Repo.get_by(title: params["category"] || "")
+    |> case do
+      nil -> where(query, [c], is_nil(c.parent_id))
+      parent_id -> where(query, [c], c.parent_id == ^parent_id)
+    end
+  end
+
+  defp breadcrumbs(params) do
+    case params["category"] do
+      category when category in [nil, "Каталог"] ->
+        ["Каталог"]
+
+      title ->
+        path =
+          Category
+          |> Repo.get_by(title: title)
+          |> Map.get(:path)
+
+        ["Каталог" | String.split(path, "/")]
+    end
   end
 end

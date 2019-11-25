@@ -22,15 +22,26 @@ section#sectionportfolio
     /         a data-option-value=".yellow" href="#filter"  Dounuts
     /! end options
     /! start images
+    .breadcrumbs
+      = if @breadcrumbs == ["Каталог"] do
+        .breadcrumbs-item= "Каталог"
+      - else
+        = for title <- @breadcrumbs do
+          = if @parent != nil && title == @parent.title do
+            .breadcrumbs-item= title
+          - else
+            .breadcrumbs-item
+              = link title, to: Routes.item_path(@conn, :index, category: title)
+            span= "  >  "
     #containerisotope.clear
       = for item <- @items do
         /! element
         .element.blue data-category="blue"
-          a data-rel="prettyPhoto[]" href="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}"
+          a data-rel="prettyPhoto[]" href="#{Routes.item_path(@conn, :index, category: item.title)}"
             img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
           .worksarrow
             img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
-          h2 = item
+          h2 = item.title
           / p Lorem ipsum dolor
           .worksbottom
 

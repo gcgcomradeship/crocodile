@@ -36,7 +36,7 @@ defmodule Crocodile.Services.Sync do
     end
 
     Category.update_codes()
-
+    Category.update_presence()
     :ok
   end
 

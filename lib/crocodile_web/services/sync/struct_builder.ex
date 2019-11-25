@@ -10,6 +10,9 @@ defmodule Crocodile.Services.Sync.StructBuilder do
     to_map(ht, bt, acc ++ [{"images", val}])
   end
 
+  defp to_map(["category_new_title" | ht], [bh | bt], acc),
+    do: to_map(ht, bt, acc ++ [{"category_new_title", String.replace(bh, "БАДЫ", "БАДы")}])
+
   defp to_map([hh | ht], [bh | bt], acc), do: to_map(ht, bt, acc ++ [{hh, bh}])
   defp to_map([], _body, acc), do: Enum.into(acc, %{})
 end

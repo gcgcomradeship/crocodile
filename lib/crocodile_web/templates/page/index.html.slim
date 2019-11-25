@@ -4,7 +4,7 @@ header#navigationmenu
       nav.leftnavigation
         ul
           li
-            = link "Каталог", to: Routes.page_path(@conn, :catalog)
+            = link "Каталог", to: Routes.item_path(@conn, :index)
           li
             = link "Главная", to: Routes.page_path(@conn, :index)
     .grid_2.logo

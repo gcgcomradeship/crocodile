@@ -12,13 +12,13 @@ defmodule Crocodile.Services.Sync.DB do
     |> Repo.insert_or_update()
   end
 
-  def insert_category(title, parent_id) do
+  def insert_category(title, parent_id, path) do
     Category
     |> Repo.get_by(title: title)
     |> case do
       %{id: id} = record ->
         record
-        |> Category.changeset(%{parent_id: parent_id, title: title})
+        |> Category.changeset(%{parent_id: parent_id, title: title, path: path})
         |> Repo.update()
 
         id
@@ -26,7 +26,7 @@ defmodule Crocodile.Services.Sync.DB do
       nil ->
         {:ok, %{id: id}} =
           %Category{}
-          |> Category.changeset(%{parent_id: parent_id, title: title})
+          |> Category.changeset(%{parent_id: parent_id, title: title, path: path})
           |> Repo.insert()
 
         id
