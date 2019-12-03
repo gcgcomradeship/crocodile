@@ -1,0 +1,27 @@
+/! start services
+section#services
+  .bottomwaves
+  /! need for slide
+  /! start container
+  .container.clearfix
+    /! start our services
+    /! Service
+    .grid_8
+      / img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service1.png")}" /
+      /! You can find the service icons in vector format in psd attachment.
+      h2= @product.title
+      /! you can edit
+      p= @product.description
+      /! you can edit
+    /! Service
+    /! Service
+    .grid_4
+      .product
+        = if List.first(@product.images) do
+          img.imgwork alt="" src=List.first(@product.images) /
+        - else
+          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
+    /! Service
+    /! end our services
+  /! end container
+/! end services

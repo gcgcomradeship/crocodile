@@ -47,7 +47,8 @@ defmodule Crocodile.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_slime, "~> 0.12.0"},
       {:httpoison, "~> 1.6"},
-      {:ucol, "~> 2.0"}
+      {:ucol, "~> 2.0"},
+      {:timex, "~> 3.5"}
     ]
   end
 

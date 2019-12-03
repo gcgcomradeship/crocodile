@@ -1,6 +1,7 @@
 .logo-menu img{
   width: 70px;
   position: relative;
+  z-index: 100;
 }
 
 .main_nav {
@@ -47,3 +48,24 @@ nav ul li.item.active {
 .breadcrumbs-item a{
   color: #666;
 }
+
+.imgwork{
+  width: 278px;
+  height: 183px;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+.product {
+  width: 100%;
+  // height: 183px;
+  object-fit: contain;
+  background-color: #fff;
+}
+
+// .product .imgwork {
+//   width: 100%;
+//   height: 400px;
+//   object-fit: contain;
+//   background-color: #fff;
+// }

@@ -5,15 +5,76 @@ defmodule Crocodile.Services.Sync.Category do
   alias Crocodile.Product
   alias Crocodile.Services.Sync.DB
 
-  def call(structs) do
-    structs
-    |> Enum.map(& &1["category_new_title"])
-    |> Enum.uniq()
-    |> Enum.map(&String.split(&1, "/"))
-    |> create_categories()
+  def call() do
+    create_categories()
+    categories_heritage()
+    update_products()
+    update_codes()
+    update_presence()
+    update_temp_img()
   end
 
-  def update_codes() do
+  def create_categories() do
+    paths =
+      Product
+      |> distinct(true)
+      |> select([p], p.category_new_title)
+      |> Repo.all()
+      |> add_parent_categories()
+
+    for path <- paths do
+      %{
+        path: path,
+        title: path |> String.split("/") |> List.last()
+      }
+      |> DB.insert_or_update_category()
+    end
+
+    :ok
+  end
+
+  def categories_heritage() do
+    Category
+    |> Repo.update_all(set: [parent_id: nil])
+
+    Category
+    |> select([c], c.path)
+    |> Repo.all()
+    |> exec_heritage()
+  end
+
+  defp update_products() do
+    categories =
+      Category
+      |> Repo.all()
+
+    for %{id: id, path: path} <- categories do
+      Product
+      |> where([p], p.category_new_title == ^path)
+      |> Repo.update_all(set: [category_id: id])
+    end
+  end
+
+  defp exec_heritage([]), do: :ok
+
+  defp exec_heritage(other) do
+    min_counter = other |> Enum.map(&(&1 |> String.split("/") |> length())) |> Enum.min()
+
+    current =
+      other |> Enum.filter(&(&1 |> String.split("/") |> length() |> Kernel.==(min_counter)))
+
+    for path <- current do
+      parent_id = Category |> select([c], c.id) |> Repo.get_by(path: path)
+
+      Category
+      |> where([c], ilike(c.path, ^"#{path}/%"))
+      |> Repo.update_all(set: [parent_id: parent_id])
+    end
+
+    exec_heritage(other -- current)
+  end
+
+  defp update_codes() do
     list =
       Product
       |> distinct(true)
@@ -25,50 +86,68 @@ defmodule Crocodile.Services.Sync.Category do
     end
   end
 
-  def update_presence() do
-    category_titles =
+  defp update_presence() do
+    Category
+    |> Repo.update_all(set: [msk: false])
+
+    category_paths =
       Product
       |> where([p], p.msk == true)
       |> distinct(true)
       |> select([p], p.category_new_title)
       |> Repo.all()
-      |> Enum.map(&String.split(&1, "/"))
-      |> Enum.flat_map(fn x -> x end)
       |> Enum.uniq()
+      |> add_parent_categories()
 
     Category
-    |> where([c], c.title in ^category_titles)
+    |> where([c], c.path in ^category_paths)
     |> Repo.update_all(set: [msk: true])
   end
 
-  defp create_categories(list), do: exec(list, %{})
-
-  defp exec([], id_acc), do: id_acc
-
-  defp exec([head | tail], id_acc) do
-    new_acc = exec_one(head, nil, nil, id_acc)
-    exec(tail, new_acc)
+  defp add_parent_categories(list) do
+    add_parent(list, list)
   end
 
-  defp exec_one([], _, _path, id_acc), do: id_acc
+  defp add_parent([], acc), do: acc
 
-  defp exec_one([h | t], parent_title, path, id_acc) do
-    new_path = set_path(path, h)
-
-    new_acc =
-      case Map.get(id_acc, h) do
-        nil ->
-          parent_id = Map.get(id_acc, parent_title)
-          id = DB.insert_category(h, parent_id, new_path)
-          Map.put(id_acc, h, id)
-
-        _ ->
-          id_acc
+  defp add_parent(list, acc) do
+    new_list =
+      for path <- list do
+        path
+        |> String.split("/")
+        |> List.delete_at(-1)
+        |> Enum.join("/")
       end
+      |> Enum.uniq()
+      |> Enum.filter(&(length(String.split(&1, "/")) > 1 || &1 not in acc))
 
-    exec_one(t, h, new_path, new_acc)
+    add_parent(new_list, acc ++ new_list)
   end
 
-  defp set_path(nil, title), do: title
-  defp set_path(path, title), do: "#{path}/#{title}"
+  def update_temp_img() do
+    categories = Category |> Repo.all()
+
+    for category <- categories do
+      image = get_image(category.path)
+
+      category
+      |> Category.changeset(%{image: image})
+      |> Repo.update()
+    end
+  end
+
+  defp get_image(path), do: get_image(path, 0)
+  defp get_image(_path, 10), do: nil
+
+  defp get_image(path, count) do
+    Product
+    |> where([p], ilike(p.category_new_title, ^"#{path}%"))
+    |> select([p], p.images)
+    |> Repo.all()
+    |> Enum.random()
+    |> case do
+      [image | _] -> image
+      _ -> get_image(path, count + 1)
+    end
+  end
 end

@@ -9,14 +9,14 @@ defmodule CrocodileWeb.ItemController do
     "Упаковка",
     "Рекламная продукция",
     "Оборудование",
-    "Маркетинговая поддержка"
+    "Маркетинговая поддержка",
+    "Промотовары"
   ]
 
   def index(conn, params) do
     parent =
       Category
-      |> where([c], c.title == ^(params["category"] || ""))
-      |> Repo.one()
+      |> Repo.get(params["category"] || 0)
 
     items =
       Category
@@ -26,31 +26,64 @@ defmodule CrocodileWeb.ItemController do
       |> Repo.all()
       |> Enum.sort(fn x, y -> :ucol.compare(x.title, y.title) != 1 end)
 
-    render(conn, "index.html", items: items, breadcrumbs: breadcrumbs(params), parent: parent)
+    products =
+      Product
+      |> where_parent(parent)
+      |> where([p], p.msk == true)
+      |> Repo.all()
+
+    render(conn, "index.html",
+      items: items,
+      breadcrumbs: breadcrumbs(params),
+      parent: parent,
+      products: products
+    )
+  end
+
+  def show(conn, params) do
+    product = Product |> Repo.get(params["id"] || 0)
+    render(conn, "show.html", product: product)
   end
 
   defp where_category(query, params) do
     Category
     |> select([c], c.id)
-    |> Repo.get_by(title: params["category"] || "")
+    |> Repo.get(params["category"] || 0)
     |> case do
       nil -> where(query, [c], is_nil(c.parent_id))
       parent_id -> where(query, [c], c.parent_id == ^parent_id)
     end
   end
 
+  defp where_parent(query, parent) do
+    case parent do
+      %{id: id} -> where(query, [p], p.category_id == ^id)
+      _ -> where(query, [p], false)
+    end
+  end
+
   defp breadcrumbs(params) do
     case params["category"] do
-      category when category in [nil, "Каталог"] ->
-        ["Каталог"]
+      category when category in [nil, 0, "0"] ->
+        [{"Каталог", 0}]
 
-      title ->
-        path =
-          Category
-          |> Repo.get_by(title: title)
-          |> Map.get(:path)
-
-        ["Каталог" | String.split(path, "/")]
+      id ->
+        [{"Каталог", 0} | collect_crumbs(id, [])]
     end
+  end
+
+  defp collect_crumbs(nil, acc), do: acc
+
+  defp collect_crumbs(cid, acc) do
+    {id, title, parent_id} =
+      Category
+      |> select([c], {c.id, c.title, c.parent_id})
+      |> Repo.get(cid)
+      |> case do
+        nil -> {0, "Каталог", nil}
+        result -> result
+      end
+
+    collect_crumbs(parent_id, [{title, id} | acc])
   end
 end

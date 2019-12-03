@@ -18,25 +18,14 @@ defmodule Crocodile.Services.Sync do
   end
 
   defp sync(head, body) do
-    structs =
-      for row <- body do
-        head
-        |> StructBuilder.call(row)
-      end
-
-    category_id_list = Category.call(structs)
-
-    for struct <- structs do
-      category_title = Map.get(struct, "category_new_title") |> String.split("/") |> List.last()
-      category_id = Map.get(category_id_list, category_title)
-
-      struct
-      |> Map.put("category_id", category_id)
+    for row <- body do
+      head
+      |> StructBuilder.call(row)
       |> DB.insert_or_update()
     end
 
-    Category.update_codes()
-    Category.update_presence()
+    Category.call()
+
     :ok
   end
 

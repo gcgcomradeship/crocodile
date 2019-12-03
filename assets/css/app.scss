@@ -1,9 +1,10 @@
 /* This file is for your main application css. */
 
-@import "./grid.css";
+@import '../node_modules/bootstrap/scss/bootstrap';
+// @import "./grid.css";
 @import "./isotope.css";
 @import "./prettyPhoto.css";
-@import "./responsive.css";
+// @import "./responsive.css";
 @import "./fullwidth.css";
 @import "./settings.css";
 @import "./style.scss";

@@ -11,6 +11,8 @@ import css from "../css/app.scss"
 //
 import "phoenix_html"
 import "jquery"
+import 'bootstrap'
+
 // import "babel-preset-es2015"
 
 // import "./jquery.min.js"

@@ -5,6 +5,7 @@ defmodule Crocodile.Repo.Migrations.CreateCategories do
     create table(:categories) do
       add(:title, :string)
       add(:path, :string)
+      add(:image, :string)
       add(:code, :string)
       add(:msk, :boolean)
 
@@ -13,6 +14,5 @@ defmodule Crocodile.Repo.Migrations.CreateCategories do
     end
 
     create(index(:categories, [:parent_id]))
-    create(unique_index(:categories, [:title]))
   end
 end

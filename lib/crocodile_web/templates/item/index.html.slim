@@ -1,7 +1,7 @@
 /! start portfolio
 section#sectionportfolio
   /! start container
-  .container.clearfix
+  .container
     / /! start titlesection
     / .grid_12.titlesection
     /   h1 My Works
@@ -23,27 +23,57 @@ section#sectionportfolio
     /! end options
     /! start images
     .breadcrumbs
-      = if @breadcrumbs == ["Каталог"] do
+      = if @breadcrumbs == [{"Каталог", 0}] do
         .breadcrumbs-item= "Каталог"
       - else
-        = for title <- @breadcrumbs do
+        = for {title, id} <- @breadcrumbs do
           = if @parent != nil && title == @parent.title do
             .breadcrumbs-item= title
           - else
             .breadcrumbs-item
-              = link title, to: Routes.item_path(@conn, :index, category: title)
+              = link title, to: Routes.item_path(@conn, :index, category: id)
             span= "  >  "
-    #containerisotope.clear
+    .row
+      / .element.blue data-category="blue"
+      /   a data-rel="prettyPhoto[]" href="#{Routes.item_path(@conn, :index, category: 1)}"
+      /     = if true do
+      /       img.imgwork alt="" src="http://img.sex-opt.ru/images/fad78cf24bd57c0ebb000b446f296301.jpg" /
+      /     - else
+      /       img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
+      /   .worksarrow
+      /     img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+      /   h2.category
+      /     = "Тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест тест"
+      /   .worksbottom
       = for item <- @items do
         /! element
-        .element.blue data-category="blue"
-          a data-rel="prettyPhoto[]" href="#{Routes.item_path(@conn, :index, category: item.title)}"
-            img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
-          .worksarrow
-            img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
-          h2 = item.title
-          / p Lorem ipsum dolor
-          .worksbottom
+        .col-md-3
+          .element.blue data-category="blue"
+            a data-rel="prettyPhoto[]" href="#{Routes.item_path(@conn, :index, category: item.id)}"
+              = if item.image do
+                img.imgwork alt="" src="#{item.image}" /
+              - else
+                img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2.category
+              = item.title
+            / p Lorem ipsum dolor
+            .worksbottom
+      = for product <- @products do
+        /! element
+        .col-md-3
+          .element.blue data-category="blue"
+            a data-rel="prettyPhoto[]" href="#{Routes.item_path(@conn, :show, id: product.id)}"
+              = if List.first(product.images) do
+                img.imgwork alt="" src="#{List.first(product.images)}" /
+              - else
+                img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
+            .worksarrow
+              img alt="" src="#{Routes.static_path(@conn, "/images/section-works/arrow.png")}" /
+            h2.category= product.title
+            / p= product.title
+            .worksbottom
 
       /! element
       / .element.blue data-category="blue"

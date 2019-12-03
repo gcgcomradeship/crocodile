@@ -3,6 +3,7 @@ defmodule Crocodile.Services.Sync.DB do
 
   alias Crocodile.Product
   alias Crocodile.Category
+  require Logger
 
   def insert_or_update(%{"code" => code} = struct) do
     product = Product |> Repo.get_by(code: code)
@@ -12,24 +13,18 @@ defmodule Crocodile.Services.Sync.DB do
     |> Repo.insert_or_update()
   end
 
-  def insert_category(title, parent_id, path) do
-    Category
-    |> Repo.get_by(title: title)
+  def insert_or_update_category(%{path: path} = struct) do
+    category = Category |> Repo.get_by(path: path)
+
+    (category || %Category{})
+    |> Category.changeset(struct)
+    |> Repo.insert_or_update()
     |> case do
-      %{id: id} = record ->
-        record
-        |> Category.changeset(%{parent_id: parent_id, title: title, path: path})
-        |> Repo.update()
-
+      {:ok, %{id: id}} ->
         id
 
-      nil ->
-        {:ok, %{id: id}} =
-          %Category{}
-          |> Category.changeset(%{parent_id: parent_id, title: title, path: path})
-          |> Repo.insert()
-
-        id
+      _error ->
+        0
     end
   end
 

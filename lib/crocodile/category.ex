@@ -5,6 +5,7 @@ defmodule Crocodile.Category do
   schema "categories" do
     field(:title, :string)
     field(:path, :string)
+    field(:image, :string)
     field(:code, :string)
     field(:msk, :boolean)
     timestamps()
@@ -13,14 +14,13 @@ defmodule Crocodile.Category do
     has_many(:products, Crocodile.Product, on_delete: :nilify_all)
   end
 
-  @required_fields ~w(title)a
-  @optional_fields ~w(parent_id code msk path)a
+  @required_fields ~w(title path)a
+  @optional_fields ~w(parent_id code msk image)a
 
   @doc false
   def changeset(category, attrs) do
     category
     |> cast(attrs, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
-    |> unique_constraint(:title)
   end
 end

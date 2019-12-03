@@ -79,6 +79,17 @@
 .element p{
   margin:5px 0px;
 }
+/* !Custom */
+.element h2.category {
+  height: 57px;
+  color: #888;
+  line-height: 22px;
+  font-size: 17px;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 200;
+}
 
 .clear:before, .clear:after { content: ""; display: table; }
 .clear:after { clear: both; }
