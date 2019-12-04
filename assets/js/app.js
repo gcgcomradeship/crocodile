@@ -9,24 +9,60 @@ import css from "../css/app.scss"
 //
 // Import dependencies
 //
-import "phoenix_html"
-import "jquery"
-import 'bootstrap'
+// import "phoenix_html"
+// import "jquery"
+// import 'bootstrap'
 
 // import "babel-preset-es2015"
 
-// import "./jquery.min.js"
-// import "https://maps.googleapis.com/maps/api/js?sensor=true"
-// import "./google-api.js"
-import "./jquery.isotope.min.js"
-import "./jquery.themepunch.plugins.min.js"
-import "./jquery.themepunch.revolution.min.js"
-import "./jquery.prettyPhoto.js"
-// import "@types/jquery.prettyphoto"
-// import "./scroolto.js"
-import "./settings.js"
+// (function(d, s, id) {
+// var js, fjs = d.getElementsByTagName(s)[0];
+// if (d.getElementById(id)) return;
+// js = d.createElement(s); js.id = id;
+// js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+// fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
+
+// import "./settings.js"
+import "jquery"
+// import "./jquery-3.3.1.min.js"
+// fly cart ui jquery
+import "./jquery-ui.min.js"
+// exitintent jquery
+import "./jquery.exitintent.js"
+import "./exit.js"
+// popper js
+import "./popper.min.js"
+// slick js
+import "./slick.js"
+// menu js
+import "./menu.js"
+// lazyload js
+import "./lazysizes.min.js"
+// Bootstrap js
+// import 'bootstrap'
+import "./bootstrap.js"
+// Bootstrap Notification js
+import "./bootstrap-notify.min.js"
+// Fly cart js
+import "./fly-cart.js"
+// Theme js
+import "./script.js"
+// Actions binding
+// import "./actions.js"
 
 // Import local files
 //
 // Local files can be imported directly using relative paths, for example:
 // import socket from "./socket"
+
+// $(window).on('load',function(){
+//   $('#exampleModal').modal('show');
+// });
+// function openSearch() {
+//   document.getElementById("search-overlay").style.display = "block";
+// }
+
+// function closeSearch() {
+//   document.getElementById("search-overlay").style.display = "none";
+// }
