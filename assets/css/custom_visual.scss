@@ -3,3 +3,19 @@
   position: absolute;
   margin-top: -40px
 }
+
+.footer-logo{
+  height: 100px;
+  float: left;
+  padding-right: 20px;
+}
+
+@media (min-width: 1200px) {
+  ul.wide{
+    border: 1px solid #ccc;
+    min-width: 30em !important;
+  }
+  ul.wide li a{
+    white-space: normal !important;
+  }
+}

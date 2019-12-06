@@ -29,6 +29,13 @@ defmodule CrocodileWeb do
     end
   end
 
+  def context do
+    quote do
+      import Ecto.Query
+      alias Crocodile.Repo
+    end
+  end
+
   def plug do
     quote do
       use Phoenix.Controller

@@ -28,4 +28,5 @@ html lang="en"
     = if !Map.get(assigns, :hide_layout) do
       = render CrocodileWeb.LayoutView, "_navigation.html", assigns
     = render @view_module, @view_template, assigns
+  = render CrocodileWeb.LayoutView, "_footer.html", assigns
     script src="#{Routes.static_path(@conn, "/js/app.js")}" type="text/javascript"

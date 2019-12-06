@@ -38,161 +38,26 @@ header
                   div.closeNav
                     .sidebar-back.text-left
                       i.fa.fa-angle-left.pr-2 aria-hidden="true"
-                      | Back
+                      | Назад
                   ul#sub-menu.sm.pixelstrap.sm-vertical
-                    li
-                      a href="#"  clothing
-                      ul.mega-menu.clothing-menu
-                        li
-                          .row.m-0
-                            .col-xl-4
-                              .link-section
-                                h5 women's fashion
-                                ul
-                                  li
-                                    a href="#"  dresses
-                                  li
-                                    a href="#"  skirts
-                                  li
-                                    a href="#"  westarn wear
-                                  li
-                                    a href="#"  ethic wear
-                                  li
-                                    a href="#"  sport wear
-                                h5 men's fashion
-                                ul
-                                  li
-                                    a href="#"  sports wear
-                                  li
-                                    a href="#"  western wear
-                                  li
-                                    a href="#"  ethic wear
-                            .col-xl-4
-                              .link-section
-                                h5 accessories
-                                ul
-                                  li
-                                    a href="#"  fashion jewellery
-                                  li
-                                    a href="#"  caps and hats
-                                  li
-                                    a href="#"  precious jewellery
-                                  li
-                                    a href="#"  necklaces
-                                  li
-                                    a href="#"  earrings
-                                  li
-                                    a href="#"  wrist wear
-                                  li
-                                    a href="#"  ties
-                                  li
-                                    a href="#"  cufflinks
-                                  li
-                                    a href="#"  pockets squares
-                            .col-xl-4
-                              a.mega-menu-banner href="#"
-                                img.img-fluid.blur-up.lazyload alt="" src="/images/mega-menu/fashion.jpg" /
-                    li
-                      a href="#"  bags
-                      ul
-                        li
-                          a href="#"  shopper bags
-                        li
-                          a href="#"  laptop bags
-                        li
-                          a href="#"  clutches
-                        li
-                          a href="#"  purses
-                          ul
+                    = for cat_id <- @cat_hierarchy[nil] do
+                      li
+                        a href="#"= @cat_names[cat_id]
+                        = if @cat_hierarchy[cat_id] do
+                          ul.mega-menu.clothing-menu
                             li
-                              a href="#"  purses
-                            li
-                              a href="#"  wallets
-                            li
-                              a href="#"  leathers
-                            li
-                              a href="#"  satchels
-                    li
-                      a href="#"  footwear
-                      ul
-                        li
-                          a href="#"  sport shoes
-                        li
-                          a href="#"  formal shoes
-                        li
-                          a href="#"  casual shoes
-                    li
-                      a href="#"  watches
-                    li
-                      a href="#"  Accessories
-                      ul
-                        li
-                          a href="#"  fashion jewellery
-                        li
-                          a href="#"  caps and hats
-                        li
-                          a href="#"  precious jewellery
-                        li
-                          a href="#"  more..
-                          ul
-                            li
-                              a href="#"  necklaces
-                            li
-                              a href="#"  earrings
-                            li
-                              a href="#"  wrist wear
-                            li
-                              a href="#"  accessories
-                              ul
-                                li
-                                  a href="#"  ties
-                                li
-                                  a href="#"  cufflinks
-                                li
-                                  a href="#"  pockets squares
-                                li
-                                  a href="#"  helmets
-                                li
-                                  a href="#"  scarves
-                                li
-                                  a href="#"  more...
-                                  ul
-                                    li
-                                      a href="#"  accessory gift sets
-                                    li
-                                      a href="#"  travel accessories
-                                    li
-                                      a href="#"  phone cases
-                            li
-                              a href="#"  belts & more
-                            li
-                              a href="#"  wearable
-                    li
-                      a href="#"  house of design
-                    li
-                      a href="#"  beauty & personal care
-                      ul
-                        li
-                          a href="#"  makeup
-                        li
-                          a href="#"  skincare
-                        li
-                          a href="#"  premium beaty
-                        li
-                          a href="#"  more
-                          ul
-                            li
-                              a href="#"  fragrances
-                            li
-                              a href="#"  luxury beauty
-                            li
-                              a href="#"  hair care
-                            li
-                              a href="#"  tools & brushes
-                    li
-                      a href="#"  home & decor
-                    li
-                      a href="#"  kitchen
+                              .row.m-1
+                                = for cat_id <- @cat_hierarchy[cat_id] do
+                                  .col-xl-6
+                                    .link-section
+                                      a href="#"
+                                        h5= @cat_names[cat_id]
+                                      = if @cat_hierarchy[cat_id] do
+                                        ul
+                                          = for cat_id <- @cat_hierarchy[cat_id] do
+                                            li
+                                              a href="#"= @cat_names[cat_id]
+
             .brand-logo
               a href="index.html"
                 / img.img-fluid.blur-up.lazyload alt="" src="/images/icon/logo.png" /
@@ -205,336 +70,202 @@ header
                 ul#main-menu.sm.pixelstrap.sm-horizontal
                   li
                     .mobile-back.text-right
-                      | Back
+                      | Назад
                       i.fa.fa-angle-right.pl-2 aria-hidden="true"
-                  li
-                    a href="#"  Home
-                    ul
-                      li
-                        a href="#"
-                          | new demos
-                          span.new-tag new
-                        ul
+                    li
+                      a href="#"
+                        | Главная
+                    li
+                      a href="#"
+                        | Каталог
+                      ul.wide
+                        = for cat_id <- @cat_hierarchy[nil] do
                           li
-                            a href="tools.html" target="_blank"  tools
-                          li
-                            a href="game.html" target="_blank"  game
-                          li
-                            a href="gym-product.html" target="_blank"  gym
-                          li
-                            a href="marijuana.html" target="_blank"  marijuana
-                          li
-                            a href="left_sidebar-demo.html" target="_blank"  left sidebar
-                          li
-                            a href="jewellery.html" target="_blank"  jewellery
-                          li
-                            a href="pets.html" target="_blank"  pets
-                          li
-                            a href="metro.html" target="_blank"  metro
-                          li
-                            a href="video-slider.html" target="_blank"  video slider
-                      li
-                        a href="#"  clothing
-                        ul
-                          li
-                            a href="index.html" target="_blank"  fashion 1
-                          li
-                            a href="fashion-2.html" target="_blank"  fashion 2
-                          li
-                            a href="fashion-3.html" target="_blank"  fashion 3
-                          li
-                            a href="kids.html" target="_blank"  kids
-                      li
-                        a href="watch.html" target="_blank"  watch
-                      li
-                        a href="shoes.html" target="_blank"  shoes
-                      li
-                        a href="#"  electronics
-                        ul
-                          li
-                            a href="electronic-1.html" target="_blank"  electronic 1
-                          li
-                            a href="electronic-2.html" target="_blank"  electronic 2
-                      li
-                        a href="bags.html" target="_blank"  bags
-                      li
-                        a href="nursery.html" target="_blank"  nursery
-                      li
-                        a href="vegetables.html" target="_blank"  vegetable
-                      li
-                        a href="beauty.html" target="_blank"  beauty
-                      li
-                        a href="light.html" target="_blank"  light
-                      li
-                        a href="furniture.html" target="_blank"  furniture
-                      li
-                        a href="goggles.html" target="_blank"  googles
-                      li
-                        a href="#"  basics
-                        ul
-                          li
-                            a href="lookbook-demo.html" target="_blank"  lookbook
-                          li
-                            a href="instagram-shop.html" target="_blank"  instagram
-                          li
-                            a href="video.html" target="_blank"  video
-                          li
-                            a href="parallax.html" target="_blank"  parallax
-                          li
-                            a href="full-page.html" target="_blank"  full page
-                  li
-                    a href="#"  shop
-                    ul
-                      li
-                        a href="category-page.html"  left sidebar
-                      li
-                        a href="category-page(right).html"  right sidebar
-                      li
-                        a href="category-page(no-sidebar).html"  no sidebar
-                      li
-                        a href="category-page(sidebar-popup).html"  sidebar popup
-                      li
-                        a href="category-page(metro).html"
-                          | metro
-                          span.new-tag new
-                      li
-                        a href="category-page(full-width).html"
-                          | full width
-                          span.new-tag new
-                      li
-                        a href="category-page(infinite-scroll).html"  infinite scroll
-                      li
-                        a href="category-page(3-grid).html"  3 grid
-                      li
-                        a href="category-page(6-grid).html"  6 grid
-                      li
-                        a href="category-page(list-view).html"  list view
-                  li
-                    a href="#"  product
-                    ul
-                      li
-                        a href="#"  sidebar
-                        ul
-                          li
-                            a href="product-page.html"  left sidebar
-                          li
-                            a href="product-page(right-sidebar).html"  right sidebar
-                          li
-                            a href="product-page(no-sidebar).html"  no sidebar
-                      li
-                        a href="#"  thumbnail image
-                        ul
-                          li
-                            a href="product-page(left-image).html"  left image
-                          li
-                            a href="product-page(right-image).html"  right image
-                          li
-                            a href="product-page(image-outside).html"
-                              | image outside
-                              span.new-tag new
-                      li
-                        a href="#"  3 column
-                        ul
-                          li
-                            a href="product-page(3-col-left).html"  thumbnail left
-                          li
-                            a href="product-page(3-col-right).html"  thumbnail right
-                          li
-                            a href="product-page(3-column).html"  thubnail bottom
-                      li
-                        a href="product-page(4-image).html"
-                          | 4 image
-                          span.new-tag new
-                      li
-                        a href="product-page(sticky).html"  sticky
-                      li
-                        a href="product-page(accordian).html"  accordian
-                      li
-                        a href="product-page(bundle).html"
-                          | bundle
-                          span.new-tag new
-                      li
-                        a href="product-page(image-swatch).html"
-                          | image swatch
-                          span.new-tag new
-                      li
-                        a href="product-page(vertical-tab).html"  vertical tab
-                  li#hover-cls.mega
-                    a href="#"
-                      | features
-                    .lable-nav new
-                    ul.mega-menu.full-mega-menu
-                      li
-                        .container
-                          .row
-                            .col.mega-box
-                              .link-section
-                                .menu-title
-                                  h5 portfolio
-                                .menu-content
-                                  ul
-                                    li
-                                      a href="grid-2-col.html"  portfolio grid 2
-                                    li
-                                      a href="grid-3-col.html"  portfolio grid 3
-                                    li
-                                      a href="grid-4-col.html"  portfolio grid 4
-                                    li
-                                      a href="masonary-2-grid.html"  mesonary grid 2
-                                    li
-                                      a href="masonary-3-grid.html"  mesonary grid 3
-                                    li
-                                      a href="masonary-4-grid.html"  mesonary grid 4
-                                    li
-                                      a href="masonary-fullwidth.html"  mesonary full width
-                            .col.mega-box
-                              .link-section
-                                .menu-title
-                                  h5 add to cart
-                                .menu-content
-                                  ul
-                                    li
-                                      a href="nursery.html"  cart modal popup
-                                    li
-                                      a href="vegetables.html"
-                                        | qty. counter
-                                        i.fa.fa-bolt.icon-trend aria-hidden="true"
-                                    li
-                                      a href="bags.html"  cart top
-                                    li
-                                      a href="shoes.html"  cart bottom
-                                    li
-                                      a href="watch.html"  cart left
-                                    li
-                                      a href="tools.html"  cart right
-                            .col.mega-box
-                              .link-section
-                                .menu-title
-                                  h5 theme elements
-                                .menu-content
-                                  ul
-                                    li
-                                      a href="element-title.html"  title
-                                    li
-                                      a href="element-banner.html"  collection banner
-                                    li
-                                      a href="element-slider.html"  home slider
-                                    li
-                                      a href="element-category.html"  category
-                                    li
-                                      a href="element-service.html"  service
-                                    li
-                                      a href="element-image-ratio.html"
-                                        | image size ratio
-                                        i.fa.fa-bolt.icon-trend aria-hidden="true"
-                            .col.mega-box
-                              .link-section
-                                .menu-title
-                                  h5 product elements
-                                .menu-content
-                                  ul
-                                    li.up-text
-                                      a href="element-productbox.html"
-                                        | product box
-                                        span 10+
-                                    li
-                                      a href="element-product-slider.html"  product slider
-                                    li
-                                      a href="element-no_slider.html"  no slider
-                                    li
-                                      a href="element-mulitiple_slider.html"  multi slider
-                                    li
-                                      a href="element-tab.html"  tab
-                            .col.mega-box
-                              .link-section
-                                .menu-title
-                                  h5 email template
-                                .menu-content
-                                  ul
-                                    li
-                                      a href="email-order-success.html"  order success
-                                    li
-                                      a href="email-order-success-two.html"  order success 2
-                                    li
-                                      a href="email-template.html"  email template
-                                    li
-                                      a href="email-template-two.html"  email template 2
-                  li
-                    a href="#"  pages
-                    ul
-                      li
-                        a href="#"  account
-                        ul
-                          li
-                            a href="wishlist.html"  wishlist
-                          li
-                            a href="cart.html"  cart
-                          li
-                            a href="dashboard.html"  Dashboard
-                          li
-                            a href="login.html"  login
-                          li
-                            a href="register.html"  register
-                          li
-                            a href="contact.html"  contact
-                          li
-                            a href="forget_pwd.html"  forget password
-                          li
-                            a href="profile.html"
-                              | profile
-                              span.new-tag new
-                          li
-                            a href="checkout.html"  checkout
-                      li
-                        a href="about-page.html"  about us
-                      li
-                        a href="search.html"  search
-                      li
-                        a href="typography.html"
-                          | typography
-                          span.new-tag new
-                      li
-                        a href="review.html"
-                          | review
-                          span.new-tag new
-                      li
-                        a href="order-success.html"  order success
-                      li
-                        a href="#"  compare
-                        ul
-                          li
-                            a href="compare.html"  compare
-                          li
-                            a href="compare-2.html"
-                              | compare-2
-                              span.new-tag new
-                      li
-                        a href="collection.html"  collection
-                      li
-                        a href="lookbook.html"  lookbook
-                      li
-                        a href="sitemap.html"
-                          | site map
-                          span.new-tag new
-                      li
-                        a href="404.html"  404
-                      li
-                        a href="coming-soon.html"
-                          | coming soon
-                          span.new-tag new
-                      li
-                        a href="faq.html"  FAQ
-                  li
-                    a href="#"  blog
-                    ul
-                      li
-                        a href="blog-page.html"  left sidebar
-                      li
-                        a href="blog(right-sidebar).html"  right sidebar
-                      li
-                        a href="blog(no-sidebar).html"  no sidebar
-                      li
-                        a href="blog-details.html"  blog details
+                            a href="#"= @cat_names[cat_id]
+                            = if @cat_hierarchy[cat_id] do
+                              ul.wide
+                                = for cat_id <- @cat_hierarchy[cat_id] do
+                                  li
+                                    a href="#"= @cat_names[cat_id]
+                                    = if @cat_hierarchy[cat_id] do
+                                      ul.wide
+                                        = for cat_id <- @cat_hierarchy[cat_id] do
+                                          li
+                                            a href="#"= @cat_names[cat_id]
+                  / li
+                  /   a href="#"  Home
+                  /   ul
+                  /     li
+                  /       a href="#"
+                  /         | new demos
+                  /         span.new-tag new
+                  /       ul
+                  /         li
+                  /           a href="tools.html" target="_blank"  tools
+                  /         li
+                  /           a href="game.html" target="_blank"  game
+                  /         li
+                  /           a href="gym-product.html" target="_blank"  gym
+                  /         li
+                  /           a href="marijuana.html" target="_blank"  marijuana
+                  /         li
+                  /           a href="left_sidebar-demo.html" target="_blank"  left sidebar
+                  /         li
+                  /           a href="jewellery.html" target="_blank"  jewellery
+                  /         li
+                  /           a href="pets.html" target="_blank"  pets
+                  /         li
+                  /           a href="metro.html" target="_blank"  metro
+                  /         li
+                  /           a href="video-slider.html" target="_blank"  video slider
+                  /     li
+                  /       a href="#"  clothing
+                  /       ul
+                  /         li
+                  /           a href="index.html" target="_blank"  fashion 1
+                  /         li
+                  /           a href="fashion-2.html" target="_blank"  fashion 2
+                  /         li
+                  /           a href="fashion-3.html" target="_blank"  fashion 3
+                  /         li
+                  /           a href="kids.html" target="_blank"  kids
+                  /     li
+                  /       a href="watch.html" target="_blank"  watch
+                  /     li
+                  /       a href="shoes.html" target="_blank"  shoes
+                  /     li
+                  /       a href="#"  electronics
+                  /       ul
+                  /         li
+                  /           a href="electronic-1.html" target="_blank"  electronic 1
+                  /         li
+                  /           a href="electronic-2.html" target="_blank"  electronic 2
+                  /     li
+                  /       a href="bags.html" target="_blank"  bags
+                  /     li
+                  /       a href="nursery.html" target="_blank"  nursery
+                  /     li
+                  /       a href="vegetables.html" target="_blank"  vegetable
+                  /     li
+                  /       a href="beauty.html" target="_blank"  beauty
+                  /     li
+                  /       a href="light.html" target="_blank"  light
+                  /     li
+                  /       a href="furniture.html" target="_blank"  furniture
+                  /     li
+                  /       a href="goggles.html" target="_blank"  googles
+                  /     li
+                  /       a href="#"  basics
+                  /       ul
+                  /         li
+                  /           a href="lookbook-demo.html" target="_blank"  lookbook
+                  /         li
+                  /           a href="instagram-shop.html" target="_blank"  instagram
+                  /         li
+                  /           a href="video.html" target="_blank"  video
+                  /         li
+                  /           a href="parallax.html" target="_blank"  parallax
+                  /         li
+                  /           a href="full-page.html" target="_blank"  full page
+                  / li#hover-cls.mega
+                  /   a href="#"
+                  /     | features
+                  /   ul.mega-menu.full-mega-menu
+                  /     li
+                  /       .container
+                  /         .row
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 portfolio
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="grid-2-col.html"  portfolio grid 2
+                  /                   li
+                  /                     a href="grid-3-col.html"  portfolio grid 3
+                  /                   li
+                  /                     a href="grid-4-col.html"  portfolio grid 4
+                  /                   li
+                  /                     a href="masonary-2-grid.html"  mesonary grid 2
+                  /                   li
+                  /                     a href="masonary-3-grid.html"  mesonary grid 3
+                  /                   li
+                  /                     a href="masonary-4-grid.html"  mesonary grid 4
+                  /                   li
+                  /                     a href="masonary-fullwidth.html"  mesonary full width
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 add to cart
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="nursery.html"  cart modal popup
+                  /                   li
+                  /                     a href="vegetables.html"
+                  /                       | qty. counter
+                  /                       i.fa.fa-bolt.icon-trend aria-hidden="true"
+                  /                   li
+                  /                     a href="bags.html"  cart top
+                  /                   li
+                  /                     a href="shoes.html"  cart bottom
+                  /                   li
+                  /                     a href="watch.html"  cart left
+                  /                   li
+                  /                     a href="tools.html"  cart right
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 theme elements
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="element-title.html"  title
+                  /                   li
+                  /                     a href="element-banner.html"  collection banner
+                  /                   li
+                  /                     a href="element-slider.html"  home slider
+                  /                   li
+                  /                     a href="element-category.html"  category
+                  /                   li
+                  /                     a href="element-service.html"  service
+                  /                   li
+                  /                     a href="element-image-ratio.html"
+                  /                       | image size ratio
+                  /                       i.fa.fa-bolt.icon-trend aria-hidden="true"
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 product elements
+                  /               .menu-content
+                  /                 ul
+                  /                   li.up-text
+                  /                     a href="element-productbox.html"
+                  /                       | product box
+                  /                       span 10+
+                  /                   li
+                  /                     a href="element-product-slider.html"  product slider
+                  /                   li
+                  /                     a href="element-no_slider.html"  no slider
+                  /                   li
+                  /                     a href="element-mulitiple_slider.html"  multi slider
+                  /                   li
+                  /                     a href="element-tab.html"  tab
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 email template
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="email-order-success.html"  order success
+                  /                   li
+                  /                     a href="email-order-success-two.html"  order success 2
+                  /                   li
+                  /                     a href="email-template.html"  email template
+                  /                   li
+                  /                     a href="email-template-two.html"  email template 2
             div
               .icon-nav
                 ul
