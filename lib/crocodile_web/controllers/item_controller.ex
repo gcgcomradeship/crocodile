@@ -2,6 +2,8 @@ defmodule CrocodileWeb.ItemController do
   use CrocodileWeb, :controller
   alias Crocodile.Category
   alias Crocodile.Product
+  alias Crocodile.Context.Categories
+  alias Crocodile.Context.Items
 
   @exclude [
     "Архив",
@@ -26,17 +28,13 @@ defmodule CrocodileWeb.ItemController do
       |> Repo.all()
       |> Enum.sort(fn x, y -> :ucol.compare(x.title, y.title) != 1 end)
 
-    products =
-      Product
-      |> where_parent(parent)
-      |> where([p], p.msk == true)
-      |> Repo.all()
-
     render(conn, "index.html",
       items: items,
       breadcrumbs: breadcrumbs(params),
       parent: parent,
-      products: products
+      products: Items.by_category(params),
+      cat_hierarchy: Categories.hierarchy(),
+      cat_names: Categories.names()
     )
   end
 
