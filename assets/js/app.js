@@ -25,6 +25,7 @@ import css from "../css/app.scss"
 
 // import "./settings.js"
 import "jquery"
+import "nouislider"
 // import "./jquery-3.3.1.min.js"
 // fly cart ui jquery
 import "./jquery-ui.min.js"
@@ -48,6 +49,8 @@ import "./bootstrap-notify.min.js"
 import "./fly-cart.js"
 // Theme js
 import "./script.js"
+// Price slider
+import "./price_slider.js"
 // Actions binding
 // import "./actions.js"
 

@@ -10,7 +10,7 @@
           ol.breadcrumb
             = for {title, id} <- @breadcrumbs do
               li.breadcrumb-item
-                a href=Routes.item_path(@conn, :index, category: id)
+                a href=Routes.product_path(@conn, :index, category: id)
                   = title
 /! breadcrumb end
 /! section start
@@ -47,109 +47,47 @@ section.section-b-space.ratio_asos
                     label.custom-control-label for="only"  only
             /! price filter start here
             .collection-collapse-block.border-0.open
-              h3.collapse-block-title price
+              h3.collapse-block-title цена (₽)
               .collection-collapse-block-content
                 .collection-brand-filter
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#hundred.custom-control-input type="checkbox" /
-                    label.custom-control-label for="hundred"  $10 - $100
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#twohundred.custom-control-input type="checkbox" /
-                    label.custom-control-label for="twohundred"  $100 - $200
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#threehundred.custom-control-input type="checkbox" /
-                    label.custom-control-label for="threehundred"  $200 - $300
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#fourhundred.custom-control-input type="checkbox" /
-                    label.custom-control-label for="fourhundred"  $300 - $400
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#fourhundredabove.custom-control-input type="checkbox" /
-                    label.custom-control-label for="fourhundredabove"  $400 above
+                  #price_slider max_price_lim=@prices_filter.max_price_lim max_price=@prices_filter.max_price min_price_lim=@prices_filter.min_price_lim min_price=@prices_filter.min_price
+
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#hundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="hundred"  $10 - $100
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#twohundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="twohundred"  $100 - $200
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#threehundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="threehundred"  $200 - $300
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#fourhundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="fourhundred"  $300 - $400
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#fourhundredabove.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="fourhundredabove"  $400 above
           /! silde-bar colleps block end here
           /! side-bar single product slider start
           .theme-card
             h5.title-border Новинки
             .offer-slider.slide-1
-              div
-                .media
-                  a href=""
-                    img.img-fluid.blur-up.lazyload alt="" src="/images/pro/1.jpg" /
-                  .media-body.align-self-center
-                    .rating
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                    a href="product-page(no-sidebar).html"
-                      h6 Slim Fit Cotton Shirt
-                    h4 $500.00
-                .media
-                  a href=""
-                    img.img-fluid.blur-up.lazyload alt="" src="/images/pro/1.jpg" /
-                  .media-body.align-self-center
-                    .rating
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                    a href="product-page(no-sidebar).html"
-                      h6 Slim Fit Cotton Shirt
-                    h4 $500.00
-                .media
-                  a href=""
-                    img.img-fluid.blur-up.lazyload alt="" src="/images/pro/1.jpg" /
-                  .media-body.align-self-center
-                    .rating
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                    a href="product-page(no-sidebar).html"
-                      h6 Slim Fit Cotton Shirt
-                    h4 $500.00
-              div
-                .media
-                  a href=""
-                    img.img-fluid.blur-up.lazyload alt="" src="/images/pro/1.jpg" /
-                  .media-body.align-self-center
-                    .rating
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                    a href="product-page(no-sidebar).html"
-                      h6 Slim Fit Cotton Shirt
-                    h4 $500.00
-                .media
-                  a href=""
-                    img.img-fluid.blur-up.lazyload alt="" src="/images/pro/1.jpg" /
-                  .media-body.align-self-center
-                    .rating
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                    a href="product-page(no-sidebar).html"
-                      h6 Slim Fit Cotton Shirt
-                    h4 $500.00
-                .media
-                  a href=""
-                    img.img-fluid.blur-up.lazyload alt="" src="/images/pro/1.jpg" /
-                  .media-body.align-self-center
-                    .rating
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                      i.fa.fa-star
-                    a href="product-page(no-sidebar).html"
-                      h6 Slim Fit Cotton Shirt
-                    h4 $500.00
+              = for group <- Enum.chunk_every(@new_sidebar, 3) do
+                div
+                  = for item <- group do
+                    .media
+                      a href=""
+                        img.img-fluid.blur-up.lazyload alt="" src=List.first(item.images || []) /
+                      .media-body.align-self-center
+                        .rating
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                        a href="product-page(no-sidebar).html"
+                          h6 = item.title
+                        h4 ="₽#{Decimal.to_string(item.price)}"
           /! side-bar single product slider end
           /! side-bar banner start here
           .collection-sidebar-banner
@@ -242,29 +180,5 @@ section.section-b-space.ratio_asos
                               h6 = item.title
                               h4
                                 = "₽#{Decimal.to_string(item.price)}"
-                  .product-pagination
-                    .theme-paggination-block
-                      .row
-                        .col-xl-6.col-md-6.col-sm-12
-                          nav aria-label=("Page navigation")
-                            ul.pagination
-                              li.page-item
-                                a.page-link aria-label="Previous" href="#"
-                                  span aria-hidden="true"
-                                    i.fa.fa-chevron-left aria-hidden="true"
-                                  span.sr-only Предыдущая
-                              li.page-item.active
-                                a.page-link href="#"  1
-                              li.page-item
-                                a.page-link href="#"  2
-                              li.page-item
-                                a.page-link href="#"  3
-                              li.page-item
-                                a.page-link aria-label="Next" href="#"
-                                  span aria-hidden="true"
-                                    i.fa.fa-chevron-right aria-hidden="true"
-                                  span.sr-only Следующая
-                        .col-xl-6.col-md-6.col-sm-12
-                          .product-search-count-bottom
-                            h5 Товаров 1 - 24 из 10
+                  = pagination_links(@conn, @page)
 /! section End

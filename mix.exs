@@ -46,6 +46,8 @@ defmodule Crocodile.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_slime, "~> 0.12.0"},
+      {:scrivener_ecto, "~> 2.0"},
+      {:scrivener_html, "~> 1.8"},
       {:httpoison, "~> 1.6"},
       {:ucol, "~> 2.0"},
       {:timex, "~> 3.5"}

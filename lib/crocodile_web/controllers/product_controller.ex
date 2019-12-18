@@ -1,4 +1,4 @@
-defmodule CrocodileWeb.ItemController do
+defmodule CrocodileWeb.ProductController do
   use CrocodileWeb, :controller
   alias Crocodile.Category
   alias Crocodile.Product
@@ -28,13 +28,22 @@ defmodule CrocodileWeb.ItemController do
       |> Repo.all()
       |> Enum.sort(fn x, y -> :ucol.compare(x.title, y.title) != 1 end)
 
+    page = Items.by_category(params)
+
     render(conn, "index.html",
-      items: items,
       breadcrumbs: breadcrumbs(params),
       parent: parent,
       products: Items.by_category(params),
       cat_hierarchy: Categories.hierarchy(),
-      cat_names: Categories.names()
+      cat_names: Categories.names(),
+      new_sidebar: Items.new_sidebar(),
+      page: page,
+      items: page.entries,
+      prices_filter: Items.prices_filter(params),
+      page_number: page.page_number,
+      page_size: page.page_size,
+      total_pages: page.total_pages,
+      total_entries: page.total_entries
     )
   end
 
