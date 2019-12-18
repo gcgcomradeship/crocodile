@@ -1,17 +1,347 @@
-header#navigationmenu.navigation
-  .container.clearfix
-    .grid_1.nav.logo-menu
-      img alt="" src="#{Routes.static_path(@conn, "/images/logo-croco.png")}" /
-    .grid_5.nav
-      nav.main_nav
-        ul
-          li.item
-            = link "Главная", to: Routes.page_path(@conn, :index)
-          li.item class=active(@conn, Routes.item_path(@conn, :index))
-            = link "Каталог", to: Routes.item_path(@conn, :index)
-          li.item class=active(@conn, Routes.page_path(@conn, :delivery))
-            = link "Доставка", to: Routes.page_path(@conn, :delivery)
-          li.item class=active(@conn, Routes.page_path(@conn, :about))
-            = link "О нас", to: Routes.page_path(@conn, :about)
+/! header start
+header
+  .mobile-fix-option
+  .top-header
+    .container
+      .row
+        .col-lg-6
+          .header-contact
+            ul
+              li Добро пожаловать в Crocodildo
+              li
+                i.fa.fa-phone aria-hidden="true"
+                | Звоните: +7 (495) 777-66-55
+        .col-lg-6.text-right
+          ul.header-dropdown
+            li.mobile-wishlist
+              a href="#"
+                i.fa.fa-heart aria-hidden="true"
+            li.onhover-dropdown.mobile-account
+              i.fa.fa-user aria-hidden="true"
+              | Профиль
+              ul.onhover-show-div
+                li
+                  a data-lng="en" href="#"  Войти
+                li
+                  a data-lng="es" href="#"  Выйти
+  .container
+    .row
+      .col-sm-12
+        .main-menu
+          .menu-left
+            .navbar
+              .bar-style.openNav
+                i.fa.fa-bars.sidebar-bar aria-hidden="true"
+              #mySidenav.sidenav
+                a.sidebar-overlay.closeNav
+                nav
+                  div.closeNav
+                    .sidebar-back.text-left
+                      i.fa.fa-angle-left.pr-2 aria-hidden="true"
+                      | Назад
+                  ul#sub-menu.sm.pixelstrap.sm-vertical
+                    = for cat_id <- @cat_hierarchy[nil] do
+                      li
+                        a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
+                        = if @cat_hierarchy[cat_id] do
+                          ul.mega-menu.clothing-menu
+                            li
+                              .row.m-1
+                                = for cat_id <- @cat_hierarchy[cat_id] do
+                                  .col-xl-6
+                                    .link-section
+                                      a href=Routes.product_path(@conn, :index, category: cat_id)
+                                        h5= @cat_names[cat_id]
+                                      = if @cat_hierarchy[cat_id] do
+                                        ul
+                                          = for cat_id <- @cat_hierarchy[cat_id] do
+                                            li
+                                              a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
 
-
+            .brand-logo
+              a href="index.html"
+                / img.img-fluid.blur-up.lazyload alt="" src="/images/icon/logo.png" /
+                img.nav-logo.img-fluid.blur-up.lazyload alt="" src="/images/logo-croco.png" /
+          .menu-right.pull-right
+            div
+              nav#main-nav
+                .toggle-nav
+                  i.fa.fa-bars.sidebar-bar
+                ul#main-menu.sm.pixelstrap.sm-horizontal
+                  li
+                    .mobile-back.text-right
+                      | Назад
+                      i.fa.fa-angle-right.pl-2 aria-hidden="true"
+                    li
+                      a href="#"
+                        | Главная
+                    li
+                      a href=Routes.product_path(@conn, :index)
+                        | Каталог
+                      ul.wide
+                        = for cat_id <- @cat_hierarchy[nil] do
+                          li
+                            a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
+                            = if @cat_hierarchy[cat_id] do
+                              ul.wide
+                                = for cat_id <- @cat_hierarchy[cat_id] do
+                                  li
+                                    a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
+                                    = if @cat_hierarchy[cat_id] do
+                                      ul.wide
+                                        = for cat_id <- @cat_hierarchy[cat_id] do
+                                          li
+                                            a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
+                  / li
+                  /   a href="#"  Home
+                  /   ul
+                  /     li
+                  /       a href="#"
+                  /         | new demos
+                  /         span.new-tag new
+                  /       ul
+                  /         li
+                  /           a href="tools.html" target="_blank"  tools
+                  /         li
+                  /           a href="game.html" target="_blank"  game
+                  /         li
+                  /           a href="gym-product.html" target="_blank"  gym
+                  /         li
+                  /           a href="marijuana.html" target="_blank"  marijuana
+                  /         li
+                  /           a href="left_sidebar-demo.html" target="_blank"  left sidebar
+                  /         li
+                  /           a href="jewellery.html" target="_blank"  jewellery
+                  /         li
+                  /           a href="pets.html" target="_blank"  pets
+                  /         li
+                  /           a href="metro.html" target="_blank"  metro
+                  /         li
+                  /           a href="video-slider.html" target="_blank"  video slider
+                  /     li
+                  /       a href="#"  clothing
+                  /       ul
+                  /         li
+                  /           a href="index.html" target="_blank"  fashion 1
+                  /         li
+                  /           a href="fashion-2.html" target="_blank"  fashion 2
+                  /         li
+                  /           a href="fashion-3.html" target="_blank"  fashion 3
+                  /         li
+                  /           a href="kids.html" target="_blank"  kids
+                  /     li
+                  /       a href="watch.html" target="_blank"  watch
+                  /     li
+                  /       a href="shoes.html" target="_blank"  shoes
+                  /     li
+                  /       a href="#"  electronics
+                  /       ul
+                  /         li
+                  /           a href="electronic-1.html" target="_blank"  electronic 1
+                  /         li
+                  /           a href="electronic-2.html" target="_blank"  electronic 2
+                  /     li
+                  /       a href="bags.html" target="_blank"  bags
+                  /     li
+                  /       a href="nursery.html" target="_blank"  nursery
+                  /     li
+                  /       a href="vegetables.html" target="_blank"  vegetable
+                  /     li
+                  /       a href="beauty.html" target="_blank"  beauty
+                  /     li
+                  /       a href="light.html" target="_blank"  light
+                  /     li
+                  /       a href="furniture.html" target="_blank"  furniture
+                  /     li
+                  /       a href="goggles.html" target="_blank"  googles
+                  /     li
+                  /       a href="#"  basics
+                  /       ul
+                  /         li
+                  /           a href="lookbook-demo.html" target="_blank"  lookbook
+                  /         li
+                  /           a href="instagram-shop.html" target="_blank"  instagram
+                  /         li
+                  /           a href="video.html" target="_blank"  video
+                  /         li
+                  /           a href="parallax.html" target="_blank"  parallax
+                  /         li
+                  /           a href="full-page.html" target="_blank"  full page
+                  / li#hover-cls.mega
+                  /   a href="#"
+                  /     | features
+                  /   ul.mega-menu.full-mega-menu
+                  /     li
+                  /       .container
+                  /         .row
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 portfolio
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="grid-2-col.html"  portfolio grid 2
+                  /                   li
+                  /                     a href="grid-3-col.html"  portfolio grid 3
+                  /                   li
+                  /                     a href="grid-4-col.html"  portfolio grid 4
+                  /                   li
+                  /                     a href="masonary-2-grid.html"  mesonary grid 2
+                  /                   li
+                  /                     a href="masonary-3-grid.html"  mesonary grid 3
+                  /                   li
+                  /                     a href="masonary-4-grid.html"  mesonary grid 4
+                  /                   li
+                  /                     a href="masonary-fullwidth.html"  mesonary full width
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 add to cart
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="nursery.html"  cart modal popup
+                  /                   li
+                  /                     a href="vegetables.html"
+                  /                       | qty. counter
+                  /                       i.fa.fa-bolt.icon-trend aria-hidden="true"
+                  /                   li
+                  /                     a href="bags.html"  cart top
+                  /                   li
+                  /                     a href="shoes.html"  cart bottom
+                  /                   li
+                  /                     a href="watch.html"  cart left
+                  /                   li
+                  /                     a href="tools.html"  cart right
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 theme elements
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="element-title.html"  title
+                  /                   li
+                  /                     a href="element-banner.html"  collection banner
+                  /                   li
+                  /                     a href="element-slider.html"  home slider
+                  /                   li
+                  /                     a href="element-category.html"  category
+                  /                   li
+                  /                     a href="element-service.html"  service
+                  /                   li
+                  /                     a href="element-image-ratio.html"
+                  /                       | image size ratio
+                  /                       i.fa.fa-bolt.icon-trend aria-hidden="true"
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 product elements
+                  /               .menu-content
+                  /                 ul
+                  /                   li.up-text
+                  /                     a href="element-productbox.html"
+                  /                       | product box
+                  /                       span 10+
+                  /                   li
+                  /                     a href="element-product-slider.html"  product slider
+                  /                   li
+                  /                     a href="element-no_slider.html"  no slider
+                  /                   li
+                  /                     a href="element-mulitiple_slider.html"  multi slider
+                  /                   li
+                  /                     a href="element-tab.html"  tab
+                  /           .col.mega-box
+                  /             .link-section
+                  /               .menu-title
+                  /                 h5 email template
+                  /               .menu-content
+                  /                 ul
+                  /                   li
+                  /                     a href="email-order-success.html"  order success
+                  /                   li
+                  /                     a href="email-order-success-two.html"  order success 2
+                  /                   li
+                  /                     a href="email-template.html"  email template
+                  /                   li
+                  /                     a href="email-template-two.html"  email template 2
+            div
+              .icon-nav
+                ul
+                  li.onhover-div.mobile-search
+                    div
+                      img.img-fluid.blur-up.lazyload alt="" onclick="openSearch()" src="/images/icon/search.png" /
+                      i.ti-search onclick="openSearch()"
+                    #search-overlay.search-overlay
+                      div
+                        span.closebtn onclick="closeSearch()" title=("Close Overlay")  ×
+                        .overlay-content
+                          .container
+                            .row
+                              .col-xl-12
+                                form
+                                  .form-group
+                                    input#exampleInputPassword1.form-control placeholder=("Search a Product") type="text" /
+                                  button.btn.btn-primary type="submit"
+                                    i.fa.fa-search
+                  li.onhover-div.mobile-setting
+                    div
+                      img.img-fluid.blur-up.lazyload alt="" src="/images/icon/setting.png" /
+                      i.ti-settings
+                    .show-div.setting
+                      h6 language
+                      ul
+                        li
+                          a href="#"  english
+                        li
+                          a href="#"  french
+                      h6 currency
+                      ul.list-inline
+                        li
+                          a href="#"  euro
+                        li
+                          a href="#"  rupees
+                        li
+                          a href="#"  pound
+                        li
+                          a href="#"  doller
+                  li.onhover-div.mobile-cart
+                    div
+                      img.img-fluid.blur-up.lazyload alt="" src="/images/icon/cart.png" /
+                      i.ti-shopping-cart
+                    ul.show-div.shopping-cart
+                      li
+                        .media
+                          a href="#"
+                            img.mr-3 alt="" src="/images/fashion/product/1.jpg" /
+                          .media-body
+                            a href="#"
+                            h4 item name
+                            h4
+                              span 1 x $ 299.00
+                        .close-circle
+                          a href="#"
+                            i.fa.fa-times aria-hidden="true"
+                      li
+                        .media
+                          a href="#"
+                            img.mr-3 alt="" src="/images/fashion/product/2.jpg" /
+                          .media-body
+                            a href="#"
+                            h4 item name
+                            h4
+                              span 1 x $ 299.00
+                        .close-circle
+                          a href="#"
+                            i.fa.fa-times aria-hidden="true"
+                      li
+                        .total
+                          h5
+                            | subtotal :
+                            span $299.00
+                      li
+                        .buttons
+                          a.view-cart href="cart.html"  view cart
+                          a.checkout href="#"  checkout
+/! header end

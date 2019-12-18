@@ -1,0 +1,21 @@
+doctype html
+html lang="en"
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    meta charset="utf-8" /
+    title Sweet Crocodildo
+    meta content=("Crocodildo") name="description" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    meta name="yandex-verification" content="f431fa730ef1c52a" /
+    link href="#{Routes.static_path(@conn, "/css/app.css")}" rel="stylesheet" /
+    link href="#{Routes.static_path(@conn, "/images/favicon/favicon.ico")}" rel=("shortcut icon") /
+    link href="#{Routes.static_path(@conn, "/images/favicon/apple-touch-icon.png")}" rel="apple-touch-icon" /
+    link href="#{Routes.static_path(@conn, "/images/favicon/apple-touch-icon-72x72.png")}" rel="apple-touch-icon" sizes="72x72" /
+    link href="#{Routes.static_path(@conn, "/images/favicon/apple-touch-icon-114x114.png")}" rel="apple-touch-icon" sizes="114x114" /
+    link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet"
+  body
+    / = render CrocodileWeb.LayoutView, "_navigation.html", assigns
+    = render @view_module, @view_template, assigns
+    script src="#{Routes.static_path(@conn, "/js/app.js")}" type="text/javascript"
+    / script src="https://maps.googleapis.com/maps/api/js?sensor=true"

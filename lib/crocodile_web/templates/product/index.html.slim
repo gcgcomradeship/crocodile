@@ -1,0 +1,184 @@
+/! breadcrumb start
+.breadcrumb-section
+  .container
+    .row
+      .col-sm-2
+        .page-title
+          h2 каталог
+      .col-sm-10
+        nav.theme-breadcrumb aria-label="breadcrumb"
+          ol.breadcrumb
+            = for {title, id} <- @breadcrumbs do
+              li.breadcrumb-item
+                a href=Routes.product_path(@conn, :index, category: id)
+                  = title
+/! breadcrumb end
+/! section start
+section.section-b-space.ratio_asos
+  .collection-wrapper
+    .container
+      .row
+        .col-sm-3.collection-filter
+          /! side-bar colleps block stat
+          .collection-filter-block
+            /! brand filter start
+            .collection-mobile-back
+              span.filter-back
+                i.fa.fa-angle-left aria-hidden="true"
+                | back
+            .collection-collapse-block.open
+              h3.collapse-block-title brand
+              .collection-collapse-block-content
+                .collection-brand-filter
+                  .custom-control.custom-checkbox.collection-filter-checkbox
+                    input#zara.custom-control-input type="checkbox" /
+                    label.custom-control-label for="zara"  zara
+                  .custom-control.custom-checkbox.collection-filter-checkbox
+                    input#vera-moda.custom-control-input type="checkbox" /
+                    label.custom-control-label for="vera-moda"  vera-moda
+                  .custom-control.custom-checkbox.collection-filter-checkbox
+                    input#forever-21.custom-control-input type="checkbox" /
+                    label.custom-control-label for="forever-21"  forever-21
+                  .custom-control.custom-checkbox.collection-filter-checkbox
+                    input#roadster.custom-control-input type="checkbox" /
+                    label.custom-control-label for="roadster"  roadster
+                  .custom-control.custom-checkbox.collection-filter-checkbox
+                    input#only.custom-control-input type="checkbox" /
+                    label.custom-control-label for="only"  only
+            /! price filter start here
+            .collection-collapse-block.border-0.open
+              h3.collapse-block-title цена (₽)
+              .collection-collapse-block-content
+                .collection-brand-filter
+                  #price_slider max_price_lim=@prices_filter.max_price_lim max_price=@prices_filter.max_price min_price_lim=@prices_filter.min_price_lim min_price=@prices_filter.min_price
+
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#hundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="hundred"  $10 - $100
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#twohundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="twohundred"  $100 - $200
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#threehundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="threehundred"  $200 - $300
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#fourhundred.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="fourhundred"  $300 - $400
+                  / .custom-control.custom-checkbox.collection-filter-checkbox
+                  /   input#fourhundredabove.custom-control-input type="checkbox" /
+                  /   label.custom-control-label for="fourhundredabove"  $400 above
+          /! silde-bar colleps block end here
+          /! side-bar single product slider start
+          .theme-card
+            h5.title-border Новинки
+            .offer-slider.slide-1
+              = for group <- Enum.chunk_every(@new_sidebar, 3) do
+                div
+                  = for item <- group do
+                    .media
+                      a href=""
+                        img.img-fluid.blur-up.lazyload alt="" src=List.first(item.images || []) /
+                      .media-body.align-self-center
+                        .rating
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                          i.fa.fa-star
+                        a href="product-page(no-sidebar).html"
+                          h6 = item.title
+                        h4 ="₽#{Decimal.to_string(item.price)}"
+          /! side-bar single product slider end
+          /! side-bar banner start here
+          .collection-sidebar-banner
+            a href="#"
+              img.img-fluid.blur-up.lazyload alt="" src="/images/side-banner.png" /
+          /! side-bar banner end here
+        .collection-content.col
+          .page-main-content
+            .row
+              .col-sm-12
+                / .top-banner-wrapper
+                /   a href="#"
+                /     img.img-fluid.blur-up.lazyload alt="" src="/images/mega-menu/2.jpg" /
+                /   .top-banner-content.small-section
+                /     h4 fashion
+                /     h5 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                /     p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                .collection-product-wrapper
+                  .product-top-filter
+                    .row
+                      .col-xl-12
+                        .filter-main-btn
+                          span.filter-btn.btn.btn-theme
+                            i.fa.fa-filter aria-hidden="true"
+                            | Фильтр
+                    .row
+                      .col-12
+                        .product-filter-content
+                          .search-count
+                            h5 Товаров 1 - 24 из 10
+                          .collection-view
+                            ul
+                              li
+                                i.fa.fa-th.grid-layout-view
+                              li
+                                i.fa.fa-list-ul.list-layout-view
+                          .collection-grid-view
+                            ul
+                              li
+                                img.product-2-layout-view alt="" src="/images/icon/2.png" /
+                              li
+                                img.product-3-layout-view alt="" src="/images/icon/3.png" /
+                              li
+                                img.product-4-layout-view alt="" src="/images/icon/4.png" /
+                              li
+                                img.product-6-layout-view alt="" src="/images/icon/6.png" /
+                          .product-page-per-view
+                            select
+                              option value=("High to low")  24 товаров на странице
+                              option value=("Low to High")  50 товаров на странице
+                              option value=("Low to High")  100 товаров на странице
+                          .product-page-filter
+                            select
+                              option value=("High to low")  По цене (возрастание)
+                              option value=("Low to High")  По цене (убывание)
+                  .product-wrapper-grid
+                    .row
+                      = for item <- @products do
+                        .col-xl-3.col-md-6.col-grid-box
+                          .product-box
+                            .img-wrapper
+                              .lable-block
+                                = if item.hit do
+                                  span.lable3 style="width: 45px" hit
+                                = if item.new do
+                                  span.lable3 new
+                                = if item.discount do
+                                  span.lable4 on sale
+                              .front
+                                a href="product-page(no-sidebar).html"
+                                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.first(item.images || [])
+                              .back
+                                a href="product-page(no-sidebar).html"
+                                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.last(item.images || [])
+                              .cart-info.cart-wrap
+                                button data-target="#addtocart" data-toggle="modal" title=("Add to cart")
+                                  i.ti-shopping-cart
+                                a href="javascript:void(0)" title=("Add to Wishlist")
+                                  i.ti-heart aria-hidden="true"
+                                a data-target="#quick-view" data-toggle="modal" href="#" title=("Quick View")
+                                  i.ti-search aria-hidden="true"
+                            .product-detail
+                              .rating
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                                i.fa.fa-star
+                              a href="product-page(no-sidebar).html"
+                              h6 = item.title
+                              h4
+                                = "₽#{Decimal.to_string(item.price)}"
+                  = pagination_links(@conn, @page)
+/! section End
