@@ -10,9 +10,10 @@ defmodule Crocodile.Context.Items do
 
     Product
     |> where_main()
+    |> where_brand(params)
     |> with_price(params)
     |> by_category_path(category)
-    |> order_by([p], asc: p.hit)
+    |> sort_filter(params)
     |> Repo.paginate(params)
   end
 
@@ -22,6 +23,7 @@ defmodule Crocodile.Context.Items do
     max_price_lim =
       Product
       |> where_main()
+      |> where_brand(params)
       |> by_category_path(category)
       |> select([p], max(p.price))
       |> Repo.one()
@@ -98,6 +100,21 @@ defmodule Crocodile.Context.Items do
     case params["maxprice"] do
       nil -> updated_query
       val -> where(updated_query, [p], p.price <= ^String.to_integer(val))
+    end
+  end
+
+  defp where_brand(query, params) do
+    case params["brands"] do
+      val when val in [nil, ""] -> query
+      val -> where(query, [p], p.brand_title in ^String.split(val, ","))
+    end
+  end
+
+  defp sort_filter(query, params) do
+    case params["sort"] do
+      "htl" -> order_by(query, [p], desc: p.price)
+      "lth" -> order_by(query, [p], asc: p.price)
+      _ -> order_by(query, [p], asc: p.hit)
     end
   end
 end

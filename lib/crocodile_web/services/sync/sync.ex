@@ -4,6 +4,7 @@ defmodule Crocodile.Services.Sync do
   alias Crocodile.Services.Sync.StructBuilder
   alias Crocodile.Services.Sync.Category
   alias Crocodile.Services.Sync.DB
+  alias Crocodile.Services.Catalog.Brands
 
   @db_link "https://sex-opt.ru/catalogue/db_export?type=csv&columns_separator=%26%26%26&text_separator=%40%40%40"
 
@@ -25,6 +26,7 @@ defmodule Crocodile.Services.Sync do
     end
 
     Category.call()
+    Brands.refresh()
 
     :ok
   end

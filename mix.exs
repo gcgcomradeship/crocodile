@@ -50,7 +50,8 @@ defmodule Crocodile.MixProject do
       {:scrivener_html, "~> 1.8"},
       {:httpoison, "~> 1.6"},
       {:ucol, "~> 2.0"},
-      {:timex, "~> 3.5"}
+      {:timex, "~> 3.5"},
+      {:redix, ">= 0.0.0"}
     ]
   end
 

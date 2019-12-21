@@ -33,6 +33,7 @@ defmodule CrocodileWeb do
     quote do
       import Ecto.Query
       alias Crocodile.Repo
+      alias Crocodile.Service.Redis
     end
   end
 
@@ -41,6 +42,7 @@ defmodule CrocodileWeb do
       use Phoenix.Controller
       import Ecto.Query
       alias Crocodile.Repo
+      alias Crocodile.Service.Redis
     end
   end
 
@@ -48,6 +50,7 @@ defmodule CrocodileWeb do
     quote do
       import Ecto.Query
       alias Crocodile.Repo
+      alias Crocodile.Service.Redis
     end
   end
 

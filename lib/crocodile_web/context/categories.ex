@@ -13,6 +13,12 @@ defmodule Crocodile.Context.Categories do
     "Промотовары"
   ]
 
+  def all() do
+    Category
+    |> where_main()
+    |> Repo.all()
+  end
+
   def hierarchy() do
     Category
     |> where_main()

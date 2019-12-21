@@ -4,3 +4,4 @@ alias Crocodile.Admin
 alias Crocodile.Product
 alias Crocodile.Category
 alias Crocodile.Services.Sync
+alias Crocodile.Service.Redis

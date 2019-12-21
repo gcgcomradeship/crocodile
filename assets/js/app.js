@@ -49,8 +49,10 @@ import "./bootstrap-notify.min.js"
 import "./fly-cart.js"
 // Theme js
 import "./script.js"
-// Price slider
+// Custom
 import "./price_slider.js"
+import "./brand_filter.js"
+import "./page_filter.js"
 // Actions binding
 // import "./actions.js"
 

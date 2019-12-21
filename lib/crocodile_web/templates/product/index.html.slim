@@ -27,24 +27,16 @@ section.section-b-space.ratio_asos
                 i.fa.fa-angle-left aria-hidden="true"
                 | back
             .collection-collapse-block.open
-              h3.collapse-block-title brand
+              h3.collapse-block-title популярные бренды
               .collection-collapse-block-content
                 .collection-brand-filter
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#zara.custom-control-input type="checkbox" /
-                    label.custom-control-label for="zara"  zara
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#vera-moda.custom-control-input type="checkbox" /
-                    label.custom-control-label for="vera-moda"  vera-moda
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#forever-21.custom-control-input type="checkbox" /
-                    label.custom-control-label for="forever-21"  forever-21
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#roadster.custom-control-input type="checkbox" /
-                    label.custom-control-label for="roadster"  roadster
-                  .custom-control.custom-checkbox.collection-filter-checkbox
-                    input#only.custom-control-input type="checkbox" /
-                    label.custom-control-label for="only"  only
+                  = for brand <- @brands do
+                    .custom-control.custom-checkbox.collection-filter-checkbox
+                      = if brand in @brand_filter do
+                        input.custom-control-input.brand-input id=brand type="checkbox" checked="true"/
+                      - else
+                        input.custom-control-input.brand-input id=brand type="checkbox"/
+                      label.custom-control-label for=brand  = brand
             /! price filter start here
             .collection-collapse-block.border-0.open
               h3.collapse-block-title цена (₽)
@@ -117,7 +109,9 @@ section.section-b-space.ratio_asos
                       .col-12
                         .product-filter-content
                           .search-count
-                            h5 Товаров 1 - 24 из 10
+                            - from_page = (@page.page_number - 1) * @page.page_size + 1
+                            - to_page = from_page + @page.page_size - 1
+                            h5 = "Товары #{from_page} - #{to_page} из #{@page.total_entries}"
                           .collection-view
                             ul
                               li
@@ -135,14 +129,15 @@ section.section-b-space.ratio_asos
                               li
                                 img.product-6-layout-view alt="" src="/images/icon/6.png" /
                           .product-page-per-view
-                            select
-                              option value=("High to low")  24 товаров на странице
-                              option value=("Low to High")  50 товаров на странице
-                              option value=("Low to High")  100 товаров на странице
+                            select#page_size
+                              option selected=(if @conn.params["page_size"] == "24", do: true) value=24  24 товаров на странице
+                              option selected=(if @conn.params["page_size"] == "50", do: true) value=50  50 товаров на странице
+                              option selected=(if @conn.params["page_size"] == "100", do: true) value=100  100 товаров на странице
                           .product-page-filter
-                            select
-                              option value=("High to low")  По цене (возрастание)
-                              option value=("Low to High")  По цене (убывание)
+                            select#page_sort
+                              option value="hit" selected=(if @conn.params["sort"] == "hit", do: true) Хит продаж
+                              option value="lth" selected=(if @conn.params["sort"] == "lth", do: true) По цене (возрастание)
+                              option value="htl" selected=(if @conn.params["sort"] == "htl", do: true) По цене (убывание)
                   .product-wrapper-grid
                     .row
                       = for item <- @products do

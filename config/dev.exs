@@ -73,3 +73,5 @@ config :crocodile, Crocodile.Repo,
   database: "crocodile_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :crocodile, :redis, url: "redis://localhost:6379/1"

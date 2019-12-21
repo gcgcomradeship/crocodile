@@ -4,6 +4,7 @@ defmodule CrocodileWeb.ProductController do
   alias Crocodile.Product
   alias Crocodile.Context.Categories
   alias Crocodile.Context.Items
+  alias Crocodile.Services.Catalog.Brands
 
   @exclude [
     "Архив",
@@ -31,6 +32,8 @@ defmodule CrocodileWeb.ProductController do
     page = Items.by_category(params)
 
     render(conn, "index.html",
+      brands: Brands.call(parent),
+      brand_filter: String.split(params["brands"] || "", ","),
       breadcrumbs: breadcrumbs(params),
       parent: parent,
       products: Items.by_category(params),
@@ -38,12 +41,7 @@ defmodule CrocodileWeb.ProductController do
       cat_names: Categories.names(),
       new_sidebar: Items.new_sidebar(),
       page: page,
-      items: page.entries,
-      prices_filter: Items.prices_filter(params),
-      page_number: page.page_number,
-      page_size: page.page_size,
-      total_pages: page.total_pages,
-      total_entries: page.total_entries
+      prices_filter: Items.prices_filter(params)
     )
   end
 
