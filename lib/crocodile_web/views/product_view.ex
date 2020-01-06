@@ -1,6 +1,43 @@
 defmodule CrocodileWeb.ProductView do
   use CrocodileWeb, :view
 
+  def item_details(product) do
+    base_params = [
+      country: "Страна производитель",
+      manufacturer: "Производитель",
+      brand_title: "Бренд",
+      size: "Размер"
+    ]
+
+    details(product, base_params)
+  end
+
+  def size_details(product) do
+    base_params = [
+      weight: "Вес (кг)",
+      length: "Длина (см)",
+      width: "Ширина (см)",
+      battery: "Батарейки",
+      color: "Цвет",
+      material: "Материал",
+      waterproof: "Водонепроницаемый"
+    ]
+
+    details(product, base_params)
+  end
+
+  def addit_details(product) do
+    base_params = [
+      width_packed: "Ширина (с упаковкой) (см)",
+      height_packed: "Высота (с упаковкой) (см)",
+      length_packed: "Длина (с упаковкой) (см)",
+      weight_packed: "Вес (с упаковкой) (кг)",
+      pieces: "Количество в упаковке (шт)"
+    ]
+
+    details(product, base_params)
+  end
+
   def pagination_links(conn, page) do
     content_tag :div, class: "product-pagination" do
       content_tag :div, class: "theme-paggination-block" do
@@ -98,5 +135,17 @@ defmodule CrocodileWeb.ProductView do
         "#{page_num}"
       end
     end
+  end
+
+  defp details(product, base_params) do
+    for {key, title} <- base_params do
+      case Map.get(product, key) do
+        nil -> nil
+        true -> {title, "Да"}
+        false -> {title, "Нет"}
+        val -> {title, val}
+      end
+    end
+    |> Enum.filter(&(not is_nil(&1)))
   end
 end

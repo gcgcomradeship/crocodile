@@ -28,31 +28,33 @@ import "jquery"
 import "nouislider"
 // import "./jquery-3.3.1.min.js"
 // fly cart ui jquery
-import "./jquery-ui.min.js"
+import "./main/jquery-ui.min.js"
 // exitintent jquery
-import "./jquery.exitintent.js"
-import "./exit.js"
+import "./main/jquery.exitintent.js"
+import "./main/exit.js"
 // popper js
-import "./popper.min.js"
+import "./main/popper.min.js"
 // slick js
-import "./slick.js"
+import "./main/slick.js"
 // menu js
-import "./menu.js"
+import "./main/menu.js"
 // lazyload js
-import "./lazysizes.min.js"
+import "./main/lazysizes.min.js"
 // Bootstrap js
 // import 'bootstrap'
-import "./bootstrap.js"
+import "./main/bootstrap.js"
 // Bootstrap Notification js
-import "./bootstrap-notify.min.js"
+import "./main/bootstrap-notify.min.js"
 // Fly cart js
-import "./fly-cart.js"
+import "./main/fly-cart.js"
 // Theme js
-import "./script.js"
+import "./main/script.js"
+// Elevate zoom (images)
+// import "./jquery.elevatezoom.js"
 // Custom
-import "./price_slider.js"
-import "./brand_filter.js"
-import "./page_filter.js"
+import "./main/price_slider.js"
+import "./main/brand_filter.js"
+import "./main/page_filter.js"
 // Actions binding
 // import "./actions.js"
 

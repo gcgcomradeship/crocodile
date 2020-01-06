@@ -2,13 +2,29 @@ doctype html
 html lang="en"
   head
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    meta charset="utf-8" /
-    title Crocodildo admin
-    meta content=("Crocodildo admin") name="description" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
     meta content="width=device-width, initial-scale=1.0" name="viewport" /
-    link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"
+    meta content=("Crocodildo admin") name="description" /
+    / meta content="crocodildo" name="author" /
+    title Crocodildo admin
+    / link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"
+
+
+    link href="#{Routes.static_path(@conn, "/images/favicon/favicon.ico")}" rel=("shortcut icon") /
+    link href="#{Routes.static_path(@conn, "/images/dashboard/favicon.png")}" rel="icon" type="image/x-icon" /
+    link href="#{Routes.static_path(@conn, "/images/dashboard/favicon.png")}" rel=("shortcut icon") type="image/x-icon" /
+    /! Google font
+    link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet" /
+    link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" /
+
     link href="#{Routes.static_path(@conn, "/css/admin.css")}" rel="stylesheet" /
   body
-    = render CrocodileWeb.LayoutView, "_admin_nav.html", assigns
-    = render @view_module, @view_template, assigns
+    .page-wrapper
+      = render CrocodileWeb.LayoutView, "_admin_nav.html", assigns
+      /! Page Body Start
+      .page-body-wrapper
+        = render CrocodileWeb.LayoutView, "_admin_sidebar.html", assigns
+        .page-body
+          = render @view_module, @view_template, assigns
+        = render CrocodileWeb.LayoutView, "_admin_footer.html", assigns
     script src="#{Routes.static_path(@conn, "/js/admin.js")}" type="text/javascript"

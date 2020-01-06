@@ -7,6 +7,10 @@ defmodule CrocodileWeb.Router do
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+
+    if Mix.env() == :prod do
+      plug Crocodile.Plug.BasicAuth, username: "admin", password: "Arbuz123"
+    end
   end
 
   pipeline :api do
@@ -31,7 +35,7 @@ defmodule CrocodileWeb.Router do
     # Test pages
     get "/main", PageController, :main
     get "/catalog", ProductController, :index
-    get "/item", ProductController, :show
+    get "/item/:id", ProductController, :show
     get "/example", PageController, :example
   end
 

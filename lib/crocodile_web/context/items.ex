@@ -17,6 +17,16 @@ defmodule Crocodile.Context.Items do
     |> Repo.paginate(params)
   end
 
+  def related_items(%{id: id, category_id: category_id}) do
+    Product
+    |> where_main()
+    |> where([p], p.category_id == ^category_id)
+    |> where([p], p.id != ^id)
+    |> order_by([p], fragment("RANDOM()"))
+    |> limit(6)
+    |> Repo.all()
+  end
+
   def prices_filter(params) do
     category = Category |> Repo.get(params["category"] || 0)
 

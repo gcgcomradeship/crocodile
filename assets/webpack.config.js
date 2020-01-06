@@ -42,7 +42,10 @@ module.exports = (env, options) => ({
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery",
-      noUiSlider: "nouislider"
+      'window.jQuery': "jquery",
+      noUiSlider: "nouislider",
+      feather: "feather-icons",
+      ClipboardJS: "clipboard"
     })
   ]
 });

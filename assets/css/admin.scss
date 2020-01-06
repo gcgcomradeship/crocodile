@@ -1,6 +1,17 @@
 /* This file is for your main application css. */
 
-@import '../node_modules/bootstrap/scss/bootstrap';
-@import "./admin_sign.scss";
-@import "admin_custom";
+// @import '../node_modules/bootstrap/scss/bootstrap';
+// @import "./admin_sign.scss";
+// @import "admin_custom";
 
+// @import "./admin_sign.scss";
+
+// Main
+@import  "./main/bootstrap.css";
+@import  "./main/fontawesome.css";
+// Admin
+@import  "./admin/flag-icon.css";
+@import  "./admin/icofont.css";
+@import  "./admin/prism.css";
+@import  "./admin/chartist.css";
+@import  "./admin/admin.css";

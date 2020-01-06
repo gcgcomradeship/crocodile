@@ -47,7 +47,14 @@ defmodule CrocodileWeb.ProductController do
 
   def show(conn, params) do
     product = Product |> Repo.get(params["id"] || 0)
-    render(conn, "show.html", product: product)
+
+    render(conn, "show.html",
+      product: product,
+      breadcrumbs: breadcrumbs(%{"category" => product.category_id}),
+      cat_hierarchy: Categories.hierarchy(),
+      cat_names: Categories.names(),
+      related_items: Items.related_items(product)
+    )
   end
 
   defp where_category(query, params) do

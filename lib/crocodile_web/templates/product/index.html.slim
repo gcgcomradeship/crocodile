@@ -68,7 +68,7 @@ section.section-b-space.ratio_asos
                 div
                   = for item <- group do
                     .media
-                      a href=""
+                      a href=Routes.product_path(@conn, :show, item)
                         img.img-fluid.blur-up.lazyload alt="" src=List.first(item.images || []) /
                       .media-body.align-self-center
                         .rating
@@ -77,7 +77,7 @@ section.section-b-space.ratio_asos
                           i.fa.fa-star
                           i.fa.fa-star
                           i.fa.fa-star
-                        a href="product-page(no-sidebar).html"
+                        a href=Routes.product_path(@conn, :show, item)
                           h6 = item.title
                         h4 ="₽#{Decimal.to_string(item.price)}"
           /! side-bar single product slider end
@@ -152,10 +152,10 @@ section.section-b-space.ratio_asos
                                 = if item.discount do
                                   span.lable4 on sale
                               .front
-                                a href="product-page(no-sidebar).html"
+                                a href=Routes.product_path(@conn, :show, item)
                                   img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.first(item.images || [])
                               .back
-                                a href="product-page(no-sidebar).html"
+                                a href=Routes.product_path(@conn, :show, item)
                                   img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.last(item.images || [])
                               .cart-info.cart-wrap
                                 button data-target="#addtocart" data-toggle="modal" title=("Add to cart")
@@ -171,7 +171,7 @@ section.section-b-space.ratio_asos
                                 i.fa.fa-star
                                 i.fa.fa-star
                                 i.fa.fa-star
-                              a href="product-page(no-sidebar).html"
+                              a href=Routes.product_path(@conn, :show, item)
                               h6 = item.title
                               h4
                                 = "₽#{Decimal.to_string(item.price)}"

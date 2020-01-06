@@ -1,27 +1,250 @@
-/! start services
-section#services
-  .bottomwaves
-  /! need for slide
-  /! start container
-  .container.clearfix
-    /! start our services
-    /! Service
-    .grid_8
-      / img.rotate alt="" src="#{Routes.static_path(@conn, "/images/section-services/service1.png")}" /
-      /! You can find the service icons in vector format in psd attachment.
-      h2= @product.title
-      /! you can edit
-      p= @product.description
-      /! you can edit
-    /! Service
-    /! Service
-    .grid_4
-      .product
-        = if List.first(@product.images) do
-          img.imgwork alt="" src=List.first(@product.images) /
-        - else
-          img.imgwork alt="" src="#{Routes.static_path(@conn, "/images/section-works/imgworks1.jpg")}" /
-    /! Service
-    /! end our services
-  /! end container
-/! end services
+/! breadcrumb start
+.breadcrumb-section
+  .container
+    .row
+      .col-sm-2
+        .page-title
+          h2 каталог
+      .col-sm-10
+        nav.theme-breadcrumb aria-label="breadcrumb"
+          ol.breadcrumb
+            = for {title, id} <- @breadcrumbs do
+              li.breadcrumb-item
+                a href=Routes.product_path(@conn, :index, category: id)
+                  = title
+/! breadcrumb end
+/! section start
+section
+  .collection-wrapper
+    .container
+      .row
+        .col-lg-1.col-sm-2.col-xs-12
+          .row
+            .col-12.p-0
+              .slider-right-nav
+                = for image <- @product.images do
+                  div
+                    img.img-fluid.blur-up.lazyload alt="" src=image /
+        .col-lg-4.col-sm-10.col-xs-12.order-up
+          .product-right-slick
+            = for image <- @product.images do
+              div
+                img.img-fluid.blur-up.lazyload.image_zoom_cls-0 alt="" src=image /
+        .col-lg-7.rtl-text
+          .product-right
+            h2 = @product.title
+            / h4
+            /   del $459.00
+            /   span 55% off
+            h3 = "₽#{Decimal.to_string(@product.price)}"
+            / ul.color-variant
+            /   li.bg-light0
+            /   li.bg-light1
+            /   li.bg-light2
+            .product-description.border-product
+              / h6.product-title.size-text
+              /   | select size
+              /   span
+              /     a data-target="#sizemodal" data-toggle="modal" href=""  size chart
+              / #sizemodal.modal.fade aria-hidden="true" aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1"
+              /   .modal-dialog.modal-dialog-centered role="document"
+              /     .modal-content
+              /       .modal-header
+              /         h5#exampleModalLabel.modal-title Sheer Straight Kurta
+              /         button.close aria-label="Close" data-dismiss="modal" type="button"
+              /           span aria-hidden="true"  ×
+              /       .modal-body
+              /         img.img-fluid.blur-up.lazyload alt="" src="../assets/images/size-chart.jpg" /
+              / .size-box
+              /   ul
+              /     li.active
+              /       a href="#"  s
+              /     li
+              /       a href="#"  m
+              /     li
+              /       a href="#"  l
+              /     li
+              /       a href="#"  xl
+              h6.product-title Количество
+              .qty-box
+                .input-group
+                  span.input-group-prepend
+                    button.btn.quantity-left-minus data-field="" data-type="minus" type="button"
+                      i.ti-angle-left
+                  input.form-control.input-number name="quantity" type="text" value="1" /
+                  span.input-group-prepend
+                    button.btn.quantity-right-plus data-field="" data-type="plus" type="button"
+                      i.ti-angle-right
+            .product-buttons
+              a.btn.btn-solid data-target="#addtocart" data-toggle="modal" href="#"  = "В корзину"
+              a.btn.btn-solid href="#"  Купить
+            .border-product
+              h6.product-title Описание
+              p
+                = @product.description || "-"
+            .border-product
+              h6.product-title Поделиться
+              .product-icon
+                ul.product-social
+                  li
+                    a href="#"
+                      i.fa.fa-facebook
+                  li
+                    a href="#"
+                      i.fa.fa-google-plus
+                  li
+                    a href="#"
+                      i.fa.fa-twitter
+                  li
+                    a href="#"
+                      i.fa.fa-instagram
+                  li
+                    a href="#"
+                      i.fa.fa-rss
+                form.d-inline-block
+                  button.wishlist-btn
+                    i.fa.fa-heart
+                    span.title-font Добавить в список желаемого
+/! Section ends
+/! product-tab starts
+section.tab-product.m-0
+  .container
+    .row
+      .col-sm-12.col-lg-12
+        ul#top-tab.nav.nav-tabs.nav-material role="tablist"
+          li.nav-item
+            a#profile-top-tab.nav-link.active aria-selected="false" data-toggle="tab" href="#top-profile" role="tab"  Подробнее
+            .material-border
+          = if @product.video do
+            li.nav-item
+              a#contact-top-tab.nav-link aria-selected="false" data-toggle="tab" href="#top-contact" role="tab"  Видео
+              .material-border
+          li.nav-item
+            a#review-top-tab.nav-link aria-selected="false" data-toggle="tab" href="#top-review" role="tab"  Оставьте отзыв
+            .material-border
+        #top-tabContent.tab-content.nav-material
+          #top-profile.tab-pane.fade.show.active aria-labelledby="profile-top-tab" role="tabpanel"
+            p =@product.description
+            .single-product-tables
+              .details.row
+                - item_details = item_details(@product)
+                - size_details = size_details(@product)
+                - addit_details = addit_details(@product)
+                = if item_details != [] do
+                  .col-xl-4.col-md-6.col-grid-box
+                    = for {title, value} <- item_details do
+                      .detail.row
+                        .col-md-6
+                          b= title <> ":"
+                        .col-md-6
+                          span.details-val= value
+                = if size_details != [] do
+                  .col-xl-4.col-md-6.col-grid-box
+                    = for {title, value} <- size_details do
+                      .detail.row
+                        .col-md-6
+                          b= title <> ":"
+                        .col-md-6
+                          span.details-val= value
+                = if addit_details != [] do
+                  .col-xl-4.col-md-6.col-grid-box
+                    = for {title, value} <- addit_details do
+                      .detail.row
+                        .col-md-6
+                          b= title <> ":"
+                        .col-md-6
+                          span.details-val= value
+              / table
+              /   tbody
+              /     = for {title, value} <- item_details(@product) do
+              /       tr
+              /         td = title
+              /         td = value
+              / table
+              /   tbody
+              /     = for {title, value} <- size_details(@product) do
+              /       tr
+              /         td = title
+              /         td = value
+              / table
+              /   tbody
+              /     = for {title, value} <- addit_details(@product) do
+              /       tr
+              /         td = title
+              /         td = value
+
+          = if @product.video do
+            #top-contact.tab-pane.fade aria-labelledby="contact-top-tab" role="tabpanel"
+              .mt-4.text-center
+                iframe allow=("autoplay; encrypted-media") allowfullscreen="" height="315" src=@product.video width="560"
+          #top-review.tab-pane.fade aria-labelledby="review-top-tab" role="tabpanel"
+            form.theme-form
+              .form-row
+                .col-md-12
+                  .media
+                    label Rating
+                    .media-body.ml-3
+                      .rating.three-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                        i.fa.fa-star
+                .col-md-6
+                  label for="name"  Name
+                  input#name.form-control placeholder=("Enter Your name") required="" type="text" /
+                .col-md-6
+                  label for="email"  Email
+                  input#email.form-control placeholder="Email" required="" type="text" /
+                .col-md-12
+                  label for="review"  Review Title
+                  input#review.form-control placeholder=("Enter your Review Subjects") required="" type="text" /
+                .col-md-12
+                  label for="review"  Review Title
+                  textarea#exampleFormControlTextarea1.form-control placeholder=("Wrire Your Testimonial Here") rows="6"
+                .col-md-12
+                  button.btn.btn-solid type="submit"  Submit YOur Review
+/! product-tab ends
+/! product section start
+section.section-b-space.ratio_asos
+  .container
+    .row
+      .col-12.product-related
+        h2 похожие продукты
+    .row.search-product
+      = for item <- @related_items do
+        .col-xl-2.col-md-4.col-sm-6
+          .product-box
+            .img-wrapper
+              .lable-block
+                = if item.hit do
+                  span.lable3 style="width: 45px" hit
+                = if item.new do
+                  span.lable3 new
+                = if item.discount do
+                  span.lable4 on sale
+              .front
+                a href=Routes.product_path(@conn, :show, item)
+                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.first(item.images || [])
+              .back
+                a href=Routes.product_path(@conn, :show, item)
+                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.last(item.images || [])
+              .cart-info.cart-wrap
+                button data-target="#addtocart" data-toggle="modal" title=("Add to cart")
+                  i.ti-shopping-cart
+                a href="javascript:void(0)" title=("Add to Wishlist")
+                  i.ti-heart aria-hidden="true"
+                a data-target="#quick-view" data-toggle="modal" href="#" title=("Quick View")
+                  i.ti-search aria-hidden="true"
+            .product-detail
+              .rating
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+              a href=Routes.product_path(@conn, :show, item)
+              h6 = item.title
+              h4
+                = "₽#{Decimal.to_string(item.price)}"
+/! product section end
