@@ -37,6 +37,7 @@ defmodule Crocodile.MixProject do
       {:phoenix_pubsub, "~> 1.1"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.0"},
+      {:ecto_enum, "~> 1.4"},
       {:postgrex, ">= 0.0.0"},
       {:comeonin, "~> 4.0"},
       {:bcrypt_elixir, "~> 1.0"},

@@ -3,5 +3,8 @@ alias Crocodile.Repo
 alias Crocodile.Admin
 alias Crocodile.Product
 alias Crocodile.Category
+alias Crocodile.Order
+alias Crocodile.OrderProduct
 alias Crocodile.Services.Sync
+alias Crocodile.Services.SMS
 alias Crocodile.Service.Redis
