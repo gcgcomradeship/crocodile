@@ -4,6 +4,8 @@ alias Crocodile.Admin
 alias Crocodile.Product
 alias Crocodile.Category
 alias Crocodile.Order
+alias Crocodile.User
+alias Crocodile.Session
 alias Crocodile.OrderProduct
 alias Crocodile.Services.Sync
 alias Crocodile.Services.SMS

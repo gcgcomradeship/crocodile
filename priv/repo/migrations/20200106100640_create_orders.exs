@@ -5,6 +5,11 @@ defmodule Crocodile.Repo.Migrations.CreateOrders do
     create table(:orders) do
       add(:number, :string)
       add(:status, :integer)
+      add(:payment_type, :integer)
+      add(:phone, :string)
+      add(:city, :string)
+      add(:address, :string)
+      add(:sid, :string)
       timestamps()
     end
   end

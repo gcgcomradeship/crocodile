@@ -2,10 +2,19 @@ defmodule Crocodile.Order do
   use Ecto.Schema
   import Ecto.Changeset
 
+  @foreign_key_type :binary_id
+
   schema "orders" do
     field(:number, :string)
     field(:status, OrderStatus)
+    field(:payment_type, PaymentType)
+    field(:phone, :string)
+    field(:city, :string)
+    field(:address, :string)
     timestamps()
+
+    belongs_to(:user, Crocodile.User)
+    belongs_to(:session, Crocodile.Session)
 
     many_to_many(:products, Crocodile.Products,
       join_through: "orders_products",
@@ -13,8 +22,8 @@ defmodule Crocodile.Order do
     )
   end
 
-  @required_fields ~w(number)a
-  @optional_fields ~w()a
+  @required_fields ~w(number status payment_type phone city session_id)a
+  @optional_fields ~w(address user_id)a
 
   @doc false
   def changeset(order, attrs) do

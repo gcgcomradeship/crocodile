@@ -1,0 +1,23 @@
+/! section start
+section.login-page.section-b-space
+  .container
+    .row
+      .col-lg-6
+        h3 Регистрация
+        .theme-card
+          = form_for @changeset, Routes.sign_up_session_path(@conn, :sign_up_create), [class: "theme-form"], fn f ->
+            .form-group
+              label for="email"  Email
+              = error_tag f, :email
+              = text_input f, :email, id: "email", class: "form-control", placeholder: "Email"
+            .form-group
+              label for="review"  Пароль
+              = error_tag f, :password
+              = text_input f, :password, class: "form-control", placeholder: "Enter password", type: "password"
+            .form-group
+              label for="review"  Подтвердите пароль
+              = error_tag f, :password_confirmation
+              = text_input f, :password_confirmation, class: "form-control", placeholder: "Enter password", type: "password"
+            = submit "Войти", class: "btn btn-solid"
+/! Section ends
+

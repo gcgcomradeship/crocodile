@@ -13,17 +13,19 @@ header
                 | Звоните: +7 (495) 777-66-55
         .col-lg-6.text-right
           ul.header-dropdown
-            li.mobile-wishlist
-              a href="#"
-                i.fa.fa-heart aria-hidden="true"
-            li.onhover-dropdown.mobile-account
-              i.fa.fa-user aria-hidden="true"
-              | Профиль
-              ul.onhover-show-div
-                li
-                  a data-lng="en" href="#"  Войти
-                li
-                  a data-lng="es" href="#"  Выйти
+            / li.mobile-wishlist
+            /   a href="#"
+            /     i.fa.fa-heart aria-hidden="true"
+            = if @conn.assigns[:current_user] do
+              li.onhover-dropdown.mobile-account
+                i.fa.fa-user aria-hidden="true"
+                = @conn.assigns.current_user.email
+                ul.onhover-show-div
+                  li
+                    = link "Выйти", to: Routes.session_path(@conn, :delete)
+            - else
+              li.mobile-account
+                = link "Войти", to: Routes.session_path(@conn, :new), class: "nav-link"
   .container
     .row
       .col-sm-12

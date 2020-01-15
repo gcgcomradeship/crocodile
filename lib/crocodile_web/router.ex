@@ -17,6 +17,10 @@ defmodule CrocodileWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :user_auth do
+    plug(Crocodile.Plug.UserAuth)
+  end
+
   pipeline :admin do
     plug :put_layout, {CrocodileWeb.LayoutView, :admin}
     # plug(:browser)
@@ -25,7 +29,13 @@ defmodule CrocodileWeb.Router do
 
   scope "/", CrocodileWeb do
     pipe_through :browser
-
+    pipe_through :user_auth
+    # Session pages
+    get("/sign_in", SessionController, :new)
+    get("/sign_up", SessionController, :sign_up, as: :sign_up_session)
+    post("/sign_up", SessionController, :sign_up_create, as: :sign_up_session)
+    post("/sign_in", SessionController, :create)
+    get("/sign_out", SessionController, :delete)
     # Site pages
     get "/", PageController, :index
     # get "/catalog", PageController, :catalog
