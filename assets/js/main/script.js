@@ -1339,45 +1339,45 @@
 /*------------------------------
  21. RTL & Dark Light
  -------------------------------*/
-$("#ltr_btn").click(function(){
-     $('body').addClass('ltr');
-    $('body').removeClass('rtl');
-});
-$("#rtl_btn").click(function(){
-     $('body').addClass('rtl');
-    $('body').removeClass('ltr');
-});
-$(".setting_buttons li").click(function(){
-    $(this).addClass('active').siblings().removeClass('active');
-});
-$(".color-box li").click(function(){
-    $(this).addClass('active').siblings().removeClass('active');
-});
+// $("#ltr_btn").click(function(){
+//      $('body').addClass('ltr');
+//     $('body').removeClass('rtl');
+// });
+// $("#rtl_btn").click(function(){
+//      $('body').addClass('rtl');
+//     $('body').removeClass('ltr');
+// });
+// $(".setting_buttons li").click(function(){
+//     $(this).addClass('active').siblings().removeClass('active');
+// });
+// $(".color-box li").click(function(){
+//     $(this).addClass('active').siblings().removeClass('active');
+// });
 
-// dark & light
-(function() {
-    $('<div class="sidebar-btn dark-light-btn">' +
-        '<div class="dark-light">'+
-        '<div class="theme-layout-version">Dark' +
-        '</div>' +
-        '</div>' +
-        '</div>').appendTo($('body'));
-})();
+// // dark & light
+// (function() {
+//     $('<div class="sidebar-btn dark-light-btn">' +
+//         '<div class="dark-light">'+
+//         '<div class="theme-layout-version">Dark' +
+//         '</div>' +
+//         '</div>' +
+//         '</div>').appendTo($('body'));
+// })();
 
-var body_event = $("body");
-body_event.on("click", ".theme-layout-version" , function(){
-    $(this).toggleClass('dark');
-    $('body').removeClass('dark');
-    if($('.theme-layout-version').hasClass('dark')){
-        $('.theme-layout-version').text('Light');
-        $('body').addClass('dark');
-    }else{
-        $('#theme-dark').remove();
-        $('.theme-layout-version').text('Dark');
-    }
+// var body_event = $("body");
+// body_event.on("click", ".theme-layout-version" , function(){
+//     $(this).toggleClass('dark');
+//     $('body').removeClass('dark');
+//     if($('.theme-layout-version').hasClass('dark')){
+//         $('.theme-layout-version').text('Light');
+//         $('body').addClass('dark');
+//     }else{
+//         $('#theme-dark').remove();
+//         $('.theme-layout-version').text('Dark');
+//     }
 
-    return false;
-});
+//     return false;
+// });
 
 
 /*=====================

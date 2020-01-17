@@ -111,7 +111,7 @@ footer.footer-light
 /! footer end
 /! cart start
 #fixed_cart_icon.addcart_btm_popup
-  a.fixed_cart href="#"
+  = link to: Routes.cart_path(@conn, :index), class: "fixed_cart" do
     i.ti-shopping-cart
 /! cart end
 /! tap to top start

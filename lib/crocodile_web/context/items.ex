@@ -3,6 +3,7 @@ defmodule Crocodile.Context.Items do
 
   alias Crocodile.Category
   alias Crocodile.Product
+  alias Crocodile.Services.Cart
 
   # Catalog category filtered query
   def by_category(params) do
@@ -88,6 +89,21 @@ defmodule Crocodile.Context.Items do
     |> order_by([p], fragment("RANDOM()"))
     |> limit(8)
     |> Repo.all()
+  end
+
+  # Cart by session_id
+  def cart_by_sid(sid) do
+    cart = Cart.get(sid)
+
+    products =
+      Product
+      |> where_main()
+      |> where([p], p.id in ^Map.keys(cart))
+      |> Repo.all()
+
+    for item <- products do
+      Map.put(item, :count, Map.get(cart, "#{item.id}")["cnt"])
+    end
   end
 
   defp where_main(query) do

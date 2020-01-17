@@ -1,21 +1,14 @@
 defmodule CrocodileWeb.PageController do
   use CrocodileWeb, :controller
-  alias Crocodile.Context.Categories
   alias Crocodile.Context.Items
 
   def index(conn, _params) do
     render(conn, "index.html",
-      cat_hierarchy: Categories.hierarchy(),
-      cat_names: Categories.names(),
       croc_choice: Items.croc_choice(),
       new: Items.new(),
       recommend: Items.recommend(),
       hit: Items.hit()
     )
-  end
-
-  def catalog(conn, _params) do
-    render(conn, "catalog.html")
   end
 
   def about(conn, _params) do

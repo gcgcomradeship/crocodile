@@ -21,6 +21,10 @@ defmodule CrocodileWeb.Router do
     plug(Crocodile.Plug.UserAuth)
   end
 
+  pipeline :nav_data_load do
+    plug(Crocodile.Plug.NavDataLoad)
+  end
+
   pipeline :admin do
     plug :put_layout, {CrocodileWeb.LayoutView, :admin}
     # plug(:browser)
@@ -30,6 +34,7 @@ defmodule CrocodileWeb.Router do
   scope "/", CrocodileWeb do
     pipe_through :browser
     pipe_through :user_auth
+    pipe_through :nav_data_load
     # Session pages
     get("/sign_in", SessionController, :new)
     get("/sign_up", SessionController, :sign_up, as: :sign_up_session)
@@ -41,6 +46,11 @@ defmodule CrocodileWeb.Router do
     # get "/catalog", PageController, :catalog
     get "/delivery", PageController, :delivery
     get "/about", PageController, :about
+
+    # Cart routes
+    get "/cart", CartController, :index
+    get "/cart/del_item", CartController, :del_item
+    get "/cart/set_count", CartController, :set_count
 
     # Test pages
     get "/main", PageController, :main

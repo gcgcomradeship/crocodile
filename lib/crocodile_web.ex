@@ -68,6 +68,7 @@ defmodule CrocodileWeb do
 
       import CrocodileWeb.ErrorHelpers
       import CrocodileWeb.Gettext
+      import Crocodile.Utils.Helper
       alias CrocodileWeb.Router.Helpers, as: Routes
     end
   end

@@ -1,0 +1,30 @@
+div
+  .icon-nav
+    ul
+      li.onhover-div.mobile-cart
+        = link to: Routes.cart_path(@conn, :index) do
+          img.img-fluid.blur-up.lazyload alt="" src="/images/icon/cart.png" /
+          i.ti-shopping-cart
+        ul.show-div.shopping-cart
+          = for item <- @cart do
+            li.nav-cart-item id="nav_cart_item_#{item.id}" price=item.price count=item.count
+              .media
+                = link to: Routes.product_path(@conn, :show, item) do
+                  img.mr-3 alt="" src=List.first(item.images)
+                .media-body
+                  = link to: Routes.product_path(@conn, :show, item) do
+                    h4 = concatinate(item.title)
+                  h4
+                    span.nav-cart-count = "#{item.count} x ₽ #{item.price}"
+              .close-circle.nav-cart-delete-item item_id=item.id
+                a href="#"
+                  i.fa.fa-times aria-hidden="true"
+          li
+            .total
+              h5
+                | Итого :
+                span#cart_total="₽ #{items_sum(@cart)}"
+          li
+            .buttons
+              = link "Корзина", to: Routes.cart_path(@conn, :index), class: "view-cart"
+              = link "Заказать", to: "#", class: "checkout"

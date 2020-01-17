@@ -22,6 +22,13 @@ defmodule Crocodile.Service.Redis do
     result
   end
 
+  def del(key) do
+    {:ok, conn} = connect()
+    {:ok, result} = Redix.command(conn, ["DEL", key])
+    close(conn)
+    result
+  end
+
   def setex(key, value, seconds)
       when is_bitstring(key) and is_bitstring(value) and is_integer(seconds) do
     {:ok, conn} = connect()

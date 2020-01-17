@@ -2,7 +2,6 @@ defmodule CrocodileWeb.ProductController do
   use CrocodileWeb, :controller
   alias Crocodile.Category
   alias Crocodile.Product
-  alias Crocodile.Context.Categories
   alias Crocodile.Context.Items
   alias Crocodile.Services.Catalog.Brands
 
@@ -37,8 +36,6 @@ defmodule CrocodileWeb.ProductController do
       breadcrumbs: breadcrumbs(params),
       parent: parent,
       products: Items.by_category(params),
-      cat_hierarchy: Categories.hierarchy(),
-      cat_names: Categories.names(),
       new_sidebar: Items.new_sidebar(),
       page: page,
       prices_filter: Items.prices_filter(params)
@@ -51,8 +48,6 @@ defmodule CrocodileWeb.ProductController do
     render(conn, "show.html",
       product: product,
       breadcrumbs: breadcrumbs(%{"category" => product.category_id}),
-      cat_hierarchy: Categories.hierarchy(),
-      cat_names: Categories.names(),
       related_items: Items.related_items(product)
     )
   end

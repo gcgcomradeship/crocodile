@@ -1,0 +1,56 @@
+/! section start
+section.cart-section.section-b-space
+  .container
+    .row
+      .col-sm-12
+        table.table.cart-table.table-responsive-xs
+          thead
+            tr.table-head
+              th scope="col"  Изображение
+              th scope="col"  Наименование
+              th scope="col"  Цена (за шт.)
+              th scope="col"  Количество
+              th scope="col"  Цена (всего)
+              th scope="col"
+          = for item <- @cart do
+            tbody.cart-item id="cart_item_#{item.id}" price=item.price total=total(item) count=item.count
+              tr
+                td
+                  = link to: Routes.product_path(@conn, :show, item) do
+                    img alt="" src=List.first(item.images)
+                td
+                  = link item.title, to: Routes.product_path(@conn, :show, item)
+                  .mobile-cart-content.row
+                    .col-xs-3
+                      .qty-box
+                        .input-group
+                          input.form-control.input-number name="quantity" type="text" value="1" /
+                    .col-xs-3
+                      h2.td-color ="₽#{Decimal.to_string(item.price)}"
+                    .col-xs-3
+                      h2.td-color
+                        a.icon href="#"
+                          i.ti-close
+                td
+                  h2 ="₽#{Decimal.to_string(item.price)}"
+                td
+                  .qty-box
+                    .input-group
+                      input.form-control.input-number.item-count item_id=item.id name="quantity" type="number" value=item.count
+                td
+                  h2.td-color.total-view="₽#{total(item)}"
+                td
+                  a.icon.cart-delete-item item_id=item.id href="#" title="Удалить из корзины"
+                    i.ti-close
+        table.table.cart-table.table-responsive-md
+          tfoot
+            tr
+              td Итого :
+              td
+                h2.sum-total-view = "₽#{items_sum(@cart)}"
+    .row.cart-buttons
+      .col-6
+        = link "Продолжить покупки", to: Routes.product_path(@conn, :index), class: "btn btn-solid"
+      .col-6
+        a.btn.btn-solid href="#"  Оформить заказ
+/! section end
