@@ -1,11 +1,22 @@
 defmodule CrocodileWeb.CartController do
   use CrocodileWeb, :controller
-  alias Crocodile.Context.Categories
   alias Crocodile.Context.Items
   alias Crocodile.Services.Cart
 
   def index(%{assigns: %{session: %{id: sid}}} = conn, _params) do
     render(conn, "index.html")
+  end
+
+  def add_item(%{assigns: %{session: %{id: sid}}} = conn, %{"item_id" => item_id} = _params) do
+    case Cart.add(sid, item_id) do
+      res when is_map(res) ->
+        render(conn, "add.json", cart: Items.cart_by_sid(sid))
+
+      _ ->
+        conn
+        |> put_status(:unprocessable_entity)
+        |> render("error.json")
+    end
   end
 
   def del_item(%{assigns: %{session: %{id: sid}}} = conn, %{"item_id" => item_id} = _params) do

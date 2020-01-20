@@ -65,19 +65,20 @@ section
               /       a href="#"  l
               /     li
               /       a href="#"  xl
-              h6.product-title Количество
-              .qty-box
-                .input-group
-                  span.input-group-prepend
-                    button.btn.quantity-left-minus data-field="" data-type="minus" type="button"
-                      i.ti-angle-left
-                  input.form-control.input-number name="quantity" type="text" value="1" /
-                  span.input-group-prepend
-                    button.btn.quantity-right-plus data-field="" data-type="plus" type="button"
-                      i.ti-angle-right
+              / h6.product-title Количество
+              / .qty-box
+              /   .input-group
+              /     span.input-group-prepend
+              /       button.btn.quantity-left-minus data-field="" data-type="minus" type="button"
+              /         i.ti-angle-left
+              /     input.form-control.input-number name="quantity" type="text" value="1" /
+              /     span.input-group-prepend
+              /       button.btn.quantity-right-plus data-field="" data-type="plus" type="button"
+              /         i.ti-angle-right
             .product-buttons
-              a.btn.btn-solid data-target="#addtocart" data-toggle="modal" href="#"  = "В корзину"
-              a.btn.btn-solid href="#"  Купить
+              .btn.btn-solid.cart-btn.cart-btn-product item-id=@product.id
+                = "Добавить в корзину"
+              a.btn.btn-solid href=Routes.cart_path(@conn, :index)  Купить
             .border-product
               h6.product-title Описание
               p
@@ -213,37 +214,5 @@ section.section-b-space.ratio_asos
     .row.search-product
       = for item <- @related_items do
         .col-xl-2.col-md-4.col-sm-6
-          .product-box
-            .img-wrapper
-              .lable-block
-                = if item.hit do
-                  span.lable3 style="width: 45px" hit
-                = if item.new do
-                  span.lable3 new
-                = if item.discount do
-                  span.lable4 on sale
-              .front
-                a href=Routes.product_path(@conn, :show, item)
-                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.first(item.images || [])
-              .back
-                a href=Routes.product_path(@conn, :show, item)
-                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.last(item.images || [])
-              .cart-info.cart-wrap
-                button data-target="#addtocart" data-toggle="modal" title=("Add to cart")
-                  i.ti-shopping-cart
-                a href="javascript:void(0)" title=("Add to Wishlist")
-                  i.ti-heart aria-hidden="true"
-                a data-target="#quick-view" data-toggle="modal" href="#" title=("Quick View")
-                  i.ti-search aria-hidden="true"
-            .product-detail
-              .rating
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-              a href=Routes.product_path(@conn, :show, item)
-              h6 = item.title
-              h4
-                = "₽#{Decimal.to_string(item.price)}"
+          = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
 /! product section end

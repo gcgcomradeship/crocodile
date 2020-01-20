@@ -5,7 +5,7 @@ div
         = link to: Routes.cart_path(@conn, :index) do
           img.img-fluid.blur-up.lazyload alt="" src="/images/icon/cart.png" /
           i.ti-shopping-cart
-        ul.show-div.shopping-cart
+        ul.show-div.shopping-cart#cart
           = for item <- @cart do
             li.nav-cart-item id="nav_cart_item_#{item.id}" price=item.price count=item.count
               .media

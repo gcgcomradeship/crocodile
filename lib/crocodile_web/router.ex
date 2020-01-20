@@ -50,6 +50,7 @@ defmodule CrocodileWeb.Router do
     # Cart routes
     get "/cart", CartController, :index
     get "/cart/del_item", CartController, :del_item
+    get "/cart/add_item", CartController, :add_item
     get "/cart/set_count", CartController, :set_count
 
     # Test pages
