@@ -94,9 +94,6 @@ header
                                         = for cat_id <- @cat_hierarchy[cat_id] do
                                           li
                                             a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
-                    li
-                      a href=Routes.cart_path(@conn, :index)
-                        | Корзина
                   / li
                   /   a href="#"  Home
                   /   ul

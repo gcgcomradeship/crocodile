@@ -5,6 +5,12 @@ defmodule Crocodile.Context.Items do
   alias Crocodile.Product
   alias Crocodile.Services.Cart
 
+  def get(item_id) do
+    Product
+    |> where_main()
+    |> Repo.get(item_id)
+  end
+
   # Catalog category filtered query
   def by_category(params) do
     category = Category |> Repo.get(params["category"] || 0)

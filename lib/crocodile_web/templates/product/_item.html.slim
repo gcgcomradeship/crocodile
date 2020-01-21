@@ -18,7 +18,7 @@
         i.ti-shopping-cart
       / a href="javascript:void(0)" title=("Add to Wishlist")
       /   i.ti-heart aria-hidden="true"
-      a data-target="#quick-view" data-toggle="modal" href="#" title=("Quick View")
+      a.quick-view-btn item-id=@item.id data-target="#quick-view" data-toggle="modal" href="#"
         i.ti-search aria-hidden="true"
   .product-detail
     .rating
@@ -30,7 +30,7 @@
     a href=Routes.product_path(@conn, :show, @item)
     h6 = @item.title
     h4
-      = "₽#{Decimal.to_string(@item.price)}"
+      = "₽ #{Decimal.to_string(@item.price)}"
     /   del $600.00
     / ul.color-variant
     /   li.bg-light0

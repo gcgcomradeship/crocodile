@@ -53,6 +53,9 @@ defmodule CrocodileWeb.Router do
     get "/cart/add_item", CartController, :add_item
     get "/cart/set_count", CartController, :set_count
 
+    # Modal routes
+    get "/modal/item", ModalController, :item
+
     # Test pages
     get "/main", PageController, :main
     get "/catalog", ProductController, :index

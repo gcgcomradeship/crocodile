@@ -1,0 +1,47 @@
+/! Quick-view modal popup start
+#quick-view.modal.fade.bd-example-modal-lg.theme-modal aria-hidden="true" role="dialog" tabindex="-1"
+  .modal-dialog.modal-lg.modal-dialog-centered role="document"
+    .modal-content.quick-view-modal
+      .modal-body
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        .row
+          .col-lg-6.col-xs-12
+            .quick-view-img
+              img.img-fluid.blur-up.lazyload#modal-item-img alt="" src="/images/pro3/1.jpg" /
+          .col-lg-6.rtl-text
+            .product-right
+              h2#modal-item-title
+              h3#modal-item-price
+              / ul.color-variant
+              /   li.bg-light0
+              /   li.bg-light1
+              /   li.bg-light2
+              .border-product
+                h6.product-title= "Подробнее"
+                p#modal-item-desc
+              .product-description.border-product
+                / .size-box
+                /   ul
+                /     li.active
+                /       a href="#"  s
+                /     li
+                /       a href="#"  m
+                /     li
+                /       a href="#"  l
+                /     li
+                /       a href="#"  xl
+                / h6.product-title quantity
+                / .qty-box
+                /   .input-group
+                /     span.input-group-prepend
+                /       button.btn.quantity-left-minus data-field="" data-type="minus" type="button"
+                /         i.ti-angle-left
+                /     input.form-control.input-number name="quantity" type="text" value="1" /
+                /     span.input-group-prepend
+                /       button.btn.quantity-right-plus data-field="" data-type="plus" type="button"
+                /         i.ti-angle-right
+              .product-buttons
+                .btn.btn-solid.cart-btn.cart-btn-product#modal-item-cart item-id=0 href="#"  В корзину
+                a.btn.btn-solid#modal-item-link href="#"  Подробнее
+/! Quick-view modal popup end
