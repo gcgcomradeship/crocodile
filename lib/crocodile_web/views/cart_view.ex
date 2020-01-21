@@ -1,7 +1,7 @@
 defmodule CrocodileWeb.CartView do
   use CrocodileWeb, :view
 
-  def render("add.json", %{cart: cart}) do
+  def render("success.json", %{cart: cart}) do
     %{
       cart: render_many(cart, __MODULE__, "cart_item.json"),
       status: :success

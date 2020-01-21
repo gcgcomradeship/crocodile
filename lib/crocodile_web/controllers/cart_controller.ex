@@ -10,7 +10,7 @@ defmodule CrocodileWeb.CartController do
   def add_item(%{assigns: %{session: %{id: sid}}} = conn, %{"item_id" => item_id} = _params) do
     case Cart.add(sid, item_id) do
       res when is_map(res) ->
-        render(conn, "add.json", cart: Items.cart_by_sid(sid))
+        render(conn, "success.json", cart: Items.cart_by_sid(sid))
 
       _ ->
         conn
@@ -22,7 +22,7 @@ defmodule CrocodileWeb.CartController do
   def del_item(%{assigns: %{session: %{id: sid}}} = conn, %{"item_id" => item_id} = _params) do
     case Cart.remove(sid, item_id) do
       res when is_map(res) ->
-        render(conn, "success.json")
+        render(conn, "success.json", cart: Items.cart_by_sid(sid))
 
       _ ->
         conn
@@ -39,7 +39,7 @@ defmodule CrocodileWeb.CartController do
 
     case Cart.set(sid, item_id, cnt) do
       res when is_map(res) ->
-        render(conn, "success.json")
+        render(conn, "success.json", cart: Items.cart_by_sid(sid))
 
       _ ->
         conn

@@ -48,6 +48,7 @@ var delCartItem = function(elem){
         }
         drawPrices();
         drawNavPrices();
+        cartCounter(json.cart);
       }
       return json;
     });
@@ -67,6 +68,7 @@ var setCount = function(elem, count){
         document.querySelector(`#nav_cart_item_${item_id}`).setAttribute("count", count);
         drawPrices();
         drawNavPrices();
+        cartCounter(json.cart);
       }
       return json;
     });
@@ -87,10 +89,15 @@ var addItem = function(elem){
       return json;
     }).then(json => {
       init();
+      cartCounter(json.cart);
       drawPrices();
       drawNavPrices();
       return json;
     });
+}
+
+var cartCounter = function(cart){
+  document.querySelector(`#cart-counter`).innerText = cart.length;
 }
 
 var drawItems = function (json) {

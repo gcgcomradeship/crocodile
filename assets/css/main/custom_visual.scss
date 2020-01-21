@@ -49,3 +49,21 @@
 .nav-link{
   color: #999999;
 }
+
+#cart-counter{
+  font-size: 11pt;
+  color: white;
+  text-align: center;
+  background-color: #fa869b;
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  margin-left: -9px;
+  margin-top: 8px;
+}
+
+#fixed_cart_icon{
+  z-index: 10;
+}

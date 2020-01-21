@@ -24,12 +24,12 @@ section.cart-section.section-b-space
                     .col-xs-3
                       .qty-box
                         .input-group
-                          input.form-control.input-number name="quantity" type="text" value="1" /
+                          input.form-control.input-number.item-count item_id=item.id name="quantity" type="number" value=item.count
                     .col-xs-3
                       h2.td-color ="₽#{Decimal.to_string(item.price)}"
                     .col-xs-3
                       h2.td-color
-                        a.icon href="#"
+                        a.icon.cart-delete-item item_id=item.id href="#" href="#"
                           i.ti-close
                 td
                   h2 ="₽#{Decimal.to_string(item.price)}"
@@ -50,7 +50,7 @@ section.cart-section.section-b-space
                 h2.sum-total-view = "₽#{items_sum(@cart)}"
     .row.cart-buttons
       .col-6
-        = link "Продолжить покупки", to: Routes.product_path(@conn, :index), class: "btn btn-solid"
+        = link "Каталог", to: Routes.product_path(@conn, :index), class: "btn btn-solid"
       .col-6
-        a.btn.btn-solid href="#"  Оформить заказ
+        a.btn.btn-solid href="#" Заказать
 /! section end
