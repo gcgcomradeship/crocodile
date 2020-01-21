@@ -98,6 +98,10 @@ var addItem = function(elem){
 
 var cartCounter = function(cart){
   document.querySelector(`#cart-counter`).innerText = cart.length;
+  var cart_side = document.querySelector(`#cart-counter-side`);
+  if (cart_side){
+    cart_side.innerText = cart.length;
+  }
 }
 
 var drawItems = function (json) {
