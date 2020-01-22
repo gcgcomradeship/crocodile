@@ -17,7 +17,7 @@ section.cart-section.section-b-space
               tr
                 td
                   = link to: Routes.product_path(@conn, :show, item) do
-                    img alt="" src=List.first(item.images)
+                    img alt="" src=image(item.images)
                 td
                   = link item.title, to: Routes.product_path(@conn, :show, item)
                   .mobile-cart-content.row

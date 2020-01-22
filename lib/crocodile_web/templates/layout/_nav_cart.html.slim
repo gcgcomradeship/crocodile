@@ -11,7 +11,7 @@ div
             li.nav-cart-item id="nav_cart_item_#{item.id}" price=item.price count=item.count
               .media
                 = link to: Routes.product_path(@conn, :show, item) do
-                  img.mr-3 alt="" src=List.first(item.images)
+                  img.mr-3 alt="" src=image(item.images)
                 .media-body
                   = link to: Routes.product_path(@conn, :show, item) do
                     h4 = concatinate(item.title)

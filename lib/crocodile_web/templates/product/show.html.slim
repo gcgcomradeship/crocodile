@@ -22,12 +22,12 @@ section
           .row
             .col-12.p-0
               .slider-right-nav
-                = for image <- @product.images do
+                = for image <- (@product.images || []) do
                   div
                     img.img-fluid.blur-up.lazyload alt="" src=image /
         .col-lg-4.col-sm-10.col-xs-12.order-up
           .product-right-slick
-            = for image <- @product.images do
+            = for image <- (@product.images || []) do
               div
                 img.img-fluid.blur-up.lazyload.image_zoom_cls-0 alt="" src=image /
         .col-lg-7.rtl-text

@@ -6,6 +6,16 @@ defmodule Crocodile.Utils.Helper do
     end
   end
 
+  def image(images, type)
+  def image(nil, _type), do: "/images/pro3/1.jpg"
+
+  def image(images, type \\ :first) when is_list(images) do
+    case type do
+      :first -> List.first(images)
+      _ -> List.last(images)
+    end
+  end
+
   def items_sum(items) do
     for item <- items do
       item.price |> Decimal.mult(item.count)

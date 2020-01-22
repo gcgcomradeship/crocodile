@@ -9,17 +9,17 @@
         span.lable4 on sale
     .front
       a href=Routes.product_path(@conn, :show, @item)
-        img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.first(@item.images || [])
+        img.img-fluid.blur-up.lazyload.bg-img alt="" src=image(@item.images)
     .back
       a href=Routes.product_path(@conn, :show, @item)
-        img.img-fluid.blur-up.lazyload.bg-img alt="" src=List.last(@item.images || [])
+        img.img-fluid.blur-up.lazyload.bg-img alt="" src=image(@item.images, :last)
     .cart-info.cart-wrap
       button.cart-btn item-id=@item.id data-target="#addtocart" data-toggle="modal" title="В корзину"
-        i.ti-shopping-cart
+        i.ti-shopping-cart.item-icon
       / a href="javascript:void(0)" title=("Add to Wishlist")
       /   i.ti-heart aria-hidden="true"
       a.quick-view-btn item-id=@item.id data-target="#quick-view" data-toggle="modal" href="#"
-        i.ti-search aria-hidden="true"
+        i.ti-search.item-icon aria-hidden="true"
   .product-detail
     .rating
     /   i.fa.fa-star

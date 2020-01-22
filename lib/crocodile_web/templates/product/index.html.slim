@@ -69,7 +69,7 @@ section.section-b-space.ratio_asos
                   = for item <- group do
                     .media
                       a href=Routes.product_path(@conn, :show, item)
-                        img.img-fluid.blur-up.lazyload alt="" src=List.first(item.images || []) /
+                        img.img-fluid.blur-up.lazyload alt="" src=image(item.images) /
                       .media-body.align-self-center
                         .rating
                           i.fa.fa-star
