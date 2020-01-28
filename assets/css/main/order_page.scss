@@ -1,0 +1,81 @@
+.order-box{
+  margin-bottom: 0;
+}
+
+.order-table{
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 30px;
+  width: 100% !important;
+  display: flex;
+  flex-wrap: wrap;
+  table-layout: fixed;
+}
+
+.options-table{
+  display: table;
+}
+
+.order-table tr.head{
+  border-bottom: 1px solid #ededed;
+}
+
+.order-table td.head{
+  color: #444444;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.order-table td{
+  padding: 10px 5px 10px 5px;
+  text-align: justify;
+  font-size: 15px;
+  width: 100%;
+}
+
+.order-table td.title{
+  padding: 10px 15px 10px 5px;
+}
+
+.order-table td.sum{
+  font-weight: 600;
+  text-align: right;
+}
+
+.order-total-row td{
+  padding-top: 20px;
+  background-color: #f9f9f9;
+}
+
+.order-total-title{
+  font-size: 16px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.order-total-count{
+  font-size: 18px !important;
+  line-height: 20px;
+  color: #fa869b;
+  font-weight: 400;
+  text-align: right !important;
+}
+
+.order-total-main{
+  font-size: 18px !important;
+  line-height: 20px;
+  color: #fa869b;
+  font-weight: 600;
+  text-align: right !important;
+}
+
+.shopping-option label{
+  padding-right: 10px;
+}
+
+ul.total li span.count{
+  text-align: right;
+}
+
+.shopping-option label{
+  padding-left: 10px;
+}

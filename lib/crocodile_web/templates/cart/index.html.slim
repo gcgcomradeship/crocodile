@@ -52,5 +52,5 @@ section.cart-section.section-b-space
       .col-6
         = link "Каталог", to: Routes.product_path(@conn, :index), class: "btn btn-solid"
       .col-6
-        a.btn.btn-solid href="#" Заказать
+        = link "Заказать", to: Routes.order_path(@conn, :new), class: "btn btn-solid"
 /! section end

@@ -2,7 +2,9 @@
 
 // @import '../node_modules/bootstrap/scss/bootstrap';
 @import "nouislider";
-@import "./main/custom_visual.scss";
+
+
+// Multikart themes
 @import "./main/bootstrap.css";
 @import "./main/animate.css";
 @import "./main/fontawesome.css";
@@ -11,3 +13,8 @@
 @import "./main/slick.css";
 @import "./main/slick-theme.css";
 @import "./main/color10.css";
+
+// Custom files
+@import "./main/custom_visual.scss";
+@import "./main/order_page.scss";
+

@@ -56,6 +56,9 @@ defmodule CrocodileWeb.Router do
     # Modal routes
     get "/modal/item", ModalController, :item
 
+    # Order routes
+    resources "/order", OrderController, only: [:new, :create, :show]
+
     # Test pages
     get "/main", PageController, :main
     get "/catalog", ProductController, :index
@@ -74,6 +77,7 @@ defmodule CrocodileWeb.Router do
 
     get "/", PageController, :index
     get "/sync", SyncController, :index
+
     resources "/admin", AdminController, except: [:show]
   end
 

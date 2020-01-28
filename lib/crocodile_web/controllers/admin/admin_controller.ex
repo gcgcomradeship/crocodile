@@ -33,11 +33,6 @@ defmodule CrocodileWeb.Admin.AdminController do
     end
   end
 
-  # def show(conn, %{"id" => id}) do
-  #   admin = Admin |> Repo.get(id)
-  #   render(conn, "show.html", admin: admin)
-  # end
-
   def edit(conn, %{"id" => id}) do
     admin = Admin |> Repo.get(id)
     changeset = Admin.changeset(admin, %{password: ""})

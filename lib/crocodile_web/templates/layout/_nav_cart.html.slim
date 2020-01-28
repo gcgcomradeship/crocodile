@@ -28,4 +28,4 @@ div
           li
             .buttons
               = link "Корзина", to: Routes.cart_path(@conn, :index), class: "view-cart"
-              = link "Заказать", to: "#", class: "checkout"
+              = link "Заказать", to: Routes.order_path(@conn, :new), class: "checkout"

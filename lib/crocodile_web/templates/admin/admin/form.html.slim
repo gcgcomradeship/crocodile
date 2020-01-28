@@ -1,5 +1,5 @@
-.page-body.row
-  .panel.col-md-6.form-body
+.form-box
+  .col-md-6
     = form_for @changeset, @action, [class: ""], fn f ->
       .form-group
         = label f, "Email", class: "control-label"
@@ -10,6 +10,5 @@
         = password_input f, :password, class: "form-control"
         = error_tag f, :password
       .form-group.submit
-        = submit "Сохранить", class: "btn btn-dark"
-  .col-md-4
-
+        = submit "Сохранить", class: "btn btn-secondary"
+  .col-md-6

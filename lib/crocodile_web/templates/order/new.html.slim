@@ -1,0 +1,88 @@
+/! section start
+section.section-b-space
+  .container
+    .checkout-page
+      .checkout-form
+        = form_for @changeset, Routes.order_path(@conn, :create), fn f ->
+          .row
+            .col-lg-6.col-sm-12.col-xs-12
+              .checkout-title
+                h3 Детали заказа
+              .row.check-out
+                .form-group.col-md-12.col-sm-12.col-xs-12
+                  .field-label Имя
+                  = text_input f, :name
+                  = error_tag f, :name
+                  / input name="field-name" placeholder="" type="text" value="" /
+                .form-group.col-md-6.col-sm-6.col-xs-12
+                  .field-label Телефон
+                  = text_input f, :phone
+                  = error_tag f, :phone
+                  / input name="field-name" placeholder="" type="text" value="" /
+                .form-group.col-md-6.col-sm-6.col-xs-12
+                  .field-label Email
+                  = text_input f, :email
+                  = error_tag f, :email
+                  / input name="field-name" placeholder="" type="text" value="" /
+                .form-group.col-md-12.col-sm-12.col-xs-12
+                  .field-label Город
+                  = text_input f, :city
+                  = error_tag f, :city
+                  / input name="field-name" placeholder="" type="text" value="" /
+                .form-group.col-md-12.col-sm-12.col-xs-12
+                  .field-label Адрес
+                  = text_input f, :address
+                  = error_tag f, :address
+                  / input name="field-name" placeholder="" type="text" value="" /
+                .form-group.col-md-12.col-sm-6.col-xs-12
+                  .field-label Почтовый индекс
+                  = text_input f, :post_index
+                  = error_tag f, :post_index
+                  / input name="field-name" placeholder="" type="text" value="" /
+            .col-lg-6.col-sm-12.col-xs-12
+              .checkout-details
+                .order-box
+                  table.order-table.table-striped
+                    tr.head
+                      td.head.title Товар
+                      td.head Кол.
+                      td.head Сумма
+                    = for item <- @cart do
+                      tr
+                        td.title = "#{item.title}"
+                        td = "× #{item.count}"
+                        td.sum = "₽ #{Decimal.mult(item.price, item.count)}"
+                    tr.order-total-row
+                      td.order-total-title colspan=2 = "Промежуточная сумма"
+                      td.order-total-count = "₽ #{items_sum(@cart)}"
+                  table.order-table.options-table.table-striped
+                    tr.head
+                      td.head Доставка
+                      td.head Оплата
+                    tr
+                      td
+                        .shopping-option
+                          = radio_button f, :delivery_type, "pick_point"
+                          label = "Постамат"
+                        .shopping-option
+                          = radio_button f, :delivery_type, "courier"
+                          label = "Курьер"
+                        .shopping-option
+                          = radio_button f, :delivery_type, "post"
+                          label = "Почта"
+                      td
+                        .shopping-option
+                          = radio_button f, :payment_type, "pick_point"
+                          label = "Постамат"
+                        .shopping-option
+                          = radio_button f, :payment_type, "card"
+                          label = "Карта"
+                        .shopping-option
+                          = radio_button f, :payment_type, "cash"
+                          label = "Наличные"
+                    tr.order-total-row
+                      td.order-total-title = "Итого"
+                      td.order-total-main = "₽ #{items_sum(@cart)}"
+                  .text-right
+                    = submit "Оформить заказ", class: "btn btn-solid"
+/! section end

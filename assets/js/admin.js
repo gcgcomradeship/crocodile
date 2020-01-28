@@ -1,5 +1,7 @@
 import css from "../css/admin.scss"
 
+import "phoenix_html"
+
 import "jquery"
 // popper js
 import "./main/popper.min.js"
@@ -39,10 +41,6 @@ import "./admin/chat-menu.js"
 import "./admin/height-equal.js"
 // script admin
 import "./admin/admin-script.js"
-
-
-
-
-
-
-
+// Datatable js
+import "./admin/datatables/jquery.dataTables.min.js"
+import "./admin/datatables/custom-basic.js"
