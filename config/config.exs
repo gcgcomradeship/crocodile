@@ -35,6 +35,17 @@ config :scrivener_html,
 
 config :crocodile, :redis, url: System.get_env("REDIS_URL")
 
+config :crocodile, :kassa,
+  url: System.get_env("KASSA_URL"),
+  id: System.get_env("KASSA_ID"),
+  secret: System.get_env("KASSA_KEY")
+
+config :crocodile, :delivery,
+  url: System.get_env("DELIVERY_URL"),
+  sdl: System.get_env("DELIVERY_SDL"),
+  client_id: System.get_env("DELIVERY_CLIENT_ID"),
+  sender_id: System.get_env("DELIVERY_SENDER_ID")
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

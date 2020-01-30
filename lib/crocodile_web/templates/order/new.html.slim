@@ -9,10 +9,15 @@ section.section-b-space
               .checkout-title
                 h3 Детали заказа
               .row.check-out
-                .form-group.col-md-12.col-sm-12.col-xs-12
+                .form-group.col-md-6.col-sm-6.col-xs-6
                   .field-label Имя
                   = text_input f, :name
                   = error_tag f, :name
+                  / input name="field-name" placeholder="" type="text" value="" /
+                .form-group.col-md-6.col-sm-6.col-xs-6
+                  .field-label Фамилия
+                  = text_input f, :surname
+                  = error_tag f, :surname
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-6.col-sm-6.col-xs-12
                   .field-label Телефон
@@ -55,6 +60,8 @@ section.section-b-space
                     tr.order-total-row
                       td.order-total-title colspan=2 = "Промежуточная сумма"
                       td.order-total-count = "₽ #{items_sum(@cart)}"
+                  / a.btn.btn-default.quick-view-btn data-ydwidget-open="Яндекс.Доставка" data-target="#delivery-modal" data-toggle="modal" href="#"
+                  /   ="Доставка"
                   table.order-table.options-table.table-striped
                     tr.head
                       td.head Доставка
