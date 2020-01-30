@@ -1,10 +1,10 @@
 defmodule Crocodile.Services.Delivery do
   use CrocodileWeb, :services
 
-  @url Application.get_env(:crocodile, :delivery)[:url]
-  @sdl Application.get_env(:crocodile, :delivery)[:sdl]
-  @client_id Application.get_env(:crocodile, :delivery)[:client_id]
-  @sender_id Application.get_env(:crocodile, :delivery)[:sender_id]
+  @url Application.get_env(:crocodile, :delivery)[:url] || ""
+  @sdl Application.get_env(:crocodile, :delivery)[:sdl] || ""
+  @client_id Application.get_env(:crocodile, :delivery)[:client_id] || ""
+  @sender_id Application.get_env(:crocodile, :delivery)[:sender_id] || ""
 
   def call() do
     path = "/searchDeliveryList"
