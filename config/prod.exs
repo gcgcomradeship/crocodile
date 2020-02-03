@@ -12,7 +12,8 @@ use Mix.Config
 config :crocodile, CrocodileWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 5000],
   url: [host: "crocodile.ru", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info

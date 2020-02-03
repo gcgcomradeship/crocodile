@@ -82,7 +82,7 @@ defmodule CrocodileWeb.Router do
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do
-    pipe_through :browser
+    pipe_through :api
     get "/notify", NotifyController, :notify
     post "/notify", NotifyController, :notify
   end
