@@ -36,4 +36,10 @@ defmodule Crocodile.Context.Payments do
       error -> error
     end
   end
+
+  def on_order_update(payment, params) do
+    payment
+    |> Payment.changeset(params)
+    |> Repo.update()
+  end
 end

@@ -60,4 +60,10 @@ defmodule Crocodile.Context.Orders do
 
     Repo.insert_all(OrderProduct, orders_products)
   end
+
+  def on_order_update(order, params) do
+    order
+    |> Payment.changeset(params)
+    |> Repo.update()
+  end
 end

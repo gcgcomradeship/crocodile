@@ -1,14 +1,16 @@
 defmodule CrocodileWeb.Api.V1.NotifyController do
   use CrocodileWeb, :controller
 
-  alias Crocodile.Order
+  alias Crocodile.Orders
   alias Crocodile.Payment
+  alias Crocodile.Payments
 
   @account_id Application.get_env(:crocodile, :kassa)[:id]
 
   def notify(
         conn,
-        %{"object" => %{"id" => kassa_id, "status" => status}} = _params
+        %{"object" => %{"id" => kassa_id, "status" => status, "refundable" => refundable}} =
+          _params
       ) do
     payment =
       Payment
@@ -22,6 +24,8 @@ defmodule CrocodileWeb.Api.V1.NotifyController do
         |> render("error.json")
 
       %Payment{} ->
+        Payments.on_order_update(payment, %{status: status, refundable: refundable})
+        Orders.on_order_update(payment, %{payment_status: get_order_status(status)})
         render(conn, "success.json")
     end
   end
@@ -30,5 +34,24 @@ defmodule CrocodileWeb.Api.V1.NotifyController do
     conn
     |> put_status(403)
     |> render("error.json")
+  end
+
+  defp get_order_status(payment_status) do
+    case payment_status do
+      status when status in ["pending", :pending] ->
+        :created
+
+      status when status in ["waiting_for_capture", :waiting_for_capture] ->
+        :created
+
+      status when status in ["succeeded", :succeeded] ->
+        :paid
+
+      status when status in ["canceled", :canceled] ->
+        :canceled
+
+      _ ->
+        :unknown
+    end
   end
 end

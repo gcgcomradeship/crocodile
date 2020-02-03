@@ -6,7 +6,8 @@ defenum(
   paid: 1,
   waiting_for_delivery: 2,
   completed: 3,
-  canceled: 4
+  canceled: 4,
+  unknown: 5
 )
 
 defenum(
