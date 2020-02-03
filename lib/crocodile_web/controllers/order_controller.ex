@@ -16,7 +16,7 @@ defmodule CrocodileWeb.OrderController do
         %{confirmation_url: confirmation_url} = Kassa.create(conn, order)
         redirect(conn, external: confirmation_url)
 
-      {:ok, %{payment_type: :pick_up} = order} ->
+      {:ok, %{payment_type: :on_delivery} = order} ->
         redirect(conn, to: Routes.order_path(conn, :show, order, f: 1))
 
       {:error, changeset} ->
