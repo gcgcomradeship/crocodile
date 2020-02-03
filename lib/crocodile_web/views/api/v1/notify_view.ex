@@ -6,4 +6,10 @@ defmodule CrocodileWeb.Api.V1.NotifyView do
       status: :success
     }
   end
+
+  def render("error.json", _) do
+    %{
+      status: :forbidden
+    }
+  end
 end

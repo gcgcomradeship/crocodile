@@ -18,7 +18,7 @@ defmodule CrocodileWeb.Router do
   end
 
   pipeline :api_white do
-    plug(Crocodile.Plug.Whitelist)
+    plug(Crocodile.Plug.Kassa)
   end
 
   pipeline :user_auth do
