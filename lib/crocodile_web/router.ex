@@ -17,6 +17,10 @@ defmodule CrocodileWeb.Router do
     plug :accepts, ["json"]
   end
 
+  pipeline :api_white do
+    plug(Crocodile.Plug.Whitelist)
+  end
+
   pipeline :user_auth do
     plug(Crocodile.Plug.UserAuth)
   end
@@ -83,6 +87,7 @@ defmodule CrocodileWeb.Router do
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do
     pipe_through :api
+    pipe_through :api_white
     get "/notify", NotifyController, :notify
     post "/notify", NotifyController, :notify
   end
