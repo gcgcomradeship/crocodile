@@ -2,7 +2,6 @@ defmodule Crocodile.Context.Orders do
   use CrocodileWeb, :context
 
   alias Crocodile.Order
-  alias Crocodile.Payment
   alias Crocodile.OrderProduct
   alias Crocodile.Context.Items
 
@@ -64,7 +63,7 @@ defmodule Crocodile.Context.Orders do
 
   def on_order_update(order, params) do
     order
-    |> Payment.changeset(params)
+    |> Order.changeset(params)
     |> Repo.update()
   end
 end
