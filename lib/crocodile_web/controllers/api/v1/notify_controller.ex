@@ -26,7 +26,7 @@ defmodule CrocodileWeb.Api.V1.NotifyController do
 
       %Payment{} ->
         a = Payments.on_order_update(payment, %{status: status, refundable: refundable})
-        b = Orders.on_order_update(payment.order, %{payment_status: get_order_status(status)})
+        b = Orders.on_order_update(payment.order, %{status: get_order_status(status)})
         require Logger
         Logger.warn("-------------------")
         Logger.warn(inspect(a))
