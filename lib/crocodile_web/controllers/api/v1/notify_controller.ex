@@ -25,8 +25,14 @@ defmodule CrocodileWeb.Api.V1.NotifyController do
         |> render("error.json")
 
       %Payment{} ->
-        Payments.on_order_update(payment, %{status: status, refundable: refundable})
-        Orders.on_order_update(payment.order, %{payment_status: get_order_status(status)})
+        a = Payments.on_order_update(payment, %{status: status, refundable: refundable})
+        b = Orders.on_order_update(payment.order, %{payment_status: get_order_status(status)})
+        require Logger
+        Logger.warn("-------------------")
+        Logger.warn(inspect(a))
+        Logger.warn("-------------------")
+        Logger.warn(inspect(b))
+        Logger.warn("-------------------")
         render(conn, "success.json")
     end
   end
