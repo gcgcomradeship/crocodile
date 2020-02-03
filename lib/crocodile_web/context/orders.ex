@@ -2,6 +2,7 @@ defmodule Crocodile.Context.Orders do
   use CrocodileWeb, :context
 
   alias Crocodile.Order
+  alias Crocodile.Payment
   alias Crocodile.OrderProduct
   alias Crocodile.Context.Items
 

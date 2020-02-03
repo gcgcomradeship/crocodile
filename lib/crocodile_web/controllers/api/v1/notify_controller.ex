@@ -1,9 +1,9 @@
 defmodule CrocodileWeb.Api.V1.NotifyController do
   use CrocodileWeb, :controller
 
-  alias Crocodile.Orders
   alias Crocodile.Payment
-  alias Crocodile.Payments
+  alias Crocodile.Context.Orders
+  alias Crocodile.Context.Payments
 
   @account_id Application.get_env(:crocodile, :kassa)[:id]
 
