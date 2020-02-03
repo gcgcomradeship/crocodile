@@ -1,0 +1,29 @@
+msgid "created"
+msgstr "Обрабатывается"
+
+msgid "paid"
+msgstr "Оплачен"
+
+msgid "waiting_for_delivery"
+msgstr "Ожидает доставки"
+
+msgid "completed"
+msgstr "Завершен"
+
+msgid "canceled"
+msgstr "Отменен"
+
+msgid "online"
+msgstr "Онлайн"
+
+msgid "on_delivery"
+msgstr "При получении"
+
+msgid "pick_up"
+msgstr "Постамат"
+
+msgid "post"
+msgstr "Почта"
+
+msgid "courier"
+msgstr "Курьер"

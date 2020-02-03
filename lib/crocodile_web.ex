@@ -34,6 +34,7 @@ defmodule CrocodileWeb do
       import Ecto.Query
       alias Crocodile.Repo
       alias Crocodile.Service.Redis
+      import Crocodile.Utils.Helper
     end
   end
 
@@ -51,6 +52,8 @@ defmodule CrocodileWeb do
       import Ecto.Query
       alias Crocodile.Repo
       alias Crocodile.Service.Redis
+      alias CrocodileWeb.Router.Helpers, as: Routes
+      import Crocodile.Utils.Helper
     end
   end
 

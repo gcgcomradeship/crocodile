@@ -10,40 +10,40 @@ section.section-b-space
                 h3 Детали заказа
               .row.check-out
                 .form-group.col-md-6.col-sm-6.col-xs-6
-                  .field-label Имя
+                  .field-label Имя*
                   = text_input f, :name
                   = error_tag f, :name
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-6.col-sm-6.col-xs-6
-                  .field-label Фамилия
+                  .field-label Фамилия*
                   = text_input f, :surname
                   = error_tag f, :surname
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-6.col-sm-6.col-xs-12
-                  .field-label Телефон
-                  = text_input f, :phone
+                  .field-label Телефон*
+                  = text_input f, :phone, class: "phone"
                   = error_tag f, :phone
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-6.col-sm-6.col-xs-12
-                  .field-label Email
+                  .field-label Email*
                   = text_input f, :email
                   = error_tag f, :email
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-12.col-sm-12.col-xs-12
-                  .field-label Город
+                  .field-label Город*
                   = text_input f, :city
                   = error_tag f, :city
                   / input name="field-name" placeholder="" type="text" value="" /
-                .form-group.col-md-12.col-sm-12.col-xs-12
-                  .field-label Адрес
-                  = text_input f, :address
-                  = error_tag f, :address
-                  / input name="field-name" placeholder="" type="text" value="" /
-                .form-group.col-md-12.col-sm-6.col-xs-12
-                  .field-label Почтовый индекс
-                  = text_input f, :post_index
-                  = error_tag f, :post_index
-                  / input name="field-name" placeholder="" type="text" value="" /
+                / .form-group.col-md-12.col-sm-12.col-xs-12
+                /   .field-label Адрес
+                /   = text_input f, :address
+                /   = error_tag f, :address
+                /   / input name="field-name" placeholder="" type="text" value="" /
+                / .form-group.col-md-12.col-sm-6.col-xs-12
+                /   .field-label Почтовый индекс
+                /   = text_input f, :post_index
+                /   = error_tag f, :post_index
+                /   / input name="field-name" placeholder="" type="text" value="" /
             .col-lg-6.col-sm-12.col-xs-12
               .checkout-details
                 .order-box
@@ -65,11 +65,11 @@ section.section-b-space
                   table.order-table.options-table.table-striped
                     tr.head
                       td.head Доставка
-                      td.head Оплата
-                    tr
                       td
+                    tr
+                      td colspan=2
                         .shopping-option
-                          = radio_button f, :delivery_type, "pick_point"
+                          = radio_button f, :delivery_type, "pick_up"
                           label = "Постамат"
                         .shopping-option
                           = radio_button f, :delivery_type, "courier"
@@ -77,16 +77,23 @@ section.section-b-space
                         .shopping-option
                           = radio_button f, :delivery_type, "post"
                           label = "Почта"
+                        = error_tag f, :delivery_type
+                    tr.order-total-row
+                      td.order-total-title = "Стоимость доставки"
+                      td.order-total-count = "₽ 0"
+                  table.order-table.options-table.table-striped
+                    tr.head
+                      td.head Оплата
+                    tr
                       td
                         .shopping-option
-                          = radio_button f, :payment_type, "pick_point"
-                          label = "Постамат"
+                          = radio_button f, :payment_type, "on_delivery"
+                          label = "При получении товара"
                         .shopping-option
-                          = radio_button f, :payment_type, "card"
-                          label = "Карта"
-                        .shopping-option
-                          = radio_button f, :payment_type, "cash"
-                          label = "Наличные"
+                          = radio_button f, :payment_type, "online"
+                          label = "Online"
+                        = error_tag f, :payment_type
+                  table.order-table.options-table.table-striped
                     tr.order-total-row
                       td.order-total-title = "Итого"
                       td.order-total-main = "₽ #{items_sum(@cart)}"

@@ -8,7 +8,6 @@ defmodule Crocodile.OrderProduct do
 
     belongs_to(:order, Crocodile.Order)
     belongs_to(:product, Crocodile.Product)
-    timestamps()
   end
 
   @required_fields ~w(order_id product_id quantity price)a

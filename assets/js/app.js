@@ -30,6 +30,7 @@ import "nouislider"
 // fly cart ui jquery
 import "./main/jquery-ui.min.js"
 // exitintent jquery
+import "./main/jquery.maskedinput.min.js"
 import "./main/jquery.exitintent.js"
 import "./main/exit.js"
 // popper js
@@ -56,7 +57,8 @@ import "./main/price_slider.js"
 import "./main/brand_filter.js"
 import "./main/page_filter.js"
 import "./main/cart.js"
-import "./main/modal.js"
+// import "./main/modal.js"
+import "./main/custom.js"
 // Actions binding
 // import "./actions.js"
 

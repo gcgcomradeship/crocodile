@@ -24,7 +24,7 @@ defmodule CrocodileWeb.Endpoint do
   end
 
   plug Plug.RequestId
-  plug Plug.Logger
+  plug Crocodile.Plug.MainLogger
 
   plug Plug.Parsers,
     parsers: [:urlencoded, :multipart, :json],

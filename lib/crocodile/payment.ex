@@ -5,37 +5,28 @@ defmodule Crocodile.Payment do
   @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "payments" do
-    # field(:account_id, :string)
-    # field(:amount, :decimal)
-    # field(:currency, Currency)
-    # field(:psp_amount, :decimal)
-    # field(:psp_currency, Currency)
-    # field(:user_amount, :decimal)
-    # field(:user_currency, Currency)
-    # field(:owallet_transaction_id, :string)
-    # field(:psp_transaction_id, :id)
-    # field(:action, Operation)
-    # field(:status, PaymentStatus)
-    # field(:params, :map)
-    # field(:user_data, :map)
-    # field(:error_data, :map)
-    # field(:payload_data, :map)
-    # field(:user_ip, :string)
-    # field(:description, :string)
+    field(:amount, :decimal)
+    field(:confirmation_url, :string)
+    field(:description, :string)
+    field(:account_id, :string)
+    field(:gateway_id, :string)
+    field(:refundable, :boolean)
+    field(:status, PaymentStatus)
+    field(:kassa_id, :string)
 
     timestamps()
 
-    # belongs_to(:provider, Opm.Provider)
-    # belongs_to(:origin, Opm.Origin)
+    belongs_to(:order, Crocodile.Order)
   end
 
   @doc false
-  @required_fields ~w()a
+  @required_fields ~w(amount confirmation_url description account_id gateway_id refundable status kassa_id order_id)a
   @optional_fields ~w()a
 
   def changeset(payment, attrs) do
     payment
     |> cast(attrs, @required_fields ++ @optional_fields)
+    |> unique_constraint(:kassa_id)
     |> validate_required(@required_fields)
   end
 end

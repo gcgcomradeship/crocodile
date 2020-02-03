@@ -94,7 +94,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 1; }
@@ -372,7 +372,7 @@ button {
     padding: 9px 16px; }
   .btn-solid.btn-xs {
     padding: 5px 8px;
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
 
 .btn-outline {
   display: inline-block;
@@ -945,7 +945,7 @@ header {
         padding: 8px 15px 8px 0; }
         header.left-header .sidenav .bottom-section ul li a {
           font-size: 16px;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           color: #222222; }
           header.left-header .sidenav .bottom-section ul li a i {
             font-size: 18px;
@@ -957,14 +957,14 @@ header {
         display: flex; }
         header.left-header .sidenav .bottom-section .leftside_setting .language h5, header.left-header .sidenav .bottom-section .leftside_setting .currency h5 {
           margin-bottom: 0;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           color: #999;
           margin-top: 0; }
         header.left-header .sidenav .bottom-section .leftside_setting .language select, header.left-header .sidenav .bottom-section .leftside_setting .currency select {
           margin-left: 10px;
           border: none;
           outline: none;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           color: #222222; }
       header.left-header .sidenav .bottom-section .leftside_setting h5 {
         margin-top: 10px; }
@@ -1234,7 +1234,7 @@ header {
     .top-header .header-dropdown li:first-child {
       padding-right: 0; }
     .top-header .header-dropdown li a {
-      text-transform: capitalize; }
+      /*text-transform: capitalize;*/ }
     .top-header .header-dropdown li i {
       padding-right: 5px;
       -webkit-transition: all 0.5s ease;
@@ -1408,7 +1408,7 @@ header {
             padding-top: 10px;
             padding-bottom: 10px; }
             .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .total h5 {
-              text-transform: capitalize;
+              /*text-transform: capitalize;*/
               margin-bottom: 0;
               color: #999999; }
               .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .total h5 span {
@@ -1416,7 +1416,7 @@ header {
           .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .buttons a {
             font-size: 16px;
             color: #333333;
-            text-transform: capitalize;
+            /*text-transform: capitalize;*/
             font-weight: 700; }
             .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .buttons a:hover {
               color: #fa869b; }
@@ -1429,7 +1429,7 @@ header {
         left: unset; }
         .main-menu .menu-right .icon-nav .onhover-div .show-div.setting h6 {
           font-size: 16px;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           color: #333333;
           font-weight: 700;
           margin-bottom: 0;
@@ -1447,7 +1447,7 @@ header {
             color: #333333;
             font-weight: 400;
             font-size: 16px;
-            text-transform: capitalize; }
+            /*text-transform: capitalize;*/ }
       .main-menu .menu-right .icon-nav .onhover-div .show-div li {
         padding: 0; }
         .main-menu .menu-right .icon-nav .onhover-div .show-div li .form-control {
@@ -1897,7 +1897,7 @@ header {
           justify-content: center; }
   .insta-title h4 {
     margin-bottom: 0;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 600; }
     .insta-title h4 span {
       color: #fa869b; }
@@ -2064,7 +2064,7 @@ header {
     color: #000000; }
   .blog-left .blog-details p {
     font-size: 14px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 400;
     margin-top: -3px; }
   .blog-left .blog-details h6 {
@@ -2105,7 +2105,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 0.03em; }
   .service-block p {
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     margin-bottom: 0; }
   .service-block + .service-block {
     border-left: 1px solid #dddddd; }
@@ -2474,7 +2474,7 @@ header {
     margin-top: 20px; }
   .category-m .category-wrapper .category-link li {
     display: block;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     margin-top: 5px; }
     .category-m .category-wrapper .category-link li:first-child {
       margin-top: 0; }
@@ -3084,7 +3084,7 @@ header {
     color: black;
     text-align: center;
     font-size: 18px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     width: 100%;
     padding: 5px 0;
     -webkit-transition: all 0.5s ease;
@@ -3382,13 +3382,13 @@ header {
     font-size: calc(24px + (70 - 24) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 700;
     color: #ffffff;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     margin-bottom: 0;
     margin-top: 0; }
   .full-banner .banner-contain.christmas-contain h3 {
     font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
     color: #ffffff;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 700;
     margin-bottom: 15px;
     margin-top: -6px; }
@@ -3396,7 +3396,7 @@ header {
     font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1920 - 320)));
     color: #ffffff;
     font-weight: 600;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     letter-spacing: 0.07em;
     padding-top: 10px;
     margin-bottom: -5px;
@@ -3648,7 +3648,7 @@ header {
       transition: all 0.5s ease; }
       .absolute_banner .collection-banner .absolute-contain h3 {
         color: #fa869b;
-        text-transform: capitalize;
+        /*text-transform: capitalize;*/
         margin-top: -5px;
         font-weight: 700; }
       .absolute_banner .collection-banner .absolute-contain h4 {
@@ -3936,7 +3936,7 @@ header {
         color: #272727;
         font-size: 18px;
         font-weight: 400;
-        text-transform: capitalize; }
+        /*text-transform: capitalize;*/ }
       .theme-modal .modal-dialog .modal-content .modal-body .modal-bg .age-content form {
         margin: 0 auto;
         text-align: center; }
@@ -4030,7 +4030,7 @@ header {
         text-align: center; }
         .theme-modal.cart-modal .modal-dialog .modal-content .modal-body .modal-bg.addtocart #upsell_product .product-box .product-detail h6 {
           font-weight: 700;
-          text-transform: capitalize; }
+          /*text-transform: capitalize;*/ }
           .theme-modal.cart-modal .modal-dialog .modal-content .modal-body .modal-bg.addtocart #upsell_product .product-box .product-detail h6 a {
             color: #fa869b; }
   .theme-modal.cart-modal .modal-dialog .modal-content .modal-body .upsell_payment {
@@ -4163,7 +4163,7 @@ header {
         text-align: center; }
         .lookbook .lookbook-block .lookbook-dot .dot-showbox .dot-info h5 {
           margin-bottom: 0;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           line-height: 20px; }
           .lookbook .lookbook-block .lookbook-dot .dot-showbox .dot-info h5.title {
             font-weight: 700; }
@@ -4355,7 +4355,7 @@ header {
   .about-section .service .service-block1 img {
     margin-bottom: 10px; }
   .about-section .service .service-block1 h5 {
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 700;
     margin-bottom: 0; }
 
@@ -4505,7 +4505,7 @@ header {
   color: white;
   text-align: center;
   font-size: 18px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   position: absolute;
   width: 100%;
   bottom: -40px;
@@ -4836,12 +4836,12 @@ footer.pet-layout-footer .social-white {
     margin-top: 3px; }
   .blog.blog_box .blog-details a p {
     color: #40494f;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 700;
     margin-bottom: 0;
     margin-top: 10px; }
   .blog.blog_box .blog-details .read-cls {
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 700;
     color: #000000; }
 
@@ -4869,7 +4869,7 @@ footer.pet-layout-footer .social-white {
   width: 75%;
   margin: 20px 0; }
   .tools-parallax-product .tools-description .tools-form .search-box select {
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
 
 .tools-parallax-product .tools-description .tools-form .btn-find {
   width: 75%;
@@ -5145,7 +5145,7 @@ footer.pet-layout-footer .social-white {
       .service_slide .service-home .service-block1 h4 {
         margin-bottom: 0; }
       .service_slide .service-home .service-block1 p {
-        text-transform: capitalize; }
+        /*text-transform: capitalize;*/ }
       .service_slide .service-home .service-block1 svg {
         margin-bottom: 5px;
         width: 50px;
@@ -5170,7 +5170,7 @@ footer.pet-layout-footer .social-white {
       margin-right: 100px;
       text-align: left; }
       .tab-left .theme-tab .left-side .tab-title a {
-        text-transform: capitalize; }
+        /*text-transform: capitalize;*/ }
     .tab-left .theme-tab .left-side li {
       width: 100%;
       padding: 7px 0;
@@ -5465,7 +5465,7 @@ footer.footer-5 {
   .blog-section .review-box .review-content h6 {
     margin-bottom: 0;
     margin-top: 10px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: #555555;
     font-size: 16px; }
   .blog-section .review-box .review-content p {
@@ -5832,7 +5832,7 @@ footer.footer-5 {
           padding-top: 10px;
           padding-bottom: 10px; }
           .add_to_cart .cart-inner .cart_media li .total h5 {
-            text-transform: capitalize;
+            /*text-transform: capitalize;*/
             margin-bottom: 0;
             color: #999999; }
             .add_to_cart .cart-inner .cart_media li .total h5 span {
@@ -5840,7 +5840,7 @@ footer.footer-5 {
         .add_to_cart .cart-inner .cart_media li .buttons a {
           font-size: 16px;
           color: #ffffff;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           font-weight: 700;
           -webkit-transition: all 0.5s ease;
           transition: all 0.5s ease; }
@@ -6252,7 +6252,7 @@ footer {
   position: relative;
   display: inherit;
   padding-top: 13px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-size: 14px;
   color: #777777; }
   .footer-theme .sub-title li a {
@@ -6393,7 +6393,7 @@ footer {
   .footer-theme2 .footer-link li, .footer-theme2 .footer-link-b li {
     padding-right: 15px;
     padding-left: 15px;
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
   .footer-theme2 .footer-link a, .footer-theme2 .footer-link-b a {
     color: #7f786d;
     -webkit-transition: 0.5s ease;
@@ -6453,7 +6453,7 @@ footer {
 ==========================*/
 .sitemap_page .title {
   color: #fa869b;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 700; }
 
 .sitemap_page ul {
@@ -6466,7 +6466,7 @@ footer {
       font-weight: 700;
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
-      text-transform: capitalize; }
+      /*text-transform: capitalize;*/ }
       .sitemap_page ul li a i {
         font-size: 10px; }
       .sitemap_page ul li a:hover {
@@ -6622,7 +6622,7 @@ footer {
 .about-page h4 {
   margin-bottom: 10px;
   margin-top: 30px;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 600;
   line-height: 1.3; }
 
@@ -6712,7 +6712,7 @@ footer {
           margin-bottom: 5px; }
         .collection-filter-block .product-service .media .media-body p {
           margin-bottom: 0;
-          text-transform: capitalize; }
+          /*text-transform: capitalize;*/ }
       .collection-filter-block .product-service .media:last-child {
         padding-bottom: 0; }
 
@@ -6890,7 +6890,7 @@ footer {
     .collection-product-wrapper .product-top-filter .product-filter-content .search-count, .collection-product-wrapper .product-top-filter .product-filter-content .sidebar-popup, .collection-product-wrapper .product-top-filter .popup-filter .search-count, .collection-product-wrapper .product-top-filter .popup-filter .sidebar-popup {
       border-right: 1px solid #dddddd;
       padding: 20px;
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       width: 35%; }
       .collection-product-wrapper .product-top-filter .product-filter-content .search-count h5, .collection-product-wrapper .product-top-filter .product-filter-content .sidebar-popup h5, .collection-product-wrapper .product-top-filter .popup-filter .search-count h5, .collection-product-wrapper .product-top-filter .popup-filter .sidebar-popup h5 {
         margin-bottom: 0; }
@@ -7133,7 +7133,7 @@ footer {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   color: #333333; }
   .theme_checkbox label input {
     position: absolute;
@@ -7265,7 +7265,7 @@ footer {
   border: 1px solid #dddddd;
   line-height: 1; }
   .login-page .theme-card .theme-form label {
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: #333333;
     font-size: 14px;
     font-weight: 600; }
@@ -7301,7 +7301,7 @@ footer {
   border: 1px solid #dddddd;
   line-height: 1; }
   .register-page .theme-card .theme-form label {
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: #333333;
     font-size: 14px;
     font-weight: 600; }
@@ -7357,7 +7357,7 @@ footer {
       line-height: 30px; }
 
 .contact-page .theme-form label {
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   color: #333333;
   font-size: 14px;
   font-weight: 600; }
@@ -7458,7 +7458,7 @@ footer {
     color: #777777;
     font-weight: 400;
     font-size: 14px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     margin-bottom: 0; }
     .cart-section tbody tr td a img, .cart-section tbody tr td p img, .wishlist-section tbody tr td a img, .wishlist-section tbody tr td p img {
       height: 90px; }
@@ -7504,7 +7504,7 @@ footer {
     width: 85%;
     font-size: 15px;
     padding-right: 10px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     font-weight: 700; }
 
 .blog-detail-page .blog-detail p:last-child {
@@ -7572,7 +7572,7 @@ footer {
       .blog-detail-page .comment-section li h6 span {
         font-size: 13px;
         font-weight: 500;
-        text-transform: capitalize;
+        /*text-transform: capitalize;*/
         color: #777777;
         margin-left: 20px; }
     .blog-detail-page .comment-section li p {
@@ -7584,7 +7584,7 @@ footer {
   margin-top: -5px; }
 
 .blog-detail-page .blog-contact .theme-form label {
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   color: #333333;
   font-size: 16px;
   font-weight: 700; }
@@ -7777,7 +7777,7 @@ footer {
 
 .product-right .product-title {
   color: #222222;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-weight: 700;
   margin-bottom: 0; }
 
@@ -8136,7 +8136,7 @@ footer {
       right: 10px;
       color: #333333;
       font-weight: 600;
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       opacity: 0; }
     .tab-product .product-box a, .product-full-tab .product-box a {
       color: #0072bb;
@@ -8169,7 +8169,7 @@ footer {
         color: #333333;
         font-weight: 600;
         letter-spacing: 1px;
-        text-transform: capitalize; }
+        /*text-transform: capitalize;*/ }
       .tab-product .product-box .product-details .price, .product-full-tab .product-box .product-details .price {
         padding-bottom: 10px;
         font-size: 16px;
@@ -8230,7 +8230,7 @@ footer {
     margin-top: 30px; }
   .checkout-page .checkout-form .form-group .field-label {
     line-height: 24px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: #333333;
     margin-bottom: 10px;
     font-weight: 700; }
@@ -8388,7 +8388,7 @@ footer {
         .payment-box .payment-options li .radio-option label {
           position: relative;
           padding-left: 30px;
-          text-transform: capitalize;
+          /*text-transform: capitalize;*/
           color: #6f6f6f;
           cursor: pointer;
           font-weight: 600;
@@ -8477,7 +8477,7 @@ footer {
 .dashboard .box-head h2 {
   font-size: 22px;
   margin: 20px 0 0;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   color: #333; }
 
 .dashboard .box a {
@@ -8496,7 +8496,7 @@ footer {
   .dashboard .box .box-title h3 {
     font-size: 16px;
     margin: 0;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: #333; }
   .dashboard .box .box-title > a {
     position: absolute;
@@ -8538,19 +8538,19 @@ footer {
     margin-bottom: 15px; }
   .success-text p {
     font-size: 18px;
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
   .success-text.order-fail i {
     color: #fa869b; }
 
 .order-success-sec h4 {
   font-weight: 700;
-  text-transform: capitalize; }
+  /*text-transform: capitalize;*/ }
 
 .order-success-sec .order-detail li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   line-height: 24px;
   font-size: 16px; }
 
@@ -8566,7 +8566,7 @@ footer {
   background-color: #f9f9f9; }
   .delivery-sec h2, .delivery-sec h3 {
     color: #000000;
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
 
 .product-order h3 {
   font-weight: 700;
@@ -8586,10 +8586,10 @@ footer {
             align-items: center; }
     .product-order .product-order-detail .order_detail h4 {
       margin-bottom: 5px;
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       font-weight: 700; }
     .product-order .product-order-detail .order_detail h5 {
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       margin-bottom: 0; }
 
 .product-order .total-sec {
@@ -8600,7 +8600,7 @@ footer {
   .product-order .total-sec ul li {
     font-size: 18px;
     display: block;
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
     .product-order .total-sec ul li span {
       float: right; }
 
@@ -8626,7 +8626,7 @@ footer {
       margin: 0 auto; }
     .compare-section .compare-part .img-secton a h5 {
       margin-bottom: 0;
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       margin-top: 10px; }
     .compare-section .compare-part .img-secton h5 {
       margin-bottom: 0;
@@ -8684,7 +8684,7 @@ footer {
   padding-bottom: 0; }
   .compare-page .table-wrapper .table {
     border: 1px solid #eeeeee;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     color: #222222; }
     .compare-page .table-wrapper .table .product-name {
       width: 15%; }
@@ -8743,7 +8743,7 @@ footer {
     background-color: rgba(247, 247, 247, 0.5);
     padding: 8px 12px; }
     .typography_section .typography-box .headings h3 {
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       color: #2d2d2d;
       margin-bottom: 0;
       font-weight: 400;
@@ -8769,7 +8769,7 @@ footer {
     margin-bottom: 8px;
     font-size: 18px;
     color: #222222;
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
   .typography_section .typography-box .typo-content.product-pagination {
     border: none;
     margin: 0; }
@@ -8782,7 +8782,7 @@ footer {
     margin-bottom: 10px; }
   .typography_section .typography-box .typo-content.input_button label {
     font-size: 16px;
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     padding-left: 5px; }
   .typography_section .typography-box .typo-content.loader-typo {
     width: 100%;
@@ -9282,7 +9282,7 @@ footer {
 .demo-section .demo-effects {
   margin-bottom: 30px; }
   .demo-section .demo-effects h4 {
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
   .demo-section .demo-effects .set-position {
     display: block; }
   .demo-section .demo-effects > div {
@@ -12105,7 +12105,7 @@ body.dark {
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
       font-weight: 400;
-      text-transform: capitalize;
+      /*text-transform: capitalize;*/
       color: #222222; }
     .pixelstrap .full-mega-menu a img, .pixelstrap .clothing-menu a img {
       display: -webkit-box;
@@ -12125,7 +12125,7 @@ body.dark {
 
 .pixelstrap .link-section h5 {
   font-weight: 700;
-  text-transform: capitalize;
+  /*text-transform: capitalize;*/
   font-size: 14px; }
 
 .pixelstrap .link-section ul {
@@ -12390,7 +12390,7 @@ body.dark {
         border-radius: 0 !important;
         font-size: 14px;
         font-weight: 400;
-        text-transform: capitalize;
+        /*text-transform: capitalize;*/
         padding: 5px 35px; }
         .pixelstrap ul a:hover:before, .pixelstrap ul a:hover:hover:before, .pixelstrap ul a:focus:hover:before, .pixelstrap ul a:active:hover:before, .pixelstrap ul a.highlighted:hover:before {
           width: 50px;
@@ -12459,7 +12459,7 @@ body.dark {
       .main-nav-center .sm > li > a > span.sub-arrow {
         display: ruby-text-container; }
   .layout3-menu .pixelstrap a {
-    text-transform: capitalize;
+    /*text-transform: capitalize;*/
     padding-right: 34px;
     letter-spacing: 0.04em; }
   .layout3-menu .pixelstrap .sub-arrow {
@@ -12617,7 +12617,7 @@ body.dark {
       position: absolute;
       right: -18px; }
   .pixelstrap .link-section .menu-content a {
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
   .pixelstrap .link-section ul {
     background-color: unset; }
   .pixelstrap .link-section h5 {
@@ -14434,7 +14434,7 @@ body.dark {
   .small-section {
     padding: 20px 0; }
   .theme-tab .tab-title a, .theme-tab .tab-title2 a {
-    text-transform: capitalize; }
+    /*text-transform: capitalize;*/ }
   .about-cls .service.border-section {
     border-bottom: none; }
   .about-cls .service.small-section {

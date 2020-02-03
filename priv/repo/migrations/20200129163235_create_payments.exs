@@ -4,26 +4,20 @@ defmodule Crocodile.Repo.Migrations.CreatePayments do
   def change do
     create table(:payments, primary_key: false) do
       add(:id, :uuid, primary_key: true)
-      # add(:account_id, :integer)
-      # add(:amount, :decimal)
-      # add(:psp_amount, :decimal)
-      # add(:currency, :integer)
-      # add(:psp_currency, :integer)
-      # add(:user_amount, :decimal)
-      # add(:user_currency, :integer)
-      # add(:owallet_transaction_id, :integer)
-      # add(:psp_transaction_id, :integer)
-      # add(:action, :integer)
-      # add(:uuid, :string)
-      # add(:status, :integer)
+      add(:amount, :decimal)
+      add(:confirmation_url, :string)
+      add(:description, :string)
+      add(:account_id, :string)
+      add(:gateway_id, :string)
+      add(:refundable, :boolean)
+      add(:status, :integer)
+      add(:kassa_id, :string)
 
-      # add(:provider_id, references(:providers, on_delete: :nothing))
-      # add(:origin_id, references(:origins, on_delete: :nothing))
+      add(:order_id, references(:orders, on_delete: :nothing))
 
       timestamps()
     end
 
-    # create(index(:payments, [:provider_id]))
-    # create(index(:payments, [:origin_id]))
+    create(index(:payments, [:order_id]))
   end
 end

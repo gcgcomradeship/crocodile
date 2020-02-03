@@ -1,0 +1,22 @@
+/! thank-you section start
+section.section-b-space.light-layout
+  .container
+    .row
+      .col-md-12
+        .success-text
+          = if @order.status == :created do
+            i.fa.fa-check-circle.warning aria-hidden="true"
+            h2 Спасибо!
+            p Заказ успешно оформлен и ожидает обработки
+          = if @order.status == :paid do
+            i.fa.fa-check-circle aria-hidden="true"
+            h2 Спасибо!
+            p Заказ успешно оплачен и ожидает обработки
+          = if @order.status == :canceled do
+            i.fa.fa-times-circle.danger aria-hidden="true"
+            h2 Что то пошло не так!
+            p Закал был отменен
+          p
+            ="Статус заказа: "
+            b="#{t(@order.status)}"
+/! Section ends

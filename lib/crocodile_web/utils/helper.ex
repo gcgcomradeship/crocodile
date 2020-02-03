@@ -1,4 +1,15 @@
 defmodule Crocodile.Utils.Helper do
+  def t(str) when is_bitstring(str), do: Gettext.gettext(CrocodileWeb.Gettext, str)
+  def t(str) when is_atom(str), do: Gettext.gettext(CrocodileWeb.Gettext, to_string(str))
+
+  def l(nil), do: "-"
+  def l(date), do: Timex.format!(date, "%d.%m.%Y", :strftime)
+
+  def price(dec), do: "₽ #{Decimal.to_string(dec)}"
+
+  def to_int(data) when is_bitstring(data), do: String.to_integer(data)
+  def to_int(data) when is_integer(data), do: data
+
   def concatinate(str, len \\ 20) when is_bitstring(str) do
     case String.length(str) do
       l when l > len -> "#{String.slice(str, 0..len)}..."

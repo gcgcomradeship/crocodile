@@ -1,39 +1,42 @@
 defmodule Crocodile.Services.Kassa do
   use CrocodileWeb, :services
 
-  @url Application.get_env(:crocodile, :kassa)[:url]
-  @shop_id Application.get_env(:crocodile, :kassa)[:id]
-  @secret Application.get_env(:crocodile, :kassa)[:secret]
+  alias Crocodile.Context.Payments
+  alias Crocodile.Services.Kassa.Request
 
-  def call() do
-    path = "/payments"
+  def create(conn, order) do
+    with {:ok, body} <- Request.post("/payments", build_payment_params(conn, order)),
+         {:ok, %{confirmation_url: confirmation_url} = payment} <- Payments.create(body, order) do
+      payment
+    else
+      error ->
+        error
+    end
+  end
 
-    header = [
-      {"Content-Type", "application/json"},
-      {"Idempotence-Key", Ecto.UUID.generate()}
-    ]
-
-    body = %{
+  defp build_payment_params(
+         conn,
+         %{total_sum: total_sum, delivery_sum: delivery_sum, number: number} = order
+       ) do
+    %{
       amount: %{
-        value: "100.00",
+        value: Decimal.add(total_sum, delivery_sum),
         currency: "RUB"
       },
       capture: true,
       confirmation: %{
         type: "redirect",
-        return_url: "https://www.merchant-website.com/return_url"
+        return_url: redirect_url(conn, order)
       },
-      description: "Заказ №1"
+      description: "Заказ № #{number}"
     }
+  end
 
-    case HTTPoison.post(@url <> path, Jason.encode!(body), header,
-           hackney: [basic_auth: {@shop_id, @secret}]
-         ) do
-      {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
-        Jason.decode!(body)
-
-      error ->
-        error
+  defp redirect_url(conn, order) do
+    case Mix.env() do
+      :prod -> "https://crocodildo.ru"
+      _ -> "http://localhost:4000"
     end
+    |> Kernel.<>(Routes.order_path(conn, :show, order, f: 1))
   end
 end

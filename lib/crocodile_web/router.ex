@@ -81,6 +81,12 @@ defmodule CrocodileWeb.Router do
     resources "/admin", AdminController, except: [:show]
   end
 
+  scope "/api/v1", CrocodileWeb.Api.V1, as: :api do
+    pipe_through :browser
+    get "/notify", NotifyController, :notify
+    post "/notify", NotifyController, :notify
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", CrocodileWeb do
   #   pipe_through :api
