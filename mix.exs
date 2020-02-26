@@ -52,7 +52,11 @@ defmodule Crocodile.MixProject do
       {:httpoison, "~> 1.6"},
       {:ucol, "~> 2.0"},
       {:timex, "~> 3.5"},
-      {:redix, ">= 0.0.0"}
+      {:redix, ">= 0.0.0"},
+      {:ex_aws, "~> 2.1"},
+      {:ex_aws_s3, "~> 2.0"},
+      {:hackney, "~> 1.9"},
+      {:sweet_xml, "~> 0.6"}
     ]
   end
 

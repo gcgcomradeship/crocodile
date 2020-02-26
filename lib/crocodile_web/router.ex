@@ -62,6 +62,10 @@ defmodule CrocodileWeb.Router do
 
     # Order routes
     resources "/order", OrderController, only: [:new, :create, :show]
+    # Blog routes
+    resources "/blog", BlogController, only: [:index, :show] do
+      get "/like", BlogController, :like
+    end
 
     # Test pages
     get "/main", PageController, :main
@@ -83,6 +87,7 @@ defmodule CrocodileWeb.Router do
     get "/sync", SyncController, :index
 
     resources "/admin", AdminController, except: [:show]
+    resources "/blog", BlogController
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do

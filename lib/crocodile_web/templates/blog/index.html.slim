@@ -1,0 +1,58 @@
+/! section start
+section.section-b-space.blog-page.ratio2_3
+  .container
+    .row
+      /! Blog sidebar start
+      .col-xl-3.col-lg-4.col-md-5
+        .blog-sidebar
+          / .theme-card
+          /   h4 Recent Blog
+          /   ul.recent-blog
+          /     li
+          /       .media
+          /         img.img-fluid.blur-up.lazyload alt=("Generic placeholder image") src="/images/blog/1.jpg" /
+          /         .media-body.align-self-center
+          /           h6 25 Dec 2018
+          /           p 0 hits
+          .theme-card
+            h4 Популярные статьи
+            ul.popular-blog
+              = for blog <- @blogs do
+                li
+                  = link to: Routes.blog_path(@conn, :show, blog.id) do
+                    .media
+                      .blog-date
+                        span = l(blog.inserted_at, :day_month)
+                        span = l(blog.inserted_at, :year)
+                      .media-body.align-self-center
+                        h6 = concatinate(blog.title)
+                        p
+                          i.fa.fa-heart.pr-1
+                          = blog.like_count
+                    p = concatinate(blog.description, 100)
+
+      /! Blog sidebar start
+      /! Blog List start
+      .col-xl-9.col-lg-8.col-md-7.order-sec
+        = for blog <- @blogs do
+          .row.blog-media
+            / .col-xl-6
+            /   .blog-left
+            /     a href="#"
+            /       img.img-fluid.blur-up.lazyload.bg-img alt="" src="/images/blog/1.jpg" /
+            .col-xl-12
+              .blog-right
+                div
+                  h6 = l(blog.inserted_at)
+                  = link to: Routes.blog_path(@conn, :show, blog.id) do
+                    h4 = blog.title
+                  ul.post-social
+                    li  = "Опубликовано: #{blog.author}"
+                    li
+                      i.fa.fa-heart
+                      = blog.like_count
+                  = link to: Routes.blog_path(@conn, :show, blog.id) do
+                    p = blog.description
+
+      /! Blog List start
+/! Section ends

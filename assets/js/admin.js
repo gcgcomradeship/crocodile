@@ -44,3 +44,4 @@ import "./admin/admin-script.js"
 // Datatable js
 import "./admin/datatables/jquery.dataTables.min.js"
 import "./admin/datatables/custom-basic.js"
+import "./admin/editor.js"

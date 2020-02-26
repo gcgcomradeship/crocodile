@@ -1,0 +1,36 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Блог
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .btn-popup.pull-right
+            = link "Добавить", to: Routes.admin_blog_path(@conn, :new), class: "btn btn-secondary"
+          table#basic-1.display
+            thead
+              tr
+                th ID
+                th Автор
+                th Название
+                th Дата
+                th
+            tbody
+              = for blog <- @blogs do
+                tr
+                  td=blog.id
+                  td=blog.author
+                  td=blog.title
+                  td=l(blog.inserted_at)
+                  td
+                    .btn-group.btn-group-sm.mr2.pull-right
+                      = link to: Routes.admin_blog_path(@conn, :edit, blog), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Edit" do
+                        i.feather-16 data-feather="edit"
+                      = link to: Routes.admin_blog_path(@conn, :delete, blog), method: :delete, data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete" do
+                        i.feather-16 data-feather="trash-2"

@@ -74,3 +74,21 @@
   margin: 1px;
   border-radius: 50%;
 }
+
+.like-btn {
+  cursor: pointer;
+}
+
+.like-btn:hover {
+  cursor: pointer;
+  color: #fa869b;
+}
+
+.like-btn.liked {
+  color: #fa869b;
+}
+
+
+.blog-img{
+  max-height: 385px;
+}

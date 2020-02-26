@@ -1,0 +1,15 @@
+/! section start
+section.blog-detail-page.section-b-space.ratio2_3
+  .container
+    .row
+      .col-sm-12.blog-detail
+        / img.blog-img.img-fluid.blur-up.lazyload alt="" src=@blog.image /
+        h3 = @blog.title
+        ul.post-social
+          li = l(@blog.inserted_at)
+          li = "Опубликовано: #{@blog.author}"
+          li.like-btn class="#{if @blog.liked, do: "liked"}" blog-id=@blog.id
+            i.fa.fa-heart.pr-1
+            span.count = @blog.like_count
+        =raw(@blog.inner_html)
+/! Section ends

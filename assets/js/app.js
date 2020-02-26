@@ -57,6 +57,7 @@ import "./main/price_slider.js"
 import "./main/brand_filter.js"
 import "./main/page_filter.js"
 import "./main/cart.js"
+import "./main/likes.js"
 // import "./main/modal.js"
 import "./main/custom.js"
 // Actions binding

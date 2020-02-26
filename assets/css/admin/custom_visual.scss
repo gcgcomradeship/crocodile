@@ -30,3 +30,27 @@
   margin-top: 60px;
 }
 
+.form-image{
+  max-height: 100px;
+  display: block;
+}
+
+.btn-image-del{
+  position: absolute;
+  // margin-top: 22px;
+  margin-right: -22px;
+  color: black;
+  background: rgba(white, .8);
+  border-radius: 50%;
+  padding: 0px;
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+
+.btn-image-del i{
+  margin-left: 4px;
+  margin-top: 2px;
+  font-size: 16px;
+}
+

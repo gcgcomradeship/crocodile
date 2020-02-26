@@ -5,6 +5,8 @@ alias Crocodile.Product
 alias Crocodile.Category
 alias Crocodile.Order
 alias Crocodile.User
+alias Crocodile.Blog
+alias Crocodile.Like
 alias Crocodile.Session
 alias Crocodile.Payment
 alias Crocodile.OrderProduct

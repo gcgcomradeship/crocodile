@@ -46,6 +46,11 @@ config :crocodile, :delivery,
   client_id: System.get_env("DELIVERY_CLIENT_ID"),
   sender_id: System.get_env("DELIVERY_SENDER_ID")
 
+config :ex_aws,
+  access_key_id: [System.get_env("MINIO_ACCESS") || "", :instance_role],
+  secret_access_key: [System.get_env("MINIO_SECRET") || "", :instance_role],
+  region: "us-east-1"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

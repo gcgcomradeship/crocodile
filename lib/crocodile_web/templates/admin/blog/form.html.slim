@@ -1,0 +1,29 @@
+.form-box
+  .col-md-12
+    = form_for @changeset, @action, [class: "editable-form", multipart: true], fn f ->
+      / .form-group
+      /   = label f, "Изображение", class: "control-label"
+      /   = if assigns[:blog] do
+      /     .btn-image-del
+      /       i.fa.fa-close blog-id=assigns[:blog].id
+      /     = img_tag assigns[:blog].image, class: "form-image"
+      /   = file_input f, :image, class: "form-control"
+      /   = error_tag f, :image
+      .form-group
+        = label f, "Автор", class: "control-label"
+        = text_input f, :author, class: "form-control"
+        = error_tag f, :author
+      .form-group
+        = label f, "Заголовок", class: "control-label"
+        = text_input f, :title, class: "form-control"
+        = error_tag f, :title
+      .form-group
+        = label f, "Описание", class: "control-label"
+        = textarea f, :description, class: "form-control"
+        = error_tag f, :description
+      .form-group
+        = label f, "Содержание", class: "control-label"
+        = textarea f, :inner_html, class: "form-control", id: "editor"
+        = error_tag f, :inner_html
+      .form-group.submit
+        = submit "Сохранить", class: "btn btn-secondary"

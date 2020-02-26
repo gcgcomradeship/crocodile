@@ -4,7 +4,7 @@
       .col-lg-12
         .page-header-left
           h3
-            = "Админы - #{@admin.email}"
+            = "Блог - Новая публикация"
             small Crocodildo Admin panel
 .container-fluid
   .row
@@ -12,7 +12,7 @@
       .card
         .card-body.order-datatable
           .btn-popup.pull-right
-            = link to: Routes.admin_admin_path(@conn, :index), class: "btn btn-secondary" do
+            = link to: Routes.admin_blog_path(@conn, :index), class: "btn btn-secondary" do
               span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
-              = "Админы"
-          = render "form.html", changeset: @changeset, action: Routes.admin_admin_path(@conn, :update, @admin)
+              = "Блог"
+          = render "form.html", changeset: @changeset, action: Routes.admin_blog_path(@conn, :create)
