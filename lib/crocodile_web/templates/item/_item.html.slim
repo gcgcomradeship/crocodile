@@ -1,17 +1,17 @@
 .product-box
   .img-wrapper
     .lable-block
-      = if @item.hit do
-        span.lable3 style="width: 45px" hit
-      = if @item.new do
-        span.lable3 new
-      = if @item.discount do
+      / = if @item.hit do
+      /   span.lable3 style="width: 45px" hit
+      / = if @item.new do
+      /   span.lable3 new
+      = if @item.discount == 0 do
         span.lable4 on sale
     .front
-      a href=Routes.product_path(@conn, :show, @item)
+      a href=Routes.item_path(@conn, :show, @item)
         img.img-fluid.blur-up.lazyload.bg-img alt="" src=image(@item.images)
     .back
-      a href=Routes.product_path(@conn, :show, @item)
+      a href=Routes.item_path(@conn, :show, @item)
         img.img-fluid.blur-up.lazyload.bg-img alt="" src=image(@item.images, :last)
     .cart-info.cart-wrap
       button.cart-btn item-id=@item.id data-target="#addtocart" data-toggle="modal" title="В корзину"
@@ -27,10 +27,10 @@
     /   i.fa.fa-star
     /   i.fa.fa-star
     /   i.fa.fa-star
-    a href=Routes.product_path(@conn, :show, @item)
-    h6 = @item.title
+    a href=Routes.item_path(@conn, :show, @item)
+    h6 = name(@item)
     h4
-      = "₽ #{Decimal.to_string(@item.price)}"
+      = price(@item.retail_price)
     /   del $600.00
     / ul.color-variant
     /   li.bg-light0

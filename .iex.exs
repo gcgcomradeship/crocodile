@@ -1,15 +1,14 @@
 import Ecto.Query
 alias Crocodile.Repo
 alias Crocodile.Admin
-alias Crocodile.Product
-alias Crocodile.Category
+alias Crocodile.Item
 alias Crocodile.Order
 alias Crocodile.User
 alias Crocodile.Blog
 alias Crocodile.Like
 alias Crocodile.Session
 alias Crocodile.Payment
-alias Crocodile.OrderProduct
+alias Crocodile.ItemOrder
 alias Crocodile.Services.Sync
 alias Crocodile.Services.SMS
 alias Crocodile.Service.Redis

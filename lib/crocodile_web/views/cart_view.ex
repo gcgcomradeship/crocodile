@@ -12,9 +12,9 @@ defmodule CrocodileWeb.CartView do
     %{
       count: item.count,
       item_id: item.id,
-      price: item.price,
+      price: item.retail_price,
       image: List.first(item.images),
-      title: concatinate(item.title)
+      title: concatinate(item.name)
     }
   end
 

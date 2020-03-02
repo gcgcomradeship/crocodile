@@ -1,16 +1,16 @@
-defmodule Crocodile.OrderProduct do
+defmodule Crocodile.ItemOrder do
   use Ecto.Schema
   import Ecto.Changeset
 
-  schema "orders_products" do
+  schema "items_orders" do
     field(:quantity, :integer)
     field(:price, :decimal)
 
     belongs_to(:order, Crocodile.Order)
-    belongs_to(:product, Crocodile.Product)
+    belongs_to(:item, Crocodile.Item)
   end
 
-  @required_fields ~w(order_id product_id quantity price)a
+  @required_fields ~w(order_id item_id quantity price)a
   @optional_fields ~w()a
 
   @doc false

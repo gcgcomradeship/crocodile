@@ -2,7 +2,7 @@ defmodule Crocodile.Context.Orders do
   use CrocodileWeb, :context
 
   alias Crocodile.Order
-  alias Crocodile.OrderProduct
+  alias Crocodile.ItemOrder
   alias Crocodile.Context.Items
 
   def create(params, %{id: sid} = session) do
@@ -16,7 +16,7 @@ defmodule Crocodile.Context.Orders do
 
     case Repo.insert(changeset) do
       {:ok, order} ->
-        create_product_links(items, order)
+        create_item_links(items, order)
         {:ok, order}
 
       error ->
@@ -47,18 +47,18 @@ defmodule Crocodile.Context.Orders do
     end
   end
 
-  defp create_product_links(items, order) do
-    orders_products =
+  defp create_item_links(items, order) do
+    items_orders =
       for item <- items do
         %{
           order_id: order.id,
-          price: item.price,
-          product_id: item.id,
+          price: item.retail_price,
+          item_id: item.id,
           quantity: to_int(item.count)
         }
       end
 
-    Repo.insert_all(OrderProduct, orders_products)
+    Repo.insert_all(ItemOrder, items_orders)
   end
 
   def on_order_update(order, params) do

@@ -2,43 +2,26 @@ defmodule Crocodile.Context.Categories do
   use CrocodileWeb, :context
 
   alias Crocodile.Category
+  alias Crocodile.Item
 
-  @exclude [
-    "Архив",
-    "Каталоги",
-    "Упаковка",
-    "Рекламная продукция",
-    "Оборудование",
-    "Маркетинговая поддержка",
-    "Промотовары"
-  ]
+  # @exclude [
+  #   "Архив",
+  #   "Каталоги",
+  #   "Упаковка",
+  #   "Рекламная продукция",
+  #   "Оборудование",
+  #   "Маркетинговая поддержка",
+  #   "Промотовары"
+  # ]
 
   def all() do
-    Category
-    |> where_main()
-    |> Repo.all()
-  end
-
-  def hierarchy() do
-    Category
-    |> where_main()
-    |> group_by([c], c.parent_id)
-    |> select([c], {c.parent_id, fragment("array_agg(?)", c.id)})
+    Item
+    |> where([i], i.insale > 0)
+    # |> where([c], c.title not in ^@exclude)
+    |> distinct(true)
+    |> group_by([i], i.category)
+    |> select([i], {i.category, fragment("array_agg(DISTINCT(?))", i.subcategory)})
     |> Repo.all()
     |> Enum.into(%{})
-  end
-
-  def names() do
-    Category
-    |> where_main()
-    |> select([c], {c.id, c.title})
-    |> Repo.all()
-    |> Enum.into(%{})
-  end
-
-  defp where_main(query) do
-    query
-    |> where([c], c.msk == true)
-    |> where([c], c.title not in ^@exclude)
   end
 end

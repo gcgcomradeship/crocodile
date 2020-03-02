@@ -42,24 +42,18 @@ header
                       i.fa.fa-angle-left.pr-2 aria-hidden="true"
                       | Назад
                   ul#sub-menu.sm.pixelstrap.sm-vertical
-                    = for cat_id <- @cat_hierarchy[nil] do
+                    = for category <- Map.keys(@categories) do
                       li
-                        a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
-                        = if @cat_hierarchy[cat_id] do
+                        a href=Routes.item_path(@conn, :index, category: category) =category
+                        = if Map.get(@categories, category) do
                           ul.mega-menu.clothing-menu
                             li
                               .row.m-1
-                                = for cat_id <- @cat_hierarchy[cat_id] do
+                                = for subcategory <- Map.get(@categories, category) do
                                   .col-xl-6
                                     .link-section
-                                      a href=Routes.product_path(@conn, :index, category: cat_id)
-                                        h5= @cat_names[cat_id]
-                                      = if @cat_hierarchy[cat_id] do
-                                        ul
-                                          = for cat_id <- @cat_hierarchy[cat_id] do
-                                            li
-                                              a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
-
+                                      a href=Routes.item_path(@conn, :index, subcategory: subcategory)
+                                        = subcategory
             .brand-logo
               a href="index.html"
                 / img.img-fluid.blur-up.lazyload alt="" src="/images/icon/logo.png" /
@@ -78,200 +72,22 @@ header
                       a href=Routes.page_path(@conn, :index)
                         | Главная
                     li
-                      a href=Routes.product_path(@conn, :index)
+                      a href=Routes.item_path(@conn, :index)
                         | Каталог
                       ul.wide
-                        = for cat_id <- @cat_hierarchy[nil] do
+                        = for category <- Map.keys(@categories) do
                           li
-                            a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
-                            = if @cat_hierarchy[cat_id] do
+                            a href=Routes.item_path(@conn, :index, category: category) =category
+                            = if Map.get(@categories, category) do
                               ul.wide
-                                = for cat_id <- @cat_hierarchy[cat_id] do
+                                = for subcategory <- Map.get(@categories, category) do
                                   li
-                                    a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
-                                    = if @cat_hierarchy[cat_id] do
-                                      ul.wide
-                                        = for cat_id <- @cat_hierarchy[cat_id] do
-                                          li
-                                            a href=Routes.product_path(@conn, :index, category: cat_id) = @cat_names[cat_id]
+                                    a href=Routes.item_path(@conn, :index, subcategory: subcategory)
+                                      = subcategory
                     li
                       a href=Routes.blog_path(@conn, :index)
                         | Блог
-                  / li
-                  /   a href="#"  Home
-                  /   ul
-                  /     li
-                  /       a href="#"
-                  /         | new demos
-                  /         span.new-tag new
-                  /       ul
-                  /         li
-                  /           a href="tools.html" target="_blank"  tools
-                  /         li
-                  /           a href="game.html" target="_blank"  game
-                  /         li
-                  /           a href="gym-product.html" target="_blank"  gym
-                  /         li
-                  /           a href="marijuana.html" target="_blank"  marijuana
-                  /         li
-                  /           a href="left_sidebar-demo.html" target="_blank"  left sidebar
-                  /         li
-                  /           a href="jewellery.html" target="_blank"  jewellery
-                  /         li
-                  /           a href="pets.html" target="_blank"  pets
-                  /         li
-                  /           a href="metro.html" target="_blank"  metro
-                  /         li
-                  /           a href="video-slider.html" target="_blank"  video slider
-                  /     li
-                  /       a href="#"  clothing
-                  /       ul
-                  /         li
-                  /           a href="index.html" target="_blank"  fashion 1
-                  /         li
-                  /           a href="fashion-2.html" target="_blank"  fashion 2
-                  /         li
-                  /           a href="fashion-3.html" target="_blank"  fashion 3
-                  /         li
-                  /           a href="kids.html" target="_blank"  kids
-                  /     li
-                  /       a href="watch.html" target="_blank"  watch
-                  /     li
-                  /       a href="shoes.html" target="_blank"  shoes
-                  /     li
-                  /       a href="#"  electronics
-                  /       ul
-                  /         li
-                  /           a href="electronic-1.html" target="_blank"  electronic 1
-                  /         li
-                  /           a href="electronic-2.html" target="_blank"  electronic 2
-                  /     li
-                  /       a href="bags.html" target="_blank"  bags
-                  /     li
-                  /       a href="nursery.html" target="_blank"  nursery
-                  /     li
-                  /       a href="vegetables.html" target="_blank"  vegetable
-                  /     li
-                  /       a href="beauty.html" target="_blank"  beauty
-                  /     li
-                  /       a href="light.html" target="_blank"  light
-                  /     li
-                  /       a href="furniture.html" target="_blank"  furniture
-                  /     li
-                  /       a href="goggles.html" target="_blank"  googles
-                  /     li
-                  /       a href="#"  basics
-                  /       ul
-                  /         li
-                  /           a href="lookbook-demo.html" target="_blank"  lookbook
-                  /         li
-                  /           a href="instagram-shop.html" target="_blank"  instagram
-                  /         li
-                  /           a href="video.html" target="_blank"  video
-                  /         li
-                  /           a href="parallax.html" target="_blank"  parallax
-                  /         li
-                  /           a href="full-page.html" target="_blank"  full page
-                  / li#hover-cls.mega
-                  /   a href="#"
-                  /     | features
-                  /   ul.mega-menu.full-mega-menu
-                  /     li
-                  /       .container
-                  /         .row
-                  /           .col.mega-box
-                  /             .link-section
-                  /               .menu-title
-                  /                 h5 portfolio
-                  /               .menu-content
-                  /                 ul
-                  /                   li
-                  /                     a href="grid-2-col.html"  portfolio grid 2
-                  /                   li
-                  /                     a href="grid-3-col.html"  portfolio grid 3
-                  /                   li
-                  /                     a href="grid-4-col.html"  portfolio grid 4
-                  /                   li
-                  /                     a href="masonary-2-grid.html"  mesonary grid 2
-                  /                   li
-                  /                     a href="masonary-3-grid.html"  mesonary grid 3
-                  /                   li
-                  /                     a href="masonary-4-grid.html"  mesonary grid 4
-                  /                   li
-                  /                     a href="masonary-fullwidth.html"  mesonary full width
-                  /           .col.mega-box
-                  /             .link-section
-                  /               .menu-title
-                  /                 h5 add to cart
-                  /               .menu-content
-                  /                 ul
-                  /                   li
-                  /                     a href="nursery.html"  cart modal popup
-                  /                   li
-                  /                     a href="vegetables.html"
-                  /                       | qty. counter
-                  /                       i.fa.fa-bolt.icon-trend aria-hidden="true"
-                  /                   li
-                  /                     a href="bags.html"  cart top
-                  /                   li
-                  /                     a href="shoes.html"  cart bottom
-                  /                   li
-                  /                     a href="watch.html"  cart left
-                  /                   li
-                  /                     a href="tools.html"  cart right
-                  /           .col.mega-box
-                  /             .link-section
-                  /               .menu-title
-                  /                 h5 theme elements
-                  /               .menu-content
-                  /                 ul
-                  /                   li
-                  /                     a href="element-title.html"  title
-                  /                   li
-                  /                     a href="element-banner.html"  collection banner
-                  /                   li
-                  /                     a href="element-slider.html"  home slider
-                  /                   li
-                  /                     a href="element-category.html"  category
-                  /                   li
-                  /                     a href="element-service.html"  service
-                  /                   li
-                  /                     a href="element-image-ratio.html"
-                  /                       | image size ratio
-                  /                       i.fa.fa-bolt.icon-trend aria-hidden="true"
-                  /           .col.mega-box
-                  /             .link-section
-                  /               .menu-title
-                  /                 h5 product elements
-                  /               .menu-content
-                  /                 ul
-                  /                   li.up-text
-                  /                     a href="element-productbox.html"
-                  /                       | product box
-                  /                       span 10+
-                  /                   li
-                  /                     a href="element-product-slider.html"  product slider
-                  /                   li
-                  /                     a href="element-no_slider.html"  no slider
-                  /                   li
-                  /                     a href="element-mulitiple_slider.html"  multi slider
-                  /                   li
-                  /                     a href="element-tab.html"  tab
-                  /           .col.mega-box
-                  /             .link-section
-                  /               .menu-title
-                  /                 h5 email template
-                  /               .menu-content
-                  /                 ul
-                  /                   li
-                  /                     a href="email-order-success.html"  order success
-                  /                   li
-                  /                     a href="email-order-success-two.html"  order success 2
-                  /                   li
-                  /                     a href="email-template.html"  email template
-                  /                   li
-                  /                     a href="email-template-two.html"  email template 2
-            / ! Nav cart
+
             = render CrocodileWeb.LayoutView, "_nav_cart.html", assigns
 
 /! header end

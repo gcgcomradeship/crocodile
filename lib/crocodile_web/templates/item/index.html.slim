@@ -1,18 +1,3 @@
-/! breadcrumb start
-.breadcrumb-section
-  .container
-    .row
-      .col-sm-2
-        .page-title
-          h2 каталог
-      .col-sm-10
-        nav.theme-breadcrumb aria-label="breadcrumb"
-          ol.breadcrumb
-            = for {title, id} <- @breadcrumbs do
-              li.breadcrumb-item
-                a href=Routes.product_path(@conn, :index, category: id)
-                  = title
-/! breadcrumb end
 /! section start
 section.section-b-space.ratio_asos
   .collection-wrapper
@@ -27,38 +12,37 @@ section.section-b-space.ratio_asos
                 i.fa.fa-angle-left aria-hidden="true"
                 | back
             .collection-collapse-block.open
-              h3.collapse-block-title популярные бренды
+              h3.collapse-block-title бренды
               .collection-collapse-block-content
                 .collection-brand-filter
-                  = for brand <- @brands do
-                    .custom-control.custom-checkbox.collection-filter-checkbox
-                      = if brand in @brand_filter do
-                        input.custom-control-input.brand-input id=brand type="checkbox" checked="true"/
-                      - else
-                        input.custom-control-input.brand-input id=brand type="checkbox"/
-                      label.custom-control-label for=brand  = brand
+                  select.select_2.form-control.brand_select
+                    option title="" ="Все"
+                    = for brand <- @brands do
+                      option selected=(@conn.params["brand"] == brand) title=brand =brand
+                  / = for brand <- @brands do
+                  /   .custom-control.custom-checkbox.collection-filter-checkbox
+                  /     = if brand in @brand_filter do
+                  /       input.custom-control-input.brand-input id=brand type="checkbox" checked="true"/
+                  /     - else
+                  /       input.custom-control-input.brand-input id=brand type="checkbox"/
+                  /     label.custom-control-label for=brand  = brand
             /! price filter start here
             .collection-collapse-block.border-0.open
               h3.collapse-block-title цена (₽)
               .collection-collapse-block-content
                 .collection-brand-filter
-                  #price_slider max_price_lim=@prices_filter.max_price_lim max_price=@prices_filter.max_price min_price_lim=@prices_filter.min_price_lim min_price=@prices_filter.min_price
-
-                  / .custom-control.custom-checkbox.collection-filter-checkbox
-                  /   input#hundred.custom-control-input type="checkbox" /
-                  /   label.custom-control-label for="hundred"  $10 - $100
-                  / .custom-control.custom-checkbox.collection-filter-checkbox
-                  /   input#twohundred.custom-control-input type="checkbox" /
-                  /   label.custom-control-label for="twohundred"  $100 - $200
-                  / .custom-control.custom-checkbox.collection-filter-checkbox
-                  /   input#threehundred.custom-control-input type="checkbox" /
-                  /   label.custom-control-label for="threehundred"  $200 - $300
-                  / .custom-control.custom-checkbox.collection-filter-checkbox
-                  /   input#fourhundred.custom-control-input type="checkbox" /
-                  /   label.custom-control-label for="fourhundred"  $300 - $400
+                  / #price_slider max_price_lim=@prices_filter.max_price_lim max_price=@prices_filter.max_price min_price_lim=@prices_filter.min_price_lim min_price=@prices_filter.min_price
+                  label
+                    | От
+                  input.form-control#min_price name="min_price" type="number" value=@conn.params["min_price"]
+                  label
+                    | До
+                  input.form-control#max_price name="max_price" type="number" value=@conn.params["max_price"]
                   / .custom-control.custom-checkbox.collection-filter-checkbox
                   /   input#fourhundredabove.custom-control-input type="checkbox" /
                   /   label.custom-control-label for="fourhundredabove"  $400 above
+            .filter-btn.btn.btn-solid#filter-search ="Поиск"
+            .filter-btn.btn.btn-solid#filter-reset ="Сбросить"
           /! silde-bar colleps block end here
           /! side-bar single product slider start
           .theme-card
@@ -68,7 +52,7 @@ section.section-b-space.ratio_asos
                 div
                   = for item <- group do
                     .media
-                      a href=Routes.product_path(@conn, :show, item)
+                      a href=Routes.item_path(@conn, :show, item)
                         img.img-fluid.blur-up.lazyload alt="" src=image(item.images) /
                       .media-body.align-self-center
                         .rating
@@ -77,9 +61,9 @@ section.section-b-space.ratio_asos
                           i.fa.fa-star
                           i.fa.fa-star
                           i.fa.fa-star
-                        a href=Routes.product_path(@conn, :show, item)
-                          h6 = item.title
-                        h4 ="₽#{Decimal.to_string(item.price)}"
+                        a href=Routes.item_path(@conn, :show, item)
+                          h6 = name(item)
+                        h4 = price(item.retail_price)
           /! side-bar single product slider end
           /! side-bar banner start here
           .collection-sidebar-banner
@@ -135,13 +119,13 @@ section.section-b-space.ratio_asos
                               option selected=(if @conn.params["page_size"] == "100", do: true) value=100  100 товаров на странице
                           .product-page-filter
                             select#page_sort
-                              option value="hit" selected=(if @conn.params["sort"] == "hit", do: true) Хит продаж
+                              option value="hit" selected=(if @conn.params["sort"] == "hit", do: true) Популярное
                               option value="lth" selected=(if @conn.params["sort"] == "lth", do: true) По цене (возрастание)
                               option value="htl" selected=(if @conn.params["sort"] == "htl", do: true) По цене (убывание)
                   .product-wrapper-grid
                     .row
-                      = for item <- @products do
+                      = for item <- @items do
                         .col-xl-3.col-md-6.col-grid-box
-                          = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
+                          = render CrocodileWeb.ItemView, "_item.html", Map.put(assigns, :item, item)
                   = pagination_links(@conn, @page)
 /! section End

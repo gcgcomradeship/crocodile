@@ -64,7 +64,7 @@ section.section-b-space.p-t-0.ratio_asos
       .col
         .product-4.product-m.no-arrow
           = for item <- @croc_choice do
-            = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
+            = render CrocodileWeb.ItemView, "_item.html", Map.put(assigns, :item, item)
 /! Product slider end
 /! Parallax banner
 section.p-0
@@ -98,15 +98,15 @@ section.section-b-space.p-t-0.ratio_asos
             #tab-4.tab-content.active.default
               .no-slider.row
                 = for item <- @new do
-                  = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
+                  = render CrocodileWeb.ItemView, "_item.html", Map.put(assigns, :item, item)
             #tab-5.tab-content
               .no-slider.row
                 = for item <- @recommend do
-                  = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
+                  = render CrocodileWeb.ItemView, "_item.html", Map.put(assigns, :item, item)
             #tab-6.tab-content
               .no-slider.row
                 = for item <- @hit do
-                  = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
+                  = render CrocodileWeb.ItemView, "_item.html", Map.put(assigns, :item, item)
 /! Tab product end
 /! service layout
 .container

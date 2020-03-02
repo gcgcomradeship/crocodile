@@ -7,7 +7,6 @@ defmodule Crocodile.Plug.NavDataLoad do
   def call(%{assigns: %{session: %{id: sid}}} = conn, _opts) do
     conn
     |> assign(:cart, Items.cart_by_sid(sid))
-    |> assign(:cat_hierarchy, Categories.hierarchy())
-    |> assign(:cat_names, Categories.names())
+    |> assign(:categories, Categories.all())
   end
 end

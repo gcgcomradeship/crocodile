@@ -4,6 +4,7 @@ defmodule CrocodileWeb.OrderController do
   alias Crocodile.Order
   alias Crocodile.Context.Orders
   alias Crocodile.Services.Kassa
+  alias Crocodile.Utils.Helper
 
   def new(%{assigns: %{session: session}} = conn, _params) do
     changeset = Order.changeset(%Order{}, %{})
@@ -27,16 +28,16 @@ defmodule CrocodileWeb.OrderController do
   def show(%{assigns: %{session: %{id: session_id}}} = conn, %{"id" => id} = params) do
     order =
       Order
-      |> preload(orders_products: [:product])
+      |> preload(items_orders: [:item])
       |> Repo.get(id)
 
     items =
-      for item <- order.orders_products do
+      for item_order <- order.items_orders do
         %{
-          image: List.first(item.product.images),
-          title: item.product.title,
-          quantity: item.quantity,
-          price: item.price
+          image: List.first(item_order.item.images),
+          name: Helper.name(item_order.item),
+          quantity: item_order.quantity,
+          price: item_order.price
         }
       end
 
@@ -50,7 +51,7 @@ defmodule CrocodileWeb.OrderController do
         )
 
       _ ->
-        redirect(conn, to: Routes.product_path(conn, :index))
+        redirect(conn, to: Routes.item_path(conn, :index))
     end
   end
 end

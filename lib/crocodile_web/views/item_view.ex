@@ -1,12 +1,13 @@
-defmodule CrocodileWeb.ProductView do
+defmodule CrocodileWeb.ItemView do
   use CrocodileWeb, :view
 
   def item_details(product) do
     base_params = [
-      country: "Страна производитель",
-      manufacturer: "Производитель",
-      brand_title: "Бренд",
-      size: "Размер"
+      vendor: "Бренд",
+      collection: "Коллекция",
+      pack: "Упаковка",
+      size: "Размер",
+      color: "Цвет"
     ]
 
     details(product, base_params)
@@ -14,25 +15,11 @@ defmodule CrocodileWeb.ProductView do
 
   def size_details(product) do
     base_params = [
-      weight: "Вес (кг)",
+      brutto: "Вес (кг)",
       length: "Длина (см)",
-      width: "Ширина (см)",
-      battery: "Батарейки",
-      color: "Цвет",
-      material: "Материал",
-      waterproof: "Водонепроницаемый"
-    ]
-
-    details(product, base_params)
-  end
-
-  def addit_details(product) do
-    base_params = [
-      width_packed: "Ширина (с упаковкой) (см)",
-      height_packed: "Высота (с упаковкой) (см)",
-      length_packed: "Длина (с упаковкой) (см)",
-      weight_packed: "Вес (с упаковкой) (кг)",
-      pieces: "Количество в упаковке (шт)"
+      diameter: "Диаметр (см)",
+      batteries: "Батарейки",
+      material: "Материал"
     ]
 
     details(product, base_params)
@@ -79,7 +66,7 @@ defmodule CrocodileWeb.ProductView do
   end
 
   defp li({">>", page_num}, %{params: params} = conn) do
-    link = Routes.product_path(conn, :index, Map.merge(params, %{"page" => page_num}))
+    link = Routes.item_path(conn, :index, Map.merge(params, %{"page" => page_num}))
 
     content_tag :li, class: "page-item" do
       content_tag :a, [{:class, "page-link"}, {:href, link}, {:aria, [label: "Next"]}] do
@@ -99,7 +86,7 @@ defmodule CrocodileWeb.ProductView do
   end
 
   defp li({"<<", page_num}, %{params: params} = conn) do
-    link = Routes.product_path(conn, :index, Map.merge(params, %{"page" => page_num}))
+    link = Routes.item_path(conn, :index, Map.merge(params, %{"page" => page_num}))
 
     content_tag :li, class: "page-item" do
       content_tag :a, [{:class, "page-link"}, {:href, link}, {:aria, [label: "Previous"]}] do
@@ -128,7 +115,7 @@ defmodule CrocodileWeb.ProductView do
 
   defp li({_, page_num}, %{params: params} = conn) do
     active = if "#{page_num}" == params["page"], do: "active"
-    link = Routes.product_path(conn, :index, Map.merge(params, %{"page" => page_num}))
+    link = Routes.item_path(conn, :index, Map.merge(params, %{"page" => page_num}))
 
     content_tag :li, class: "page-item #{active}" do
       content_tag :a, class: "page-link", href: link do
@@ -137,9 +124,9 @@ defmodule CrocodileWeb.ProductView do
     end
   end
 
-  defp details(product, base_params) do
+  defp details(item, base_params) do
     for {key, title} <- base_params do
-      case Map.get(product, key) do
+      case Map.get(item, key) do
         nil -> nil
         true -> {title, "Да"}
         false -> {title, "Нет"}

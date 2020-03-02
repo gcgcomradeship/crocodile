@@ -54,12 +54,12 @@ section.section-b-space
                       td.head Сумма
                     = for item <- @cart do
                       tr
-                        td.title = "#{item.title}"
+                        td.title = name(item)
                         td = "× #{item.count}"
-                        td.sum = "₽ #{Decimal.mult(item.price, item.count)}"
+                        td.sum = price(Decimal.mult(item.retail_price, item.count))
                     tr.order-total-row
                       td.order-total-title colspan=2 = "Промежуточная сумма"
-                      td.order-total-count = "₽ #{items_sum(@cart)}"
+                      td.order-total-count = price(items_sum(@cart))
                   / a.btn.btn-default.quick-view-btn data-ydwidget-open="Яндекс.Доставка" data-target="#delivery-modal" data-toggle="modal" href="#"
                   /   ="Доставка"
                   table.order-table.options-table.table-striped
@@ -96,7 +96,7 @@ section.section-b-space
                   table.order-table.options-table.table-striped
                     tr.order-total-row
                       td.order-total-title = "Итого"
-                      td.order-total-main = "₽ #{items_sum(@cart)}"
+                      td.order-total-main = price(items_sum(@cart))
                   .text-right
                     = submit "Оформить заказ", class: "btn btn-solid"
 /! section end

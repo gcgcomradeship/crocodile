@@ -1,7 +1,7 @@
-defmodule CrocodileWeb.ProductController do
+defmodule CrocodileWeb.ItemController do
   use CrocodileWeb, :controller
   alias Crocodile.Category
-  alias Crocodile.Product
+  alias Crocodile.Item
   alias Crocodile.Context.Items
   alias Crocodile.Services.Catalog.Brands
 
@@ -16,39 +16,24 @@ defmodule CrocodileWeb.ProductController do
   ]
 
   def index(conn, params) do
-    parent =
-      Category
-      |> Repo.get(params["category"] || 0)
-
-    items =
-      Category
-      |> where_category(params)
-      |> where([c], c.msk == true)
-      |> where([c], c.title not in ^@exclude)
-      |> Repo.all()
-      |> Enum.sort(fn x, y -> :ucol.compare(x.title, y.title) != 1 end)
-
     page = Items.by_category(params)
 
     render(conn, "index.html",
-      brands: Brands.call(parent),
-      brand_filter: String.split(params["brands"] || "", ","),
-      breadcrumbs: breadcrumbs(params),
-      parent: parent,
-      products: Items.by_category(params),
+      brands: Brands.call(),
+      # breadcrumbs: breadcrumbs(params),
+      items: Items.by_category(params),
       new_sidebar: Items.new_sidebar(),
-      page: page,
-      prices_filter: Items.prices_filter(params)
+      page: page
     )
   end
 
   def show(conn, params) do
-    product = Product |> Repo.get(params["id"] || 0)
+    item = Item |> Repo.get(params["id"] || 0)
 
     render(conn, "show.html",
-      product: product,
-      breadcrumbs: breadcrumbs(%{"category" => product.category_id}),
-      related_items: Items.related_items(product)
+      item: item,
+      # breadcrumbs: breadcrumbs(%{"category" => product.category_id}),
+      related_items: Items.related_items(item)
     )
   end
 

@@ -69,8 +69,8 @@ defmodule CrocodileWeb.Router do
 
     # Test pages
     get "/main", PageController, :main
-    get "/catalog", ProductController, :index
-    get "/item/:id", ProductController, :show
+    get "/catalog", ItemController, :index
+    get "/item/:id", ItemController, :show
     get "/example", PageController, :example
   end
 

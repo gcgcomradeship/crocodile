@@ -13,26 +13,26 @@ section.cart-section.section-b-space
               th scope="col"  Цена (всего)
               th scope="col"
           = for item <- @cart do
-            tbody.cart-item id="cart_item_#{item.id}" price=item.price total=total(item) count=item.count
+            tbody.cart-item id="cart_item_#{item.id}" price=item.retail_price total=total(item) count=item.count
               tr
                 td
-                  = link to: Routes.product_path(@conn, :show, item) do
+                  = link to: Routes.item_path(@conn, :show, item) do
                     img alt="" src=image(item.images)
                 td
-                  = link item.title, to: Routes.product_path(@conn, :show, item)
+                  = link name(item), to: Routes.item_path(@conn, :show, item)
                   .mobile-cart-content.row
                     .col-xs-3
                       .qty-box
                         .input-group
                           input.form-control.input-number.item-count item_id=item.id name="quantity" type="number" value=item.count
                     .col-xs-3
-                      h2.td-color ="₽#{Decimal.to_string(item.price)}"
+                      h2.td-color = price(item.retail_price)
                     .col-xs-3
                       h2.td-color
                         a.icon.cart-delete-item item_id=item.id href="#" href="#"
                           i.ti-close
                 td
-                  h2 ="₽#{Decimal.to_string(item.price)}"
+                  h2 = price(item.retail_price)
                 td
                   .qty-box
                     .input-group
@@ -50,7 +50,7 @@ section.cart-section.section-b-space
                 h2.sum-total-view = "₽#{items_sum(@cart)}"
     .row.cart-buttons
       .col-6
-        = link "Каталог", to: Routes.product_path(@conn, :index), class: "btn btn-solid"
+        = link "Каталог", to: Routes.item_path(@conn, :index), class: "btn btn-solid"
       .col-6
         = link "Заказать", to: Routes.order_path(@conn, :new), class: "btn btn-solid"
 /! section end

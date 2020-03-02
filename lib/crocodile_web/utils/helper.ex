@@ -8,7 +8,19 @@ defmodule Crocodile.Utils.Helper do
   def l(date, :month), do: Timex.format!(date, "%m", :strftime)
   def l(date, :year), do: Timex.format!(date, "%Y", :strftime)
   def l(date, :day_month), do: Timex.format!(date, "%d.%m", :strftime)
-  def price(dec), do: "₽ #{Decimal.to_string(dec)}"
+
+  def price(dec), do: "₽ #{dec |> Decimal.round(0) |> Decimal.to_string()}"
+
+  def name(%Crocodile.Item{name: name, size: nil, color: nil}), do: name
+
+  def name(%Crocodile.Item{name: name, size: size, color: nil}) when not is_nil(size),
+    do: "#{name} (#{size})"
+
+  def name(%Crocodile.Item{name: name, size: nil, color: color}) when not is_nil(color),
+    do: "#{name} (#{color})"
+
+  def name(%Crocodile.Item{name: name, size: size, color: color}),
+    do: "#{name} (#{size} / #{color})"
 
   def to_int(data) when is_bitstring(data), do: String.to_integer(data)
   def to_int(data) when is_integer(data), do: data
@@ -38,13 +50,13 @@ defmodule Crocodile.Utils.Helper do
 
   def items_sum(items) do
     for item <- items do
-      item.price |> Decimal.mult(item.count)
+      item.retail_price |> Decimal.mult(item.count)
     end
     |> sum_all()
   end
 
-  def total(%{price: price, count: count}) do
-    price |> Decimal.mult(count) |> Decimal.to_string()
+  def total(%{retail_price: retail_price, count: count}) do
+    retail_price |> Decimal.mult(count) |> Decimal.to_string()
   end
 
   defp sum_all(list), do: sum_all(list, Decimal.new(0))

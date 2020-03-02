@@ -26,11 +26,11 @@ defmodule Crocodile.Order do
 
     belongs_to(:user, Crocodile.User)
     belongs_to(:session, Crocodile.Session, type: :binary_id)
-    has_many(:orders_products, Crocodile.OrderProduct, on_delete: :nilify_all)
+    has_many(:items_orders, Crocodile.ItemOrder, on_delete: :nilify_all)
     has_many(:payments, Crocodile.Payment, on_delete: :nilify_all)
 
-    many_to_many(:products, Crocodile.Product,
-      join_through: "orders_products",
+    many_to_many(:items, Crocodile.Item,
+      join_through: "items_orders",
       on_replace: :delete
     )
   end

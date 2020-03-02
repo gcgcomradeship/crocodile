@@ -1,18 +1,3 @@
-/! breadcrumb start
-.breadcrumb-section
-  .container
-    .row
-      .col-sm-2
-        .page-title
-          h2 каталог
-      .col-sm-10
-        nav.theme-breadcrumb aria-label="breadcrumb"
-          ol.breadcrumb
-            = for {title, id} <- @breadcrumbs do
-              li.breadcrumb-item
-                a href=Routes.product_path(@conn, :index, category: id)
-                  = title
-/! breadcrumb end
 /! section start
 section
   .collection-wrapper
@@ -22,21 +7,21 @@ section
           .row
             .col-12.p-0
               .slider-right-nav
-                = for image <- (@product.images || []) do
+                = for image <- (@item.images || []) do
                   div
                     img.img-fluid.blur-up.lazyload alt="" src=image /
         .col-lg-4.col-sm-10.col-xs-12.order-up
           .product-right-slick
-            = for image <- (@product.images || []) do
+            = for image <- (@item.images || []) do
               div
                 img.img-fluid.blur-up.lazyload.image_zoom_cls-0 alt="" src=image /
         .col-lg-7.rtl-text
           .product-right
-            h2 = @product.title
+            h2 = name(@item)
             / h4
             /   del $459.00
             /   span 55% off
-            h3 = "₽#{Decimal.to_string(@product.price)}"
+            h3 = price(@item.retail_price)
             / ul.color-variant
             /   li.bg-light0
             /   li.bg-light1
@@ -76,13 +61,13 @@ section
               /       button.btn.quantity-right-plus data-field="" data-type="plus" type="button"
               /         i.ti-angle-right
             .product-buttons
-              .btn.btn-solid.cart-btn.cart-btn-product item-id=@product.id
+              .btn.btn-solid.cart-btn.cart-btn-product item-id=@item.id
                 = "Добавить"
               a.btn.btn-solid href=Routes.cart_path(@conn, :index) ="Корзина"
             .border-product
               h6.product-title Описание
               p
-                = @product.description || "-"
+                = @item.description || "-"
             .border-product
               h6.product-title Поделиться
               .product-icon
@@ -116,10 +101,6 @@ section.tab-product.m-0
           li.nav-item
             a#profile-top-tab.nav-link.active aria-selected="false" data-toggle="tab" href="#top-profile" role="tab"  Подробнее
             .material-border
-          = if @product.video do
-            li.nav-item
-              a#contact-top-tab.nav-link aria-selected="false" data-toggle="tab" href="#top-contact" role="tab"  Видео
-              .material-border
           li.nav-item
             a#review-top-tab.nav-link aria-selected="false" data-toggle="tab" href="#top-review" role="tab"  Оставьте отзыв
             .material-border
@@ -127,9 +108,8 @@ section.tab-product.m-0
           #top-profile.tab-pane.fade.show.active aria-labelledby="profile-top-tab" role="tabpanel"
             .single-product-tables
               .details.row
-                - item_details = item_details(@product)
-                - size_details = size_details(@product)
-                - addit_details = addit_details(@product)
+                - item_details = item_details(@item)
+                - size_details = size_details(@item)
                 = if item_details != [] do
                   .col-xl-4.col-md-6.col-grid-box
                     = for {title, value} <- item_details do
@@ -146,37 +126,7 @@ section.tab-product.m-0
                           b= title <> ":"
                         .col-md-6
                           span.details-val= value
-                = if addit_details != [] do
-                  .col-xl-4.col-md-6.col-grid-box
-                    = for {title, value} <- addit_details do
-                      .detail.row
-                        .col-md-6
-                          b= title <> ":"
-                        .col-md-6
-                          span.details-val= value
-              / table
-              /   tbody
-              /     = for {title, value} <- item_details(@product) do
-              /       tr
-              /         td = title
-              /         td = value
-              / table
-              /   tbody
-              /     = for {title, value} <- size_details(@product) do
-              /       tr
-              /         td = title
-              /         td = value
-              / table
-              /   tbody
-              /     = for {title, value} <- addit_details(@product) do
-              /       tr
-              /         td = title
-              /         td = value
 
-          = if @product.video do
-            #top-contact.tab-pane.fade aria-labelledby="contact-top-tab" role="tabpanel"
-              .mt-4.text-center
-                iframe allow=("autoplay; encrypted-media") allowfullscreen="" height="315" src=@product.video width="560"
           #top-review.tab-pane.fade aria-labelledby="review-top-tab" role="tabpanel"
             form.theme-form
               .form-row
@@ -214,5 +164,5 @@ section.section-b-space.ratio_asos
     .row.search-product
       = for item <- @related_items do
         .col-xl-2.col-md-4.col-sm-6
-          = render CrocodileWeb.ProductView, "_item.html", Map.put(assigns, :item, item)
+          = render CrocodileWeb.ItemView, "_item.html", Map.put(assigns, :item, item)
 /! product section end

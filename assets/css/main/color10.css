@@ -12196,11 +12196,11 @@ body.dark {
 
 .sidenav {
   height: 100vh;
-  width: 300px;
+  width: 400px;
   position: fixed;
   z-index: 9999;
   top: 0;
-  left: -300px;
+  left: -400px;
   background-color: #ffffff;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }

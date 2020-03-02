@@ -8,15 +8,15 @@ div
           #cart-counter= length(@cart)
         ul.show-div.shopping-cart#cart
           = for item <- @cart do
-            li.nav-cart-item id="nav_cart_item_#{item.id}" price=item.price count=item.count
+            li.nav-cart-item id="nav_cart_item_#{item.id}" price=item.retail_price count=item.count
               .media
-                = link to: Routes.product_path(@conn, :show, item) do
+                = link to: Routes.item_path(@conn, :show, item) do
                   img.mr-3 alt="" src=image(item.images)
                 .media-body
-                  = link to: Routes.product_path(@conn, :show, item) do
-                    h4 = concatinate(item.title)
+                  = link to: Routes.item_path(@conn, :show, item) do
+                    h4 = concatinate(name(item))
                   h4
-                    span.nav-cart-count = "#{item.count} x ₽ #{item.price}"
+                    span.nav-cart-count = "#{item.count} x ₽ #{item.retail_price}"
               .close-circle.nav-cart-delete-item item_id=item.id
                 a href="#"
                   i.fa.fa-times aria-hidden="true"

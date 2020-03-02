@@ -88,7 +88,30 @@
   color: #fa869b;
 }
 
-
 .blog-img{
   max-height: 385px;
+}
+
+.collection-brand-filter label{
+  font-weight: bold;
+  margin: 5px 0px 0px 0px;
+}
+
+.select2-selection {
+  margin: 10px 0px 0px 0px !important;
+  height: 38px !important;
+  border-radius: 0 !important;
+}
+
+.select2-selection__rendered{
+  line-height: 38px !important;
+}
+
+.select2-selection__arrow{
+  top: 15px !important;
+}
+
+.filter-btn{
+  width: 100%;
+  margin-bottom: 10px;
 }

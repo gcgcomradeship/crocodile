@@ -1,0 +1,18 @@
+/! breadcrumb start
+.breadcrumb-section
+  .container
+    .row
+      .col-sm-2
+        .page-title
+          h2 каталог
+      .col-sm-10
+        nav.theme-breadcrumb aria-label="breadcrumb"
+          ol.breadcrumb
+            li.breadcrumb-item
+              a href=Routes.page_path(@conn, :index)
+                = "Главная"
+            / = for {title, id} <- @breadcrumbs do
+            /   li.breadcrumb-item
+            /     a href=Routes.item_path(@conn, :index, category: id)
+            /       = title
+/! breadcrumb end

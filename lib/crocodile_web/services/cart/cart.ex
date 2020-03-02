@@ -1,11 +1,11 @@
 defmodule Crocodile.Services.Cart do
   use CrocodileWeb, :services
 
-  def add(session_id, product_id, count \\ 1) when count >= 0 do
+  def add(session_id, item_id, count \\ 1) when count >= 0 do
     cart = get(session_id)
-    product = Map.get(cart, "#{product_id}") || product_struct()
-    new_product = Map.put(product, "cnt", product["cnt"] + count)
-    new_cart = Map.put(cart, "#{product_id}", new_product)
+    item = Map.get(cart, "#{item_id}") || item_struct()
+    new_item = Map.put(item, "cnt", item["cnt"] + count)
+    new_cart = Map.put(cart, "#{item_id}", new_item)
 
     case Redis.set("cart/#{session_id}", Jason.encode!(new_cart)) do
       "OK" -> new_cart
@@ -13,11 +13,11 @@ defmodule Crocodile.Services.Cart do
     end
   end
 
-  def set(session_id, product_id, count) when count > 0 do
+  def set(session_id, item_id, count) when count > 0 do
     cart = get(session_id)
-    product = Map.get(cart, "#{product_id}") || product_struct()
-    new_product = Map.put(product, "cnt", count)
-    new_cart = Map.put(cart, "#{product_id}", new_product)
+    item = Map.get(cart, "#{item_id}") || item_struct()
+    new_item = Map.put(item, "cnt", count)
+    new_cart = Map.put(cart, "#{item_id}", new_item)
 
     case Redis.set("cart/#{session_id}", Jason.encode!(new_cart)) do
       "OK" -> new_cart
@@ -25,9 +25,9 @@ defmodule Crocodile.Services.Cart do
     end
   end
 
-  def remove(session_id, product_id) do
+  def remove(session_id, item_id) do
     cart = get(session_id)
-    new_cart = Map.delete(cart, "#{product_id}")
+    new_cart = Map.delete(cart, "#{item_id}")
 
     case Redis.set("cart/#{session_id}", Jason.encode!(new_cart)) do
       "OK" -> new_cart
@@ -35,20 +35,20 @@ defmodule Crocodile.Services.Cart do
     end
   end
 
-  def remove(session_id, product_id, count) do
+  def remove(session_id, item_id, count) do
     cart = get(session_id)
-    product = Map.get(cart, "#{product_id}") || product_struct()
+    item = Map.get(cart, "#{item_id}") || item_struct()
 
-    case product["cnt"] - count do
+    case item["cnt"] - count do
       res when res > 0 ->
-        new_product = Map.put(product, "cnt", res)
-        new_cart = Map.put(cart, "#{product_id}", new_product)
+        new_item = Map.put(item, "cnt", res)
+        new_cart = Map.put(cart, "#{item_id}", new_item)
 
         Redis.set("cart/#{session_id}", Jason.encode!(new_cart))
         new_cart
 
       0 ->
-        new_cart = Map.delete(cart, "#{product_id}")
+        new_cart = Map.delete(cart, "#{item_id}")
 
         Redis.set("cart/#{session_id}", Jason.encode!(new_cart))
         new_cart
@@ -67,7 +67,7 @@ defmodule Crocodile.Services.Cart do
     Redis.del("cart/#{session_id}")
   end
 
-  defp product_struct(map \\ %{}) when is_map(map) do
+  defp item_struct(map \\ %{}) when is_map(map) do
     %{
       "cnt" => 0
     }
