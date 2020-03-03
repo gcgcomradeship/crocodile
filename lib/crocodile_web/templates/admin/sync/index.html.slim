@@ -1,8 +1,27 @@
-.page-header
-  h1.clearfix
-    .page-title
-      = "Синхронизация"
-.page-body
-  .panel
-    | Sync
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Синхронизация
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .form-box
+            = form_for @conn, Routes.admin_sync_path(@conn, :sync), [class: "", multipart: true], fn f ->
+              .form-group.col-md-6
+                = label f, "Выгрузка с обновлениями", class: "control-label"
+                br
+                = link "Скачать", to: "http://stripmag.ru/cabinet.php?name=datafeed&action=getFeedUrl&feedID=4730", target: "_blank"
+                = file_input f, :file, class: "form-control"
+                = error_tag f, :file
+              .form-group.submit.col-md-6
+                = submit "Обновить", class: "btn btn-secondary"
+            = if @conn.assigns[:text] do
+              = @conn.assigns[:text]
+
 

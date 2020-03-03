@@ -53,7 +53,7 @@ config :ex_aws,
 
 config :crocodile, Crocodile.Scheduler,
   jobs: [
-    {"0 */2 * * *", {Crocodile.Services.Sync, :sync, [:update]}},
+    {"0 */2 * * *", {Crocodile.Services.Sync, :call, [:update]}},
     {"@daily", {Crocodile.Services.Sync, :call, []}}
   ]
 

@@ -2,9 +2,7 @@ defmodule Crocodile.Services.Sync do
   use CrocodileWeb, :services
 
   alias Crocodile.Services.Sync.StructBuilder
-  # alias Crocodile.Services.Sync.Category
   alias Crocodile.Services.Sync.DB
-  # alias Crocodile.Services.Catalog.Brands
 
   @db_link "http://stripmag.ru/datafeed/insales_full.csv"
   @db_update_link "http://stripmag.ru/datafeed/insales_quick.csv"

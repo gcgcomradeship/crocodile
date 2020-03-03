@@ -19,6 +19,10 @@
         a.sidebar-header href=Routes.admin_blog_path(@conn, :index)
           i data-feather="list"
           span Блог
+      li
+        a.sidebar-header href=Routes.admin_sync_path(@conn, :index)
+          i data-feather="refresh-ccw"
+          span Синхронизация
       / li
       /   a.sidebar-header href="index.html"
       /     i data-feather="home"

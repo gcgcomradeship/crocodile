@@ -85,6 +85,8 @@ defmodule CrocodileWeb.Router do
 
     get "/", PageController, :index
     get "/sync", SyncController, :index
+    get "/sync/update", SyncController, :sync
+    post "/sync/update", SyncController, :sync
 
     resources "/admin", AdminController, except: [:show]
     resources "/blog", BlogController
