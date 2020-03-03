@@ -8,5 +8,6 @@ defmodule Crocodile.Plug.NavDataLoad do
     conn
     |> assign(:cart, Items.cart_by_sid(sid))
     |> assign(:categories, Categories.all())
+    |> assign(:breadcrumbs, [])
   end
 end

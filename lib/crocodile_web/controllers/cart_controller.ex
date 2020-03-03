@@ -3,6 +3,8 @@ defmodule CrocodileWeb.CartController do
   alias Crocodile.Context.Items
   alias Crocodile.Services.Cart
 
+  plug :breadcrumbs
+
   def index(%{assigns: %{session: %{id: sid}}} = conn, _params) do
     render(conn, "index.html")
   end
@@ -46,5 +48,9 @@ defmodule CrocodileWeb.CartController do
         |> put_status(:unprocessable_entity)
         |> render("error.json")
     end
+  end
+
+  defp breadcrumbs(%{assigns: %{breadcrumbs: breadcrumbs}} = conn, _) do
+    assign(conn, :breadcrumbs, breadcrumbs ++ [{"Корзина", "#"}])
   end
 end

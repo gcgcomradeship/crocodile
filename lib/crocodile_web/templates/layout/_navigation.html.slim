@@ -52,7 +52,7 @@ header
                                 = for subcategory <- Map.get(@categories, category) do
                                   .col-xl-6
                                     .link-section
-                                      a href=Routes.item_path(@conn, :index, subcategory: subcategory)
+                                      a href=Routes.item_path(@conn, :index, category: category, subcategory: subcategory)
                                         = subcategory
             .brand-logo
               a href="index.html"
@@ -82,7 +82,7 @@ header
                               ul.wide
                                 = for subcategory <- Map.get(@categories, category) do
                                   li
-                                    a href=Routes.item_path(@conn, :index, subcategory: subcategory)
+                                    a href=Routes.item_path(@conn, :index, category: category, subcategory: subcategory)
                                       = subcategory
                     li
                       a href=Routes.blog_path(@conn, :index)

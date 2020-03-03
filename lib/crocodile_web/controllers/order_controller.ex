@@ -6,6 +6,8 @@ defmodule CrocodileWeb.OrderController do
   alias Crocodile.Services.Kassa
   alias Crocodile.Utils.Helper
 
+  plug :breadcrumbs
+
   def new(%{assigns: %{session: session}} = conn, _params) do
     changeset = Order.changeset(%Order{}, %{})
     render(conn, "new.html", changeset: changeset)
@@ -53,5 +55,9 @@ defmodule CrocodileWeb.OrderController do
       _ ->
         redirect(conn, to: Routes.item_path(conn, :index))
     end
+  end
+
+  defp breadcrumbs(%{assigns: %{breadcrumbs: breadcrumbs}} = conn, _) do
+    assign(conn, :breadcrumbs, breadcrumbs ++ [{"Детали заказа", "#"}])
   end
 end

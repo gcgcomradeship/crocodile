@@ -2,17 +2,14 @@
 .breadcrumb-section
   .container
     .row
-      .col-sm-2
-        .page-title
-          h2 каталог
-      .col-sm-10
+      .col-sm-12
         nav.theme-breadcrumb aria-label="breadcrumb"
           ol.breadcrumb
             li.breadcrumb-item
-              a href=Routes.page_path(@conn, :index)
-                = "Главная"
-            / = for {title, id} <- @breadcrumbs do
-            /   li.breadcrumb-item
-            /     a href=Routes.item_path(@conn, :index, category: id)
-            /       = title
+              a.home-bread href=Routes.page_path(@conn, :index)
+                i.fa.fa-home
+            = for {title, link} <- @breadcrumbs do
+              li.breadcrumb-item
+                a href=link
+                  = title
 /! breadcrumb end
