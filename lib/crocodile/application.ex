@@ -11,9 +11,10 @@ defmodule Crocodile.Application do
       # Start the Ecto repository
       Crocodile.Repo,
       # Start the endpoint when the application starts
-      CrocodileWeb.Endpoint
+      CrocodileWeb.Endpoint,
       # Starts a worker by calling: Crocodile.Worker.start_link(arg)
       # {Crocodile.Worker, arg},
+      Crocodile.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

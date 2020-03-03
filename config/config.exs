@@ -51,6 +51,12 @@ config :ex_aws,
   secret_access_key: [System.get_env("MINIO_SECRET") || "", :instance_role],
   region: "us-east-1"
 
+config :crocodile, Crocodile.Scheduler,
+  jobs: [
+    {"0 */2 * * *", {Crocodile.Services.Sync, :sync, [:update]}},
+    {"@daily", {Crocodile.Services.Sync, :call, []}}
+  ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
