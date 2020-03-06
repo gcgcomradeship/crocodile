@@ -25,6 +25,7 @@ defmodule CrocodileWeb do
       import CrocodileWeb.Gettext
       import Ecto.Query
       alias Crocodile.Repo
+      alias Crocodile.Setting
       alias CrocodileWeb.Router.Helpers, as: Routes
     end
   end
@@ -34,6 +35,7 @@ defmodule CrocodileWeb do
       import Ecto.Query
       alias Crocodile.Repo
       alias Crocodile.Service.Redis
+      alias Crocodile.Setting
       import Crocodile.Utils.Helper
     end
   end

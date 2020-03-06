@@ -28,14 +28,14 @@ section.section-b-space
             ul
               li
                 | По сумме товаров
-                span = price(@order.total_sum)
+                span = price(items_sum(@items))
               li
                 | Стоимость доставки
                 span = price(@order.delivery_sum)
           .final-total
             h3
               | Итого
-              span = price(Decimal.add(@order.total_sum, @order.delivery_sum))
+              span = price(@order.total_sum)
       .col-lg-6
         .row.order-success-sec
           .col-sm-6
@@ -49,7 +49,7 @@ section.section-b-space
                 b.pl-1="#{l(@order.inserted_at)}"
               li
                 = "К оплате:"
-                b.pl-1="#{price(Decimal.add(@order.total_sum, @order.delivery_sum))}"
+                b.pl-1="#{price(@order.total_sum)}"
               = "Статус:"
                 b.pl-1="#{t(@order.status)}"
           .col-sm-6

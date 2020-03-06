@@ -7,6 +7,7 @@ defmodule CrocodileWeb.OrderController do
   alias Crocodile.Utils.Helper
 
   plug :breadcrumbs
+  plug :set_settings
 
   def new(%{assigns: %{session: session}} = conn, _params) do
     changeset = Order.changeset(%Order{}, %{})
@@ -30,7 +31,7 @@ defmodule CrocodileWeb.OrderController do
   def show(%{assigns: %{session: %{id: session_id}}} = conn, %{"id" => id} = params) do
     order =
       Order
-      |> preload(items_orders: [:item])
+      |> preload([:items, items_orders: [:item]])
       |> Repo.get(id)
 
     items =
@@ -59,5 +60,12 @@ defmodule CrocodileWeb.OrderController do
 
   defp breadcrumbs(%{assigns: %{breadcrumbs: breadcrumbs}} = conn, _) do
     assign(conn, :breadcrumbs, breadcrumbs ++ [{"Детали заказа", "#"}])
+  end
+
+  defp set_settings(conn, _) do
+    delivery_prices = Setting |> Repo.get_by(name: "delivery_prices")
+
+    conn
+    |> assign(:delivery_prices, delivery_prices)
   end
 end

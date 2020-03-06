@@ -50,7 +50,10 @@ defmodule Crocodile.Utils.Helper do
 
   def items_sum(items) do
     for item <- items do
-      item.retail_price |> Decimal.mult(item.count)
+      case item do
+        %{retail_price: retail_price, count: count} -> Decimal.mult(retail_price, count)
+        %{price: retail_price, quantity: count} -> Decimal.mult(retail_price, count)
+      end
     end
     |> sum_all()
   end

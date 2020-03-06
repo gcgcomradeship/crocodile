@@ -30,19 +30,19 @@ section.section-b-space
                   = error_tag f, :email
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-12.col-sm-12.col-xs-12
-                  .field-label Город*
-                  = text_input f, :city
+                  .field-label Город/Регион*
+                  = text_input f, :city, id: "city"
                   = error_tag f, :city
                 .form-group.col-md-12.col-sm-12.col-xs-12
                   .shopping-option
-                    = radio_button f, :delivery_type, "pick_up", class: "delivery-radio"
+                    = radio_button f, :delivery_type, "pick_up", class: "delivery-radio", price: @delivery_prices.data["pick_up"]
                     label = "Постамат"
                     a#set-pick-point.hidden href="#" = "Выбрать"
                   .shopping-option
-                    = radio_button f, :delivery_type, "courier", class: "delivery-radio"
+                    = radio_button f, :delivery_type, "courier", class: "delivery-radio", price: @delivery_prices.data["courier"]
                     label = "Курьер"
                   .shopping-option
-                    = radio_button f, :delivery_type, "post", class: "delivery-radio"
+                    = radio_button f, :delivery_type, "post", class: "delivery-radio", price: @delivery_prices.data["post"]
                     label = "Почта"
                   = error_tag f, :delivery_type
                   = text_input f, :terminal_id, name: "order[data][terminal_id]", id: "terminal_id", class: "hidden"
@@ -80,7 +80,7 @@ section.section-b-space
                         td.sum = price(Decimal.mult(item.retail_price, item.count))
                     tr.order-total-row
                       td.order-total-title colspan=2 = "Промежуточная сумма"
-                      td.order-total-count = price(items_sum(@cart))
+                      td.order-total-count#items-price price=Decimal.round(items_sum(@cart), 0) = price(items_sum(@cart))
                   / a.btn.btn-default.quick-view-btn data-ydwidget-open="Яндекс.Доставка" data-target="#delivery-modal" data-toggle="modal" href="#"
                   /   ="Доставка"
                   table.order-table.options-table.table-striped
@@ -89,21 +89,21 @@ section.section-b-space
                       td
                     tr
                       td colspan=2
-                        / .shopping-option
-                        /   = radio_button f, :delivery_type, "pick_up", class: "delivery-radio"
-                        /   label = "Постамат"
-                        /   div id="address"
-                        /   a#set-pick-point href="#" = "Выбрать"
-                        / .shopping-option
-                        /   = radio_button f, :delivery_type, "courier", class: "delivery-radio"
-                        /   label = "Курьер"
-                        / .shopping-option
-                        /   = radio_button f, :delivery_type, "post", class: "delivery-radio"
-                        /   label = "Почта"
-                        / = error_tag f, :delivery_type
+                        b
+                          | Тип доставки:
+                        #delivery-type
+                          = delivery_by_type(@changeset.changes[:delivery_type])
+                        b
+                          | Город/Регион:
+                        #delivery-city
+                          = @changeset.changes[:city]
+                        b
+                          | Адрес:
+                        #delivery-address
+                          = @changeset.changes[:address]
                     tr.order-total-row
                       td.order-total-title = "Стоимость доставки"
-                      td.order-total-count = "₽ 0"
+                      td.order-total-count#delivery-price = "₽ 0"
                   table.order-table.options-table.table-striped
                     tr.head
                       td.head Оплата
@@ -119,7 +119,7 @@ section.section-b-space
                   table.order-table.options-table.table-striped
                     tr.order-total-row
                       td.order-total-title = "Итого"
-                      td.order-total-main = price(items_sum(@cart))
+                      td.order-total-main#total-price = price(items_sum(@cart))
                   .text-right
                     = submit "Оформить заказ", class: "btn btn-solid"
 /! section end
