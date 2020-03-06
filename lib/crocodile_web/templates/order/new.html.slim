@@ -33,6 +33,27 @@ section.section-b-space
                   .field-label Город*
                   = text_input f, :city
                   = error_tag f, :city
+                .form-group.col-md-12.col-sm-12.col-xs-12
+                  .shopping-option
+                    = radio_button f, :delivery_type, "pick_up", class: "delivery-radio"
+                    label = "Постамат"
+                    a#set-pick-point.hidden href="#" = "Выбрать"
+                  .shopping-option
+                    = radio_button f, :delivery_type, "courier", class: "delivery-radio"
+                    label = "Курьер"
+                  .shopping-option
+                    = radio_button f, :delivery_type, "post", class: "delivery-radio"
+                    label = "Почта"
+                  = error_tag f, :delivery_type
+                  = text_input f, :terminal_id, name: "order[data][terminal_id]", id: "terminal_id", class: "hidden"
+                .form-group.col-md-12.col-sm-12.col-xs-12
+                  .field-label Адрес*
+                  = text_input f, :address, id: "address"
+                  = error_tag f, :address
+                .form-group.col-md-12.col-sm-12.col-xs-12#post-index.hidden
+                  .field-label Почтовый индекс
+                  = text_input f, :post_index, id: "post_index"
+                  = error_tag f, :post_index
                   / input name="field-name" placeholder="" type="text" value="" /
                 / .form-group.col-md-12.col-sm-12.col-xs-12
                 /   .field-label Адрес
@@ -68,16 +89,18 @@ section.section-b-space
                       td
                     tr
                       td colspan=2
-                        .shopping-option
-                          = radio_button f, :delivery_type, "pick_up"
-                          label = "Постамат"
-                        .shopping-option
-                          = radio_button f, :delivery_type, "courier"
-                          label = "Курьер"
-                        .shopping-option
-                          = radio_button f, :delivery_type, "post"
-                          label = "Почта"
-                        = error_tag f, :delivery_type
+                        / .shopping-option
+                        /   = radio_button f, :delivery_type, "pick_up", class: "delivery-radio"
+                        /   label = "Постамат"
+                        /   div id="address"
+                        /   a#set-pick-point href="#" = "Выбрать"
+                        / .shopping-option
+                        /   = radio_button f, :delivery_type, "courier", class: "delivery-radio"
+                        /   label = "Курьер"
+                        / .shopping-option
+                        /   = radio_button f, :delivery_type, "post", class: "delivery-radio"
+                        /   label = "Почта"
+                        / = error_tag f, :delivery_type
                     tr.order-total-row
                       td.order-total-title = "Стоимость доставки"
                       td.order-total-count = "₽ 0"
@@ -100,3 +123,4 @@ section.section-b-space
                   .text-right
                     = submit "Оформить заказ", class: "btn btn-solid"
 /! section end
+script type="text/javascript" src="//pickpoint.ru/select/postamat.js"

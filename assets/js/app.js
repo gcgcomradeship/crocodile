@@ -60,6 +60,7 @@ import "./main/page_filter.js"
 import "./main/filter.js"
 import "./main/cart.js"
 import "./main/likes.js"
+import "./main/delivery.js"
 // import "./main/modal.js"
 import "./main/custom.js"
 // Actions binding

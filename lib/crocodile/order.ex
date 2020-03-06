@@ -21,6 +21,7 @@ defmodule Crocodile.Order do
     field(:delivery_date, :naive_datetime)
     field(:delivery_sum, :decimal)
     field(:total_sum, :decimal)
+    field(:data, :map)
 
     timestamps()
 
@@ -49,16 +50,17 @@ defmodule Crocodile.Order do
     delivery_sum
     total_sum
     number
+    address
   )a
   @optional_fields ~w(
     payment_status
     delivery_status
     delivery_size
     delivery_date
-    address
     user_id
     post_index
     active?
+    data
   )a
 
   @doc false
@@ -70,5 +72,16 @@ defmodule Crocodile.Order do
     |> validate_format(:email, ~r/^[A-Za-z0-9\._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/,
       message: "<Неправильный формат>"
     )
+    |> check_data()
+  end
+
+  defp check_data(%{changes: changes} = changeset) do
+    case changes[:data] do
+      data when data == %{"terminal_id" => ""} ->
+        delete_change(changeset, :data)
+
+      _ ->
+        changeset
+    end
   end
 end

@@ -3,12 +3,18 @@ $(function () {
 });
 
 var init = function(){
-  document.querySelector("#filter-reset").onclick = function () {
-    resetFilter(this);
-  };
-  document.querySelector("#filter-search").onclick = function () {
-    search(this);
-  };
+  var reset = document.querySelector("#filter-reset");
+  if(reset){
+    reset.onclick = function () {
+      resetFilter(this);
+    };
+  }
+  var search = document.querySelector("#filter-search");
+  if(search){
+    search.onclick = function () {
+      search(this);
+    };
+  }
 }
 
 var search = function(elem){
