@@ -15,6 +15,7 @@ defmodule Crocodile.Context.Orders do
       Order.changeset(
         %Order{},
         build_order_params(params, session, %{
+          items_sum: items_sum,
           delivery_sum: delivery_sum,
           total_sum: total_sum
         })
@@ -31,6 +32,7 @@ defmodule Crocodile.Context.Orders do
   end
 
   defp build_order_params(params, %{id: session_id, user_id: user_id}, %{
+         items_sum: items_sum,
          delivery_sum: delivery_sum,
          total_sum: total_sum
        }) do
@@ -42,6 +44,7 @@ defmodule Crocodile.Context.Orders do
       "number" => generate_order_number(),
       # "delivery_size" => "",
       # "delivery_date" => "",
+      "items_sum" => items_sum,
       "delivery_sum" => delivery_sum,
       "total_sum" => total_sum
     })

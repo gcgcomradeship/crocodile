@@ -28,7 +28,7 @@ section.section-b-space
             ul
               li
                 | По сумме товаров
-                span = price(items_sum(@items))
+                span = price(@order.items_sum)
               li
                 | Стоимость доставки
                 span = price(@order.delivery_sum)

@@ -19,6 +19,7 @@ defmodule Crocodile.Order do
     field(:post_index, :string)
     field(:active?, :boolean)
     field(:delivery_date, :naive_datetime)
+    field(:items_sum, :decimal)
     field(:delivery_sum, :decimal)
     field(:total_sum, :decimal)
     field(:data, :map)
@@ -47,6 +48,7 @@ defmodule Crocodile.Order do
     session_id
     email
     delivery_type
+    items_sum
     delivery_sum
     total_sum
     number

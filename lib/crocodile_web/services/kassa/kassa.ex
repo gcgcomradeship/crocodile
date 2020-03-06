@@ -16,11 +16,11 @@ defmodule Crocodile.Services.Kassa do
 
   defp build_payment_params(
          conn,
-         %{total_sum: total_sum, delivery_sum: delivery_sum, number: number} = order
+         %{total_sum: total_sum, number: number} = order
        ) do
     %{
       amount: %{
-        value: Decimal.add(total_sum, delivery_sum),
+        value: total_sum,
         currency: "RUB"
       },
       capture: true,

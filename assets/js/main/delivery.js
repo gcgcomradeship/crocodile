@@ -34,13 +34,16 @@ var exec_type = function(elem){
 
 var exec_pick_up = function(elem){
   document.querySelector("#set-pick-point").classList.remove("hidden");
+  document.querySelector("#delivery-type").innerText = "Постамат";
 }
 
 var exec_courier = function(elem){
+  document.querySelector("#delivery-type").innerText = "Курьер";
 }
 
 var exec_post = function(elem){
   document.querySelector("#post-index").classList.remove("hidden");
+  document.querySelector("#delivery-type").innerText = "Почта";
 }
 
 var clear = function(){
@@ -50,15 +53,12 @@ var clear = function(){
 }
 
 var pick_point_callback = function(result){
-  console.log(result);
-  // устанавливаем в скрытое поле ID терминала
   document.getElementById('terminal_id').value=result['id'];
   document.getElementById('post_index').value=result['postcode'];
   document.getElementById('city').value=result['city'] || result['region'];
   document.getElementById('delivery-city').innerText = result['city'] || result['region'];
   document.getElementById('delivery-address').innerText = result['address'];
 
-  // показываем пользователю название точки и адрес доствки
   document.getElementById('address').value=result['address'];
 }
 
