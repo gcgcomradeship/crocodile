@@ -1,0 +1,14 @@
+= if get_flash(@conn, :info) do
+  .alert.alert-success.alert-dismissible.fade.show role="alert"
+    = get_flash(@conn, :info)
+    button.close data-dismiss="alert" aria-label="Close"
+
+= if get_flash(@conn, :error) do
+  .alert.alert-danger.alert-dismissible.fade.show role="alert"
+    = get_flash(@conn, :error)
+    button.close data-dismiss="alert" aria-label="Close"
+
+= if get_flash(@conn, :warning) do
+  .alert.alert-warning.alert-dismissible.fade.show role="alert"
+    = get_flash(@conn, :warning)
+    button.close data-dismiss="alert" aria-label="Close"

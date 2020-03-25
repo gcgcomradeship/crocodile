@@ -27,6 +27,7 @@ html lang="en"
       .page-body-wrapper
         = render CrocodileWeb.LayoutView, "_admin_sidebar.html", assigns
         .page-body
+          = render CrocodileWeb.LayoutView, "_flash.html", assigns
           = render @view_module, @view_template, assigns
         = render CrocodileWeb.LayoutView, "_admin_footer.html", assigns
     script src="#{Routes.static_path(@conn, "/js/admin.js")}" type="text/javascript"

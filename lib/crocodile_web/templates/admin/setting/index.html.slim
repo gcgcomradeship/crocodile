@@ -1,0 +1,30 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Настройки
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .col-md-6
+            = form_for @conn, Routes.admin_setting_path(@conn, :update, @delivery_prices), [class: ""], fn f ->
+              .form-group
+                h3 = t(@delivery_prices.name)
+                = label f, "Постамат", class: "control-label"
+                = text_input f, :pick_up, name: "setting[data][pick_up]", value: @delivery_prices.data["pick_up"], class: "form-control"
+                = label f, "Курьер", class: "control-label"
+                = text_input f, :courier, name: "setting[data][courier]", value: @delivery_prices.data["courier"], class: "form-control"
+                = label f, "Почта", class: "control-label"
+                = text_input f, :post, name: "setting[data][post]", value: @delivery_prices.data["post"], class: "form-control"
+              / .form-group
+              /   = label f, "Пароль", class: "control-label"
+              /   = password_input f, :password, class: "form-control"
+              /   = error_tag f, :password
+              .form-group.submit
+                = submit "Сохранить", class: "btn btn-secondary"
+          .col-md-6

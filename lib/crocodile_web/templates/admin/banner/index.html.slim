@@ -1,0 +1,25 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Баннеры
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .col-md-12
+            table#basic-1.display
+              tbody
+                = for banner <- @banners do
+                  tr
+                    td= img_tag(banner.path, class: "admin_banner")
+                    td=t(banner.name)
+                    td
+                      .btn-group.btn-group-sm.mr2.pull-right
+                        = link to: Routes.admin_banner_path(@conn, :edit, banner), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Edit" do
+                          i.feather-16 data-feather="edit"
+

@@ -90,6 +90,8 @@ defmodule CrocodileWeb.Router do
 
     resources "/admin", AdminController, except: [:show]
     resources "/blog", BlogController
+    resources "/setting", SettingController, only: [:index, :update, :create]
+    resources "/banner", BannerController, only: [:index, :edit, :update, :create]
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do

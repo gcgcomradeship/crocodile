@@ -46,6 +46,7 @@ defmodule Crocodile.Utils.Helper do
       :first -> List.first(images)
       _ -> List.last(images)
     end
+    |> String.replace("http", "https")
   end
 
   def items_sum(items) do

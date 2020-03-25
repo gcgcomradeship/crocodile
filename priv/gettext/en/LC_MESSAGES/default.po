@@ -27,3 +27,26 @@ msgstr "Почта"
 
 msgid "courier"
 msgstr "Курьер"
+
+msgid "delivery_prices"
+msgstr "Цены доставки"
+
+msgid "banner_main_1"
+msgstr "Главная - слайд 1"
+
+msgid "banner_main_2"
+msgstr "Главная - слайд 2"
+
+msgid "banner_main_sub_left"
+msgstr "Главная - второстепенный левый"
+
+msgid "banner_main_sub_right"
+msgstr "Главная - второстепенный правый"
+
+msgid "banner_main_parallax"
+msgstr "Главная - параллакс"
+
+msgid "banner_catalog_left"
+msgstr "Каталог - слева под фильтром"
+
+

@@ -1,0 +1,59 @@
+/ = form_for @conn, Routes.admin_setting_path(@conn, :update, @delivery_prices), [class: ""], fn f ->
+/   .form-group
+/     h3 = t(@delivery_prices.name)
+/     = label f, "Постамат", class: "control-label"
+/     = text_input f, :pick_up, name: "setting[data][pick_up]", value: @delivery_prices.data["pick_up"], class: "form-control"
+/     = label f, "Курьер", class: "control-label"
+/     = text_input f, :courier, name: "setting[data][courier]", value: @delivery_prices.data["courier"], class: "form-control"
+/     = label f, "Почта", class: "control-label"
+/     = text_input f, :post, name: "setting[data][post]", value: @delivery_prices.data["post"], class: "form-control"
+/   / .form-group
+/   /   = label f, "Пароль", class: "control-label"
+/   /   = password_input f, :password, class: "form-control"
+/   /   = error_tag f, :password
+/   .form-group.submit
+/     = submit "Сохранить", class: "btn btn-secondary"
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            = "Баннер - #{t(@banner.name)}"
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .btn-popup.pull-right
+            = link to: Routes.admin_banner_path(@conn, :index), class: "btn btn-secondary" do
+              span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+              = "Баннеры"
+          .form-box
+            = form_for @changeset, Routes.admin_banner_path(@conn, :update, @banner), [class: "row", multipart: true], fn f ->
+              .col-md-6
+                .form-group
+                  = label f, "Текст 1", class: "control-label"
+                  = text_input f, :text1, class: "form-control"
+                  = error_tag f, :text1
+                .form-group
+                  = label f, "Текст 2", class: "control-label"
+                  = text_input f, :text2, class: "form-control"
+                  = error_tag f, :text2
+                .form-group
+                  = label f, "Текст 3", class: "control-label"
+                  = text_input f, :text3, class: "form-control"
+                  = error_tag f, :text3
+                .form-group
+                  = label f, "Ссылка", class: "control-label"
+                  = text_input f, :link_to, class: "form-control"
+                  = error_tag f, :link_to
+              .col-md-6
+                .form-group
+                  = img_tag(@banner.path, class: "admin_banner")
+                  = file_input f, :path, class: "form-control"
+                  = error_tag f, :path
+              .col-md-6
+                .form-group.submit
+                  = submit "Сохранить", class: "btn btn-secondary"
