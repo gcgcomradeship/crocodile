@@ -58,17 +58,15 @@ footer.footer-light
         .col
           .sub-title
             .footer-title
-              h4 Выбирайте нас
+              h4 Полезная информация
             .footer-contant
               ul
                 li
-                  a href="#"  удобная доставка
+                  a href=Routes.page_path(@conn, :show, "page_privacy_policy") =t("page_privacy_policy")
                 li
-                  a href="#"  система инкогнито
+                  a href=Routes.page_path(@conn, :show, "page_terms_of_use") =t("page_terms_of_use")
                 li
-                  a href="#"  широкий ассортимент
-                li
-                  a href="#"  особый подход
+                  a href=Routes.page_path(@conn, :show, "page_warranty") =t("page_warranty")
         .col
           .sub-title
             .footer-title

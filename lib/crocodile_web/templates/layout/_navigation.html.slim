@@ -87,6 +87,15 @@ header
                     li
                       a href=Routes.blog_path(@conn, :index)
                         | Блог
+                    li
+                      a href=Routes.page_path(@conn, :show, "page_about")
+                        | О нас
+                    li
+                      a href=Routes.page_path(@conn, :show, "page_delivery")
+                        | Доставка
+                    li
+                      a href=Routes.page_path(@conn, :show, "page_contacts")
+                        | Контакты
 
             = render CrocodileWeb.LayoutView, "_nav_cart.html", assigns
 
