@@ -11,7 +11,7 @@ use Mix.Config
 # before starting your production server.
 config :crocodile, CrocodileWeb.Endpoint,
   http: [:inet6, port: System.get_env("PORT") || 5000],
-  url: [host: "crocodile.ru", port: 80],
+  url: [host: "crocodildo.ru", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
