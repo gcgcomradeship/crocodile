@@ -12,12 +12,12 @@ var init = function(){
   var search = document.querySelector("#filter-search");
   if(search){
     search.onclick = function () {
-      search(this);
+      startSearch(this);
     };
   }
 }
 
-var search = function(elem){
+var startSearch = function(elem){
   var min_price = document.querySelector("#min_price").value;
   var max_price = document.querySelector("#max_price").value;
   var brand = document.querySelector(".brand_select").value;

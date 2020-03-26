@@ -1,5 +1,7 @@
 $(function () {
-  init();
+  if (document.getElementById('city')){
+    init();
+  }
 });
 
 var init = function(){
