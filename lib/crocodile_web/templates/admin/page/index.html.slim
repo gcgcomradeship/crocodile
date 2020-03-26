@@ -1,1 +1,32 @@
-| test
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Статические страницы
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          table#basic-1.display
+            thead
+              tr
+                th ID
+                th Заголовок
+                th Ссылка
+                th
+            tbody
+              = for page <- @pages do
+                tr
+                  td=page.name
+                  td=page.title
+                  td
+                    a href=Routes.page_url(@conn, :show, page.name) target="_blank"
+                      = Routes.page_url(@conn, :show, page.name)
+                  td
+                    .btn-group.btn-group-sm.mr2.pull-right
+                      = link to: Routes.admin_page_path(@conn, :edit, page), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Edit" do
+                        i.feather-16 data-feather="edit"

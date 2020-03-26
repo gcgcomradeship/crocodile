@@ -1,0 +1,16 @@
+.form-box
+  .col-md-12
+    = form_for @changeset, @action, [class: "editable-form"], fn f ->
+      .form-group
+        = label f, "ID", class: "control-label"
+        = text_input f, :name, class: "form-control", disabled: true
+      .form-group
+        = label f, "Заголовок", class: "control-label"
+        = text_input f, :title, class: "form-control"
+        = error_tag f, :title
+      .form-group
+        = label f, "Содержание", class: "control-label"
+        = textarea f, :body, class: "form-control", id: "editor"
+        = error_tag f, :body
+      .form-group.submit
+        = submit "Сохранить", class: "btn btn-secondary"

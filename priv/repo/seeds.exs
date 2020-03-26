@@ -10,6 +10,7 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 alias Crocodile.Banner
+alias Crocodile.Page
 alias Crocodile.Setting
 alias Crocodile.Repo
 
@@ -53,6 +54,15 @@ banners = %{
   "banner_catalog_left" => %{}
 }
 
+static_pages = [
+  "page_terms_of_use",
+  "page_privacy_policy",
+  "page_contacts",
+  "page_delivery",
+  "page_warranty",
+  "page_about"
+]
+
 for {name, data} <- settings do
   case Repo.get_by(Setting, name: name) do
     nil ->
@@ -70,6 +80,18 @@ for {name, data} <- banners do
     nil ->
       %Banner{}
       |> Banner.changeset(Map.merge(%{name: name}, data))
+      |> Repo.insert()
+
+    _ ->
+      nil
+  end
+end
+
+for name <- static_pages do
+  case Repo.get_by(Page, name: name) do
+    nil ->
+      %Page{}
+      |> Page.changeset(%{name: name})
       |> Repo.insert()
 
     _ ->

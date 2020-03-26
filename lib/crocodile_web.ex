@@ -24,6 +24,7 @@ defmodule CrocodileWeb do
       import Plug.Conn
       import CrocodileWeb.Gettext
       import Ecto.Query
+      import Crocodile.Utils.Helper
       alias Crocodile.Repo
       alias Crocodile.Setting
       alias CrocodileWeb.Router.Helpers, as: Routes

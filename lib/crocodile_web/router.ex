@@ -47,9 +47,7 @@ defmodule CrocodileWeb.Router do
     get("/sign_out", SessionController, :delete)
     # Site pages
     get "/", PageController, :index
-    # get "/catalog", PageController, :catalog
-    get "/delivery", PageController, :delivery
-    get "/about", PageController, :about
+    get "/page/:name", PageController, :show
 
     # Cart routes
     get "/cart", CartController, :index
@@ -83,7 +81,7 @@ defmodule CrocodileWeb.Router do
 
     pipe_through([:admin])
 
-    get "/", PageController, :index
+    get "/", PageController, :dashboard
     get "/sync", SyncController, :index
     get "/sync/update", SyncController, :sync
     post "/sync/update", SyncController, :sync
@@ -92,6 +90,7 @@ defmodule CrocodileWeb.Router do
     resources "/blog", BlogController
     resources "/setting", SettingController, only: [:index, :update, :create]
     resources "/banner", BannerController, only: [:index, :edit, :update, :create]
+    resources "/page", PageController, only: [:index, :edit, :update, :create]
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do

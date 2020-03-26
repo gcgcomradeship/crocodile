@@ -49,4 +49,21 @@ msgstr "Главная - параллакс"
 msgid "banner_catalog_left"
 msgstr "Каталог - слева под фильтром"
 
+msgid "page_terms_of_use"
+msgstr "Пользовательское соглашение"
+
+msgid "page_privacy_policy"
+msgstr "Политика конфиденциальности"
+
+msgid "page_contacts"
+msgstr "Контакты"
+
+msgid "page_delivery"
+msgstr "Доставка"
+
+msgid "page_warranty"
+msgstr "Гарантия и возврат"
+
+msgid "page_about"
+msgstr "О нас"
 
