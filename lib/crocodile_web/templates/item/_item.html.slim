@@ -8,10 +8,10 @@
       = if @item.discount == 0 do
         span.lable4 on sale
     .front
-      a href=Routes.item_path(@conn, :show, @item)
+      a.catalog-img href=Routes.item_path(@conn, :show, @item)
         img.img-fluid.blur-up.lazyload.bg-img alt="" src=image(@item.images)
     .back
-      a href=Routes.item_path(@conn, :show, @item)
+      a.catalog-img href=Routes.item_path(@conn, :show, @item)
         img.img-fluid.blur-up.lazyload.bg-img alt="" src=image(@item.images, :last)
     .cart-info.cart-wrap
       button.cart-btn item-id=@item.id data-target="#addtocart" data-toggle="modal" title="В корзину"
