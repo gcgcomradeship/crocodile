@@ -67,3 +67,11 @@ msgstr "Гарантия и возврат"
 msgid "page_about"
 msgstr "О нас"
 
+msgid "page_requisites"
+msgstr "Реквизиты"
+
+msgid "page_feedback"
+msgstr "Обратная связь"
+
+msgid "page_payment"
+msgstr "Оплата"

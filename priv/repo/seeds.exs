@@ -60,7 +60,10 @@ static_pages = [
   "page_contacts",
   "page_delivery",
   "page_warranty",
-  "page_about"
+  "page_about",
+  "page_requisites",
+  "page_feedback",
+  "page_payment"
 ]
 
 for {name, data} <- settings do
