@@ -1,0 +1,59 @@
+// .custom_html{
+//   color: #000;
+// }
+
+// .custom_html ol{
+//   counter-reset: myCounter;
+// }
+
+// .custom_html li{
+//   list-style: none;
+// }
+
+// .custom_html li:before {
+//   counter-increment: myCounter;
+//   content:counter(myCounter);
+//   color: white;
+//   background: #fa869b;
+//   display: inline-block;
+//   text-align: center;
+//   margin: 5px 10px;
+//   line-height: 20px;
+//   width: 20px;
+//   height: 20px;
+// }
+
+.custom_html, .custom_html pc {
+  font-size: 16px !important;
+}
+
+.custom_html img{
+  padding: 10px;
+}
+
+.blog-detail-page .blog-advance ul {
+  padding-left: 40px;
+  list-style-type: disc !important;
+  list-style-position: inside;
+  line-height: 2.5;
+  font-size: 14px;
+}
+
+.blog-detail-page .blog-advance ul li {
+  display: list-item;
+  font-weight: 400;
+  color: #777777;
+}
+
+.blog-detail-page .blog-advance ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+  line-height: 2.5;
+  font-size: 14px;
+}
+
+.blog-detail-page .blog-advance ol li {
+  display: list-item;
+  font-weight: 400;
+  color: #666;
+}
