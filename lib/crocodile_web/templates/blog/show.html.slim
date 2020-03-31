@@ -11,5 +11,6 @@ section.blog-detail-page.section-b-space.ratio2_3
           li.like-btn class="#{if @blog.liked, do: "liked"}" blog-id=@blog.id
             i.fa.fa-heart.pr-1
             span.count = @blog.like_count
-        =raw(@blog.inner_html)
+        .custom_html.blog-advance
+          =raw(@blog.inner_html)
 /! Section ends
