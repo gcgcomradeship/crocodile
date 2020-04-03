@@ -55,7 +55,7 @@ header
                                       a href=Routes.item_path(@conn, :index, category: category, subcategory: subcategory)
                                         = subcategory
             .brand-logo
-              a href="index.html"
+              a href=Routes.page_path(@conn, :index)
                 / img.img-fluid.blur-up.lazyload alt="" src="/images/icon/logo.png" /
                 img.nav-logo.img-fluid.blur-up.lazyload alt="" src="/images/logo-croco.png" /
           .menu-right.pull-right

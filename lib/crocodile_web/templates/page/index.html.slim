@@ -54,24 +54,14 @@ section.section-b-space.ratio3_2
     h2.title-inner1 категории товаров
   .container
     .row.partition2
-      .col-md-3
-        a href=@banners["banner_main_sub_left"].link_to
-        .collection-banner.p-right.text-center
-          .img-part
-            img.img-fluid.blur-up.lazyload.bg-img alt="" src=@banners["banner_main_sub_left"].path /
-          .contain-banner
-            div
-              h4 = @banners["banner_main_sub_left"].text1
-              h2 = @banners["banner_main_sub_left"].text2
-      .col-md-3
-        a href=@banners["banner_main_sub_right"].link_to
-        .collection-banner.p-right.text-center
-          .img-part
-            img.img-fluid.blur-up.lazyload.bg-img alt="" src=@banners["banner_main_sub_right"].path /
-          .contain-banner
-            div
-              h4 = @banners["banner_main_sub_right"].text1
-              h2 = @banners["banner_main_sub_right"].text2
+      = for cat_item <- @banners_cat do
+        .col-md-3.cat-item
+          a href=cat_item.link_to
+            .collection-banner.p-right.text-center
+              .img-part
+                img.img-fluid.blur-up.lazyload.bg-img alt="" src=cat_item.path /
+              .cat-name
+                = cat_item.text1
 /! Product slider end
 /! Paragraph
 / .title1.section-t-space

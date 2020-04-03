@@ -11,5 +11,6 @@ defmodule Crocodile.Plug.NavDataLoad do
     |> assign(:categories, Categories.all())
     |> assign(:breadcrumbs, [])
     |> assign(:banners, Banner.main())
+    |> assign(:banners_cat, Banner.catalog())
   end
 end

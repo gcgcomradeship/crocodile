@@ -51,7 +51,55 @@ banners = %{
     text2: "тренд года",
     text3: "специальное предложение"
   },
-  "banner_catalog_left" => %{}
+  "banner_catalog_left" => %{},
+  "banner_main_cat_1_1" => %{
+    text1: "Вибраторы",
+    link_to: "/catalog?category=Вибраторы"
+  },
+  "banner_main_cat_1_2" => %{
+    text1: "Анальные игрушки",
+    link_to: "/catalog?category=Анальные+игрушки"
+  },
+  "banner_main_cat_1_3" => %{
+    text1: "Фаллоимитаторы",
+    link_to: "/catalog?category=Фаллоимитаторы"
+  },
+  "banner_main_cat_1_4" => %{
+    text1: "Смазки, лубриканты",
+    link_to: "/catalog?category=Смазки%2C+лубриканты"
+  },
+  "banner_main_cat_2_1" => %{
+    text1: "Секс-товары для женщин",
+    link_to: "/catalog?category=Смазки%2C+лубриканты"
+  },
+  "banner_main_cat_2_2" => %{
+    text1: "Секс-товары для мужчин",
+    link_to: "/catalog?category=Секс-товары+для+мужчин"
+  },
+  "banner_main_cat_2_3" => %{
+    text1: "BDSM, садо-мазо товары",
+    link_to: "/catalog?category=BDSM%2C+садо-мазо+товары"
+  },
+  "banner_main_cat_2_4" => %{
+    text1: "Косметика с феромонами",
+    link_to: "/catalog?category=Косметика+с+феромонами"
+  },
+  "banner_main_cat_3_1" => %{
+    text1: "Эротическая одежда",
+    link_to: "/catalog?category=Эротическая+одежда"
+  },
+  "banner_main_cat_3_2" => %{
+    text1: "Страпоны, фаллопротезы",
+    link_to: "/catalog?category=Страпоны%2C+фаллопротезы"
+  },
+  "banner_main_cat_3_3" => %{
+    text1: "Секс-мебель и качели",
+    link_to: "/catalog?category=Секс-мебель+и+качели"
+  },
+  "banner_main_cat_3_4" => %{
+    text1: "Приятные мелочи",
+    link_to: "/catalog?category=Приятные+мелочи"
+  }
 }
 
 static_pages = [
