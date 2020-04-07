@@ -12,4 +12,12 @@
               li.breadcrumb-item
                 a href=link
                   = title
+      / .col-sm-4
+      /   .search
+      /     = form_for @conn, Routes.item_path(@conn, :index), [class: "editable-form input-group", method: "get"], fn f ->
+      /       = text_input f, :search, class: "form-control search-input"
+      /       .input-group-append
+      /         = submit id: "basic-addon2", class: "input-group-text" do
+      /           i.ti-search
+
 /! breadcrumb end

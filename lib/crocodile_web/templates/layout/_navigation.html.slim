@@ -69,8 +69,12 @@ header
                       | Назад
                       i.fa.fa-angle-right.pl-2 aria-hidden="true"
                     li
-                      a href=Routes.page_path(@conn, :index)
-                        | Главная
+                      .search
+                        = form_for @conn, Routes.item_path(@conn, :index), [class: "editable-form input-group", method: "get"], fn f ->
+                          = text_input f, :search, class: "form-control search-input"
+                          .input-group-append
+                            = submit id: "basic-addon2", class: "input-group-text" do
+                              i.ti-search
                     li
                       a href=Routes.item_path(@conn, :index)
                         | Каталог

@@ -24,6 +24,7 @@ var startSearch = function(elem){
 
   var url = window.location;
   var urlObject = new URL(url);
+  urlObject.searchParams.delete("search");
   if(min_price != ""){
     urlObject.searchParams.set("min_price", min_price);
   }else{

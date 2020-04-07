@@ -65,6 +65,8 @@ section
                 = "Добавить"
               a.btn.btn-solid href=Routes.cart_path(@conn, :index) ="Корзина"
             .border-product
+              h6.product-title Артикул
+              p= "# #{@item.id}"
               h6.product-title Описание
               p
                 = @item.description || "-"

@@ -28,7 +28,8 @@
     /   i.fa.fa-star
     /   i.fa.fa-star
     a href=Routes.item_path(@conn, :show, @item)
-    h6 = name(@item)
+    .article_code = "# #{@item.partner_id}"
+    h6.item_card_name = name(@item)
     h4
       = price(@item.retail_price)
     /   del $600.00
