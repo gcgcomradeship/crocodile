@@ -17,6 +17,7 @@
             thead
               tr
                 th ID
+                th Изображение
                 th Автор
                 th Название
                 th Дата
@@ -25,6 +26,7 @@
               = for blog <- @blogs do
                 tr
                   td=blog.id
+                  td=img_tag(blog.image, class: "admin_instagram")
                   td=blog.author
                   td=blog.title
                   td=l(blog.inserted_at)

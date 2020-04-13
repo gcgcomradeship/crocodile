@@ -1,0 +1,18 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            = "Лого партнеров - #{@partner.id}"
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .btn-popup.pull-right
+            = link to: Routes.admin_partner_path(@conn, :index), class: "btn btn-secondary" do
+              span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+              = "Блог"
+          = render "form.html", partner: @partner, changeset: @changeset, action: Routes.admin_partner_path(@conn, :update, @partner)

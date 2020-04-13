@@ -88,6 +88,8 @@ defmodule CrocodileWeb.Router do
 
     resources "/admin", AdminController, except: [:show]
     resources "/blog", BlogController
+    resources "/instagram", InstagramController
+    resources "/partner", PartnerController
     resources "/setting", SettingController, only: [:index, :update, :create]
     resources "/banner", BannerController, only: [:index, :edit, :update, :create]
     resources "/page", PageController, only: [:index, :edit, :update, :create]

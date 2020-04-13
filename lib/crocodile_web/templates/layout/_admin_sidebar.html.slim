@@ -23,6 +23,14 @@
           i data-feather="image"
           span Баннеры
       li
+        a.sidebar-header href=Routes.admin_instagram_path(@conn, :index)
+          i data-feather="image"
+          span Instagram
+      li
+        a.sidebar-header href=Routes.admin_partner_path(@conn, :index)
+          i data-feather="image"
+          span Лого партнеров
+      li
         a.sidebar-header href=Routes.admin_setting_path(@conn, :index)
           i data-feather="settings"
           span Настройки

@@ -1,28 +1,24 @@
-defmodule Crocodile.Blog do
+defmodule Crocodile.Instagram do
   use Ecto.Schema
   import Ecto.Changeset
 
   alias CrocodileWeb.Service.Storage.FileWizard
 
-  schema "blogs" do
-    field(:author, :string)
-    field(:title, :string)
-    field(:description, :string)
-    field(:inner_html, :string)
+  schema "instagrams" do
     field(:image, :string)
-    timestamps()
+    field(:link_to, :string)
 
-    has_many(:likes, Crocodile.Like, on_delete: :nilify_all)
+    timestamps()
   end
 
-  @required_fields ~w(author title description inner_html)a
+  @required_fields ~w(link_to)a
   @optional_fields ~w(image)a
 
   @doc false
-  def changeset(blog, attrs) do
-    updated_attrs = set_image(blog, attrs)
+  def changeset(instagram, attrs) do
+    updated_attrs = set_image(instagram, attrs)
 
-    blog
+    instagram
     |> cast(updated_attrs, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
   end

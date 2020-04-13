@@ -1,0 +1,34 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Инстаграм
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .btn-popup.pull-right
+            = link "Добавить", to: Routes.admin_instagram_path(@conn, :new), class: "btn btn-secondary"
+          table#basic-1.display
+            thead
+              tr
+                th ID
+                th Изображение
+                th Ссылка
+                th
+            tbody
+              = for instagram <- @instagrams do
+                tr
+                  td=instagram.id
+                  td=img_tag(instagram.image, class: "admin_instagram")
+                  td=link instagram.link_to, to: instagram.link_to, target: "_blank"
+                  td
+                    .btn-group.btn-group-sm.mr2.pull-right
+                      = link to: Routes.admin_instagram_path(@conn, :edit, instagram), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Edit" do
+                        i.feather-16 data-feather="edit"
+                      = link to: Routes.admin_instagram_path(@conn, :delete, instagram), method: :delete, data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete" do
+                        i.feather-16 data-feather="trash-2"

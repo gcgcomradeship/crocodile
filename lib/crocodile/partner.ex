@@ -1,28 +1,24 @@
-defmodule Crocodile.Blog do
+defmodule Crocodile.Partner do
   use Ecto.Schema
   import Ecto.Changeset
 
   alias CrocodileWeb.Service.Storage.FileWizard
 
-  schema "blogs" do
-    field(:author, :string)
+  schema "partners" do
     field(:title, :string)
-    field(:description, :string)
-    field(:inner_html, :string)
     field(:image, :string)
+    field(:link_to, :string)
     timestamps()
-
-    has_many(:likes, Crocodile.Like, on_delete: :nilify_all)
   end
 
-  @required_fields ~w(author title description inner_html)a
-  @optional_fields ~w(image)a
+  @required_fields ~w(link_to)a
+  @optional_fields ~w(image title)a
 
   @doc false
-  def changeset(blog, attrs) do
-    updated_attrs = set_image(blog, attrs)
+  def changeset(partner, attrs) do
+    updated_attrs = set_image(partner, attrs)
 
-    blog
+    partner
     |> cast(updated_attrs, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
   end

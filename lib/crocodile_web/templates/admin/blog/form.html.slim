@@ -1,14 +1,14 @@
 .form-box
   .col-md-12
     = form_for @changeset, @action, [class: "editable-form", multipart: true], fn f ->
-      / .form-group
-      /   = label f, "Изображение", class: "control-label"
-      /   = if assigns[:blog] do
-      /     .btn-image-del
-      /       i.fa.fa-close blog-id=assigns[:blog].id
-      /     = img_tag assigns[:blog].image, class: "form-image"
-      /   = file_input f, :image, class: "form-control"
-      /   = error_tag f, :image
+      .form-group
+        = label f, "Изображение", class: "control-label"
+        / = if assigns[:blog] do
+        /   .btn-image-del
+        /     i.fa.fa-close blog-id=assigns[:blog].id
+        /   = img_tag assigns[:blog].image, class: "form-image"
+        = file_input f, :image, class: "form-control"
+        = error_tag f, :image
       .form-group
         = label f, "Автор", class: "control-label"
         = text_input f, :author, class: "form-control"

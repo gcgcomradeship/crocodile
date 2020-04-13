@@ -1,0 +1,17 @@
+.form-box
+  .col-md-12
+    = form_for @changeset, @action, [class: "editable-form", multipart: true], fn f ->
+      .form-group
+        = label f, "Название", class: "control-label"
+        = text_input f, :title, class: "form-control"
+        = error_tag f, :title
+      .form-group
+        = label f, "Изображение", class: "control-label"
+        = file_input f, :image, class: "form-control"
+        = error_tag f, :image
+      .form-group
+        = label f, "Ссылка", class: "control-label"
+        = text_input f, :link_to, class: "form-control"
+        = error_tag f, :link_to
+      .form-group.submit
+        = submit "Сохранить", class: "btn btn-secondary"

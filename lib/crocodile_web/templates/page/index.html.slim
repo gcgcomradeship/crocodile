@@ -173,66 +173,20 @@ section.blog.p-t-0.ratio2_3
     .row
       .col-md-12
         .slide-3.no-arrow
-          .col-md-12
-            a href="#"
-            .classic-effect
-              div
-                img.img-fluid.blur-up.lazyload.bg-img alt="" src="/images/blog/1.jpg" /
-              span
-            .blog-details
-              h4 2 декабря 2019
+          = for blog <- @blogs do
+            .col-md-12
               a href="#"
-              p Как выбрать между качеством и ценой
-              hr.style1/
-              h6 от: TGirl , 2 комментария
-          .col-md-12
-            a href="#"
-            .classic-effect
-              div
-                img.img-fluid.blur-up.lazyload.bg-img alt="" src="/images/blog/2.jpg" /
-              span
-            .blog-details
-              h4 30 ноября 2019
-              a href="#"
-              p Что мы увидели в этом году
-              hr.style1/
-              h6 от: TGirl , 10 комментариев
-          .col-md-12
-            a href="#"
-            .classic-effect
-              div
-                img.img-fluid.blur-up.lazyload.bg-img alt="" src="/images/blog/3.jpg" /
-              span
-            .blog-details
-              h4 25 ноября 2019
-              a href="#"
-              p Куклы - новая реальность!
-              hr.style1/
-              h6 от: Elijah The Giant , 0 комментариев
-          .col-md-12
-            a href="#"
-            .classic-effect
-              div
-                img.img-fluid.blur-up.lazyload.bg-img alt="" src="/images/blog/4.jpg" /
-              span
-            .blog-details
-              h4 21 октября 2019
-              a href="#"
-              p Почему важна гигиена
-              hr.style1/
-              h6 от: Elijah The Giant , 1 комментарий
-          .col-md-12
-            a href="#"
-            .classic-effect
-              div
-                img.img-fluid.blur-up.lazyload.bg-img alt="" src="/images/blog/5.jpg" /
-              span
-            .blog-details
-              h4 17 октября 2019
-              a href="#"
-              p Я выбираю стиль!
-              hr.style1/
-              h6 от: TGirl , 6 комментариев
+              .classic-effect
+                div
+                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=blog.image /
+                span
+              .blog-details
+                h4 = l(blog.inserted_at)
+                a href=Routes.blog_path(@conn, :show, blog)
+                p = blog.title
+                hr.style1/
+                h6 = "от: #{blog.author}"
+
 /! blog section end
 /! instagram section
 section.instagram.ratio_square
@@ -241,60 +195,14 @@ section.instagram.ratio_square
       .col-md-12.p-0
         h2.title-borderless # instagram
         .slide-7.no-arrow.slick-instagram
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/2.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/3.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/4.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/9.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/6.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/7.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/8.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/9.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
-          div
-            a href="#"
-            .instagram-box
-              img.bg-img alt="Avatar" src="/images/slider/2.jpg" style="width:100%" /
-              .overlay
-                i.fa.fa-instagram aria-hidden="true"
+          = for instagram <- @instagrams do
+            div
+              a href=instagram.link_to
+              .instagram-box
+                img.bg-img alt="image" src=instagram.image style="width:100%" /
+                .overlay
+                  i.fa.fa-instagram aria-hidden="true"
+
 /! instagram section end
 /! logo section
 section.section-b-space
@@ -302,38 +210,11 @@ section.section-b-space
     .row
       .col-md-12
         .slide-6.no-arrow
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/1.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/2.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/3.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/4.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/5.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/6.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/7.png" /
-          div
-            .logo-block
-              a href="#"
-                img alt="" src="/images/logos/8.png" /
+          = for partner <- @partners do
+            div
+              .logo-block
+                a href=partner.link_to
+                  img.partner-logo alt=partner.title src=partner.image
 /! logo section end
 
 /! modal popup start
