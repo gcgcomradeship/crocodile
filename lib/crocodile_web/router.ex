@@ -8,9 +8,9 @@ defmodule CrocodileWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
 
-    if Mix.env() == :prod do
-      plug Crocodile.Plug.BasicAuth, username: "admin", password: "Arbuz123"
-    end
+    # if Mix.env() == :prod do
+    #   plug Crocodile.Plug.BasicAuth, username: "admin", password: "Arbuz123"
+    # end
   end
 
   pipeline :api do
