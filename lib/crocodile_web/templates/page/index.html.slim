@@ -175,17 +175,17 @@ section.blog.p-t-0.ratio2_3
         .slide-3.no-arrow
           = for blog <- @blogs do
             .col-md-12
-              a href="#"
-              .classic-effect
-                div
-                  img.img-fluid.blur-up.lazyload.bg-img alt="" src=blog.image /
-                span
-              .blog-details
-                h4 = l(blog.inserted_at)
-                a href=Routes.blog_path(@conn, :show, blog)
-                p = blog.title
-                hr.style1/
-                h6 = "от: #{blog.author}"
+              a href=Routes.blog_path(@conn, :show, blog)
+                .classic-effect
+                  div
+                    img.img-fluid.blur-up.lazyload.bg-img alt="" src=blog.image /
+                  span
+                .blog-details
+                  h4 = l(blog.inserted_at)
+                  a href=Routes.blog_path(@conn, :show, blog)
+                  p = blog.title
+                  hr.style1/
+                  h6 = "от: #{blog.author}"
 
 /! blog section end
 /! instagram section
