@@ -136,13 +136,13 @@ defmodule Crocodile.Context.Items do
 
   defp where_search(query, search_string) do
     arr = String.split(search_string, " ")
-    search_expr(Item, arr)
+    search_expr(query, arr)
   end
 
   defp search_expr(query, []), do: query
 
   defp search_expr(query, [h | t]) do
     like_str = "%#{h}%"
-    or_where(query, [i], ilike(i.name, ^like_str) or ilike(i.partner_id, ^like_str))
+    where(query, [i], ilike(i.name, ^like_str) or ilike(i.partner_id, ^like_str))
   end
 end
