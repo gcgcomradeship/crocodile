@@ -24,6 +24,7 @@ defmodule Crocodile.Services.Sync do
       |> DB.insert_or_update()
     end
 
+    Redis.set("last_db_#{key}", Timex.now())
     :ok
   end
 

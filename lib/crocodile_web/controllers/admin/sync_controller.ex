@@ -2,9 +2,13 @@ defmodule CrocodileWeb.Admin.SyncController do
   use CrocodileWeb, :controller
 
   alias Crocodile.Item
+  alias Crocodile.Service.Redis
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    render(conn, "index.html",
+      last_sync: Redis.get("last_db_sync"),
+      last_update: Redis.get("last_db_update")
+    )
   end
 
   def sync(conn, %{"file" => %Plug.Upload{path: path}}) do

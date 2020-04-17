@@ -10,7 +10,11 @@
   .row
     .col-sm-12
       .card
-        .card-body.order-datatable
+        .card-body
+          .last-update
+            = "Последнее малое обновление: #{@last_update}"
+          .last-update
+            = "Последнее большое обновление: #{@last_sync}"
           .form-box
             = form_for @conn, Routes.admin_sync_path(@conn, :sync), [class: "", multipart: true], fn f ->
               .form-group.col-md-6
