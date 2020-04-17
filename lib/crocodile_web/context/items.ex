@@ -94,6 +94,7 @@ defmodule Crocodile.Context.Items do
   defp where_main(query) do
     query
     |> where([i], i.insale > 0)
+    |> where([i], i.hide == false)
   end
 
   defp where_category(query, %{"category" => category, "subcategory" => subcategory}),
