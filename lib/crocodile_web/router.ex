@@ -93,6 +93,7 @@ defmodule CrocodileWeb.Router do
     resources "/setting", SettingController, only: [:index, :update, :create]
     resources "/banner", BannerController, only: [:index, :edit, :update, :create]
     resources "/page", PageController, only: [:index, :edit, :update, :create]
+    resources "/order", OrderController
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do

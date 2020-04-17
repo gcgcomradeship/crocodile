@@ -11,6 +11,10 @@
     /   p general manager.
     ul.sidebar-menu
       li
+        a.sidebar-header href=Routes.admin_order_path(@conn, :index)
+          i data-feather="aperture"
+          span Заказы
+      li
         a.sidebar-header href=Routes.admin_page_path(@conn, :index)
           i data-feather="file-text"
           span Страницы
