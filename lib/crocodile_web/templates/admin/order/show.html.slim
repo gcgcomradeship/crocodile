@@ -1,0 +1,102 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            ="Заказ - # #{@order.number}"
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .btn-popup.pull-right
+        = link "Заказы", to: Routes.admin_order_path(@conn, :index), class: "m-btn btn btn-info"
+        = link "Архивировать", to: Routes.admin_order_order_path(@conn, :archive, @order), data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete"
+    .col-sm-6
+      .card
+        .card-body
+          .btn-popup.pull-right
+            = link to: Routes.admin_order_path(@conn, :edit, @order, type: :user_info), class: "m-btn btn btn-info" do
+              i.feather-16 data-feather="edit"
+          dt="Имя"
+          dd=@order.name || "-"
+          dt="Фамилия"
+          dd=@order.surname || "-"
+          dt="Email"
+          dd=@order.email || "-"
+          dt="Телефон"
+          dd=@order.phone || "-"
+          dt="Город"
+          dd=@order.city || "-"
+          dt="Адрес"
+          dd=@order.address || "-"
+          dt="Почтовый индекс"
+          dd=@order.post_index || "-"
+    .col-sm-6
+      .card
+        .card-body
+          .btn-popup.pull-right
+            = link to: Routes.admin_order_path(@conn, :edit, @order, type: :order_status), class: "m-btn btn btn-info" do
+              i.feather-16 data-feather="edit"
+          dt="Статус заказа"
+          span.label class="#{@order.status}" =t(@order.status)
+          dt="Тип платежа"
+          span.label.default =t(@order.payment_type)
+          dt="Статус платежа"
+          span.label class="#{@order.payment_status}" =t(@order.payment_status)
+          dt="Тип доставки"
+          span.label.default =t(@order.delivery_type)
+          dt="Статус доставки"
+          span.label class="#{@order.delivery_status}" =t(@order.delivery_status)
+          dt="Дата доставки"
+          span.label.default=l(@order.delivery_date)
+          dt="Стоимость заказа"
+          span.label.order-price.warning="#{price(@order.items_sum)} + "
+          span.label.order-price.info="#{price(@order.delivery_sum)} = "
+          span.label.order-price.success=price(@order.total_sum)
+          / dt="Размеры заказа"
+          / dd=inspect(@order.delivery_size)
+          / dt="Активный"
+          / dd=@order.active?
+          / dt="Доп. данные"
+          / dd=inspect(@order.data)
+    .col-sm-12
+      .card
+        .card-body
+          = form_for @conn, Routes.admin_item_order_path(@conn, :create, order_id: @order), [class: "editable-form  input-group btn-popup pull-right"], fn f ->
+            = text_input f, :partner_id, class: "form-control  search-input", placeholder: "Артикул"
+            .input-group-append
+              = submit "Добавить товар", class: "m-btn btn btn-secondary input-group-text"
+          table.table.table-striped
+            thead.thead-dark
+              tr
+                th # Артикул
+                th Изображение
+                th Наименование
+                th Количество
+                th Цена закупочная(шт.)
+                th Цена розница(шт.)
+                th
+            tbody
+              = for item_order <- @order.items_orders do
+                tr
+                  = form_for Crocodile.ItemOrder.changeset(item_order, %{}), Routes.admin_item_order_path(@conn, :update, item_order), [class: "editable-form", method: "patch"], fn f ->
+                    td
+                      b=item_order.item.partner_id
+                    td= img_tag List.first(item_order.item.images), class: "admin_instagram"
+                    td= item_order.item.name
+                    td
+                      = text_input f, :quantity, class: "form-control"
+                      / = item_order.quantity
+                    td= price(item_order.item.whole_price)
+                    td
+                      = text_input f, :price, class: "form-control"
+                      / = price(item_order.price)
+                    td
+                      .btn-group.btn-group-sm.mr2.pull-right
+                        / = link to: Routes.admin_order_path(@conn, :show, @order), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Show" do
+                        /   i.feather-16 data-feather="search"
+                        = submit class: "m-btn btn btn-secondary" do
+                          i.feather-16 data-feather="save"
+                        = link to: Routes.admin_item_order_path(@conn, :delete, item_order), method: :delete, data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete" do
+                          i.feather-16 data-feather="trash-2"

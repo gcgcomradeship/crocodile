@@ -1,0 +1,18 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            = "Заказ - #{@order.number}"
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body.order-datatable
+          .btn-popup.pull-right
+            = link to: Routes.admin_order_path(@conn, :show, @order), class: "btn btn-secondary" do
+              span.glyphicon.glyphicon-list.right_10 aria-hidden="true"
+              = "Вернуться к заказу # #{@order.number}"
+          = render "#{@form_type}.html", changeset: @changeset, action: Routes.admin_order_path(@conn, :update, @order, type: @form_type)

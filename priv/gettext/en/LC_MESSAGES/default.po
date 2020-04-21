@@ -1,5 +1,5 @@
 msgid "created"
-msgstr "Обрабатывается"
+msgstr "В обработке"
 
 msgid "paid"
 msgstr "Оплачен"
@@ -18,6 +18,18 @@ msgstr "Онлайн"
 
 msgid "on_delivery"
 msgstr "При получении"
+
+msgid "pending"
+msgstr "В обработке"
+
+msgid "waiting_for_capture"
+msgstr "Ожидает подтверждения"
+
+msgid "succeeded"
+msgstr "Успешно"
+
+msgid "refund"
+msgstr "Возврат"
 
 msgid "pick_up"
 msgstr "Постамат"

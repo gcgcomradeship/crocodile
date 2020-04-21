@@ -1,8 +1,9 @@
 import css from "../css/admin.scss"
-
 import "phoenix_html"
 
 import "jquery"
+import "jquery-ui"
+import "./main/jquery.maskedinput.min.js"
 // popper js
 import "./main/popper.min.js"
 // import 'bootstrap'
@@ -45,3 +46,4 @@ import "./admin/admin-script.js"
 import "./admin/datatables/jquery.dataTables.min.js"
 import "./admin/datatables/custom-basic.js"
 import "./admin/editor.js"
+import "./admin/phone_mask.js"

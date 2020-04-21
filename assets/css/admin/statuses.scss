@@ -1,0 +1,27 @@
+.success, .succeeded, .completed{
+  background-color: #28a745;
+}
+
+.info, .paid{
+  background-color: #03caa5;
+}
+
+.canceled{
+  background-color: #dc3545;
+}
+
+.warning, .created, .pending, .waiting_for_capture, .waiting_for_delivery{
+  background-color: #ffc107;
+}
+
+.refund{
+  background-color: #c207ff;
+}
+
+.unknown{
+  background-color: #ff07a7;
+}
+
+.default{
+  background-color: #777;
+}

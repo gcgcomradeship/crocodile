@@ -3,4 +3,6 @@
 //   .catch( error => {
 //       console.error( error );
 //   } );
-CKEDITOR.replace( 'editor' );
+if (document.querySelector( '#editor' )){
+  CKEDITOR.replace( 'editor' );
+}

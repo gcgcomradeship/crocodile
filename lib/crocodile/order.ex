@@ -24,6 +24,7 @@ defmodule Crocodile.Order do
     field(:total_sum, :decimal)
     field(:data, :map)
 
+    field(:deleted_at, :naive_datetime)
     timestamps()
 
     belongs_to(:user, Crocodile.User)
@@ -63,6 +64,7 @@ defmodule Crocodile.Order do
     post_index
     active?
     data
+    deleted_at
   )a
 
   @doc false

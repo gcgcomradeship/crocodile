@@ -12,7 +12,7 @@
       .card
         .card-body.order-datatable
           .col-md-6
-            = form_for @conn, Routes.admin_setting_path(@conn, :update, @delivery_prices), [class: ""], fn f ->
+            = form_for @conn, Routes.admin_setting_path(@conn, :update, @delivery_prices), [class: "", method: "patch"], fn f ->
               .form-group
                 h3 = t(@delivery_prices.name)
                 = label f, "Постамат", class: "control-label"

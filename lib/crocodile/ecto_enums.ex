@@ -34,5 +34,7 @@ defenum(
 
 defenum(
   DeliveryStatus,
-  created: 0
+  created: 0,
+  in_progress: 1,
+  complete: 5
 )

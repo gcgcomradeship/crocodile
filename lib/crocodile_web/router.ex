@@ -90,10 +90,15 @@ defmodule CrocodileWeb.Router do
     resources "/blog", BlogController
     resources "/instagram", InstagramController
     resources "/partner", PartnerController
-    resources "/setting", SettingController, only: [:index, :update, :create]
+    resources "/setting", SettingController, except: [:show, :new, :edit]
     resources "/banner", BannerController, only: [:index, :edit, :update, :create]
     resources "/page", PageController, only: [:index, :edit, :update, :create]
-    resources "/order", OrderController
+
+    resources "/order", OrderController do
+      get "/archive", OrderController, :archive
+    end
+
+    resources "/item_order", ItemOrderController, only: [:update, :create, :delete]
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do

@@ -1,0 +1,34 @@
+.form-box
+  .col-md-12
+    = form_for @changeset, @action, [class: "editable-form"], fn f ->
+      .form-group
+        = label f, "Имя", class: "control-label"
+        = text_input f, :name, class: "form-control"
+        = error_tag f, :name
+      .form-group
+        = label f, "Фамилия", class: "control-label"
+        = text_input f, :surname, class: "form-control"
+        = error_tag f, :surname
+      .form-group
+        = label f, "Email", class: "control-label"
+        = text_input f, :email, class: "form-control"
+        = error_tag f, :email
+      .form-group
+        = label f, "Телефон", class: "control-label"
+        = text_input f, :phone, class: "form-control phone"
+        = error_tag f, :phone
+      .form-group
+        = label f, "Город / Населенный пункт", class: "control-label"
+        = text_input f, :city, class: "form-control"
+        = error_tag f, :city
+      .form-group
+        = label f, "Адрес", class: "control-label"
+        = text_input f, :address, class: "form-control"
+        = error_tag f, :address
+      .form-group
+        = label f, "Почтовый индекс", class: "control-label"
+        = text_input f, :post_index, class: "form-control"
+        = error_tag f, :post_index
+
+      .form-group.submit
+        = submit "Сохранить", class: "btn btn-secondary"

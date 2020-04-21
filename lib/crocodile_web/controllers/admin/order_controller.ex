@@ -2,13 +2,71 @@ defmodule CrocodileWeb.Admin.OrderController do
   use CrocodileWeb, :controller
 
   alias Crocodile.Order
+  alias Crocodile.Services
 
   def index(conn, _params) do
     orders =
       Order
+      |> where([o], is_nil(o.deleted_at))
       |> Repo.all()
 
     render(conn, "index.html", orders: orders)
+  end
+
+  def show(conn, %{"id" => id}) do
+    order =
+      Order
+      |> preload(items_orders: [:item])
+      |> Repo.get(id)
+
+    render(conn, "show.html", order: order)
+  end
+
+  def edit(conn, %{"id" => id, "type" => type} = params) do
+    order =
+      Order
+      |> Repo.get(id)
+
+    order = Order |> Repo.get(id)
+    changeset = Order.changeset(order, %{})
+
+    render(conn, "edit.html", order: order, changeset: changeset, form_type: type)
+  end
+
+  def update(conn, %{
+        "id" => id,
+        "type" => form_type,
+        "order" => order_params
+      }) do
+    order = Order |> Repo.get(id)
+
+    changeset = Order.changeset(order, order_params)
+
+    case Repo.update(changeset) do
+      {:ok, order} ->
+        Services.Order.recalculate(order)
+
+        conn
+        |> put_flash(:info, "Order updated successfully.")
+        |> redirect(to: Routes.admin_order_path(conn, :show, order))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "edit.html",
+          order: Map.merge(changeset.data, changeset.changes),
+          changeset: changeset,
+          form_type: form_type
+        )
+    end
+  end
+
+  def archive(conn, %{"order_id" => id}) do
+    order =
+      Order
+      |> Repo.get(id)
+      |> Order.changeset(%{deleted_at: Timex.now()})
+      |> Repo.update()
+
+    redirect(conn, to: Routes.admin_order_path(conn, :index))
   end
 
   # def new(conn, _params) do

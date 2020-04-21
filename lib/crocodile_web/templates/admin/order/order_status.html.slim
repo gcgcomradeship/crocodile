@@ -1,0 +1,35 @@
+.form-box
+  .col-md-6
+    = form_for @changeset, @action, [class: "editable-form"], fn f ->
+      .form-group
+        = label f, "Статус заказа", class: "control-label"
+        = select f, :status, get_statuses(), class: "form-control"
+        = error_tag f, :status
+
+        = label f, "Тип оплаты", class: "control-label"
+        = select f, :payment_type, get_payment_types(), class: "form-control"
+        = error_tag f, :payment_type
+
+        = label f, "Статус оплаты", class: "control-label"
+        = select f, :payment_status, get_payment_statuses(), class: "form-control"
+        = error_tag f, :payment_status
+
+        = label f, "Тип доставки", class: "control-label"
+        = select f, :delivery_type, get_delivery_types(), class: "form-control"
+        = error_tag f, :delivery_type
+
+        = label f, "Статус доставки", class: "control-label"
+        = select f, :delivery_status, get_delivery_statuses(), class: "form-control"
+        = error_tag f, :delivery_status
+
+        = label f, "Стоимость доставки", class: "control-label"
+        = text_input f, :delivery_sum, class: "form-control"
+        = error_tag f, :delivery_sum
+
+        / = label f, "Дата доставки", class: "control-label"
+        / = text_input f, :delivery_date, class: "form-control", id: "datepicker"
+        / = error_tag f, :delivery_date
+
+      .form-group.submit
+        = submit "Сохранить", class: "btn btn-secondary"
+
