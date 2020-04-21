@@ -21,6 +21,7 @@
                 th # Тип доставки
                 th # Статус платежа
                 th # Тип платежа
+                th # Дата заказа
                 th
             tbody
               = for order <- @orders do
@@ -35,6 +36,8 @@
                     .label class="#{order.payment_status}"=t(order.payment_status)
                   td
                     =t(order.payment_type)
+                  td
+                    =l(order.inserted_at, :date_time)
                   td
                     .btn-group.btn-group-sm.mr2.pull-right
                       = link to: Routes.admin_order_path(@conn, :show, order), class: "m-btn btn btn-secondary", "data-toggle": "m-tooltip", "data-original-title": "Show" do
