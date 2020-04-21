@@ -8,6 +8,7 @@ defmodule CrocodileWeb.Admin.OrderController do
     orders =
       Order
       |> where([o], is_nil(o.deleted_at))
+      |> order_by([o], desc: o.id)
       |> Repo.all()
 
     render(conn, "index.html", orders: orders)
