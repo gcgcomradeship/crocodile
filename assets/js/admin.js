@@ -3,6 +3,7 @@ import "phoenix_html"
 
 import "jquery"
 import "jquery-ui"
+import "moment"
 import "./main/jquery.maskedinput.min.js"
 // popper js
 import "./main/popper.min.js"
