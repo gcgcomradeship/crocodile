@@ -22,9 +22,21 @@
         = text_input f, :city, class: "form-control"
         = error_tag f, :city
       .form-group
-        = label f, "Адрес", class: "control-label"
-        = text_input f, :address, class: "form-control"
-        = error_tag f, :address
+        = label f, "Область", class: "control-label"
+        = text_input f, :area, class: "form-control"
+        = error_tag f, :area
+      .form-group
+        = label f, "Улица", class: "control-label"
+        = text_input f, :street, class: "form-control"
+        = error_tag f, :street
+      .form-group
+        = label f, "Дом", class: "control-label"
+        = text_input f, :house, class: "form-control"
+        = error_tag f, :house
+      .form-group
+        = label f, "Квартира / Офис", class: "control-label"
+        = text_input f, :flat, class: "form-control"
+        = error_tag f, :flat
       .form-group
         = label f, "Почтовый индекс", class: "control-label"
         = text_input f, :post_index, class: "form-control"

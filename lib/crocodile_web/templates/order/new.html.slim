@@ -30,7 +30,7 @@ section.section-b-space
                   = error_tag f, :email
                   / input name="field-name" placeholder="" type="text" value="" /
                 .form-group.col-md-12.col-sm-12.col-xs-12
-                  .field-label Город/Регион*
+                  .field-label Город / Населенный пункт*
                   = text_input f, :city, id: "city"
                   = error_tag f, :city
                 .form-group.col-md-12.col-sm-12.col-xs-12
@@ -47,9 +47,18 @@ section.section-b-space
                   = error_tag f, :delivery_type
                   = text_input f, :terminal_id, name: "order[data][terminal_id]", id: "terminal_id", class: "hidden"
                 .form-group.col-md-12.col-sm-12.col-xs-12
-                  .field-label Адрес*
-                  = text_input f, :address, id: "address"
-                  = error_tag f, :address
+                  .field-label Область
+                  = text_input f, :area, id: "area"
+                  = error_tag f, :area
+                  .field-label Улица
+                  = text_input f, :street, id: "street"
+                  = error_tag f, :street
+                  .field-label Дом
+                  = text_input f, :house, id: "house"
+                  = error_tag f, :house
+                  .field-label Квартира / Офис
+                  = text_input f, :flat, id: "flat"
+                  = error_tag f, :flat
                 .form-group.col-md-12.col-sm-12.col-xs-12#post-index.hidden
                   .field-label Почтовый индекс
                   = text_input f, :post_index, id: "post_index"

@@ -10,7 +10,9 @@
   .row
     .col-sm-12
       .btn-popup.pull-right
-        = link "Заказы", to: Routes.admin_order_path(@conn, :index), class: "m-btn btn btn-info"
+        = link "Заказы", to: Routes.admin_order_path(@conn, :index), class: "m-btn btn btn-info mr-1"
+        = if is_nil(@order.partner_id) do
+          = link "Подтвердить", to: Routes.admin_order_order_path(@conn, :send_remote, @order), class: "m-btn btn btn-success mr-1"
         = link "Архивировать", to: Routes.admin_order_order_path(@conn, :archive, @order), data: [confirm: "Are you sure?"], class: "m-btn btn btn-danger", "data-toggle": "m-tooltip", "data-original-title": "Delete"
     .col-sm-6
       .card
@@ -28,8 +30,14 @@
           dd=@order.phone || "-"
           dt="Город"
           dd=@order.city || "-"
-          dt="Адрес"
-          dd=@order.address || "-"
+          dt="Область"
+          dd=@order.area || "-"
+          dt="Улица"
+          dd=@order.street || "-"
+          dt="Дом"
+          dd=@order.house || "-"
+          dt="Квартира / Офис"
+          dd=@order.flat || "-"
           dt="Почтовый индекс"
           dd=@order.post_index || "-"
     .col-sm-6
@@ -38,6 +46,8 @@
           .btn-popup.pull-right
             = link to: Routes.admin_order_path(@conn, :edit, @order, type: :order_status), class: "m-btn btn btn-info" do
               i.feather-16 data-feather="edit"
+          dt="Номер заказа в системе партнера"
+          b=@order.partner_id || "-"
           dt="Статус заказа"
           span.label class="#{@order.status}" =t(@order.status)
           dt="Тип платежа"

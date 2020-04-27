@@ -8,9 +8,19 @@ var init = function(){
   document.getElementById('city').onchange = function () {
     on_change_city(this);
   };
-  document.getElementById('address').onchange = function () {
-    on_change_addres(this);
+  document.getElementById('area').onchange = function () {
+    on_change_addres();
   };
+  document.getElementById('street').onchange = function () {
+    on_change_addres();
+  };
+  document.getElementById('house').onchange = function () {
+    on_change_addres();
+  };
+  document.getElementById('flat').onchange = function () {
+    on_change_addres();
+  };
+
   document.querySelectorAll(".delivery-radio").forEach(function (elem) {
     elem.onchange = function () {
       exec_type(this);
@@ -57,11 +67,18 @@ var clear = function(){
 var pick_point_callback = function(result){
   document.getElementById('terminal_id').value=result['id'];
   document.getElementById('post_index').value=result['postcode'];
-  document.getElementById('city').value=result['city'] || result['region'];
+  document.getElementById('city').value=result['cityname'];
   document.getElementById('delivery-city').innerText = result['city'] || result['region'];
-  document.getElementById('delivery-address').innerText = result['address'];
 
-  document.getElementById('address').value=result['address'];
+  // document.getElementById('address').value=result['address'];
+  document.getElementById('area').value=result['region'];
+  document.getElementById('street').value=result['shortaddress'].split(",")[0];
+  document.getElementById('house').value=result['house'];
+  var addres = result['region'] + ", " +
+              result['shortaddress'].split(",")[0] + ", " +
+              result['house'] + " " +
+              document.getElementById('flat').innerText
+  document.getElementById('delivery-address').innerText = addres;
 }
 
 
@@ -70,5 +87,9 @@ var on_change_city = function(elem){
 }
 
 var on_change_addres = function(elem){
-  document.getElementById('delivery-address').innerText = elem.value;
+  document.getElementById('delivery-address').innerText =
+    document.getElementById('area').value + ", " +
+    document.getElementById('street').value + ", " +
+    document.getElementById('house').value + " " +
+    document.getElementById('flat').value
 }

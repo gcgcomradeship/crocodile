@@ -96,6 +96,7 @@ defmodule CrocodileWeb.Router do
 
     resources "/order", OrderController do
       get "/archive", OrderController, :archive
+      get "/send_remote", OrderController, :send_remote
     end
 
     resources "/item_order", ItemOrderController, only: [:update, :create, :delete]

@@ -7,6 +7,7 @@ defmodule Crocodile.Order do
     field(:surname, :string)
     field(:email, :string)
     field(:number, :string)
+    field(:partner_id, :string)
     field(:status, OrderStatus)
     field(:payment_type, PaymentType)
     field(:payment_status, PaymentStatus)
@@ -15,7 +16,10 @@ defmodule Crocodile.Order do
     field(:delivery_size, :map)
     field(:phone, :string)
     field(:city, :string)
-    field(:address, :string)
+    field(:area, :string)
+    field(:street, :string)
+    field(:house, :string)
+    field(:flat, :string)
     field(:post_index, :string)
     field(:active?, :boolean)
     field(:delivery_date, :naive_datetime)
@@ -53,7 +57,6 @@ defmodule Crocodile.Order do
     delivery_sum
     total_sum
     number
-    address
   )a
   @optional_fields ~w(
     payment_status
@@ -65,6 +68,11 @@ defmodule Crocodile.Order do
     active?
     data
     deleted_at
+    partner_id
+    area
+    street
+    house
+    flat
   )a
 
   @doc false

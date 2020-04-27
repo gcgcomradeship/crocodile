@@ -1,3 +1,45 @@
+msgid "unknown"
+msgstr "Требуется дополнительная проверка"
+
+msgid "accept"
+msgstr "Принят"
+
+msgid "warehouse_processing"
+msgstr "Обработка на складе"
+
+msgid "waiting_for_accept"
+msgstr "Ожидает подтверждения"
+
+msgid "booked"
+msgstr "Товар забронирован"
+
+msgid "ready_to_shipment"
+msgstr "Готов к отгрузке"
+
+msgid "sent_by_mail"
+msgstr "Выслан на почту"
+
+msgid "paid_and_delivered"
+msgstr "Оплачен и доставлен"
+
+msgid "canceled"
+msgstr "Отменен"
+
+msgid "picking_goods_in_stock"
+msgstr "Комплектация товара на складе"
+
+msgid "malicious_failure"
+msgstr "Злонамеренный отказ"
+
+msgid "deliver_with_courier"
+msgstr "Отправлен с курьером"
+
+msgid "shipped_awaiting_payment"
+msgstr "Отгружен. Ожидаем оплату"
+
+msgid "deleted"
+msgstr "Удален"
+
 msgid "created"
 msgstr "В обработке"
 
@@ -9,9 +51,6 @@ msgstr "Ожидает доставки"
 
 msgid "completed"
 msgstr "Завершен"
-
-msgid "canceled"
-msgstr "Отменен"
 
 msgid "online"
 msgstr "Онлайн"

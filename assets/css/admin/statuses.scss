@@ -1,4 +1,4 @@
-.success, .succeeded, .completed{
+.success, .succeeded, .completed, .paid_and_delivered, .shipped_awaiting_payment{
   background-color: #28a745;
 }
 
@@ -6,11 +6,11 @@
   background-color: #03caa5;
 }
 
-.canceled{
+.canceled, .malicious_failure, .deleted{
   background-color: #dc3545;
 }
 
-.warning, .created, .pending, .waiting_for_capture, .waiting_for_delivery{
+.warning, .created, .pending, .waiting_for_capture, .waiting_for_delivery, .accept, .warehouse_processing, .waiting_for_accept, .booked, .ready_to_shipment, .sent_by_mail, .picking_goods_in_stock, .deliver_with_courier{
   background-color: #ffc107;
 }
 

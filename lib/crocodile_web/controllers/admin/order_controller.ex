@@ -60,6 +60,37 @@ defmodule CrocodileWeb.Admin.OrderController do
     end
   end
 
+  def send_remote(conn, %{"order_id" => id}) do
+    order =
+      Order
+      |> preload(items_orders: [:item])
+      |> Repo.get(id)
+
+    case Services.Order.send_to_partner(order) do
+      {:ok, partner_id, message} ->
+        updated_order =
+          order
+          |> Order.changeset(%{partner_id: partner_id})
+          |> Repo.update()
+
+        conn
+        |> put_flash(:info, "Order sended to partner successfully.")
+        |> redirect(to: Routes.admin_order_path(conn, :show, updated_order))
+
+      {:test, message} ->
+        conn
+        |> put_flash(:info, "Order sended to partner successfully (TEST MODE).")
+        |> redirect(to: Routes.admin_order_path(conn, :show, order))
+
+      {:error, status, message} ->
+        conn
+        |> put_flash(:warning, message)
+        |> redirect(to: Routes.admin_order_path(conn, :show, order))
+    end
+
+    redirect(conn, to: Routes.admin_order_path(conn, :show, order))
+  end
+
   def archive(conn, %{"order_id" => id}) do
     order =
       Order

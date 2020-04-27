@@ -40,7 +40,7 @@ defmodule Crocodile.Context.Orders do
     |> Map.merge(%{
       "session_id" => session_id,
       "user_id" => user_id,
-      "status" => "created",
+      "status" => "waiting_for_accept",
       "number" => generate_order_number(),
       # "delivery_size" => "",
       # "delivery_date" => "",

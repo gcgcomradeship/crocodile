@@ -56,7 +56,7 @@ section.section-b-space
             h4 Адрес
             ul.order-detail
               li=@order.city
-              li=@order.address || "-"
+              li="#{@order.area}, #{@order.street}, #{@order.house} #{@order.flat}"
           .col-sm-12.payment-mode.pt-4
             ul.order-detail
               li

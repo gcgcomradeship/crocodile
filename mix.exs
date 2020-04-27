@@ -50,6 +50,7 @@ defmodule Crocodile.MixProject do
       {:scrivener_ecto, "~> 2.0"},
       {:scrivener_html, "~> 1.8"},
       {:httpoison, "~> 1.6"},
+      {:elixir_xml_to_map, "~> 1.0"},
       {:ucol, "~> 2.0"},
       {:timex, "~> 3.5"},
       {:redix, ">= 0.0.0"},
