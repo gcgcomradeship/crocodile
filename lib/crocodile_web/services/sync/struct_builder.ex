@@ -50,7 +50,7 @@ defmodule Crocodile.Services.Sync.StructBuilder do
          "VendorCode" => vendor_code,
          "WholePrice" => whole_price,
          "aID" => partner_id,
-         "prodID" => _
+         "prodID" => prod_id
        }) do
     %{
       partner_id: "#{partner_id}",
@@ -77,7 +77,8 @@ defmodule Crocodile.Services.Sync.StructBuilder do
       category: category,
       subcategory: subcategory,
       color: color,
-      size: size
+      size: size,
+      group_id: prod_id
     }
   end
 
