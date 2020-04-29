@@ -24,7 +24,8 @@ var approveItem = function(item){
       return response.json();
     })
     .then(json => {
-      if (json.status == "refresh"){
+      console.log(json);
+      if (json.status == "success"){
        refreshItem();
       }else{
         clearItem();
@@ -42,7 +43,7 @@ var hideItem = function(item){
       return response.json();
     })
     .then(json => {
-      if (json.status == "refresh"){
+      if (json.status == "success"){
        refreshItem();
       }else{
         clearItem();
