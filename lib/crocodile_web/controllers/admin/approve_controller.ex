@@ -54,19 +54,23 @@ defmodule CrocodileWeb.Admin.ApproveController do
       |> select([i], count(i.id))
       |> Repo.one()
 
-    item =
-      Item
-      |> where([i], i.insale > 0)
-      |> where([i], i.hide == false)
-      |> where([i], is_nil(i.approve))
-      |> limit(1)
-      |> Repo.one()
+    Item
+    |> where([i], i.insale > 0)
+    |> where([i], i.hide == false)
+    |> where([i], is_nil(i.approve))
+    |> limit(1)
+    |> Repo.one()
+    |> case do
+      nil ->
+        render(conn, "empty.json")
 
-    render(conn, "refresh.json",
-      item_id: item.id,
-      item_title: item.name,
-      item_images: item.images,
-      items_count: items_count
-    )
+      item ->
+        render(conn, "refresh.json",
+          item_id: item.id,
+          item_title: item.name,
+          item_images: item.images,
+          items_count: items_count
+        )
+    end
   end
 end

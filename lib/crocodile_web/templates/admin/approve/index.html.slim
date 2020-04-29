@@ -13,13 +13,14 @@
         .card-body
           = "Товаров для подтверждения: "
           b#item-unapprove-count= @items_count
-          = if @item do
-            .btn-popup.pull-right
-              #approve-btn.btn.btn-success item-id=@item.id
-                | Подтвердить
-              #hide-btn.btn.btn-danger item-id=@item.id
-                | Скрыть
-            h4#approve-item-title=@item.name
-            #approve-item-images
-              = for image <- @item.images do
-                = img_tag image
+          #item-field
+            = if @item do
+              .btn-popup.pull-right
+                #approve-btn.btn.btn-success item-id=@item.id
+                  | Подтвердить
+                #hide-btn.btn.btn-danger item-id=@item.id
+                  | Скрыть
+              h4#approve-item-title=@item.name
+              #approve-item-images
+                = for image <- @item.images do
+                  = img_tag image

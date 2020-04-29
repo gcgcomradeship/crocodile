@@ -27,4 +27,10 @@ defmodule CrocodileWeb.Admin.ApproveView do
       status: :error
     }
   end
+
+  def render("empty.json", _data) do
+    %{
+      status: :empty
+    }
+  end
 end

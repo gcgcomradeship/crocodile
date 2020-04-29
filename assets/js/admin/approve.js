@@ -24,7 +24,11 @@ var approveItem = function(item){
       return response.json();
     })
     .then(json => {
+      if (json.status == "refresh"){
        refreshItem();
+      }else{
+        clearItem();
+      }
       return json;
     });
 }
@@ -38,7 +42,11 @@ var hideItem = function(item){
       return response.json();
     })
     .then(json => {
+      if (json.status == "refresh"){
        refreshItem();
+      }else{
+        clearItem();
+      }
       return json;
     });
 }
@@ -56,9 +64,13 @@ var refreshItem = function(){
     });
 }
 
+var clearItem = function(){
+  document.querySelector("#item-unapprove-count").innerText = 0;
+  document.querySelector("#item-field").innerHTML = "";
+}
+
 
 var drawItem = function(json){
-  console.log(json);
   document.querySelector("#item-unapprove-count").innerText = json.count;
   document.querySelector("#approve-item-title").innerText = json.item_title;
   document.querySelector("#approve-btn").setAttribute("item-id", json.item_id);
