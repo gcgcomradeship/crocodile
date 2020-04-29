@@ -27,7 +27,11 @@ defmodule CrocodileWeb.ItemController do
   end
 
   def show(conn, params) do
-    item = Item |> where([i], i.hide == false) |> Repo.get(params["id"] || 0)
+    item =
+      Item
+      |> where([i], i.hide == false)
+      |> where([i], not is_nil(i.approve))
+      |> Repo.get(params["id"] || 0)
 
     render(conn, "show.html",
       item: item,

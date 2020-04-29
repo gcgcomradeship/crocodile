@@ -1,0 +1,25 @@
+.container-fluid
+  .page-header
+    .row
+      .col-lg-12
+        .page-header-left
+          h3
+            | Подтверждение товаров
+            small Crocodildo Admin panel
+.container-fluid
+  .row
+    .col-sm-12
+      .card
+        .card-body
+          = "Товаров для подтверждения: "
+          b#item-unapprove-count= @items_count
+          = if @item do
+            .btn-popup.pull-right
+              #approve-btn.btn.btn-success item-id=@item.id
+                | Подтвердить
+              #hide-btn.btn.btn-danger item-id=@item.id
+                | Скрыть
+            h4#approve-item-title=@item.name
+            #approve-item-images
+              = for image <- @item.images do
+                = img_tag image

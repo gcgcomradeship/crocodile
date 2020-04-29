@@ -15,6 +15,10 @@
           i data-feather="aperture"
           span Заказы
       li
+        a.sidebar-header href=Routes.admin_approve_path(@conn, :index)
+          i data-feather="check"
+          span Подтверждение товаров
+      li
         a.sidebar-header href=Routes.admin_page_path(@conn, :index)
           i data-feather="file-text"
           span Страницы

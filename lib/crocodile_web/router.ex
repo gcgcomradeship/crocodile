@@ -94,6 +94,13 @@ defmodule CrocodileWeb.Router do
     resources "/banner", BannerController, only: [:index, :edit, :update, :create]
     resources "/page", PageController, only: [:index, :edit, :update, :create]
 
+    resources "/approve", ApproveController, only: [:index] do
+      get "/approve", ApproveController, :approve
+      get "/hide", ApproveController, :hide
+    end
+
+    get "/approve/refresh", ApproveController, :refresh
+
     resources "/order", OrderController do
       get "/archive", OrderController, :archive
       get "/send_remote", OrderController, :send_remote

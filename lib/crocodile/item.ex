@@ -63,11 +63,12 @@ defmodule Crocodile.Item do
     field(:new, :boolean)
 
     field(:hide, :boolean)
+    field(:approve, :naive_datetime)
     timestamps()
   end
 
   @required_fields ~w(barcode)a
-  @optional_fields ~w(partner_id vendor vendor_code name retail_price base_retail_price whole_price base_whole_price discount insale shipping_date description brutto batteries pack material length diameter collection images category subcategory color size hit new hide group_id)a
+  @optional_fields ~w(partner_id vendor vendor_code name retail_price base_retail_price whole_price base_whole_price discount insale shipping_date description brutto batteries pack material length diameter collection images category subcategory color size hit new hide group_id approve)a
 
   @doc false
   def changeset(item, attrs) do
