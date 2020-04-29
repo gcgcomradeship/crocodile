@@ -87,6 +87,5 @@ var drawItem = function(json){
 var addImage = function(parent, src){
   var img_tag = document.createElement("img");
   img_tag.setAttribute("src", src);
-  console.log(parent);
   parent.appendChild(img_tag);
 }
