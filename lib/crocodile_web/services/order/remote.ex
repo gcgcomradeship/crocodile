@@ -7,7 +7,14 @@ defmodule Crocodile.Services.Order.Remote do
   @api_url "http://api.ds-platforma.ru/ds_order.php"
 
   def call(data) do
-    body = Map.merge(data, %{"ApiKey" => @api_key, "TestMode" => 1})
+    body =
+      case Mix.env() do
+        :prod ->
+          Map.merge(data, %{"ApiKey" => @api_key})
+
+        _ ->
+          Map.merge(data, %{"ApiKey" => @api_key, "TestMode" => 1})
+      end
 
     case HTTPoison.get(@api_url <> "?" <> URI.encode_query(body), []) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->

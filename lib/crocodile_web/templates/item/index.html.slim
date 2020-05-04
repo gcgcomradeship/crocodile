@@ -55,12 +55,12 @@ section.section-b-space.ratio_asos
                       a href=Routes.item_path(@conn, :show, item)
                         img.img-fluid.blur-up.lazyload alt="" src=image(item.images) /
                       .media-body.align-self-center
-                        .rating
-                          i.fa.fa-star
-                          i.fa.fa-star
-                          i.fa.fa-star
-                          i.fa.fa-star
-                          i.fa.fa-star
+                        / .rating
+                        /   i.fa.fa-star
+                        /   i.fa.fa-star
+                        /   i.fa.fa-star
+                        /   i.fa.fa-star
+                        /   i.fa.fa-star
                         a href=Routes.item_path(@conn, :show, item)
                           h6 = name(item)
                         h4 = price(item.retail_price)

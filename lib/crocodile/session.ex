@@ -5,13 +5,14 @@ defmodule Crocodile.Session do
   @primary_key {:id, :binary_id, autogenerate: true}
 
   schema "sessions" do
+    field(:maturity, :boolean)
     timestamps()
 
     belongs_to(:user, Crocodile.User)
   end
 
   @required_fields ~w()a
-  @optional_fields ~w(user_id)a
+  @optional_fields ~w(user_id maturity)a
 
   def changeset(session, attrs) do
     session

@@ -27,9 +27,10 @@ html lang="en"
   body
     = if !Map.get(assigns, :hide_layout) do
       = render CrocodileWeb.LayoutView, "_navigation.html", assigns
-    = if @conn.request_path != "/" do
+    = if @conn.request_path != "/" && !Map.get(assigns, :hide_layout) do
       = render CrocodileWeb.LayoutView, "_breadcrumbs.html", assigns
     = render @view_module, @view_template, assigns
-    = render CrocodileWeb.LayoutView, "_modals.html", assigns
-    = render CrocodileWeb.LayoutView, "_footer.html", assigns
+    / = render CrocodileWeb.LayoutView, "_modals.html", assigns
+    = if !Map.get(assigns, :hide_layout) do
+      = render CrocodileWeb.LayoutView, "_footer.html", assigns
     script src="#{Routes.static_path(@conn, "/js/app.js")}" type="text/javascript"

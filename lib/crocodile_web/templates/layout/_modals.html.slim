@@ -45,3 +45,25 @@
                 .btn.btn-solid.cart-btn.cart-btn-product#modal-item-cart item-id=0 href="#"  В корзину
                 a.btn.btn-solid#modal-item-link href="#"  Подробнее
 /! Quick-view modal popup end
+/! exit modal popup start
+#exit_popup.modal.fade.bd-example-modal-lg.theme-modal.exit-modal aria-hidden="true" role="dialog" tabindex="-1"
+  .modal-dialog.modal-lg.modal-dialog-centered role="document"
+    .modal-content
+      .modal-body.modal1
+        .container-fluid.p-0
+          .row
+            .col-12
+              .modal-bg
+                button.close aria-label="Close" data-dismiss="modal" type="button"
+                  span aria-hidden="true"  &times;
+                .media
+                  img.stop.img-fluid.blur-up.lazyload.mr-3 alt="" src="/images/stop.png" /
+                  .media-body.text-left.align-self-center
+                    div
+                      h2 wait!
+                      h4
+                        | We want to give you
+                        b 10% discount
+                        span for your first order
+                      h5 Use discount code at checkout
+/! Add to cart modal popup end

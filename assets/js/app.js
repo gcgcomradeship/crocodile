@@ -33,7 +33,7 @@ import "./main/jquery-ui.min.js"
 // exitintent jquery
 import "./main/jquery.maskedinput.min.js"
 import "./main/jquery.exitintent.js"
-import "./main/exit.js"
+// import "./main/exit.js"
 // popper js
 import "./main/popper.min.js"
 // slick js

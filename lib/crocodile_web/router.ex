@@ -25,6 +25,10 @@ defmodule CrocodileWeb.Router do
     plug(Crocodile.Plug.UserAuth)
   end
 
+  pipeline :maturity_approve do
+    plug(Crocodile.Plug.MaturityApprove)
+  end
+
   pipeline :nav_data_load do
     plug(Crocodile.Plug.NavDataLoad)
   end
