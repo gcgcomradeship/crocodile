@@ -70,6 +70,7 @@ defmodule CrocodileWeb.Router do
     get "/catalog", ItemController, :index
     get "/item/:id", ItemController, :show
     get "/example", PageController, :example
+    get "/maturity/approve", ModalController, :maturity_approve
   end
 
   scope "/admin", CrocodileWeb.Admin, as: :admin do

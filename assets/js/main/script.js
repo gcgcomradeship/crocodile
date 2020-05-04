@@ -69,9 +69,9 @@
     /*=====================
      03. Age verify modal
      ==========================*/
-    $(window).on('load',function(){
-        $('#ageModal').modal('show');
-    });
+    // $(window).on('load',function(){
+    //     $('#ageModal').modal('show');
+    // });
 
     /*=====================
      04. Mega menu js

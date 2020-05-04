@@ -3,34 +3,40 @@ $(function () {
 });
 
 var init = function(){
-  document.querySelectorAll(".quick-view-btn").forEach(function (elem) {
-    elem.onclick = function () {
-      drawItem(this);
-    };
-  });
+  $('#ageModal').on('hidden.bs.modal', function () {
+    show();
+  })
+  show();
+  var approve_btn = document.querySelector("#maturity-modal-btn");
+  approve_btn.onclick = function () {
+    approveMaturity();
+  };
 }
 
-var drawItem = function(elem){
-  let item_id = elem.getAttribute("item-id");
-  let cart_btn = document.querySelector("#modal-item-cart");
-  let image = document.querySelector("#modal-item-img");
-  let title = document.querySelector("#modal-item-title");
-  let price = document.querySelector("#modal-item-price");
-  let desc = document.querySelector("#modal-item-desc");
-  let link = document.querySelector("#modal-item-link");
-  fetch(`/modal/item?item_id=${item_id}`, {
+var show = function(){
+  var maturity = document.querySelector("#ageModal").getAttribute("maturity");
+  if (maturity != "true"){
+    $('#ageModal').modal('show');
+  }
+}
+
+var approveMaturity = function(elem){
+  console.log("approve");
+  $('#ageModal').modal('hide');
+  fetch(`/maturity/approve`, {
     credentials: 'same-origin',
   })
     .then(response => {
       return response.json();
     })
     .then(json => {
-      image.setAttribute("src", json.item.image);
-      cart_btn.setAttribute("item-id", item_id);
-      link.setAttribute("href", `/item/${item_id}`);
-      title.textContent = json.item.title;
-      price.textContent = json.item.price;
-      desc.textContent = json.item.description;
+      if(json.status == "success"){
+        setMaturity();
+      }
       return json;
     });
+}
+
+var setMaturity = function(){
+  document.querySelector("#ageModal").setAttribute("maturity", "true");
 }

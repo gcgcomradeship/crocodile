@@ -45,25 +45,25 @@ section.section-b-space.ratio_asos
             .filter-btn.btn.btn-solid#filter-reset ="Сбросить"
           /! silde-bar colleps block end here
           /! side-bar single product slider start
-          .theme-card
-            h5.title-border Новинки
-            .offer-slider.slide-1
-              = for group <- Enum.chunk_every(@new_sidebar, 3) do
-                div
-                  = for item <- group do
-                    .media
-                      a href=Routes.item_path(@conn, :show, item)
-                        img.img-fluid.blur-up.lazyload alt="" src=image(item.images) /
-                      .media-body.align-self-center
-                        / .rating
-                        /   i.fa.fa-star
-                        /   i.fa.fa-star
-                        /   i.fa.fa-star
-                        /   i.fa.fa-star
-                        /   i.fa.fa-star
-                        a href=Routes.item_path(@conn, :show, item)
-                          h6 = name(item)
-                        h4 = price(item.retail_price)
+          / .theme-card
+          /   h5.title-border Новинки
+          /   .offer-slider.slide-1
+          /     = for group <- Enum.chunk_every(@new_sidebar, 3) do
+          /       div
+          /         = for item <- group do
+          /           .media
+          /             a href=Routes.item_path(@conn, :show, item)
+          /               img.img-fluid.blur-up.lazyload alt="" src=image(item.images) /
+          /             .media-body.align-self-center
+          /               / .rating
+          /               /   i.fa.fa-star
+          /               /   i.fa.fa-star
+          /               /   i.fa.fa-star
+          /               /   i.fa.fa-star
+          /               /   i.fa.fa-star
+          /               a href=Routes.item_path(@conn, :show, item)
+          /                 h6 = name(item)
+          /               h4 = price(item.retail_price)
           /! side-bar single product slider end
           /! side-bar banner start here
           .collection-sidebar-banner

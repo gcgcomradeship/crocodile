@@ -18,4 +18,16 @@ defmodule CrocodileWeb.ModalView do
       description: item.description
     }
   end
+
+  def render("maturity_approve.json", _) do
+    %{
+      status: :success
+    }
+  end
+
+  def render("error.json", _) do
+    %{
+      status: :error
+    }
+  end
 end
