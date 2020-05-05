@@ -40,3 +40,4 @@ var approveMaturity = function(elem){
 var setMaturity = function(){
   document.querySelector("#ageModal").setAttribute("maturity", "true");
 }
+
