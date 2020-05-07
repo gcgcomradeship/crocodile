@@ -1,6 +1,42 @@
 doctype html
 html lang="en"
   head
+    /! Yandex.Metrika counter
+    script
+      | (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      | m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      | (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+      | ym(62609776, "init", {
+      | clickmap:true,
+      | trackLinks:true,
+      | accurateTrackBounce:true,
+      | webvisor:true,
+      | ecommerce:"dataLayer"
+      | });
+    noscript
+      div
+        img alt="" src="https://mc.yandex.ru/watch/62609776" style=("position:absolute; left:-9999px;") /
+    /! /Yandex.Metrika counter
+
+    /  <!-- Global site tag (gtag.js) - Google Analytics -->
+    script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-165678985-1"
+    script
+      | window.dataLayer = window.dataLayer || [];
+      | function gtag(){dataLayer.push(arguments);}
+      | gtag('js', new Date());
+      | gtag('config', 'UA-165678985-1');
+
+    /! Google Tag Manager
+    script
+      | (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      | new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      | j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      | 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      | })(window,document,'script','dataLayer','GTM-TD6WH7S');
+    /! End Google Tag Manager
+
+
+
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta content="IE=edge" http-equiv="X-UA-Compatible" /
     meta content="width=device-width, initial-scale=1.0" name="viewport" /
@@ -25,6 +61,10 @@ html lang="en"
     link href="#{Routes.static_path(@conn, "/css/app.css")}" rel="stylesheet" /
     title Crocodildo
   body
+    /! Google Tag Manager (noscript)
+    noscript
+      iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-TD6WH7S" style="display:none;visibility:hidden" width="0"
+    /! End Google Tag Manager (noscript)
     = if !Map.get(assigns, :hide_layout) do
       = render CrocodileWeb.LayoutView, "_navigation.html", assigns
     = if @conn.request_path != "/" && !Map.get(assigns, :hide_layout) do
