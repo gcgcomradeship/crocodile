@@ -3,6 +3,7 @@ defmodule Crocodile.Services.Kassa do
 
   alias Crocodile.Context.Payments
   alias Crocodile.Services.Kassa.Request
+  alias Crocodile.Services.Kassa.Helper
 
   def create(conn, order) do
     with {:ok, body} <- Request.post("/payments", build_payment_params(conn, order)),
@@ -19,6 +20,7 @@ defmodule Crocodile.Services.Kassa do
          %{total_sum: total_sum, number: number} = order
        ) do
     %{
+      receipt: Helper.receipt(order),
       amount: %{
         value: total_sum,
         currency: "RUB"
