@@ -83,6 +83,11 @@ defmodule Crocodile.Context.Orders do
     Setting
     |> select([s], s.data)
     |> Repo.get_by(name: "delivery_prices")
-    |> Map.get(delivery_type)
+    |> case do
+      nil -> 0
+      setting -> Map.get(setting, delivery_type)
+    end
   end
+
+  defp get_delivery_sum(_params), do: 0
 end
