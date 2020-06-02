@@ -26,7 +26,7 @@ defmodule Crocodile.Services.Kassa.Helper do
       ])
 
     %{
-      customer: %{phone: Regex.replace(~r/[^\d]/, order.phone, "")},
+      customer: %{email: order.email, phone: Regex.replace(~r/[^\d]/, order.phone, "")},
       items: items_data
     }
   end
