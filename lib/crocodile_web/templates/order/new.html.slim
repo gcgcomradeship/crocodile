@@ -130,6 +130,7 @@ section.section-b-space
                       td.order-total-title = "Итого"
                       td.order-total-main#total-price = price(items_sum(@cart))
                   .text-right
-                    = submit "Оформить заказ", class: "btn btn-solid"
+                    = submit "Оформить заказ", class: "btn btn-solid hidden", id: "send-order-btn-hidden"
+                    .btn.btn-solid#send-order-btn ="Оформить заказ"
 /! section end
 script type="text/javascript" src="//pickpoint.ru/select/postamat.js"

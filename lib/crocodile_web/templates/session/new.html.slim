@@ -14,12 +14,14 @@ section.login-page.section-b-space
               label for="review"  Пароль
               = error_tag f, :password
               = text_input f, :password, class: "form-control", placeholder: "Enter password", type: "password"
-            = submit "Войти", class: "btn btn-solid"
+            = submit "Войти", class: "btn btn-solid hidden", id: "sign-in-btn-hidden"
+            .btn.btn-solid#sign-in-btn ="Войти"
       .col-lg-6.right-login
         h3 Новый пользователь
         .theme-card.authentication-right
           h6.title-font Регистрация
           p Регистрация нового аккаунта в нашем магазине. Регистрация позволит получить доступ к заказам в кабинете и отслеживанию их статуса. Чтобы начать нажмите кнопку ниже.
-          = link "Зарегистрироваться", to: Routes.sign_up_session_path(@conn, :sign_up), class: "btn btn-solid"
+          .btn.btn-solid#sign-up-btn ="Зарегистрироваться"
+          = link "Зарегистрироваться", to: Routes.sign_up_session_path(@conn, :sign_up), class: "btn btn-solid hidden", id: "sign-up-btn-hidden"
 /! Section ends
 

@@ -61,7 +61,8 @@ section
               /       button.btn.quantity-right-plus data-field="" data-type="plus" type="button"
               /         i.ti-angle-right
             .product-buttons
-              .btn.btn-solid.cart-btn.cart-btn-product item-id=@item.id
+              .btn.btn-solid#item-add-btn ="Добавить"
+              .btn.btn-solid.cart-btn.cart-btn-product.hidden#item-add-btn-hidden item-id=@item.id
                 = "Добавить"
               a.btn.btn-solid href=Routes.cart_path(@conn, :index) ="Корзина"
             .border-product

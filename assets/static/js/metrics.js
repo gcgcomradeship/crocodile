@@ -10,6 +10,30 @@ ym(62609776, "init", {
   ecommerce:"dataLayer"
 });
 
+
+document.addEventListener('DOMContentLoaded', function(){
+  var sign_up = document.querySelector("#sign-up-btn");
+  if(sign_up){ sign_up.onclick = function () {addAction('registration', "#sign-up-btn-hidden");}; }
+  var sign_in = document.querySelector("#sign-in-btn");
+  if(sign_in){ sign_in.onclick = function () {addAction('sign_in', "#sign-in-btn-hidden");}; }
+  var sign_up_end = document.querySelector("#sign-up-btn-end");
+  if(sign_up_end){ sign_up_end.onclick = function () {addAction('end_registration', "#sign-up-btn-end-hidden");}; }
+  var subscribe = document.querySelector("#subscribe-btn");
+  if(subscribe){ subscribe.onclick = function () {addAction('subscribe', "#subscribe-btn-hidden");}; }
+   var item_add = document.querySelector("#item-add-btn");
+  if(item_add){ item_add.onclick = function () {addAction('to_cart', "#item-add-btn-hidden");}; }
+  var to_order = document.querySelector("#to-order-btn");
+  if(to_order){ to_order.onclick = function () {addAction('to_order', "#to-order-btn-hidden");}; }
+  var send_order = document.querySelector("#send-order-btn");
+  if(send_order){ send_order.onclick = function () {addAction('send_order', "#send-order-btn-hidden");}; }
+});
+
+var addAction = function(action, selector){
+  ym(62609776, 'reachGoal', action);
+  document.querySelector(`${selector}`).click();
+}
+
+
 // // <!-- Global site tag (gtag.js) - Google Analytics -->
 // window.dataLayer = window.dataLayer |[];
 // function gtag(){dataLayer.push(arguments);}

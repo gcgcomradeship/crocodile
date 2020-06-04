@@ -18,6 +18,7 @@ section.login-page.section-b-space
               label for="review"  Подтвердите пароль
               = error_tag f, :password_confirmation
               = text_input f, :password_confirmation, class: "form-control", placeholder: "Enter password", type: "password"
-            = submit "Войти", class: "btn btn-solid"
+            = submit "Зарегистрироваться", class: "btn btn-solid hidden", id: "sign-up-btn-end-hidden"
+            .btn.btn-solid#sign-up-btn-end ="Зарегистрироваться"
 /! Section ends
 

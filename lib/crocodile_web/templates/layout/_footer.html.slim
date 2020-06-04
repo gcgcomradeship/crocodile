@@ -10,10 +10,11 @@ footer.footer-light
                 h4 УЗНАВАЙ ПЕРВЫМ!
                 p Подпишись и не пропусти информацию о новинках и акциях!
           .col-lg-6
-            form#mc-embedded-subscribe-form.form-inline.subscribe-form.auth-form.needs-validation action="https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&amp;id=082f74cbda" method="post" name="mc-embedded-subscribe-form" target="_blank"
+            = form_for @conn, "#", [method: "get", class: "form-inline subscribe-form auth-form needs-validation"], fn f ->
               .form-group.mx-sm-3
-                input#mce-EMAIL.form-control name="EMAIL" placeholder=("Email") required="required" type="text" /
-              button#mc-submit.btn.btn-solid type="submit" Подписаться
+                = text_input f, :email, id: "email", class: "form-control", placeholder: "Email"
+              = submit "Подписаться", class: "btn btn-solid hidden", id: "subscribe-btn-hidden"
+              .btn.btn-solid#subscribe-btn ="Подписаться"
   section.section-b-space.light-layout
     .container
       .row.footer-theme.partition-f
