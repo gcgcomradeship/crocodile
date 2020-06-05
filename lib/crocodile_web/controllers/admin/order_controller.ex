@@ -68,7 +68,7 @@ defmodule CrocodileWeb.Admin.OrderController do
 
     case Services.Order.send_to_partner(order) do
       {:ok, partner_id, message} ->
-        updated_order =
+        {:ok, updated_order} =
           order
           |> Order.changeset(%{partner_id: partner_id})
           |> Repo.update()
