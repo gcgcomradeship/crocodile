@@ -33,6 +33,8 @@ defmodule CrocodileWeb.Api.V1.TelegramController do
     end
   end
 
+  defp check_pass(_, _), do: nil
+
   defp check_tg_admin(%{
          "message" => %{
            "chat" =>
@@ -49,18 +51,15 @@ defmodule CrocodileWeb.Api.V1.TelegramController do
     end
   end
 
-  defp create_tg_chat(%{
-         "first_name" => first_name,
-         "id" => chat_id,
-         "last_name" => last_name,
-         "username" => username
-       }) do
+  defp check_tg_admin(_), do: nil
+
+  defp create_tg_chat(params) do
     %TgChat{}
     |> TgChat.changeset(%{
-      first_name: first_name,
-      chat_id: chat_id,
-      last_name: last_name,
-      username: username
+      first_name: params["first_name"],
+      chat_id: params["id"],
+      last_name: params["last_name"],
+      username: params["username"]
     })
     |> Repo.insert!()
   end

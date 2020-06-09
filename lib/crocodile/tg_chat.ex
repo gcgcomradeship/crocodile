@@ -11,8 +11,8 @@ defmodule Crocodile.TgChat do
     timestamps()
   end
 
-  @required_fields ~w(first_name chat_id last_name username)a
-  @optional_fields ~w(approve)a
+  @required_fields ~w(chat_id)a
+  @optional_fields ~w(first_name last_name username approve)a
 
   @doc false
   def changeset(tg_chat, attrs) do
