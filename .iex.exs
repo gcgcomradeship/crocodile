@@ -8,6 +8,7 @@ alias Crocodile.Blog
 alias Crocodile.Like
 alias Crocodile.Session
 alias Crocodile.Payment
+alias Crocodile.TgChat
 alias Crocodile.ItemOrder
 alias Crocodile.Services.Sync
 alias Crocodile.Services.SMS

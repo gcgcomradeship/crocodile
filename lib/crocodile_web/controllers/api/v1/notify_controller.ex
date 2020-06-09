@@ -38,12 +38,6 @@ defmodule CrocodileWeb.Api.V1.NotifyController do
     |> render("error.json")
   end
 
-  def telegram(conn, params) do
-    require Logger
-    Logger.info(inspect(params))
-    render(conn, "success.json")
-  end
-
   defp get_order_status(payment_status) do
     case payment_status do
       status when status in ["pending", :pending] ->

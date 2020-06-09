@@ -4,6 +4,7 @@ defmodule Crocodile.Context.Orders do
   alias Crocodile.Order
   alias Crocodile.ItemOrder
   alias Crocodile.Context.Items
+  alias Crocodile.Services.Telegram
 
   def create(params, %{id: sid} = session) do
     items = Items.cart_by_sid(sid)
@@ -24,6 +25,7 @@ defmodule Crocodile.Context.Orders do
     case Repo.insert(changeset) do
       {:ok, order} ->
         create_item_links(items, order)
+        Telegram.order_alert(order)
         {:ok, order}
 
       error ->

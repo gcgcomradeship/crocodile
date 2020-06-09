@@ -8,7 +8,12 @@ defmodule Crocodile.Utils.Helper do
   def l(date, :month), do: Timex.format!(date, "%m", :strftime)
   def l(date, :year), do: Timex.format!(date, "%Y", :strftime)
   def l(date, :day_month), do: Timex.format!(date, "%d.%m", :strftime)
-  def l(date, :date_time), do: Timex.format!(date, "%d.%m.%Y %H:%M", :strftime)
+
+  def l(date, :date_time),
+    do:
+      date
+      |> Timex.Timezone.convert("Europe/Moscow")
+      |> Timex.format!("%d.%m.%Y %H:%M", :strftime)
 
   def price(dec), do: "₽ #{dec |> Decimal.round(0) |> Decimal.to_string()}"
 

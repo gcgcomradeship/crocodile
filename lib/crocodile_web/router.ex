@@ -113,7 +113,7 @@ defmodule CrocodileWeb.Router do
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do
     pipe_through :api
     pipe_through :api_white
-    post "/webhook/:token", NotifyController, :telegram
+    post "/webhook/:token", TelegramController, :webhook
     get "/notify", NotifyController, :notify
     post "/notify", NotifyController, :notify
   end
