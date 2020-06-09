@@ -35,6 +35,14 @@ config :scrivener_html,
 
 config :crocodile, :redis, url: System.get_env("REDIS_URL")
 
+config :crocodile, :telegram,
+  token: System.get_env("TELEGRAM_TOKEN"),
+  proxy_ip: System.get_env("PROXY_IP"),
+  proxy_port: System.get_env("PROXY_PORT"),
+  proxy_user: System.get_env("PROXY_USER"),
+  proxy_pass: System.get_env("PROXY_PASS"),
+  webhook_token: System.get_env("WEBHOOK_TOKEN")
+
 config :crocodile, :kassa,
   url: System.get_env("KASSA_URL"),
   id: System.get_env("KASSA_ID"),
