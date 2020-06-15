@@ -15,7 +15,7 @@ defmodule Crocodile.Utils.Helper do
       |> Timex.Timezone.convert("Europe/Moscow")
       |> Timex.format!("%d.%m.%Y %H:%M", :strftime)
 
-  def price(dec), do: "₽ #{dec |> Decimal.round(0) |> Decimal.to_string()}"
+  def price(dec), do: "#{dec |> Decimal.round(0) |> Decimal.to_string()} ₽"
 
   def name(%Crocodile.Item{name: name, size: nil, color: nil}), do: name
 

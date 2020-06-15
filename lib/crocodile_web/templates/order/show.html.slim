@@ -19,18 +19,18 @@ section.section-b-space
                 .col-6.order_detail
                   div
                     h4 Количество
-                    h5 =item.quantity
+                    b =item.quantity
                 .col-6.order_detail
                   div
                     h4 Цена
-                    h5 = price(item.price)
+                    b = price(item.price)
           .total-sec
             ul
               li
-                | По сумме товаров
+                | Товаров на сумму:
                 span = price(@order.items_sum)
               li
-                | Стоимость доставки
+                | Стоимость доставки:
                 span = price(@order.delivery_sum)
           .final-total
             h3
@@ -60,13 +60,14 @@ section.section-b-space
           .col-sm-12.payment-mode.pt-4
             ul.order-detail
               li
-                = "Тип оплаты"
+                = "Способ оплаты"
                 b.pl-1="#{t(@order.payment_type)}"
               li
-                = "Тип доставки:"
+                = "Способ доставки:"
                 b.pl-1="#{t(@order.delivery_type)}"
           .col-md-12
             .delivery-sec
-              h3 Ожидаемая дата доставки
-              h2 ="#{l(@order.delivery_date)}"
+              h4 Ожидайте подтверждения заказа
+              | Мы свяжемся с вами в течение 15 минут
+              / h2 ="#{l(@order.delivery_date)}"
 /! Section ends

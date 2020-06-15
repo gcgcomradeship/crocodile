@@ -79,10 +79,10 @@ defmodule Crocodile.Order do
   def changeset(order, attrs) do
     order
     |> cast(attrs, @required_fields ++ @optional_fields)
-    |> validate_required(@required_fields, message: "<Не может быть пустым>")
+    |> validate_required(@required_fields, message: "*Не может быть пустым")
     |> unique_constraint(:email)
     |> validate_format(:email, ~r/^[A-Za-z0-9\._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}$/,
-      message: "<Неправильный формат>"
+      message: "*Неправильный формат"
     )
     |> check_data()
   end

@@ -36,14 +36,14 @@ section.section-b-space
                 .form-group.col-md-12.col-sm-12.col-xs-12
                   .shopping-option
                     = radio_button f, :delivery_type, "pick_up", class: "delivery-radio", price: @delivery_prices.data["pick_up"]
-                    label = "Постамат"
+                    label for="order_delivery_type_pick_up" = "Постамат"
                     a#set-pick-point.hidden href="#" = "Выбрать"
                   .shopping-option
                     = radio_button f, :delivery_type, "courier", class: "delivery-radio", price: @delivery_prices.data["courier"]
-                    label = "Курьер"
+                    label for="order_delivery_type_courier" = "Курьер"
                   .shopping-option
                     = radio_button f, :delivery_type, "post", class: "delivery-radio", price: @delivery_prices.data["post"]
-                    label = "Почта"
+                    label for="order_delivery_type_post" = "Почта"
                   = error_tag f, :delivery_type
                   = text_input f, :terminal_id, name: "order[data][terminal_id]", id: "terminal_id", class: "hidden"
                 .form-group.col-md-12.col-sm-12.col-xs-12
@@ -88,7 +88,7 @@ section.section-b-space
                         td = "× #{item.count}"
                         td.sum = price(Decimal.mult(item.retail_price, item.count))
                     tr.order-total-row
-                      td.order-total-title colspan=2 = "Промежуточная сумма"
+                      td.order-total-title colspan=2 = "Товаров на сумму:"
                       td.order-total-count#items-price price=Decimal.round(items_sum(@cart), 0) = price(items_sum(@cart))
                   / a.btn.btn-default.quick-view-btn data-ydwidget-open="Яндекс.Доставка" data-target="#delivery-modal" data-toggle="modal" href="#"
                   /   ="Доставка"
@@ -99,16 +99,18 @@ section.section-b-space
                     tr
                       td colspan=2
                         b
-                          | Тип доставки:
-                        #delivery-type
+                          | Способ доставки:
+                        span.order-info#delivery-type
                           = delivery_by_type(@changeset.changes[:delivery_type])
+                        br
                         b
                           | Город/Регион:
-                        #delivery-city
+                        span.order-info#delivery-city
                           = @changeset.changes[:city]
+                        br
                         b
                           | Адрес:
-                        #delivery-address
+                        span.order-info#delivery-address
                           = @changeset.changes[:address]
                     tr.order-total-row
                       td.order-total-title = "Стоимость доставки"
@@ -120,14 +122,14 @@ section.section-b-space
                       td
                         .shopping-option
                           = radio_button f, :payment_type, "on_delivery"
-                          label = "При получении товара"
+                          label for="order_payment_type_on_delivery"= "При получении товара"
                         .shopping-option
                           = radio_button f, :payment_type, "online"
-                          label = "Online"
+                          label for="order_payment_type_online"= "Online"
                         = error_tag f, :payment_type
                   table.order-table.options-table.table-striped
                     tr.order-total-row
-                      td.order-total-title = "Итого"
+                      td.order-total-title = "Итого:"
                       td.order-total-main#total-price = price(items_sum(@cart))
                   .text-right
                     = submit "Оформить заказ", class: "btn btn-solid hidden", id: "send-order-btn-hidden"

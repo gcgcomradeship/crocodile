@@ -8,9 +8,9 @@ section.cart-section.section-b-space
             tr.table-head
               th scope="col"  Изображение
               th scope="col"  Наименование
-              th scope="col"  Цена (за шт.)
+              th scope="col"  Цена
               th scope="col"  Количество
-              th scope="col"  Цена (всего)
+              th scope="col"  Стоимость
               th scope="col"
           = for item <- @cart do
             tbody.cart-item id="cart_item_#{item.id}" price=item.retail_price total=total(item) count=item.count
@@ -38,16 +38,16 @@ section.cart-section.section-b-space
                     .input-group
                       input.form-control.input-number.item-count item_id=item.id name="quantity" type="number" value=item.count
                 td
-                  h2.td-color.total-view="₽#{total(item)}"
+                  h2.td-color.total-view=price(total(item))
                 td
                   a.icon.cart-delete-item item_id=item.id href="#" title="Удалить из корзины"
                     i.ti-close
         table.table.cart-table.table-responsive-md
           tfoot
             tr
-              td Итого :
+              td.cart-sum-style Итого :
               td
-                h2.sum-total-view = "₽#{items_sum(@cart)}"
+                h2.sum-total-view = price(items_sum(@cart))
     .row.cart-buttons
       .col-6
         = link "Каталог", to: Routes.item_path(@conn, :index), class: "btn btn-solid"
