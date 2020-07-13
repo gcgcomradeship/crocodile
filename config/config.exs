@@ -17,8 +17,6 @@ config :crocodile, CrocodileWeb.Endpoint,
   render_errors: [view: CrocodileWeb.ErrorView, accepts: ~w(html json)],
   pubsub_server: Crocodile.PubSub
 
-# pubsub: [name: Crocodile.PubSub, adapter: Phoenix.PubSub.PG2]
-
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
