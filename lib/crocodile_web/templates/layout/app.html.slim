@@ -58,7 +58,8 @@ html lang="en"
       = render CrocodileWeb.LayoutView, "_navigation.html", assigns
     = if @conn.request_path != "/" && !Map.get(assigns, :hide_layout) do
       = render CrocodileWeb.LayoutView, "_breadcrumbs.html", assigns
-    = render @view_module, @view_template, assigns
+    / = render @view_module, @view_template, assigns
+    = @inner_content
     = render CrocodileWeb.LayoutView, "_modals.html", assigns
     = if !Map.get(assigns, :hide_layout) do
       = render CrocodileWeb.LayoutView, "_footer.html", assigns
