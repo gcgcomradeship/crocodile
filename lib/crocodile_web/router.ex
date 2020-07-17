@@ -108,6 +108,9 @@ defmodule CrocodileWeb.Router do
     end
 
     resources "/item_order", ItemOrderController, only: [:update, :create, :delete]
+
+    get "/dashboard", DashboardController, :index
+    live "/dashboard", DashboardLive
   end
 
   scope "/api/v1", CrocodileWeb.Api.V1, as: :api do

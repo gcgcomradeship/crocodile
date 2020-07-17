@@ -1,0 +1,10 @@
+.col-xl-6.xl-100
+  .card
+    .card-header
+      h5 Debug
+    .card-body
+      h6 STATE:
+      = for key <- Map.keys(@state) do
+        div
+          b= "#{key}: "
+          = Map.get(@state, key) |> inspect()

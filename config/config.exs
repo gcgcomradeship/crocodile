@@ -15,7 +15,10 @@ config :crocodile, CrocodileWeb.Endpoint,
   url: [host: "localhost", port: 4000],
   secret_key_base: "KBIgbqIMwM5i2upavQR7pFVhBKevVPnc6sJtBURjSRZsxQ9UHK+2ikTHwM5oLsZK",
   render_errors: [view: CrocodileWeb.ErrorView, accepts: ~w(html json)],
-  pubsub_server: Crocodile.PubSub
+  pubsub_server: Crocodile.PubSub,
+  live_view: [
+    signing_salt: "HTDJHTFKHTFKHFKHFGKHF"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

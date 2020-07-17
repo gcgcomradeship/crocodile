@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
   if(sign_up_end){ sign_up_end.onclick = function () {addAction('end_registration', "#sign-up-btn-end-hidden");}; }
   var subscribe = document.querySelector("#subscribe-btn");
   if(subscribe){ subscribe.onclick = function () {addAction('subscribe', "#subscribe-btn-hidden");}; }
-   var item_add = document.querySelector("#item-add-btn");
+  var item_add = document.querySelector("#item-add-btn");
   if(item_add){ item_add.onclick = function () {addAction('to_cart', "#item-add-btn-hidden");}; }
   var to_order = document.querySelector("#to-order-btn");
   if(to_order){ to_order.onclick = function () {addAction('to_order', "#to-order-btn-hidden");}; }
