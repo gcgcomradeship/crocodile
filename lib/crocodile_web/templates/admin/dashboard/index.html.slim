@@ -5,12 +5,4 @@
       = render CrocodileWeb.Admin.DashboardView, "_product.html", assigns
     = if @state["menu_debug"] == "enable" do
       = render CrocodileWeb.Admin.DashboardView, "_debug.html", assigns
-/ | LIVE TEST
-/ .btn.btn-manager phx-click="graph_draw" = "DRAW"
-/ header
-/   = render MoneybearWeb.LayoutView, "_header.html", assigns
-/ main.main-content
-/   .grid
-/     = render MoneybearWeb.PageView, "_#{@state["page"]}.html", assigns
-/     = render MoneybearWeb.PageView, "_log.html", assigns
 
