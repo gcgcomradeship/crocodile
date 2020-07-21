@@ -40,8 +40,8 @@ var exec_type = function(elem){
   var delivery_price = parseInt(elem.getAttribute("price"));
   var items_price = parseInt(document.querySelector("#items-price").getAttribute("price"));
   var total_price = delivery_price + items_price;
-  document.querySelector("#delivery-price").innerText = `₽ ${delivery_price}`;
-  document.querySelector("#total-price").innerText = `₽ ${total_price}`;
+  document.querySelector("#delivery-price").innerText = `${delivery_price} ₽`;
+  document.querySelector("#total-price").innerText = `${total_price} ₽`;
 }
 
 var exec_pick_up = function(elem){

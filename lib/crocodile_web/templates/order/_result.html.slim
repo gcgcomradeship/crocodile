@@ -4,18 +4,22 @@
     .row
       .col-md-12
         .success-text
-          = if @order.status == :created do
+          = if @order.status == :waiting_for_accept do
             i.fa.fa-check-circle.warning aria-hidden="true"
-            h2 Спасибо!
-            p Заказ успешно оформлен и ожидает обработки
+            h5 Спасибо, ваш заказ оформлен!
+            h5 С 9:00 до 21:00 без выходных, в течение 15 минут, мы позвоним вам для уточнения времени доставки
+            / p Заказ успешно оформлен и ожидает обработки
           = if @order.status == :paid do
             i.fa.fa-check-circle aria-hidden="true"
-            h2 Спасибо!
-            p Заказ успешно оплачен и ожидает обработки
+            h5 Спасибо, ваш заказ оплачен!
+            h5 С 9:00 до 21:00 без выходных, в течение 15 минут, мы позвоним вам для уточнения времени доставки
+            / p Заказ успешно оплачен и ожидает обработки
           = if @order.status == :canceled do
             i.fa.fa-times-circle.danger aria-hidden="true"
             h2 Что то пошло не так!
             p Закал был отменен
+          br
+          br
           p
             ="Статус заказа: "
             b="#{t(@order.status)}"

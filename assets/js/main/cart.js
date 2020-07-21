@@ -132,9 +132,9 @@ var drawNavPrices = function(){
   });
   if (arr.length > 0){
     let sum = arr.reduce((sum, x) => sum + x);
-    document.querySelector("#cart_total").textContent = `₽ ${sum}`;
+    document.querySelector("#cart_total").textContent = `${sum} ₽`;
   }else{
-    document.querySelector("#cart_total").textContent = `₽ 0`;
+    document.querySelector("#cart_total").textContent = `0 ₽`;
   }
 }
 
@@ -145,15 +145,15 @@ var drawPrices = function(){
     let count = parseInt(elem.getAttribute("count")) || 1;
     let total = price * count;
     elem.setAttribute("total", total);
-    elem.querySelector(".total-view").textContent = `₽${total}`;
+    elem.querySelector(".total-view").textContent = `${total} ₽`;
     return total;
   });
   let total_elem = document.querySelector(".sum-total-view");
   if (arr.length > 0 && total_elem){
     let sum = arr.reduce((sum, x) => sum + x);
-    document.querySelector(".sum-total-view").textContent = `₽${sum}`;
+    document.querySelector(".sum-total-view").textContent = `${sum} ₽`;
   }else if(total_elem){
-    document.querySelector(".sum-total-view").textContent = `₽ 0`;
+    document.querySelector(".sum-total-view").textContent = `0 ₽`;
   }
 }
 

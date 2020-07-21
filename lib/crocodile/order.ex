@@ -44,7 +44,6 @@ defmodule Crocodile.Order do
 
   @required_fields ~w(
     name
-    surname
     number
     status
     payment_type
@@ -59,6 +58,7 @@ defmodule Crocodile.Order do
     number
   )a
   @optional_fields ~w(
+    surname
     payment_status
     delivery_status
     delivery_size
