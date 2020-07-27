@@ -38,6 +38,10 @@ config :scrivener_html,
 
 config :crocodile, :redis, url: System.get_env("REDIS_URL")
 
+config :crocodile, :opt,
+  token: System.get_env("API_AUTH_KEY"),
+  url: "http://localhost:5000/api/v1"
+
 config :crocodile, :telegram,
   token: System.get_env("TELEGRAM_TOKEN"),
   proxy_ip: System.get_env("PROXY_IP"),

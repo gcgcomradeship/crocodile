@@ -1,5 +1,5 @@
 .container-fluid
-  = render CrocodileWeb.LayoutView, "_dashboard_menu.html", assigns
+  = render CrocodileWeb.Admin.DashboardView, "_menu.html", assigns
   .row
     = if @state["menu_product"] == "enable" do
       = render CrocodileWeb.Admin.DashboardView, "_product.html", assigns

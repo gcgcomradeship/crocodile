@@ -27,6 +27,10 @@ config :crocodile, Crocodile.Repo,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "20")
 
+config :crocodile, :opt,
+  token: System.get_env("API_AUTH_KEY"),
+  url: "https://opt.crocodile.ru/api/v1"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
