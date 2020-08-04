@@ -1,24 +1,23 @@
 defmodule CrocodileWeb.LiveHandlers.AdminProduct do
   use CrocodileWeb, :live_handlers
 
-  def call(socket, data, value) do
-    socket
+  alias Crocodile.Services.Opt
+  alias CrocodileWeb.LiveHandlers.State
+
+  # def call(socket, data, value) do
+  #   socket
+  # end
+
+  def call(%{assigns: %{admin_id: admin_id, state: state}} = socket, "product_" <> cmd, value) do
+    new_state = exec(state, cmd)
+    State.Admin.set(new_state, admin_id)
+
+    assign(socket, :state, new_state)
   end
 
-  def call(socket, data, value) do
-    # new_state = Map.put(state, "page", page)
-    # State.set(new_state, user_id)
-    # Phoenix.LiveView.assign(socket, :state, new_state)
-    require Logger
-    Logger.warn("-----------------------")
-    Logger.warn(inspect(value))
-    Logger.warn(inspect(data))
-    Logger.warn(inspect(socket.assigns))
-    # Logger.warn(inspect(admin_id))
-    Logger.warn("-----------------------")
-    # new_state = Map.put(state, "page", page)
-    # State.set(new_state, user_id)
-    # Phoenix.LiveView.assign(socket, :state, new_state)
-    socket
+  defp exec(state, "update_list") do
+    products = Crocodile.Services.Opt.products(state["filter"])
+
+    Map.put(state, "products", products)
   end
 end

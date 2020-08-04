@@ -1,7 +1,11 @@
 .dashboard-menu
-  .btn.btn-menu.green phx-click="menu_click_product" class="#{@state["menu_product"]}"
+  .btn.btn-menu.pink phx-click="admin_menu_click_filter" class="#{@state["menu_filter"]}"
+    | Фильтр
+  .btn.btn-menu.green phx-click="admin_menu_click_product" class="#{@state["menu_product"]}"
     | Товары
-  .btn.btn-menu.blue phx-click="menu_click_debug" class="#{@state["menu_debug"]}"
+  .btn.btn-menu.blue phx-click="admin_menu_click_item" class="#{@state["menu_item"]}"
+    | Обзор товара
+  .btn.btn-menu.yellow phx-click="admin_menu_click_debug" class="#{@state["menu_debug"]}"
     | Debug
   / .btn.btn-menu.red
   /   | TEST

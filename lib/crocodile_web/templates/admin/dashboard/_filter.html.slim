@@ -1,0 +1,40 @@
+.col-xl-6.xl-100
+  .card
+    .card-header-menu.pink
+      h5 Фильтр
+    .card-body.dashboard-card-body
+      .filter-elem
+        span.filter-label
+          | Элементов на странице
+        span.filter-input.pull-right
+          span.admin_filter_nav.pink-text phx-click="admin_filter_page_size_5" class="#{if @state["filter"]["page_size"] == 5, do: "active"}"
+            = 5
+          span.admin_filter_nav.pink-text phx-click="admin_filter_page_size_10" class="#{if @state["filter"]["page_size"] == 10, do: "active"}"
+            = 10
+          span.admin_filter_nav.pink-text phx-click="admin_filter_page_size_20" class="#{if @state["filter"]["page_size"] == 20, do: "active"}"
+            = 20
+          span.admin_filter_nav.pink-text phx-click="admin_filter_page_size_50" class="#{if @state["filter"]["page_size"] == 50, do: "active"}"
+            = 50
+          span.admin_filter_nav.pink-text phx-click="admin_filter_page_size_100" class="#{if @state["filter"]["page_size"] == 100, do: "active"}"
+            = 100
+      .filter-elem
+        span.filter-label
+          | Категория (старая)
+        span.filter-input.pull-right
+          form phx-change="admin_filter_select_old_category"
+            select.filter_select name="old_category_select"
+              option selected=false value="-" ="Категория не выбрана"
+              = for category <- Map.keys(@state["filter"]["old_tree"]) do
+                - selected = @state["filter"]["old_category"] == category
+                option selected=selected value=category =category
+      .filter-elem
+        span.filter-label
+          | Подкатегория (старая)
+        span.filter-input.pull-right
+          form phx-change="admin_filter_select_old_subcategory"
+            select.filter_select name="old_subcategory_select"
+              option selected=false value="-" ="Подкатегория не выбрана"
+              = for subcategory <- (Map.get(@state["filter"]["old_tree"], @state["filter"]["old_category"]) || []) do
+                - selected = @state["filter"]["old_subcategory"] == subcategory
+                option selected=selected value=subcategory =subcategory
+

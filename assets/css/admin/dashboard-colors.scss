@@ -3,9 +3,26 @@
   border-color: #00a8ff;
 }
 
+.blue-text{
+  color: #00a8ff;
+}
+
 .green{
   background-color: #81ba00;
   border-color: #81ba00;
+}
+
+.green-text{
+  color: #81ba00;
+}
+
+.pink{
+  background-color: #ff76b5;
+  border-color: #ff76b5;
+}
+
+.pink-text{
+  color: #ff76b5;
 }
 
 .red{
@@ -13,14 +30,27 @@
   border-color: #ff8084;
 }
 
+.red-text{
+  color: #ff8084;
+}
+
 .yellow{
   background-color: #ffa825;
   border-color: #ffa825;
 }
 
+.yellow-text{
+  color: #ffa825;
+}
+
+
 .gray{
   background-color: #a5a5a5;
   border-color: #a5a5a5;
+}
+
+.gray-text{
+  color: #a5a5a5;
 }
 
 .teal{
@@ -28,7 +58,13 @@
   border-color: #13c9ca;
 }
 
+.teal-text{
+  color: #13c9ca;
+}
+
 .disable{
   background-color: #a5a5a5 !important;
   border: 0;
 }
+
+

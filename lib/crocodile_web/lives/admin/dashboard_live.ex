@@ -1,6 +1,8 @@
 defmodule CrocodileWeb.Admin.DashboardLive do
   use Phoenix.LiveView
 
+  alias CrocodileWeb.LiveHandlers.AdminProduct
+  alias CrocodileWeb.LiveHandlers.AdminFilter
   alias CrocodileWeb.LiveHandlers.EventHandler
 
   def render(assigns) do
@@ -11,7 +13,14 @@ defmodule CrocodileWeb.Admin.DashboardLive do
 
   def mount(_params, %{"state" => state, "admin_id" => admin_id} = data, socket) do
     if connected?(socket), do: :timer.send_interval(30000, self(), :update)
-    {:ok, assign(socket, %{state: state, admin_id: admin_id})}
+
+    sock =
+      socket
+      |> assign(%{state: state, admin_id: admin_id})
+      |> AdminProduct.call("product_update_list", "update")
+      |> AdminFilter.call("filter_init", "update")
+
+    {:ok, sock}
   end
 
   def handle_info(:update, socket) do

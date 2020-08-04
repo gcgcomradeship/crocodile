@@ -5,7 +5,7 @@ defmodule CrocodileWeb.LiveHandlers.EventHandler do
     socket
   end
 
-  def call(socket, data, value, :admin) do
+  def call(socket, "admin_" <> data, value, :admin) do
     keyword =
       data
       |> String.split("_")
