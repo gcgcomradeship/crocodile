@@ -1,0 +1,14 @@
+.container-fluid
+  = render CrocodileWeb.Admin.DashboardView, "_menu.html", assigns
+  .row
+    = if @state["menu_filter"] == "enable" do
+      = render CrocodileWeb.Admin.DashboardView, "_filter.html", assigns
+    = if @state["menu_product"] == "enable" do
+      = render CrocodileWeb.Admin.DashboardView, "_product.html", assigns
+    = if @state["menu_item"] == "enable" do
+      = render CrocodileWeb.Admin.DashboardView, "_item.html", assigns
+    = if @state["menu_tag"] == "enable" do
+      = render CrocodileWeb.Admin.DashboardView, "_tag.html", assigns
+    = if @state["menu_debug"] == "enable" do
+      = render CrocodileWeb.Admin.DashboardView, "_debug.html", assigns
+

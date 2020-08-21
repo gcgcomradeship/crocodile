@@ -49,3 +49,16 @@ import "./admin/datatables/custom-basic.js"
 import "./admin/editor.js"
 import "./admin/phone_mask.js"
 import "./admin/approve.js"
+import "./admin/socket_events.js"
+
+// import $ from 'jquery'
+
+import {Socket} from "phoenix"
+import LiveSocket from "phoenix_live_view"
+
+let liveSocket = new LiveSocket("/live", Socket)
+liveSocket.connect()
+
+// window.liveSocket = liveSocket
+// window.jQuery = $;
+// window.$ = $;

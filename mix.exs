@@ -5,7 +5,7 @@ defmodule Crocodile.MixProject do
     [
       app: :crocodile,
       version: "0.1.0",
-      elixir: "~> 1.9",
+      elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -47,6 +47,7 @@ defmodule Crocodile.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:phoenix_slime, "~> 0.12.0"},
+      {:phoenix_live_view, "~> 0.14.1"},
       {:scrivener_ecto, "~> 2.0"},
       {:scrivener_html, "~> 1.5"},
       {:httpoison, "~> 1.6"},

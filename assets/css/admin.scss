@@ -5,10 +5,13 @@
 // @import "admin_custom";
 
 // @import "./admin_sign.scss";
+@import "select2";
 
 // Main
 @import  "./main/bootstrap.css";
 @import  "./main/fontawesome.css";
+@import "./main/custom_colors.scss";
+
 // Admin
 @import  "./admin/datatables.css";
 @import  "./admin/flag-icon.css";
@@ -20,3 +23,5 @@
 @import "./admin/custom_visual.scss";
 @import "./admin/statuses.scss";
 @import "./admin/approve.scss";
+@import "./admin/dashboard.scss";
+@import "./admin/dashboard-colors.scss";

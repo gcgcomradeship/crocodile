@@ -126,3 +126,123 @@ msgstr "Обратная связь"
 
 msgid "page_payment"
 msgstr "Оплата"
+
+msgid "vendor"
+msgstr "Производитель"
+
+msgid "brand"
+msgstr "Бренд"
+
+msgid "brand_country"
+msgstr "Страна бренда"
+
+msgid "collection"
+msgstr "Коллекция"
+
+msgid "vendor_country"
+msgstr "Страна производитель"
+
+msgid "power_supply"
+msgstr "Источник питания"
+
+msgid "modes"
+msgstr "Количество режимов"
+
+msgid "vibration"
+msgstr "Вибрация"
+
+msgid "package_type"
+msgstr "Тип упаковки"
+
+msgid "material"
+msgstr "Материал"
+
+msgid "waterproof"
+msgstr "Водонепроницаемость"
+
+msgid "splash_protection"
+msgstr "Защита от брызг"
+
+msgid "aroma"
+msgstr "Аромат"
+
+msgid "capacity"
+msgstr "Объем"
+
+msgid "composition"
+msgstr "Состав"
+
+msgid "quantity_in_package"
+msgstr "Штук в упаковке"
+
+msgid "heating"
+msgstr "Подогрев"
+
+msgid "brutto"
+msgstr "Вес (кг)"
+
+msgid "netto"
+msgstr "Вес без упаковки"
+
+msgid "length"
+msgstr "Длина (см)"
+
+msgid "width"
+msgstr "Ширина (см)"
+
+msgid "diameter"
+msgstr "Диаметр (см)"
+
+msgid "side_thickness"
+msgstr "Толщина стенки"
+
+msgid "max_width"
+msgstr "Максимальная ширина"
+
+msgid "min_width"
+msgstr "Минимальная ширина"
+
+msgid "operating_length"
+msgstr "Рабочая длина"
+
+msgid "internal_diameter"
+msgstr "Внутренний диаметр"
+
+msgid "external_diameter"
+msgstr "Внешний диаметр"
+
+msgid "package_width"
+msgstr "Ширина упаковки (см)"
+
+msgid "package_height"
+msgstr "Высота упаковки (см)"
+
+msgid "package_length"
+msgstr "Длина упаковки (см)"
+
+msgid "retail_price"
+msgstr "Рекомендованная розничная цена"
+
+msgid "base_retail_price"
+msgstr "Базовая рекомендованная розничная цена"
+
+msgid "whole_price"
+msgstr "Оптовая цена c учетом скидки"
+
+msgid "base_whole_price"
+msgstr "Базовая оптовая цена"
+
+msgid "discount"
+msgstr "Размер скидки"
+
+msgid "stock"
+msgstr "Есть акция"
+
+msgid "sale"
+msgstr "Распродажа"
+
+msgid "new"
+msgstr "Новинка"
+
+msgid "hit"
+msgstr "Хит"

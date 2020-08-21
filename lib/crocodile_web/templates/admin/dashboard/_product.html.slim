@@ -1,0 +1,23 @@
+.col-xl-6.xl-100
+  .card
+    .card-header-menu.green
+      h5.pull-left = "Товары (#{@state["products"]["items_total"]})"
+      h5.pull-right
+        span.admin_products_nav.green-text phx-click="admin_filter_page_down"
+          i.fa.fa-chevron-left
+        span.admin_products_nav.green-text
+          = @state["products"]["page"]
+        span.admin_products_nav.green-text phx-click="admin_filter_page_up"
+          i.fa.fa-chevron-right
+        span.admin_products_nav.green-text
+          |..
+        span.admin_products_nav.green-text
+          = @state["products"]["pages_total"]
+    .card-body.dashboard-card-body
+      table.table.table-striped.admin_products_table
+        = for item <- @state["products"]["list"] do
+          tr.admin_product_row phx-click="admin_item_set_#{item["id"]}" class="#{if @state["item"] && @state["item"]["id"] == item["id"], do: "active"}"
+            td=img_tag List.first(item["images"]), class: "admin_products_img"
+            td
+              .admin_product_article= "# #{item["id"]}"
+              .admin_product_name= item["name"]

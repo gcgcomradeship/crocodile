@@ -1,0 +1,2 @@
+= for [tag, kind] <- @state["tags"]["screens"]["tags_with_kind"] do
+  .tag class=color_by_kind(kind) phx-click="admin_tag_add_tag" phx-value-tag=tag = tag

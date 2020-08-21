@@ -1,0 +1,82 @@
+.col-xl-6.xl-100
+  .card
+    .card-header-menu.blue
+      = if @state["item_data"] do
+        h5.pull-left = "Обзор товара (#{@state["item_data"]["items_total"]})"
+      - else
+        h5.pull-left = "Обзор товара"
+      = if @state["item"] do
+        h5.pull-right
+          span.admin_products_nav.blue-text phx-click="admin_item_prev"
+            i.fa.fa-chevron-left
+          span.admin_products_nav.blue-text
+            = @state["item_data"]["position"]
+          span.admin_products_nav.blue-text phx-click="admin_item_next"
+            i.fa.fa-chevron-right
+    .card-body.dashboard-card-body
+      = if @state["item"] do
+        .dashboard_item_id
+          = "# #{@state["item"]["id"]}"
+        .dashboard_item_name
+          = @state["item"]["name"]
+        .dashboard_item_images
+          #dashboard_item_image_preview.hide
+            = img_tag List.first(@state["item"]["images"])
+          = for image <- @state["item"]["images"] do
+            span.img
+              = img_tag image, class: "dashboard_item_image"
+        .dashboard_item_description
+          = @state["item"]["description"]
+        - elem_list = ["retail_price", "whole_price"]
+        = if Enum.filter(Enum.map(elem_list, & Map.get(@state["item"], &1)), & !is_nil(&1)) != [] do
+          .dashboard_item_data_block
+            .dashboard_item_data_type= "Цены"
+            table.dashboard_item_table
+              = for elem <- elem_list do
+                = if Map.get(@state["item"], elem) do
+                  tr.row
+                    td.col-md-6.item_label= "#{t(elem)}: "
+                    td.col-md-6.item_value_price= Map.get(@state["item"], elem) |> price()
+        - elem_list = ["vendor", "brand", "brand_country", "collection", "vendor_country"]
+        = if Enum.filter(Enum.map(elem_list, & Map.get(@state["item"], &1)), & !is_nil(&1)) != [] do
+          .dashboard_item_data_block
+            .dashboard_item_data_type= "Данные по производителю"
+            table.dashboard_item_table
+              = for elem <- elem_list do
+                = if Map.get(@state["item"], elem) do
+                  tr.row
+                    td.col-md-6.item_label= "#{t(elem)}: "
+                    td.col-md-6.item_value= Map.get(@state["item"], elem)
+        - elem_list = ["power_supply", "modes", "vibration", "package_type", "material", "waterproof", "splash_protection", "aroma", "capacity", "composition", "quantity_in_package", "heating"]
+        = if Enum.filter(Enum.map(elem_list, & Map.get(@state["item"], &1)), & !is_nil(&1)) != [] do
+          .dashboard_item_data_block
+            .dashboard_item_data_type= "Данные о товаре"
+            table.dashboard_item_table
+              = for elem <- elem_list do
+                = if Map.get(@state["item"], elem) do
+                  tr.row
+                    td.col-md-6.item_label= "#{t(elem)}: "
+                    td.col-md-6.item_value= Map.get(@state["item"], elem)
+        - elem_list = ["brutto", "netto", "length", "width", "diameter", "side_thickness", "max_width", "min_width", "operating_length", "internal_diameter", "external_diameter", "package_width", "package_height", "package_length"]
+        = if Enum.filter(Enum.map(elem_list, & Map.get(@state["item"], &1)), & !is_nil(&1)) != [] do
+          .dashboard_item_data_block
+            .dashboard_item_data_type= "Размеры и вес товара"
+            table.dashboard_item_table
+              = for elem <- elem_list do
+                = if Map.get(@state["item"], elem) do
+                  tr.row
+                    td.col-md-6.item_label= "#{t(elem)}: "
+                    td.col-md-6.item_value= Map.get(@state["item"], elem)
+        - elem_list = ["new", "hit"]
+        = if Enum.filter(Enum.map(elem_list, & Map.get(@state["item"], &1)), & !is_nil(&1)) != [] do
+          .dashboard_item_data_block
+            .dashboard_item_data_type= "Склад"
+            table.dashboard_item_table
+              = for elem <- elem_list do
+                = if Map.get(@state["item"], elem) do
+                  tr.row
+                    td.col-md-6.item_label= "#{t(elem)}: "
+                    td.col-md-6.item_value= Map.get(@state["item"], elem)
+      - else
+        | Товар не выбран
+

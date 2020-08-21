@@ -60,6 +60,14 @@ defmodule CrocodileWeb do
     end
   end
 
+  def live_handlers do
+    quote do
+      alias Crocodile.Service.Redis
+      import Crocodile.Utils.Helper
+      import Phoenix.LiveView, only: [assign: 3]
+    end
+  end
+
   def view do
     quote do
       use Phoenix.View,
@@ -84,6 +92,7 @@ defmodule CrocodileWeb do
       use Phoenix.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
