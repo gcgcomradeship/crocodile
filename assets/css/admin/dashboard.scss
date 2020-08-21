@@ -95,13 +95,13 @@
 .dashboard_item_data_block .item_label{
   font-weight: bold;
   font-size: 12px;
-  border-bottom: 2px dashed #fff;
+  // border-bottom: 2px dashed #fff;
 }
 
 .dashboard_item_data_block .item_value{
   font-size: 12px;
   text-align: right;
-  border-bottom: 2px dashed #fff;
+  // border-bottom: 2px dashed #fff;
 }
 
 .dashboard_item_data_block .item_value_price{
@@ -109,7 +109,7 @@
   font-weight: bold;
   color: #025996;
   text-align: right;
-  border-bottom: 2px dashed #fff;
+  // border-bottom: 2px dashed #fff;
 }
 
 .admin_products_img{
@@ -182,4 +182,30 @@ table.admin_products_table td{
 
 .hide{
   display: none;
+}
+
+.tag-body{
+  padding: 0px 10px 0px 10px;
+}
+
+.tag-pool{
+  border: 1px solid #eee;
+}
+
+.tag{
+  cursor: pointer;
+  padding: 2px;
+  padding-left: 10px;
+  margin: 2px;
+  border-radius: 4px;
+  text-align: left;
+  color: #fff;
+}
+
+.tag.category{
+  background-color: #57458e;
+}
+
+.tag.subcategory{
+  background-color: #7f458e;
 }

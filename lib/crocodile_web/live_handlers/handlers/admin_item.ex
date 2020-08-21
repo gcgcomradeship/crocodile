@@ -25,7 +25,8 @@ defmodule CrocodileWeb.LiveHandlers.AdminItem do
          "set_" <> id,
          admin_id
        ) do
-    item = Crocodile.Services.Opt.item(id)
+    item = Opt.item(id)
+    item_tags = Opt.tags_show(id)
 
     position =
       list
@@ -41,6 +42,7 @@ defmodule CrocodileWeb.LiveHandlers.AdminItem do
       state
       |> Map.put("item", item)
       |> Map.put("item_data", item_data)
+      |> Map.put("tags", item_tags)
 
     State.Admin.item_data_set(new_state, admin_id)
     new_state
@@ -57,7 +59,7 @@ defmodule CrocodileWeb.LiveHandlers.AdminItem do
     page = get_page(new_position, items_total, page_size)
 
     new_filter = Map.put(filter, "page", page)
-    products = Crocodile.Services.Opt.products(new_filter)
+    products = Opt.products(new_filter)
     list_position = new_position - 1 - (page - 1) * page_size
 
     item_id =

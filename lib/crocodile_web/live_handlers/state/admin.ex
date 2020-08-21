@@ -5,6 +5,7 @@ defmodule CrocodileWeb.LiveHandlers.State.Admin do
     new_state = %{
       "menu_filter" => "enable",
       "menu_product" => "enable",
+      "menu_tag" => "enable",
       "menu_debug" => "enable",
       "filter" => %{
         "page_size" => 20,
