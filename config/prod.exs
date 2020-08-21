@@ -29,7 +29,7 @@ config :crocodile, Crocodile.Repo,
 
 config :crocodile, :opt,
   token: System.get_env("API_AUTH_KEY"),
-  url: "https://opt.crocodile.ru/api/v1"
+  url: "https://opt.crocodildo.ru/api/v1"
 
 # ## SSL Support
 #
