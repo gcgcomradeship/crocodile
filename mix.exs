@@ -5,7 +5,7 @@ defmodule Crocodile.MixProject do
     [
       app: :crocodile,
       version: "0.1.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.12",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -35,7 +35,7 @@ defmodule Crocodile.MixProject do
     [
       {:phoenix, "~> 1.5.0"},
       {:phoenix_pubsub, "~> 2.0"},
-      {:plug_cowboy, "~> 2.1"},
+      {:plug_cowboy, "~> 2.5"},
       {:phoenix_ecto, "~> 4.0"},
       {:ecto_sql, "~> 3.0"},
       {:ecto_enum, "~> 1.4"},
@@ -52,8 +52,8 @@ defmodule Crocodile.MixProject do
       {:scrivener_html, "~> 1.5"},
       {:httpoison, "~> 1.6"},
       {:elixir_xml_to_map, "~> 1.0"},
-      {:ucol, "~> 2.0"},
-      {:timex, "~> 3.5"},
+      # {:ucol, "~> 2.0"},
+      {:timex, "~> 3.7"},
       {:redix, ">= 0.0.0"},
       {:ex_aws, "~> 2.1"},
       {:ex_aws_s3, "~> 2.0"},
