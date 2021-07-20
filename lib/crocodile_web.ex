@@ -84,6 +84,7 @@ defmodule CrocodileWeb do
       import CrocodileWeb.Gettext
       import Crocodile.Utils.Helper
       alias CrocodileWeb.Router.Helpers, as: Routes
+      alias CrocodileWeb.Service.Storage.S3
     end
   end
 

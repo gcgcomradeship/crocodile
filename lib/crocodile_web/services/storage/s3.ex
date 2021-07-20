@@ -6,7 +6,7 @@ defmodule CrocodileWeb.Service.Storage.S3 do
 
   def upload(body, path) do
     ExAws.S3.put_object(bucket(), path, body) |> ExAws.request(host: @host)
-    link(path)
+    path
   end
 
   def delete(path) do

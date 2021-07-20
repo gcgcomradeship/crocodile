@@ -16,8 +16,4 @@ defmodule CrocodileWeb.Service.Storage.FileWizard do
   end
 
   def delete(_), do: nil
-
-  def link(path) do
-    # "https://#{@host}/#{bucket()}/#{path}"
-  end
 end
