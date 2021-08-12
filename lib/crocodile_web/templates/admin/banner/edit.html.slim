@@ -51,7 +51,7 @@
                   = error_tag f, :link_to
               .col-md-6
                 .form-group
-                  = img_tag(@banner.path, class: "admin_banner")
+                  = img_tag(img_link(@banner.path), class: "admin_banner")
                   = file_input f, :path, class: "form-control"
                   = error_tag f, :path
               .col-md-6

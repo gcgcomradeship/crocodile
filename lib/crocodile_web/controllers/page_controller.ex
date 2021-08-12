@@ -5,10 +5,14 @@ defmodule CrocodileWeb.PageController do
 
   def index(conn, _params) do
     render(conn, "index.html",
-      croc_choice: Items.croc_choice(),
-      new: Items.new(),
-      recommend: Items.recommend(),
-      hit: Items.hit()
+      # croc_choice: Items.croc_choice(),
+      # new: Items.new(),
+      # recommend: Items.recommend(),
+      # hit: Items.hit()
+      croc_choice: [],
+      new: [],
+      recommend: [],
+      hit: []
     )
   end
 

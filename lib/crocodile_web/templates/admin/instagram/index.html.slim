@@ -24,7 +24,7 @@
               = for instagram <- @instagrams do
                 tr
                   td=instagram.id
-                  td=img_tag(instagram.image, class: "admin_instagram")
+                  td=img_tag(img_link(instagram.image), class: "admin_instagram")
                   td=link instagram.link_to, to: instagram.link_to, target: "_blank"
                   td
                     .btn-group.btn-group-sm.mr2.pull-right

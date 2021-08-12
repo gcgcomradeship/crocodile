@@ -2,7 +2,6 @@ defmodule CrocodileWeb.Service.Storage.S3 do
   use CrocodileWeb, :services
 
   @host System.get_env("MINIO_HOST")
-  @bucket "test"
 
   def upload(body, path) do
     ExAws.S3.put_object(bucket(), path, body) |> ExAws.request(host: @host)

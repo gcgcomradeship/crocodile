@@ -25,7 +25,7 @@
               = for partner <- @partners do
                 tr
                   td=partner.id
-                  td=img_tag(partner.image, class: "admin_instagram")
+                  td=img_tag(img_link(partner.image), class: "admin_instagram")
                   td=partner.title
                   td=link partner.link_to, to: partner.link_to, target: "_blank"
                   td

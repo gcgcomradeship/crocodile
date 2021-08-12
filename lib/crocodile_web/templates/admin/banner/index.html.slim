@@ -16,7 +16,7 @@
               tbody
                 = for banner <- @banners do
                   tr
-                    td= img_tag(banner.path, class: "admin_banner")
+                    td= img_tag(img_link(banner.path), class: "admin_banner")
                     td=t(banner.name)
                     td
                       .btn-group.btn-group-sm.mr2.pull-right

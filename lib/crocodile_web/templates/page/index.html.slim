@@ -3,7 +3,7 @@ section.p-0
   .slide-1.home-slider
     div
       .home.text-center
-        img.bg-img.blur-up.lazyload alt="" src=@banners["banner_main_1"].path /
+        img.bg-img.blur-up.lazyload alt="" src=img_link(@banners["banner_main_1"].path) /
         .container
           .row
             .col
@@ -14,7 +14,7 @@ section.p-0
                   a.btn.btn-solid href=@banners["banner_main_1"].link_to = @banners["banner_main_1"].text3
     div
       .home.text-center
-        img.bg-img.blur-up.lazyload alt="" src=@banners["banner_main_2"].path
+        img.bg-img.blur-up.lazyload alt="" src=img_link(@banners["banner_main_2"].path)
         .container
           .row
             .col
@@ -32,7 +32,7 @@ section.pb-0.ratio2_1
         a href=@banners["banner_main_sub_left"].link_to
         .collection-banner.p-right.text-center
           .img-part
-            img.img-fluid.blur-up.lazyload.bg-img alt="" src=@banners["banner_main_sub_left"].path /
+            img.img-fluid.blur-up.lazyload.bg-img alt="" src=img_link(@banners["banner_main_sub_left"].path) /
           .contain-banner
             div
               h4 = @banners["banner_main_sub_left"].text1
@@ -41,7 +41,7 @@ section.pb-0.ratio2_1
         a href=@banners["banner_main_sub_right"].link_to
         .collection-banner.p-right.text-center
           .img-part
-            img.img-fluid.blur-up.lazyload.bg-img alt="" src=@banners["banner_main_sub_right"].path /
+            img.img-fluid.blur-up.lazyload.bg-img alt="" src=img_link(@banners["banner_main_sub_right"].path) /
           .contain-banner
             div
               h4 = @banners["banner_main_sub_right"].text1
@@ -59,7 +59,7 @@ section.section-b-space.ratio3_2
           a href=cat_item.link_to
             .collection-banner.p-right.text-center
               .img-part
-                img.img-fluid.blur-up.lazyload.bg-img alt="" src=cat_item.path /
+                img.img-fluid.blur-up.lazyload.bg-img alt="" src=img_link(cat_item.path) /
               .cat-name
                 = cat_item.text1
 /! Product slider end
@@ -85,7 +85,7 @@ section.section-b-space.ratio3_2
 /! Parallax banner
 section.p-0
   .full-banner.parallax.text-center.p-left
-    img.bg-img.blur-up.lazyload alt="" src=@banners["banner_main_parallax"].path /
+    img.bg-img.blur-up.lazyload alt="" src=img_link(@banners["banner_main_parallax"].path) /
     .container
       .row
         .col
@@ -178,7 +178,7 @@ section.blog.p-t-0.ratio2_3
               a href=Routes.blog_path(@conn, :show, blog)
                 .classic-effect
                   div
-                    img.img-fluid.blur-up.lazyload.bg-img alt="" src=blog.image /
+                    img.img-fluid.blur-up.lazyload.bg-img alt="" src=img_link(blog.image) /
                   span
                 .blog-details
                   h4 = l(blog.inserted_at)
@@ -199,7 +199,7 @@ section.instagram.ratio_square
             div
               a href=instagram.link_to
                 .instagram-box
-                  img.bg-img alt="image" src=instagram.image style="width:100%" /
+                  img.bg-img alt="image" src=img_link(instagram.image) style="width:100%" /
                   .overlay
                     i.fa.fa-instagram aria-hidden="true"
 
@@ -214,7 +214,7 @@ section.section-b-space
             div
               .logo-block
                 a href=partner.link_to
-                  img.partner-logo alt=partner.title src=partner.image
+                  img.partner-logo alt=partner.title src=img_link(partner.image)
 /! logo section end
 
 /! modal popup start
